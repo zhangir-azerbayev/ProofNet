@@ -9,7 +9,7 @@ open_locale topological_space
 noncomputable theory
 
 
-theorem Rudin_3_1
+theorem exercise_1
   (f : ℕ → ℝ)
   (h : ∃ (a : ℝ), tendsto (λ (n : ℕ), f n) at_top (𝓝 a))
   : ∃ (a : ℝ), tendsto (λ (n : ℕ), |f n|) at_top (𝓝 a) :=
@@ -19,7 +19,7 @@ begin
   apply filter.tendsto.abs h,
 end
 
-theorem Rudin_3_2
+theorem exercise_2
   : tendsto (λ (n : ℝ), (sqrt (n^2 + n) - n)) at_top (𝓝 (1/2)) :=
 begin
   have h : ∀ (n : ℝ), n > 0 → sqrt (n^2 + n) - n = 1 / (sqrt (1 + 1 / n) + 1) :=
@@ -70,9 +70,8 @@ noncomputable def f : ℕ → ℝ
 | 0 := sqrt 2
 | (n + 1) := sqrt (2 + sqrt (f n))
 
-theorem Rudin_3_3
-  : ∃ (x : ℝ), tendsto f at_top (𝓝 x) ∧ ∀ n, f n < 2
-  :=
+theorem exercise_3
+  : ∃ (x : ℝ), tendsto f at_top (𝓝 x) ∧ ∀ n, f n < 2 :=
 begin
   sorry,
 end

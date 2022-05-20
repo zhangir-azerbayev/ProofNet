@@ -11,31 +11,57 @@ open_locale complex_conjugate
 
 -- exercise exercise_1 is already in mathlib (data.real.irrational.add_rat)
 theorem exercise_1a
-(x : real) (y : rat) : ( irrational x ) -> irrational ( x + y ) :=
+(x : ℝ)
+(y : ℚ)
+: ( irrational x ) -> irrational ( x + y ) :=
 begin
-  sorry
+  apply irrational.add_rat,
 end
 
 theorem exercise_1b
-(x : real) (y : rat) : ( irrational x ) -> irrational ( x * y ) :=
+(x : ℝ)
+(y : ℚ)
+(h : y ≠ 0)
+: ( irrational x ) -> irrational ( x * y ) :=
 begin
-  sorry
+  intro g,
+  apply irrational.mul_rat g h,
 end
 
-theorem exercise_2 :
-  not exists (x : rat), ( x ^ 2 = 12 ) :=
+#check norm_num.ne_zero_of_pos
+
+theorem exercise_2
+: ¬ ∃ (x : ℚ), ( x ^ 2 = 12 ) :=
 begin
-  sorry
+  simp, intros x h,
+  have h₁: (12 : ℚ) ≠ 0 := by norm_num,
+  have h₂: (x.denom ^ 2 : ℚ) ≠ 0 := by { simp , intro e, have := x.pos, linarith},
+  have h₃: (12 : ℚ) = 3 * 4 := by norm_num,
+  have h₄ : (factorization (3 : ℚ)) 3 = 1 := by sorry,
+  have h₅ : (factorization (4 : ℚ)) 3 = 0 := by sorry,
+  have h₆: (12 : ℚ) * (x.denom ^ 2) = x.num ^ 2 := by {rw [←h, ←mul_pow], simp},
+  have h₇ : factorization ((12 : ℚ) * (x.denom ^ 2)) 3 = factorization ((x.num : ℚ) ^ 2) 3 := by rw h₆,
+  have h₈ : 2 ∣ factorization ((x.num : ℚ) ^ 2) 3 := by {rw factorization_pow, simp},
+  have h₉ : ¬ 2 ∣ factorization ((12 : ℚ) * x.denom ^ 2) 3 :=
+  begin
+    rw factorization_mul h₁ h₂,
+    rw factorization_pow,
+    rw h₃,
+    rw factorization_mul (by norm_num : (3 : ℚ) ≠ 0) (by norm_num : (4 : ℚ) ≠ 0),
+    simp [h₄, h₅],
+  end,
+  have h₀ : 2 ∣ factorization ((12 : ℚ) * (x.denom ^ 2)) 3 := by {rw h₇, exact h₈},
+  exact absurd h₀ h₉,
 end
 
 theorem exercise_4
-  (α : Type*) [partial_order α]
-  (s : set α)
-  (x y : α)
-  (h₀ : set.nonempty s)
-  (h₁ : x ∈ lower_bounds s)
-  (h₂ : y ∈ upper_bounds s)
-  : x ≤ y :=
+(α : Type*) [partial_order α]
+(s : set α)
+(x y : α)
+(h₀ : set.nonempty s)
+(h₁ : x ∈ lower_bounds s)
+(h₂ : y ∈ upper_bounds s)
+: x ≤ y :=
 begin
   have h : ∃ z, z ∈ s := h₀,
   cases h with z,

@@ -5,6 +5,7 @@ A benchmark for undergraduate-level formal mathematics. We pose problems that re
 - real analysis, 
 - complex analysis, 
 - topology 
+
 to solve. 
 
 We categorize each problem as basic, intermediate, or advanced. Basic problems mostly demand reasoning through the definitions. Intermediate problems require one or two ingenious steps, and advanced problems are approximately at the level of a competition like the Putnam exam. 

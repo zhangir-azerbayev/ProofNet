@@ -102,11 +102,18 @@ begin
   },
 end
 
+#check complex.abs_add
+
 theorem exercise_12
   (n : ℕ) (f : ℕ → ℂ)
   : abs (∑ i in finset.range n, f i) ≤ ∑ i in finset.range n, abs (f i) :=
 begin
-  sorry,
+  induction n with n ih, simp,
+  rw finset.range_succ,
+  simp, transitivity,
+  apply complex.abs_add,
+  apply add_le_add_left,
+  exact ih,
 end
 
 theorem exercise_13

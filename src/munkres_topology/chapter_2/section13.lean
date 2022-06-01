@@ -1,4 +1,8 @@
 import topology.basic
+import topology.constructions
+import topology.bases
+import topology.metric_space.basic
+import data.real.basic
 import data.set.countable
 
 open_locale classical
@@ -86,6 +90,87 @@ begin
   apply nonempty.ne_empty,
   simp
 end
+
+def is_topology (X : Type*) (T : set (set X)) :=
+  univ ∈ T ∧
+  (∀ s t, s ∈ T → t ∈ T → s ∩ t ∈ T) ∧
+  (∀s, (∀t ∈ s, t ∈ T) → ⋃₀ s ∈ T)
+
+theorem exercise4a1 (X I : Type*) (T : I → set (set X)) (h : ∀ i, is_topology X (T i)) :
+  is_topology X (⋂ i : I, T i) :=
+sorry
+
+theorem exercise4a2 :
+  ∃ (X I : Type*) (T : I → set (set X)),
+    (∀ i, is_topology X (T i)) ∧ ¬  is_topology X (⋂ i : I, T i) :=
+sorry
+
+theorem exercise4b1 (X I : Type*) (T : I → set (set X)) (h : ∀ i, is_topology X (T i)) :
+  ∃! T', is_topology X T' ∧ (∀ i, T i ⊆ T') ∧
+    ∀ T'', is_topology X T'' → (∀ i, T i ⊆ T'') → T'' ⊆ T' :=
+sorry
+
+theorem exercise4b2 (X I : Type*) (T : I → set (set X)) (h : ∀ i, is_topology X (T i)) :
+  ∃! T', is_topology X T' ∧ (∀ i, T' ⊆ T i) ∧
+    ∀ T'', is_topology X T'' → (∀ i, T'' ⊆ T i) → T' ⊆ T'' :=
+sorry
+
+inductive X4c | a | b | c
+
+-- Find the unique smallest topology containing {∅, X, {a}, {a, b}}.
+noncomputable theorem exercise4c1 :
+  { T // is_topology X4c T ∧ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ⊆ T ∧
+    ∀ T', is_topology X4c T' → {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ⊆ T' → T ⊆ T' } :=
+sorry
+
+noncomputable theorem exercise4c2 :
+  { T // is_topology X4c T ∧ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ⊆ T ∧
+    ∀ T', is_topology X4c T' → {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ⊆ T' → T ⊆ T' } :=
+sorry
+
+-- Find the unique largest topology contained in {∅, X, {a}, {a, b}}.
+noncomputable theorem exercise4c3 :
+  { T // is_topology X4c T ∧ T ⊆ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ∧
+    ∀ T', is_topology X4c T' → T' ⊆ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} → T' ⊆ T } :=
+sorry
+
+noncomputable theorem exercise4c4 :
+  { T // is_topology X4c T ∧ T ⊆ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ∧
+    ∀ T', is_topology X4c T' → T' ⊆ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} → T' ⊆ T } :=
+sorry
+
+def lower_limit_topology (X : Type) [preorder X] :=
+  topological_space.generate_from {S : set X | ∃ a b, a < b ∧ S = Ico a b}
+
+def Rl := lower_limit_topology ℝ
+
+def K : set ℝ := {r | ∃ n : ℕ, r = 1 / n}
+
+def K_topology := topological_space.generate_from
+  ({S : set ℝ | ∃ a b, a < b ∧ S = Ioo a b} ∪ {S : set ℝ | ∃ a b, a < b ∧ S = Ioo a b \ K})
+
+theorem exercise6 :
+  ¬ (∀ U, Rl.is_open U → K_topology.is_open U) ∧ ¬ (∀ U, K_topology.is_open U → Rl.is_open U) :=
+sorry
+
+theorem exercise8a :
+  topological_space.is_topological_basis {S : set ℝ | ∃ a b : ℚ, a < b ∧ S = Ioo a b} :=
+sorry
+
+theorem exercise8b :
+  (topological_space.generate_from {S : set ℝ | ∃ a b : ℚ, a < b ∧ S = Ico a b}).is_open ≠
+    Rl.is_open :=
+sorry
+
+
+
+
+
+
+
+
+
+
 
 
 

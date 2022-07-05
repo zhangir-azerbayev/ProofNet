@@ -1,4 +1,5 @@
 import sys 
+import os
 from tqdm import tqdm
 import json
 import ndjson
@@ -32,6 +33,8 @@ def main():
     AFTER_THEOREM = " :=\nTranslate the Lean mathlib version to a natural language version:\n\""
 
     save_path = sys.argv[1]
+    if os.path.isfile(save_path): 
+        raise OSError("save_path already exists")
 
     with open("few_shot_prompt.txt") as f: 
         FEW_SHOT_PROMPT = f.read()
@@ -57,7 +60,7 @@ def main():
                 record = json.dumps(step)
                 f.write(record+"\n")
 
-        sys.exit()
+
 
 if __name__=="__main__": 
     main()

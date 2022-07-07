@@ -15,7 +15,7 @@ def batch_loader(seq, size):
     return [seq[pos : pos + size] for pos in range(0, len(seq), size)]
 
 @sleep_and_retry
-@limits(calls=2, period=60)
+@limits(calls=3, period=60)
 def call_api(prompt):
     return openai.Completion.create(
         engine="code-davinci-002",
@@ -28,7 +28,7 @@ def call_api(prompt):
 
 
 def main():
-    BATCH_SIZE = 10
+    BATCH_SIZE = 20
     BEFORE_THEOREM = "\nLean mathlib version:\n"
     AFTER_THEOREM = " :=\nTranslate the Lean mathlib version to a natural language version:\n\""
 
@@ -52,15 +52,11 @@ def main():
         text_outs = [x["text"] for x in outs["choices"]]
 
         for text_out, step in zip(text_outs, batch):
-            print("text out: ", text_out)
-            print("step: ", step)
             step["nl_statement_of_codex"] = text_out
 
             with open(save_path, "a+") as f: 
                 record = json.dumps(step)
                 f.write(record+"\n")
-
-
 
 if __name__=="__main__": 
     main()

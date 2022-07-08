@@ -204,7 +204,6 @@ begin
   },
 end
 
-
 theorem exercise_2
   {α : Type} [metric_space α]
   {β : Type} [metric_space β]
@@ -212,14 +211,15 @@ theorem exercise_2
   (h₁ : continuous f)
   : ∀ (x : set α), f '' (closure x) ⊆ closure (f '' x) :=
 begin
-  intros x_a x h₂ x_b h₃,
-  unfold closure at *,
+  intros X x h₂ Y h₃,
   simp at *,
-  cases h₃,
-  cases h₂ with w h₄,
-  cases h₄,
-  have h₅ := h₄_left x_a,
-  sorry,
+  cases h₃ with h₃ h₄,
+  cases h₂ with w h₅,
+  cases h₅ with h₅ h₆,
+  have h₈ : is_closed (f ⁻¹' Y) := is_closed.preimage h₁ h₃,
+  have h₉ : closure X ⊆ f ⁻¹' Y := closure_minimal h₄ h₈,
+  rw ←h₆,
+  exact h₉ h₅,
 end
 
 theorem exercise_3

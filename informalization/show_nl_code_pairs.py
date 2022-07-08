@@ -8,8 +8,11 @@ num = int(sys.argv[2])
 with open(path) as f: 
     data = ndjson.load(f)
 
-for step in data[:num]: 
+for step in data: 
+    name = step["decl_nm"]
     formal = step["formal_statement"]
     nl = step["nl_statement_of_codex"]
-    print("#"*40 +"\n" + formal + "\n\n" + nl)
+
+    print("#"*80 + "\n" + formal + "\n\n" + nl)
+
 

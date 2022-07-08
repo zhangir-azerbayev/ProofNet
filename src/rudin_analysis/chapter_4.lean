@@ -281,10 +281,8 @@ begin
 end
 
 theorem exercise_5_b
-  (f : ℝ → ℝ)
-  (E : set ℝ)
-  (h₂ : continuous_on f E)
-  : ∃ (E : set ℝ), ¬ ∃ (g : ℝ → ℝ), continuous g ∧ ∀ x ∈ E, f x = g x :=
+  : ∃ (E : set ℝ) (f : ℝ → ℝ), (continuous_on f E) ∧
+    (¬ ∃ (g : ℝ → ℝ), continuous g ∧ ∀ x ∈ E, f x = g x) :=
 begin
   sorry,
 end
@@ -292,8 +290,10 @@ end
 theorem exercise_6
   (f : ℝ → ℝ)
   (E : set ℝ)
+  (G : set (ℝ × ℝ))
   (h₁ : is_compact E)
-  : continuous_on f E ↔ is_compact {1 : ℝ} :=
+  (h₂ : G = {(x, f x) | x ∈ E})
+  : continuous_on f E ↔ is_compact G :=
 begin
   sorry,
 end

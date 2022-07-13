@@ -204,7 +204,6 @@ begin
   },
 end
 
-
 theorem exercise_2
   {α : Type} [metric_space α]
   {β : Type} [metric_space β]
@@ -212,14 +211,15 @@ theorem exercise_2
   (h₁ : continuous f)
   : ∀ (x : set α), f '' (closure x) ⊆ closure (f '' x) :=
 begin
-  intros x_a x h₂ x_b h₃,
-  unfold closure at *,
+  intros X x h₂ Y h₃,
   simp at *,
-  cases h₃,
-  cases h₂ with w h₄,
-  cases h₄,
-  have h₅ := h₄_left x_a,
-  sorry,
+  cases h₃ with h₃ h₄,
+  cases h₂ with w h₅,
+  cases h₅ with h₅ h₆,
+  have h₈ : is_closed (f ⁻¹' Y) := is_closed.preimage h₁ h₃,
+  have h₉ : closure X ⊆ f ⁻¹' Y := closure_minimal h₄ h₈,
+  rw ←h₆,
+  exact h₉ h₅,
 end
 
 theorem exercise_3
@@ -281,19 +281,180 @@ begin
 end
 
 theorem exercise_5_b
-  (f : ℝ → ℝ)
-  (E : set ℝ)
-  (h₂ : continuous_on f E)
-  : ∃ (E : set ℝ), ¬ ∃ (g : ℝ → ℝ), continuous g ∧ ∀ x ∈ E, f x = g x :=
+  : ∃ (E : set ℝ) (f : ℝ → ℝ), (continuous_on f E) ∧
+    (¬ ∃ (g : ℝ → ℝ), continuous g ∧ ∀ x ∈ E, f x = g x) :=
 begin
-  sorry,
+  set E : set ℝ := (set.Iio 0) ∪ (set.Ioi 0) with hE,
+  let f : ℝ → ℝ := λ x, if x < 0 then 0 else 1,
+  use E, use f,
+  split,
+  {
+    refine continuous_on_iff.mpr _,
+    intros x h₁ X h₂ h₃,
+    by_cases h₄ : x < 0,
+    {
+      use set.Ioo (x - 1) 0,
+      have h₅ : f x = 0 := if_pos h₄,
+      split, exact is_open_Ioo,
+      split,
+      {
+        have h₆ : x - 1 < x := by linarith,
+        exact set.mem_sep h₆ h₄,
+      },
+      have h₆ : set.Ioo (x - 1) 0 ⊆ set.Iio 0 := set.Ioo_subset_Iio_self,
+      have h₇ : set.Ioo (x - 1) 0 ∩ E = set.Ioo (x - 1) 0 := by {
+        rw hE, simp, exact set.subset_union_of_subset_left h₆ (set.Ioi 0),
+      },
+      rw h₇,
+      have h₈ : (0 : ℝ) ∈ X := by {rw h₅ at h₃, exact h₃,},
+      have h₉ : {(0 : ℝ)} ⊆ X := set.singleton_subset_iff.mpr h₈,
+      have h₁₀ : set.Iio 0 ⊆ f ⁻¹' {0} := by {
+        intros y hy,
+        apply set.mem_preimage.2,
+        have : f y = 0 := if_pos hy,
+        rw this, simp,
+      },
+      have h₁₁ : f ⁻¹' {0} ⊆ f ⁻¹' X := set.preimage_mono h₉,
+      have h₁₂ : set.Iio 0 ⊆ f ⁻¹' X := set.subset.trans h₁₀ h₁₁,
+      exact set.subset.trans h₆ h₁₂,
+    },
+    {
+      use set.Ioo 0 (x + 1),
+      have h₄' : x > 0  := by {
+        have : x ≠ 0 := by {rw hE at h₁, simp at h₁, exact h₁,},
+        refine lt_of_le_of_ne _ this.symm,
+        exact not_lt.mp h₄,
+      },
+      have h₅ : f x = 1 := if_neg h₄,
+      split, exact is_open_Ioo,
+      split,
+      {
+        have h₆ : x < x + 1:= by linarith,
+        exact set.mem_sep h₄' h₆,
+      },
+      have h₆ : set.Ioo 0 (x + 1) ⊆ set.Ioi 0 := set.Ioo_subset_Ioi_self,
+      have h₇ : set.Ioo 0 (x + 1) ∩ E = set.Ioo 0 (x + 1) := by {
+        rw hE, simp, exact set.subset_union_of_subset_right h₆ (set.Iio 0),
+      },
+      rw h₇,
+      have h₈ : (1 : ℝ) ∈ X := by {rw h₅ at h₃, exact h₃,},
+      have h₉ : {(1 : ℝ)} ⊆ X := set.singleton_subset_iff.mpr h₈,
+      have h₁₀ : set.Ioi 0 ⊆ f ⁻¹' {1} := by {
+        intros y hy,
+        have : y ∈ set.Ici (0 : ℝ) := set.mem_Ici_of_Ioi hy,
+        have : ¬ y < 0 := asymm hy,
+        apply set.mem_preimage.2,
+        have : f y = 1 := if_neg this,
+        rw this, simp,
+      },
+      have h₁₁ : f ⁻¹' {1} ⊆ f ⁻¹' X := set.preimage_mono h₉,
+      have h₁₂ : set.Ioi 0 ⊆ f ⁻¹' X := set.subset.trans h₁₀ h₁₁,
+      exact set.subset.trans h₆ h₁₂,
+    },
+  },
+  {
+    by_contradiction h₁,
+    cases h₁ with g h₁,
+    cases h₁ with h₁ h₂,
+    have h₃ : continuous_at g 0 := continuous.continuous_at h₁,
+    have h₄ := continuous_at.tendsto h₃,
+    unfold tendsto at h₄,
+    have h₅ := le_def.1 h₄,
+    simp at h₅,
+    by_cases h₆ : g 0 > 0.5,
+    {
+      have h₇ : set.Ioi (0 : ℝ) ∈ 𝓝 (g 0) := by { refine Ioi_mem_nhds _, linarith,},
+      have h₈ := h₅ (set.Ioi (0 : ℝ)) h₇,
+      have h₉ : g ⁻¹' set.Ioi 0 = set.Ici 0 := by {
+        ext,
+        split,
+        {
+          intro h,
+          simp at h,
+          by_cases hw : x = 0,
+          {rw hw, exact set.left_mem_Ici,},
+          {
+            have : x ∈ E := by {rw hE, simp, exact hw,},
+            rw ←(h₂ x this) at h,
+            by_contradiction hh,
+            simp at hh,
+            have : f x = 0 := if_pos hh,
+            linarith,
+          },
+        },
+        {
+          intro h,
+          simp,
+          by_cases hw : x = 0,
+          {rw hw, linarith,},
+          {
+            have h₉ : x > 0 := (ne.symm hw).le_iff_lt.mp h,
+            have : x ∈ E := (set.Iio 0).mem_union_right h₉,
+            rw ←(h₂ x this),
+            have : ¬ x < 0 := asymm h₉,
+            have : f x = 1 := if_neg this,
+            linarith,
+          },
+        },
+      },
+      rw h₉ at h₈,
+      have h₁₀ := interior_mem_nhds.2 h₈,
+      simp at h₁₀,
+      have := mem_of_mem_nhds h₁₀,
+      simp at this,
+      exact this,
+    },
+    {
+      have h₇ : set.Iio (1 : ℝ) ∈ 𝓝 (g 0) := by { refine Iio_mem_nhds _, linarith, },
+      have h₈ := h₅ (set.Iio (1 : ℝ)) h₇,
+      have h₉ : g ⁻¹' set.Iio 1 = set.Iic 0 := by {
+        ext,
+        split,
+        {
+          intro h,
+          simp at h,
+          by_cases hw : x = 0,
+          {simp [hw],},
+          {
+            have : x ∈ E := by {rw hE, simp, exact hw,},
+            rw ←(h₂ x this) at h,
+            by_contradiction hh,
+            simp at hh,
+            have : f x = 1 := if_neg ((by linarith) : ¬x < 0),
+            linarith,
+          },
+        },
+        {
+          intro h,
+          simp,
+          by_cases hw : x = 0,
+          {rw hw, linarith,},
+          {
+            have h₉ : x < 0 := (ne.le_iff_lt hw).mp h,
+            have : x ∈ E := (set.Ioi 0).mem_union_left h₉,
+            rw ←(h₂ x this),
+            have : f x = 0 := if_pos h₉,
+            linarith,
+          },
+        },
+      },
+      rw h₉ at h₈,
+      have h₁₀ := interior_mem_nhds.2 h₈,
+      simp at h₁₀,
+      have := mem_of_mem_nhds h₁₀,
+      simp at this,
+      exact this,
+    }
+  }
 end
 
 theorem exercise_6
   (f : ℝ → ℝ)
   (E : set ℝ)
+  (G : set (ℝ × ℝ))
   (h₁ : is_compact E)
-  : continuous_on f E ↔ is_compact {1 : ℝ} :=
+  (h₂ : G = {(x, f x) | x ∈ E})
+  : continuous_on f E ↔ is_compact G :=
 begin
   sorry,
 end

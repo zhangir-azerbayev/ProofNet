@@ -1,3 +1,5 @@
+*.pt
+*.bin
 *raw_mathlib_data*
 tmp
 *.olean

@@ -1,0 +1,16 @@
+device: "3"
+experiment_name: gptneo1B_train
+train_path: ../finetune_data/v2_finetune.jsonl
+eval_path: ../finetune_data/v2_finetune_valid.jsonl
+lr: 5.0e-5 
+lr_decay: 0.8
+warmup_steps: 1000
+weight_decay: 0.01
+gradient_clipping: 1.0
+train_steps: 12_000
+logging_steps: 500
+eval_steps: 1_000
+save_steps: 6000
+batch_size: 16
+model_name: "EleutherAI/gpt-neo-1.3B"
+max_length: 450

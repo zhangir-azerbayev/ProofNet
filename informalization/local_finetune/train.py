@@ -18,30 +18,26 @@ from transformers.trainer_pt_utils import get_parameter_names
 
 def main(): 
     config_path = sys.argv[1] 
-
     with open(config_path) as f: 
         cfg = yaml.safe_load(f)
 
-    train_data_path = '../finetune_data/v2_finetune.jsonl'
-    valid_data_path = '../finetune_data/v2_finetune_valid.jsonl'
-
-    os.environ["CUDA_VISIBLE_DEVICES"] = cfg['device']
     experiment_name = cfg['experiment_name']
     train_path = cfg['train_path']
     eval_path = cfg['eval_path']
     lr = cfg['lr']
-    lr_decay = cfg['lr_decay']
     warmup_steps = cfg['warmup_steps']
     weight_decay = cfg['weight_decay']
     gradient_clipping = cfg['gradient_clipping']
     train_steps = cfg['train_steps']
     logging_steps = cfg['logging_steps']
     save_steps = cfg['save_steps']
+    eval_steps = cfg['eval_steps']
     batch_size = cfg['batch_size']
     model_name = cfg['model_name']
     max_length = cfg['max_length']
+    accum_steps = cfg['accum_steps']
 
-    save_dir = os.join("runs/", experiment_name)
+    save_dir = os.path.join("runs/", experiment_name)
 
     os.mkdir(save_dir)
 
@@ -54,15 +50,29 @@ def main():
     # Tokenizers and data 
     tokenizer = GPT2Tokenizer.from_pretrained(model_name)
     tokenizer.add_special_tokens({'pad_token': '<|pad|>', 
-        'sep_token': '[SEP]']})
+        'sep_token': '[SEP]'})
 
     train_set = NlFormalDataset(train_data, tokenizer, max_length)
     eval_set = NlFormalDataset(eval_data, tokenizer, max_length)
 
     # Models 
     model = GPTNeoForCausalLM.from_pretrained(model_name)
+    model.resize_token_embeddings(len(tokenizer))
 
     # Initialize optimizer and scheduler
+    decay_parameters = get_parameter_names(model, [torch.nn.LayerNorm])
+    decay_parameters = [name for name in decay_parameters if "bias" not in name]
+    optimizer_grouped_parameters = [
+        {
+            "params": [p for n, p in model.named_parameters() if n in decay_parameters],
+            "weight_decay": weight_decay,
+        },
+        {
+            "params": [p for n, p in model.named_parameters() if n not in decay_parameters],
+            "weight_decay": 0.0,
+        },
+    ]
+
 
     optimizer = AdamW(optimizer_grouped_parameters, 
             lr=lr)
@@ -82,9 +92,11 @@ def main():
             save_steps = save_steps,
             evaluation_strategy = "steps",
             eval_steps = eval_steps,
+            max_grad_norm=gradient_clipping, 
+            gradient_accumulation_steps = accum_steps,
             )
 
-    with open(os.join(save_dir, "config.yaml"), "w") as f: 
+    with open(os.path.join(save_dir, "config.yaml"), "w") as f: 
         yaml.dump(cfg, f)
 
     Trainer(model=model, args=training_args, 

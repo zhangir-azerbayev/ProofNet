@@ -24,9 +24,10 @@ class NlFormalDataset(Dataset):
 
     def __getitem__(self, index):
         datum = self.data[index]
-        text = datum['prompt'] + datum['completion'] + tokenizer.eos_token
+        text = datum['prompt'] + datum['completion'] + self.tokenizer.eos_token
         toks = self.tokenizer(text, truncation=True,
-                padding="max_length", max_length=self.max_len)
+                padding="max_length", max_length=self.max_len, 
+                return_tensors="pt")
 
         return toks["input_ids"], toks["attention_mask"]
 

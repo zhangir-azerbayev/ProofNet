@@ -1,6 +1,6 @@
 import ndjson 
 
-with open("nl_code_pairs/v2_valid.jsonl", "r") as f:
+with open("nl_code_pairs/v2_test.jsonl", "r") as f:
     data = ndjson.load(f)
 
 lines = [{
@@ -9,7 +9,7 @@ lines = [{
     } for x in data]
 
 
-with open("finetune_data/v2_finetune_valid.jsonl", "w") as f: 
+with open("finetune_data/v2_finetune_test.jsonl", "w") as f: 
     ndjson.dump(lines, f)
 
 

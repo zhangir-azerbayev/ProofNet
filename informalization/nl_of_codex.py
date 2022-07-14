@@ -39,7 +39,7 @@ def main():
     with open("few_shot_prompt.txt") as f: 
         FEW_SHOT_PROMPT = f.read()
 
-    with open("raw_mathlib_data_valid.json") as f:
+    with open("raw_mathlib_data_test.json") as f:
         data = ndjson.load(f)
 
     dataloader = batch_loader(data, BATCH_SIZE)

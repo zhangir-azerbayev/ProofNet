@@ -1,3 +1,4 @@
+# Don't use this until OpenAI releases codex finetuning api
 import ndjson 
 
 with open("nl_code_pairs/v2_test.jsonl", "r") as f:

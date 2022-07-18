@@ -1,5 +1,6 @@
 *.pt
 *.bin
+*mathlib_train_nl_embeddings*
 *raw_mathlib_data*
 tmp
 *.olean

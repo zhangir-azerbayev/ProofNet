@@ -20,6 +20,9 @@ def batch_loader(seq, size):
 with open("../nl_code_pairs/v2.jsonl") as f: 
     data = ndjson.load(f)
 
+print(len(data))
+sys.exit()
+
 log_dir = "mathlib_train_nl_embeddings/"
 
 if os.path.isfile(os.path.join(log_dir, "shard_0.jsonl")):

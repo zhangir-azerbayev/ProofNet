@@ -96,6 +96,9 @@ def main():
             gradient_accumulation_steps = accum_steps,
             )
 
+    devices = os.environ["CUDA_VISIBLE_DEVICES"]
+    cfg["devices"] = devices
+
     with open(os.path.join(save_dir, "config.yaml"), "w") as f: 
         yaml.dump(cfg, f)
 

@@ -1,20 +1,28 @@
 import json 
+import ndjson
 import sys
 import re 
+from tqdm import tqdm
 
 def merge_typestars_of_binders(binders): 
     binders = [re.sub(r"Type u_[0-9]", "Type*", x) for x in binders]
 
-    i = 0 
     for i in range(len(binders)-1):
-        if re.search(r"Type*", binders[i]) and re.search(r"Type*", binders[i+1]): 
-            binders[i] = binders[i][binders[i].index(":")]
+        if re.search(r"Type\*", binders[i]) and re.search(r"Type\*", binders[i+1]) and binders[i][0]==binders[i+1][0]:
+            #print("left: ", binders[i][:binders[i].index(":")])
+            #print("right: ", binders[i+1][1:])
+            binders[i+1] = binders[i][:binders[i].index(":")] + binders[i+1][1:]
+            binders[i] = ""
+
+    return [x for x in binders if x != ""]
             
 
 
 
 
 def assemble_statement(kind, nm, binders, tp): 
+    binders = merge_typestars_of_binders(binders)
+
     statement = kind + " " + nm 
     for binder in binders: 
         sc = statement + " " + binder
@@ -23,7 +31,7 @@ def assemble_statement(kind, nm, binders, tp):
         else: 
             statement += " " + binder
 
-    statement += " :\n\t" + tp
+    statement += " :\n\t" + tp + " :="
 
     return statement
 
@@ -52,12 +60,24 @@ def parse_single_arg(arg):
 with open("docgen_export_full.json") as f:
     db = json.load(f)
 
-for x in db["decls"][:10]: 
-    #print(json.dumps(x, indent=4))
+log = []
 
-    list_of_args = [y["arg"] for y in x["args"]]
-    binders = [parse_single_arg(y) for y in list_of_args]
-    processed_tp = parse_single_arg(x["type"])
+for x in tqdm(db["decls"]): 
+    if x["kind"]=="theorem": 
 
-    print(assemble_statement(x["kind"], x["name"], binders, processed_tp))
-    print("\n")
+        list_of_args = [y["arg"] for y in x["args"]]
+        binders = [parse_single_arg(y) for y in list_of_args]
+        processed_tp = parse_single_arg(x["type"])
+
+        statement = assemble_statement(x["kind"], x["name"], binders, processed_tp)
+
+        #print(statement + "\n")
+
+        log.append({
+            "name": x["name"],
+            "filename": x["filename"],
+            "statement": statement,
+        })
+
+with open("docgen_export_full_parsed.json", "w") as f:
+    ndjson.dump(log, f)

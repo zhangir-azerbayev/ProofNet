@@ -1,4 +1,4 @@
-*docgen_export.json
+*docgen_export_full.json
 *.pt
 *.bin
 *mathlib_train_nl_embeddings*

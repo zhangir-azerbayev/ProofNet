@@ -30,7 +30,7 @@ def call_api(prompt):
 def main():
     BATCH_SIZE = 20
     BEFORE_THEOREM = "\nLean mathlib version:\n"
-    AFTER_THEOREM = " :=\nTranslate the Lean mathlib version to a natural language version:\n\""
+    AFTER_THEOREM = "\nTranslate the Lean mathlib version to a natural language version:\n\""
 
     save_path = sys.argv[1]
     if os.path.isfile(save_path): 
@@ -46,9 +46,6 @@ def main():
 
     for batch in tqdm(dataloader): 
         prompts = [FEW_SHOT_PROMPT + BEFORE_THEOREM + x["formal_statement"] + AFTER_THEOREM for x in batch]
-
-        [print("#"*80, "\n", x) for x in prompts]
-        sys.exit()
 
         outs = call_api(prompts)
 

@@ -1,0 +1,30 @@
+Lean mathlib version: 
+theorem exists_le_sylow {p : ℕ} {G : Type*} [group G] {P : subgroup G} 
+    (hP : is_p_group p P) :
+    ∃ (Q : sylow p G), P ≤ Q :=
+Translate the Lean mathlib version to a natural language version: 
+"Let $P$ be a $p$-subgroup of $G$. Then $P$ is contained in a Sylow $p$-subgroup of $G$."
+
+Lean mathlib version: 
+theorem exists_eq_const_of_bounded {E : Type u} [normed_group E]
+    [normed_space ℂ E] {F : Type v} [normed_group F] [normed_space ℂ F]
+    {f : E → F} (hf : differentiable ℂ f) (hb : metric.bounded (set.range f)) :
+    ∃ (c : F), f = function.const E c :=
+Translate the Lean mathlib version to a natural language version: 
+"Let $E$ and $F$ be complex normed spaces and let $f:E\to F$. If $f$ is differentiable and bounded, then $f$ is constant."
+
+Lean mathlib version: 
+theorem subset_of_open_subset_is_open (X : Type*) [topological_space X]
+  (A : set X) (hA : ∀ x ∈ A, ∃ U : set X, is_open U ∧ x ∈ U ∧ U ⊆ A): 
+  is_open A :=
+Translate the Lean mathlib version to a natural language version: 
+"Let $X$ be a topological space; let $A$ be a subset of $X$. Suppose that for each $x\in A$ there is an open set $U$ containing $x$ such that $U\subset A$. Then $A$ is open in $X$."
+
+Lean mathlib version: 
+theorem is_multiplicative.eq_iff_eq_on_prime_powers {R : Type*} 
+    [comm_monoid_with_zero R] (f : nat.arithmetic_function R) 
+    (hf : f.is_multiplicative) (g : nat.arithmetic_function R) 
+    (hg : g.is_multiplicative) :
+    f = g ↔ ∀ (p i : ℕ), nat.prime p → f (p ^ i) = g (p ^ i) :=
+Translate the Lean mathlib version to a natural language version: 
+"Two multiplicative functions $f, g:\mathbb{N}\to R$ are equal if and only if $f(p^i)=f(g^i)$ for all primes $p$."

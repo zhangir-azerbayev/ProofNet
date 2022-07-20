@@ -79,5 +79,5 @@ for x in tqdm(db["decls"]):
             "formal_statement": statement,
         })
 
-with open("docgen_export_full_parsed.json", "w") as f:
+with open("docgen_export_full_parsed.jsonl", "w") as f:
     ndjson.dump(log, f)

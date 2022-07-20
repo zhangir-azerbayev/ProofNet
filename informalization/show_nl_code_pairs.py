@@ -8,7 +8,7 @@ num = int(sys.argv[2])
 with open(path) as f: 
     data = ndjson.load(f)
 
-for step in data: 
+for step in data[:num]: 
     name = step["decl_nm"]
     formal = step["formal_statement"]
     nl = step["nl_statement_of_codex"]

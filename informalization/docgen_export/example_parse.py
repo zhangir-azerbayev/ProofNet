@@ -76,7 +76,7 @@ for x in tqdm(db["decls"]):
         log.append({
             "name": x["name"],
             "filename": x["filename"],
-            "statement": statement,
+            "formal_statement": statement,
         })
 
 with open("docgen_export_full_parsed.json", "w") as f:

@@ -159,7 +159,7 @@ sorry
 
 theorem exercise8b :
   (topological_space.generate_from {S : set ℝ | ∃ a b : ℚ, a < b ∧ S = Ico a b}).is_open ≠
-    Rl.is_open :=
+    (lower_limit_topology ℝ).is_open :=
 sorry
 
 

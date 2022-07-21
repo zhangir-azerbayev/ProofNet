@@ -33,8 +33,8 @@ def main():
     AFTER_THEOREM = "\nTranslate the Lean mathlib version to a natural language version:\n\""
 
     save_path = sys.argv[1]
-    if os.path.isfile(save_path): 
-        raise OSError("save_path already exists")
+    #if os.path.isfile(save_path): 
+        #raise OSError("save_path already exists")
 
     with open("few_shot_prompt.txt") as f: 
         FEW_SHOT_PROMPT = f.read()
@@ -44,7 +44,7 @@ def main():
 
     dataloader = batch_loader(data, BATCH_SIZE)
 
-    for batch in tqdm(dataloader): 
+    for batch in tqdm(dataloader[3978+247:]): 
         prompts = [FEW_SHOT_PROMPT + BEFORE_THEOREM + x["formal_statement"] + AFTER_THEOREM for x in batch]
 
         outs = call_api(prompts)

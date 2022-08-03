@@ -14,6 +14,7 @@ def batch_loader(seq, size):
     """
     return [seq[pos : pos + size] for pos in range(0, len(seq), size)]
 
+# calls=3, period=60 is max for reliability
 @sleep_and_retry
 @limits(calls=3, period=60)
 def call_api(prompt):
@@ -44,10 +45,15 @@ def main():
 
     dataloader = batch_loader(data, BATCH_SIZE)
 
-    for batch in tqdm(dataloader[3978+247:]): 
+    for batch in tqdm(dataloader): 
         prompts = [FEW_SHOT_PROMPT + BEFORE_THEOREM + x["formal_statement"] + AFTER_THEOREM for x in batch]
 
         outs = call_api(prompts)
+
+        finish_reasons = [x["finish_reason"] 
+                for x in outs["choices"]]
+        if "length" in finish_reasons: 
+            outs = call_api(prompts, max_tokens=400)
 
         text_outs = [x["text"] for x in outs["choices"]]
 

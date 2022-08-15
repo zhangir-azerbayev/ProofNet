@@ -11,7 +11,8 @@ The interface is straightforward: enter a theorem statement in good-old $\LaTeX$
 ## Examples.
 Let's begin with a simple statement about groups.
 ![group_hom](images/group_hom.png)
-<img src="images/group_hom.png" alt="group_hom" width="200"/>
+<img src="images/group_hom.png" alt="group_hom" width="500"/>
+
 Lean would be happy this, and we could accept this if we're feeling lenient. But the predicate `is_group_hom` is deprecated, so let's tell the app to use the up-to-date syntax.
 ![group_hom_2](images/group_hom_1.png)
 I'm happy with that.

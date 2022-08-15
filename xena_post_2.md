@@ -42,10 +42,10 @@ If you take seriously the idea that neural networks are a lot like brain, as I d
 These language models are pattern matchers: if you ask them to complete the sentence "Not a creature was stirring, not even a _", it will generate the only pattern it's seen in it's training data: "mouse". We can exploit this pattern matching ability to steer our language model into doing a desired task using a technique called *few-shot prompting*. Suppose we tell GPT-3 to complete the following text
 > **English**: How are you this morning?
 > **French**: Comment vas tu ce matin?
-
+> 
 > **English**: I arrived in London late because I missed my connecting flight.
 > **French**: Je suis arrivé à Londres avec un jour de retard car j'ai raté mon vol de correspondance.
-
+> 
 > **English**: Grothendieck was an algebraic geometer
 > **French**:
 

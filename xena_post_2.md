@@ -11,7 +11,6 @@ The interface is straightforward: enter a theorem statement in good-old $\LaTeX$
 ## Examples.
 Let's begin with a simple statement about groups.
 ![group_hom](images/group_hom.png)
-<img src="images/group_hom.png" alt="group_hom" width="600" class="center"/>
 
 Lean would be happy this, and we could accept this if we're feeling lenient. But the predicate `is_group_hom` is deprecated, so let's tell the app to use the up-to-date syntax.
 ![group_hom_2](images/group_hom_1.png)
@@ -48,7 +47,7 @@ These language models are pattern matchers: if you ask them to complete the sent
 > **English**: I arrived in London late because I missed my connecting flight.
 > **French**: Je suis arrivé à Londres avec un jour de retard car j'ai raté mon vol de correspondance.
 > 
-> **English**: Grothendieck was an algebraic geometer
+> **English**: Grothendieck was an algebraic geometer  
 > **French**:
 
 Because the language model was trained to complete patterns, given this text it will generate "Grothendieck était un géomètre algébrique". What Lean Chat does under the hood is exactly the same idea. Given the user's input, we wrap it in the following prompt:

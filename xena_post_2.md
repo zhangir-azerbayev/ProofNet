@@ -21,7 +21,7 @@ Let's give the app a slightly harder example, this time the statement of an exer
 ![quotient](images/quotient.png)
 Perfect on the first try!
 
-The next example is due to Johan Commelin: let's ask for a statement of Burnside's theorem, an important result in finite group theory.
+The next example is due to Johan Commelin: let's ask for a statement of Burnside's theorem, an important result in finite group theory which is not in mathlib.
 ![burnside](images/burnside.png)
 Quite a lot is going on here. The app is able to figure out that the correct way of stating a group is finite is `[group G] [fintype G]`, and the correct way of denoting the order of a group is `fintype.card G`. Moreover, it is able to interpret quite high-level instructions such as "no need for the existential", suggesting the app has at least partial grasp of the semantic connection between formal and informal mathematics. Slipping up on minor syntactic conventions, like writing `solvable` instead of `is_solvable`, is one of Lean Chat's most common mistakes. These errors can almost always be fixed with dialogue.
 

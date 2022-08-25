@@ -204,6 +204,33 @@ begin
   },
 end
 
+theorem exercise_1_shorter
+  : ∃ (f : ℝ → ℝ), (∀ (x : ℝ), tendsto (λ y, f(x + y) - f(x - y)) (𝓝 0) (𝓝 0)) ∧ ¬ continuous f :=
+begin
+  let f := λ x : ℝ, if x = 0 then (1 : ℝ) else (0 : ℝ),
+  use f, split,
+  { intro x,
+    suffices : (λ y, f (x + y) - f(x - y)) =ᶠ[𝓝 0] (λ y, 0),
+    { simp [filter.tendsto_congr' this,  tendsto_const_nhds_iff] },
+    by_cases h : x = 0,
+    { dsimp [f], simp [h] },
+    have : set.Ioo (-abs x) (abs x) ∈ 𝓝 (0 : ℝ),
+    { apply Ioo_mem_nhds; simp [h] },
+    apply eventually_of_mem this,
+    intro y, simp, dsimp [f],
+    intros h1 h2,
+    rw [if_neg, if_neg]; simp [lt_abs, neg_lt] at *; cases h1; cases h2; linarith },
+  simp [continuous_iff_continuous_at, continuous_at, tendsto_nhds],
+  use [0, set.Ioo 0 2, is_open_Ioo], split,
+  { dsimp [f], simp, norm_num },
+  simp [mem_nhds_iff_exists_Ioo_subset],
+  intros a b aneg bpos h,
+  have : b / 2 ∈ set.Ioo a b,
+  { simp, split; linarith },
+  have := h this,
+  simpa [f, (ne_of_lt bpos).symm] using this
+end
+
 theorem exercise_2
   {α : Type} [metric_space α]
   {β : Type} [metric_space β]

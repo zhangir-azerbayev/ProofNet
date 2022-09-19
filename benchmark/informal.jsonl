@@ -5,10 +5,10 @@
 {"nl_statement": "Prove that the center of the product of two groups is the product of their centers.", "id": 5}
 {"nl_statement": "Prove that the groups $\\mathbb{R}^{+} / \\mathbb{Z}^{+}$and $\\mathbb{R}^{+} / 2 \\pi \\mathbb{Z}^{+}$are isomorphic.", "id": 6}
 {"nl_statement": "Prove that a group of even order contains an element of order $2 .$", "id": 7}
-{"nl_statement": "Prove that every homomorphism of fields is injective. ", "id": 8}
+{"nl_statement": "Prove that every homomorphism of fields is injective.", "id": 8}
 {"nl_statement": "Let $V$ be a vector space which is spanned by a countably infinite set. Prove that every linearly independent subset of $V$ is finite or countably infinite.", "id": 9}
 {"nl_statement": "Let $V$ be a vector space over an infinite field $F$. Prove that $V$ is not the union of finitely many proper subspaces.", "id": 10}
-{"nl_statement": "Let $Z$ be the center of a group $G$. Prove that if $G / Z$ is a cyclic group, then $G$ is abelian and hence $G=Z$. ", "id": 11}
+{"nl_statement": "Let $Z$ be the center of a group $G$. Prove that if $G / Z$ is a cyclic group, then $G$ is abelian and hence $G=Z$.", "id": 11}
 {"nl_statement": "Prove that no group of order $p q$, where $p$ and $q$ are prime, is simple.", "id": 12}
 {"nl_statement": "Prove that no group of order $p^2 q$, where $p$ and $q$ are prime, is simple.", "id": 13}
 {"nl_statement": "Prove that no group of order 224 is simple.", "id": 14}
@@ -19,7 +19,7 @@
 {"nl_statement": "Prove that in the ring $\\mathbb{Z}[x],(2) \\cap(x)=(2 x)$.", "id": 19}
 {"nl_statement": "Prove that every nonzero ideal in the ring of Gauss integers contains a nonzero integer.", "id": 20}
 {"nl_statement": "Prove that a polynomial $f(x)=\\sum a_i x^i$ can be expanded in powers of $x-a$ : $f(x)=\\Sigma c_i(x-a)^i$, and that the coefficients $c_i$ are polynomials in the coefficients $a_i$, with integer coefficients.", "id": 21}
-{"nl_statement": "Let $I, J$ be ideals of a ring $R$. Show by example that $I \\cup J$ need not be an ideal. ", "id": 22}
+{"nl_statement": "Let $I, J$ be ideals of a ring $R$. Show by example that $I \\cup J$ need not be an ideal.", "id": 22}
 {"nl_statement": "Let $I, J$ be ideals in a ring $R$. Prove that the residue of any element of $I \\cap J$ in $R / I J$ is nilpotent.", "id": 23}
 {"nl_statement": "Let $I, J$ be ideals of a ring $R$ such that $I+J=R$. Prove that $I J=I \\cap J$.", "id": 24}
 {"nl_statement": "Let $F$ be a field. Prove that the rings $F[x] /\\left(x^2\\right)$ and $F[x] /\\left(x^2-1\\right)$ are isomorphic if and only if $F$ has characteristic $2 .$", "id": 25}
@@ -29,26 +29,26 @@
 {"nl_statement": "Let $a, b$ be elements of a field $F$, with $a \\neq 0$. Prove that a polynomial $f(x) \\in F[x]$ is irreducible if and only if $f(a x+b)$ is irreducible.", "id": 29}
 {"nl_statement": "Let $F=\\mathbb{C}(x)$, and let $f, g \\in \\mathbb{C}[x, y]$. Prove that if $f$ and $g$ have a common factor in $F[y]$, then they also have a common factor in $\\mathbb{C}[x, y]$.", "id": 30}
 {"nl_statement": "Prove that two integer polynomials are relatively prime in $\\mathbb{Q}[x]$ if and only if the ideal they generate in $\\mathbb{Z}[x]$ contains an integer.", "id": 31}
-{"nl_statement": "Prove that $x^3 + 6x + 12$ is irreducible in $\\mathbb{Q}$. ", "id": 32}
-{"nl_statement": "Prove that $x^2+x+1$ is irreducible in the field $\\mathbb{F}_2$. ", "id": 33}
+{"nl_statement": "Prove that $x^3 + 6x + 12$ is irreducible in $\\mathbb{Q}$.", "id": 32}
+{"nl_statement": "Prove that $x^2+x+1$ is irreducible in the field $\\mathbb{F}_2$.", "id": 33}
 {"nl_statement": "Prove that $x^2+1$ is irreducible in $\\mathbb{F}_7$", "id": 34}
-{"nl_statement": "Prove that $x^3 - 9$ is irreducible in $\\mathbb{F}_{31}$. ", "id": 35}
+{"nl_statement": "Prove that $x^3 - 9$ is irreducible in $\\mathbb{F}_{31}$.", "id": 35}
 {"nl_statement": "Let $p$ be a prime integer. Prove that the polynomial $x^n-p$ is irreducible in $\\mathbb{Q}[x]$.", "id": 36}
-{"nl_statement": "Let $p$ be a prime integer, and let $f \\in \\mathbb{Z}[x]$ be a polynomial of degree $2 n+1$, say $f(x)=a_{2 n+1} x^{2 n+1}+\\cdots+a_1 x+a_0$. Suppose that $a_{2 n+1} \\neq 0$ (modulo $p$ ), $a_0, a_1, \\ldots, a_n \\equiv 0$ (modulo $p^2$ ), $a_{n+1}, \\ldots, a_{2 n} \\equiv 0$ (modulo $p$ ), $a_0 \\not\\equiv 0$ (modulo $p^3$ ). Prove that $f$ is irreducible in $\\mathbb{Q}[x]$. ", "id": 37}
+{"nl_statement": "Let $p$ be a prime integer, and let $f \\in \\mathbb{Z}[x]$ be a polynomial of degree $2 n+1$, say $f(x)=a_{2 n+1} x^{2 n+1}+\\cdots+a_1 x+a_0$. Suppose that $a_{2 n+1} \\neq 0$ (modulo $p$ ), $a_0, a_1, \\ldots, a_n \\equiv 0$ (modulo $p^2$ ), $a_{n+1}, \\ldots, a_{2 n} \\equiv 0$ (modulo $p$ ), $a_0 \\not\\equiv 0$ (modulo $p^3$ ). Prove that $f$ is irreducible in $\\mathbb{Q}[x]$.", "id": 37}
 {"nl_statement": "Let $p$ be a prime which splits in $R$, say $(p)=P \\bar{P}$, and let $\\alpha \\in P$ be any element which is not divisible by $p$. Prove that $P$ is generated as an ideal by $(p, \\alpha)$.", "id": 38}
-{"nl_statement": "Prove that if $x^2 \\equiv-5$ (modulo $p$ ) has a solution, then there is an integer point on one of the two ellipses $x^2+5 y^2=p$ or $2 x^2+2 x y+3 y^2=p$. ", "id": 39}
+{"nl_statement": "Prove that if $x^2 \\equiv-5$ (modulo $p$ ) has a solution, then there is an integer point on one of the two ellipses $x^2+5 y^2=p$ or $2 x^2+2 x y+3 y^2=p$.", "id": 39}
 {"nl_statement": "Prove that there are infinitely many primes congruent to $-1$ (modulo 4 ).", "id": 40}
 {"nl_statement": "Let $R$ be an integral domain containing a field $F$ as subring and which is finite-dimensional when viewed as vector space over $F$. Prove that $R$ is a field.", "id": 41}
 {"nl_statement": "Let $F$ be a field, and let $\\alpha$ be an element which generates a field extension of $F$ of degree 5. Prove that $\\alpha^2$ generates the same extension.", "id": 42}
 {"nl_statement": "Let $K$ be a field generated over $F$ by two elements $\\alpha, \\beta$ of relatively prime degrees $m, n$ respectively. Prove that $[K: F]=m n$.", "id": 43}
-{"nl_statement": "Prove that if a prime integer $p$ has the form $2^r+1$, then it actually has the form $2^{2^k}+1$. ", "id": 44}
+{"nl_statement": "Prove that if a prime integer $p$ has the form $2^r+1$, then it actually has the form $2^{2^k}+1$.", "id": 44}
 {"nl_statement": "Let $K$ be a finite field. Prove that the product of the nonzero elements of $K$ is $-1$.", "id": 45}
 {"nl_statement": "Show that $\\frac{-1 + \\sqrt{3}i}{2}$ is a cube root of 1 (meaning that its cube equals 1).", "id": 46}
 {"nl_statement": "Prove that $-(-v) = v$ for every $v \\in V$.", "id": 47}
 {"nl_statement": "Prove that if $a \\in \\mathbf{F}$, $v \\in V$, and $av = 0$, then $a = 0$ or $v = 0$.", "id": 48}
 {"nl_statement": "Give an example of a nonempty subset $U$ of $\\mathbf{R}^2$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \\in U$ whenever $u \\in U$), but $U$ is not a subspace of $\\mathbf{R}^2$.", "id": 49}
-{"nl_statement": "Give an example of a nonempty subset $U$ of", "id": 50}
-{"nl_statement": "Prove that the intersection of any collection of", "id": 51}
+{"nl_statement": "Give an example of a nonempty subset $U$ of $\\mathbf{R}^2$ such that $U$ is closed under scalar multiplication, but $U$ is not a subspace of $\\mathbf{R}^2$.", "id": 50}
+{"nl_statement": "Prove that the intersection of any collection of subspaces of $V$ is a subspace of $V$.", "id": 51}
 {"nl_statement": "Prove that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces is contained in the other.", "id": 52}
 {"nl_statement": "Prove that if $\\left(v_{1}, \\ldots, v_{n}\\right)$ spans $V$, then so does the list $\\left(v_{1}-v_{2}, v_{2}-v_{3}, \\ldots, v_{n-1}-v_{n}, v_{n}\\right)$ obtained by subtracting from each vector (except the last one) the following vector.", "id": 53}
 {"nl_statement": "Prove that if $\\left(v_{1}, \\ldots, v_{n}\\right)$ is linearly independent in $V$, then so is the list $\\left(v_{1}-v_{2}, v_{2}-v_{3}, \\ldots, v_{n-1}-v_{n}, v_{n}\\right)$ obtained by subtracting from each vector (except the last one) the following vector.", "id": 54}
@@ -92,14 +92,14 @@
 {"nl_statement": "By considering numbers of the form $3 p_{1} \\ldots p_{k}-1$, show that there are infinitely many primes of the form $3 n+2$ with $n \\in \\mathbb{N}$.", "id": 92}
 {"nl_statement": "Prove that $\\sqrt[3]{2}+\\sqrt[3]{3}$ is irrational.", "id": 93}
 {"nl_statement": "Let $U \\subset \\mathbb{C}$ be a (non-empty) connected open set and let $f_n$ be a sequence of holomorphic functions defined on $U$. Suppose that $f_n$ converges uniformly to a function $f$ on every compact subset of $U$. Show that $f$ is holomorphic in $U$.", "id": 94}
-{"nl_statement": "Let $f: \\mathbb{R}^{2} \\rightarrow", "id": 95}
+{"nl_statement": "Let $f: \\mathbb{R}^{2} \\rightarrow \\mathbb{R}^{2}$ be the map given by $f(x, y)=\\left(\\frac{\\cos x+\\cos y-1}{2}, \\cos x-\\cos y\\right)$. Prove that $f$ has a fixed point.", "id": 95}
 {"nl_statement": "Show that $f(z)=\\frac{z}{\\sin z}$ has a removable singularity at $z=0$.", "id": 96}
 {"nl_statement": "Let $R$ be a subring of a ring $S$, and let $J$ be an ideal in $S$. Show that $R+J$ is a subring of $S$ and that $\\frac{R}{R \\cap J} \\cong \\frac{R+J}{J}$.", "id": 97}
-{"nl_statement": "Let $V$ be a finite dimensional complex inner product space, and let $\\alpha$ be an endomorphism of $V$. Define its adjoint $\\alpha^*$. Assume that $\\alpha$ is normal, i.e. $\\alpha$ commutes with its adjoint: $\\alpha \\alpha^*=\\alpha^* \\alpha$. Show that $\\alpha$ and $\\alpha^*$ have a common eigenvector $\\mathbf{v}$. ", "id": 98}
+{"nl_statement": "Let $V$ be a finite dimensional complex inner product space, and let $\\alpha$ be an endomorphism of $V$. Define its adjoint $\\alpha^*$. Assume that $\\alpha$ is normal, i.e. $\\alpha$ commutes with its adjoint: $\\alpha \\alpha^*=\\alpha^* \\alpha$. Show that $\\alpha$ and $\\alpha^*$ have a common eigenvector $\\mathbf{v}$.", "id": 98}
 {"nl_statement": "Let $X$ be an open subset of Euclidean space $\\mathbb{R}^n$. Show that $X$ is connected if and only if $X$ is path-connected.", "id": 99}
 {"nl_statement": "Let $M$ be a module over a Principal Ideal Domain $R$ and let $N$ be a submodule of $M$. Show that $M$ is finitely generated if and only if $N$ and $M / N$ are finitely generated.", "id": 100}
 {"nl_statement": "Let $G$ be a finite group, and let $H$ be a proper subgroup of $G$ of index $n$. Show that there is a normal subgroup $K$ of $G$ such that $|G / K|$ divides $n$ ! and $|G / K| \\geqslant n$", "id": 101}
-{"nl_statement": "Let $R$ be the ring of continuous functions $\\mathbb{R}\\to\\mathbb{R}$. Show that $R$ is not Noetherian. ", "id": 102}
+{"nl_statement": "Let $R$ be the ring of continuous functions $\\mathbb{R}\\to\\mathbb{R}$. Show that $R$ is not Noetherian.", "id": 102}
 {"nl_statement": "Let $f: \\mathbb{R} \\rightarrow(0, \\infty)$ be a decreasing function. Let $x_{1}=1$ and $x_{n+1}=x_{n}+f\\left(x_{n}\\right)$. Prove that $x_{n} \\rightarrow \\infty$ as $n \\rightarrow \\infty$.", "id": 103}
 {"nl_statement": "Prove the the operation $\\star$ on $\\mathbb{Z}$ defined by $a\\star b=a-b$ is not commutative.", "id": 104}
 {"nl_statement": "Prove that the addition of residue classes $\\mathbb{Z}/n\\mathbb{Z}$ is associative.", "id": 105}
@@ -194,237 +194,237 @@
 {"nl_statement": "Prove that $\\frac{(x+2)^p-2^p}{x}$, where $p$ is an odd prime, is irreducible in $\\mathbb{Z}[x]$.", "id": 194}
 {"nl_statement": "Prove that the polynomial $x^{2}-\\sqrt{2}$ is irreducible over $\\mathbb{Z}[\\sqrt{2}]$. You may assume that $\\mathbb{Z}[\\sqrt{2}]$ is a U.F.D.", "id": 195}
 {"nl_statement": "Prove that $x^2+y^2-1$ is irreducible in $\\mathbb{Q}[x,y]$.", "id": 196}
-{"nl_statement": "Prove that as vector spaces over $\\mathbb{Q}, \\mathbb{R}^n \\cong \\mathbb{R}$, for all $n \\in \\mathbb{Z}^{+}$. ", "id": 197}
-{"nl_statement": "Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define Ann $(S)=\\{v \\in$ $V \\mid f(v)=0$ for all $f \\in S\\} .$ Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that $\\operatorname{Ann}\\left(W_1+W_2\\right)=\\operatorname{Ann}\\left(W_1\\right) \\cap\\operatorname{Ann}\\left(W_2\\right)$. ", "id": 198}
-{"nl_statement": "Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define Ann $(S)=\\{v \\in$ $V \\mid f(v)=0$ for all $f \\in S\\} .$ Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that $\\operatorname{Ann}\\left(W_1\\cap W_2\\right)=\\operatorname{Ann}\\left(W_1\\right) + \\operatorname{Ann}\\left(W_2\\right)$. ", "id": 199}
-{"nl_statement": "Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define Ann $(S)=\\{v \\in$ $V \\mid f(v)=0$ for all $f \\in S\\} .$ Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that $W_1=W_2$ if and only if Ann( $\\left.W_1\\right)=$ $\\operatorname{Ann}\\left(W_2\\right)$ ", "id": 200}
-{"nl_statement": "Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define Ann $(S)=\\{v \\in$ $V \\mid f(v)=0$ for all $f \\in S\\} .$ Prove that the annihilator of $S$ is the same as the annihilator of the subspace of $V^*$ spanned by $S$.", "id": 201}
-{"nl_statement": "Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define Ann $(S)=\\{v \\in$ $V \\mid f(v)=0$ for all $f \\in S\\} .$ Assume $V$ is finite dimensional. Prove that if $W^*$ is any subspace of $V^*$ then $\\operatorname{dim} \\operatorname{Ann}\\left(W^*\\right)=\\operatorname{dim} V-\\operatorname{dim} W^*$", "id": 202}
-{"nl_statement": "If $G$ is a finite group of even order, show that there must be an element $a \\neq e$ such that $a=a^{-1}$.", "id": 203}
-{"nl_statement": "Show that a group of order 5 must be abelian.", "id": 204}
-{"nl_statement": "If $G$ is a finite group, prove that, given $a \\in G$, there is a positive integer $n$, depending on $a$, such that $a^n = e$.", "id": 205}
-{"nl_statement": "If $G$ is a finite group, prove that there is an integer $m > 0$ such that $a^m = e$ for all $a \\in G$.", "id": 206}
-{"nl_statement": "If $G$ is a group in which $(a b)^{i}=a^{i} b^{i}$ for three consecutive integers $i$, prove that $G$ is abelian.", "id": 207}
-{"nl_statement": "Let $G$ be a group in which $(a b)^{3}=a^{3} b^{3}$ and $(a b)^{5}=a^{5} b^{5}$ for all $a, b \\in G$. Show that $G$ is abelian.", "id": 208}
-{"nl_statement": "Let $G$ be a group in which $(a b)^{n}=a^{n} b^{n}$ for some fixed integer $n>1$ for all $a, b \\in G$. For all $a, b \\in G$, prove that $\\left(a b a^{-1} b^{-1}\\right)^{n(n-1)}=e$. ", "id": 209}
-{"nl_statement": "If $G$ is a group and $a, x \\in G$, prove that $C\\left(x^{-1} a x\\right)=x^{-1} C(a) x$", "id": 210}
-{"nl_statement": "If $M$ is a subgroup of $G$ such that $x^{-1} M x \\subset M$ for all $x \\in G$, prove that actually $x^{-1} M x=M$. ", "id": 211}
-{"nl_statement": "If a group $G$ has no proper subgroups, prove that $G$ is cyclic of order $p$, where $p$ is a prime number.", "id": 212}
-{"nl_statement": "If $A, B$ are subgroups of $G$ such that $b^{-1} Ab \\subset A$ for all $b \\in B$, show that $AB$ is a subgroup of $G$.", "id": 213}
-{"nl_statement": "If $A$ and $B$ are finite subgroups, of orders $m$ and $n$, respectively, of the abelian group $G$, prove that $AB$ is a subgroup of order $mn$ if $m$ and $n$ are relatively prime.", "id": 214}
-{"nl_statement": "Let $M, N$ be subgroups of $G$ such that $x^{-1}Mx \\subset M$ and $x^{-1} N x \\subset N$ for all $x \\in G$. Prove that $MN$ is a subgroup of $G$ and that $x^{-1} (MN)x \\subset MN$ for all $x \\in G$.", "id": 215}
-{"nl_statement": "If $M$ is a subgroup of $G$ such that $x^{-1}Mx \\subset M$ for all $x \\in G$, prove that actually $x^{-1}Mx = M$.", "id": 216}
-{"nl_statement": "If every right coset of $H$ in $G$ is a left coset of $H$ in $G$, prove that $aHa^{-1} = H$ for all $a \\in G$.", "id": 217}
-{"nl_statement": "Let $G$ be a group, $H$ a subgroup of $G$, and let $S$ be the set of all distinct right cosets of $H$ in $G$, $T$ the set of all left cosets of $H$ in $G$. Prove that there is a 1-1 mapping of $S$ onto $T$.", "id": 218}
-{"nl_statement": "Let $G$ be a finite group, $H$ a subgroup of $G$. Let $f(a)$ be the least positive $m$ such that $a^m \\in H$. Prove that $f(a) \\mid o(a)$, where $o(a)$ is an order of $a$.", "id": 219}
-{"nl_statement": "If $a > 1$ is an integer, show that $n \\mid \\varphi(a^n - 1)$, where $\\phi$ is the Euler $\\varphi$-function.", "id": 220}
-{"nl_statement": "Prove that if $\\varphi \\colon G \\rightarrow G'$ is a homomorphism, then $\\varphi(G)$, the image of $G$, is a subgroup of $G'$.", "id": 221}
-{"nl_statement": "Let $G$ be a group such that all subgroups of $G$ are normal in $G$. If $a, b \\in G$, prove that $ba = a^jb$ for some $j$.", "id": 222}
-{"nl_statement": "Suppose that $|G| = pm$, where $p \\nmid m$ and $p$ is a prime. If $H$ is a normal subgroup of order $p$ in $G$, prove that $H$ is characteristic.", "id": 223}
-{"nl_statement": "Suppose that $G$ is an abelian group of order $p^nm$ where $p \\nmid m$ is a prime.  If $H$ is a subgroup of $G$ of order $p^n$, prove that $H$ is a characteristic subgroup of $G$.", "id": 224}
-{"nl_statement": "If $G$ is a nonabelian group of order 6, prove that $G \\simeq S_3$.", "id": 225}
-{"nl_statement": "Prove that a group of order 9 must be abelian.", "id": 226}
-{"nl_statement": "Prove that a group of order $p^2$, $p$ a prime, has a normal subgroup of order $p$.", "id": 227}
-{"nl_statement": "Let $G$ be a finite group and $\\varphi$ an automorphism of $G$ such that $\\varphi(x) = x^{-1}$ for more than three-fourths of the elements of $G$. Prove that $\\varphi(y) = y^{-1}$ for all $y \\in G$, and so $G$ is abelian.", "id": 228}
-{"nl_statement": "If $G$ is an abelian group and if $G$ has an element of order $m$ and one of order $n$, where $m$ and $n$ are relatively prime, prove that $G$ has an element of order $mn$.", "id": 229}
-{"nl_statement": "Let $G$ be the group of nonzero real numbers under multiplication and let $N = \\{1, -1\\}$. Prove that $G / N \\simeq$ positive real numbers under multiplication.", "id": 230}
-{"nl_statement": "If $\\varphi$ is a homomorphism of $G$ onto $G'$ and $N \\triangleleft G$, show that $\\varphi(N) \\triangleleft G'$.", "id": 231}
-{"nl_statement": "If $G$ is a group with subgroups $A, B$ of orders $m, n$, respectively, where $m$ and $n$ are relatively prime, prove that the subset of $G$, $AB = \\{ab \\mid a \\in A, b \\in B\\}$, has $mn$ distinct elements.", "id": 232}
-{"nl_statement": "Prove that any two nonabelian groups of order 21 are isomorphic.", "id": 233}
-{"nl_statement": "Prove that if $p > q$ are two primes such that $q \\mid p - 1$, then any two nonabelian groups of order $pq$ are isomorphic.", "id": 234}
-{"nl_statement": "If $G_1$ and $G_2$ are cyclic groups of orders $m$ and $n$, respectively, prove that $G_1 \\times G_2$ is cyclic if and only if $m$ and $n$ are relatively prime.", "id": 235}
-{"nl_statement": "Let $A$ be a normal subgroup of a group $G$, and suppose that $b \\in G$ is an element of prime order $p$, and that $b \\not\\in A$. Show that $A \\cap (b) = (e)$.", "id": 236}
-{"nl_statement": "If $P$ is a $p$-Sylow subgroup of $G$ and $P \\triangleleft G$, prove that $P$ is the only $p$-Sylow subgroup of $G$.", "id": 237}
-{"nl_statement": "If $P \\triangleleft G$, $P$ a $p$-Sylow subgroup of $G$, prove that $\\varphi(P) = P$ for every automorphism $\\varphi$ of $G$.", "id": 238}
-{"nl_statement": "Show that any subgroup of order $p^{n-1}$ in a group $G$ of order $p^n$ is normal in $G$.", "id": 239}
-{"nl_statement": "If $\\sigma, \\tau$ are two permutations that disturb no common element and $\\sigma \\tau = e$, prove that $\\sigma = \\tau = e$.", "id": 240}
-{"nl_statement": "Let $\\sigma, \\tau$ be two permutations such that they both have decompositions into disjoint cycles of cycles of lengths $m_1, m_2, \\ldots, m_k$. Prove that for some permutation $\\beta, \\tau = \\beta \\sigma \\beta^{-1}$.", "id": 241}
-{"nl_statement": "If $\\sigma$ is a $k$-cycle, show that $\\sigma$ is an odd permutation if $k$ is even, and is an even permutation if $k$ is odd.", "id": 242}
-{"nl_statement": "If $n \\geq 5$ and $(e) \\neq N \\subset A_n$ is a normal subgroup of $A_n$, show that $N$ must contain a 3-cycle.", "id": 243}
-{"nl_statement": "Show that there is an infinite number of solutions to $x^2 = -1$ in the quaternions.", "id": 244}
-{"nl_statement": "Show that $\\{x \\in R \\mid \\det x \\neq O\\}$ forms a group, $G$, under matrix multiplication and that $N = \\{x \\in R \\mid \\det x = 1\\}$ is a normal subgroup of $G$.", "id": 245}
-{"nl_statement": "If $x \\in R$ is a zero-divisor, show that $\\det x = 0$, and, conversely, if $x \\neq 0$ is such that $\\det x = 0$, then $x$ is a zero-divisor in $R$.", "id": 246}
-{"nl_statement": "Let $T$ be the group of matrices $A$ with entries in the field $\\mathbb{Z}_2$ such that $\\det A$ is not equal to 0. Prove that $T$ is isomorphic to $S_3$, the symmetric group of degree 3.", "id": 247}
-{"nl_statement": "Let $R$ be a ring in which $x^3 = x$ for every $x \\in R$. Prove that $R$ is commutative.", "id": 248}
-{"nl_statement": "If $a^2 = 0$ in $R$, show that $ax + xa$ commutes with $a$.", "id": 249}
-{"nl_statement": "Let $p$ be an odd prime and let $1 + \\frac{1}{2} + ... + \\frac{1}{p - 1} = \\frac{a}{b}$, where $a, b$ are integers. Show that $p \\mid a$.", "id": 250}
-{"nl_statement": "If $R$ is a commutative ring and $a \\in R$, let $L(a) = \\{x \\in R \\mid xa = 0\\}$. Prove that $L(a)$ is an ideal of $R$.", "id": 251}
-{"nl_statement": "If $I, J$ are ideals of $R$, define $I + J$ by $I + J = {i + j \\mid i \\in I, j \\in J}$. Prove that $I + J$ is an ideal of $R$.", "id": 252}
-{"nl_statement": "Let $R$ be the ring of $2 \\times 2$ matrices over the real numbers; suppose that $I$ is an ideal of $R$. Show that $I = (0)$ or $I = R$.", "id": 253}
-{"nl_statement": "Show that $(p - 1)/2$ of the numbers $1, 2, \\ldots, p - 1$ are quadratic residues and $(p - 1)/2$ are quadratic nonresidues $\\mod p$.", "id": 254}
-{"nl_statement": "If $F \\subset K$ are two fields and $f(x), g(x) \\in F[x]$ are relatively prime in $F[x]$, show that they are relatively prime in $K[x]$.", "id": 255}
-{"nl_statement": "Let $F = \\mathbb{Z}_p$ be the field of integers $\\mod p$, where $p$ is a prime, and let $q(x) \\in F[x]$ be irreducible of degree $n$. Show that $F[x]/(q(x))$ is a field having at exactly $p^n$ elements.", "id": 256}
-{"nl_statement": "Let $F = \\mathbb{Z}_7$ and let $p(x) = x^3 - 2$ and $q(x) = x^3 + 2$ be in $F[x]$. Show that $p(x)$ and $q(x)$ are irreducible in $F[x]$ and that the fields $F[x]/(p(x))$ and $F[x]/(q(x))$ are isomorphic.", "id": 257}
-{"nl_statement": "If $p$ is a prime, show that $q(x) = 1 + x + x^2 + \\cdots x^{p - 1}$ is irreducible in $Q[x]$.", "id": 258}
-{"nl_statement": "Prove that $f(x) = x^3 + 3x + 2$ is irreducible in $Q[x]$.", "id": 259}
-{"nl_statement": "Show that there is an infinite number of integers a such that $f(x) = x^7 + 15x^2 - 30x + a$ is irreducible in $Q[x]$.", "id": 260}
-{"nl_statement": "If $F$ is a field of characteristic $p \\neq 0$, show that $(a + b)^m = a^m + b^m$, where $m = p^n$, for all $a, b \\in F$ and any positive integer $n$.", "id": 261}
-{"nl_statement": "Let $V$ be a vector space over an infinite field $F$. Show that $V$ cannot be the set-theoretic union of a finite number of proper subspaces of $V$.", "id": 262}
-{"nl_statement": "If $a \\in K$ is such that $a^2$ is algebraic over the subfield $F$ of $K$, show that a is algebraic over $F$.", "id": 263}
-{"nl_statement": "Prove that $\\cos 1^{\\circ}$  is algebraic over $\\mathbb{Q}$.", "id": 264}
-{"nl_statement": "If $a \\in C$ is such that $p(a) = 0$, where $p(x) = x^5 + \\sqrt{2}x^3 + \\sqrt{5}x^2 + \\sqrt{7}x + \\sqrt{11}$, show that $a$ is algebraic over $\\mathbb{Q}$ of degree at most 80.", "id": 265}
-{"nl_statement": "Prove that $x^3 - 3x - 1$ is irreducible over $\\mathbb{Q}$.", "id": 266}
-{"nl_statement": "Let $\\mathbb{Q}$ be the rational field and let $p(x) = x^4 + x^3 + x^2 + x + 1$.  Show that there is an extension $K$ of $Q$ with $[K:Q] = 4$ over which $p(x)$ splits into linear factors.", "id": 267}
-{"nl_statement": "If $F$ is of characteristic $p \\neq 0$, show that all the roots of $x^m - x$, where $m = p^n$, are distinct.", "id": 268}
-{"nl_statement": "For all odd $n$ show that $8 \\mid n^{2}-1$.", "id": 269}
-{"nl_statement": "Prove that $\\frac{1}{2}+\\frac{1}{3}+\\cdots+\\frac{1}{n}$ is not an integer.", "id": 270}
-{"nl_statement": "Show that 2 is divisible by $(1+i)^{2}$ in $\\mathbb{Z}[i]$.", "id": 271}
-{"nl_statement": "If $a$ is a nonzero integer, then for $n>m$ show that $\\left(a^{2^{n}}+1, a^{2^{m}}+1\\right)=1$ or 2 depending on whether $a$ is odd or even.", "id": 272}
-{"nl_statement": "Define $\\wedge(n)=\\log p$ if $n$ is a power of $p$ and zero otherwise. Prove that $\\sum_{A \\mid n} \\mu(n / d) \\log d$ $=\\wedge(n)$.", "id": 273}
-{"nl_statement": "Show that $\\sum^{\\prime} 1 / n$, the sum being over square free integers, diverges.", "id": 274}
-{"nl_statement": "Show that there are infinitely many primes congruent to $-1$ modulo 6 .", "id": 275}
-{"nl_statement": "Show that the equation $3 x^{2}+2=y^{2}$ has no solution in integers.", "id": 276}
-{"nl_statement": "Show that the equation $7 x^{3}+2=y^{3}$ has no solution in integers.", "id": 277}
-{"nl_statement": "If $n$ is not a prime, show that $(n-1) ! \\equiv 0(n)$, except when $n=4$.", "id": 278}
-{"nl_statement": "Let $p$ and $q$ be distinct odd primes such that $p-1$ divides $q-1$. If $(n, p q)=1$, show that $n^{q-1} \\equiv 1(p q)$.", "id": 279}
-{"nl_statement": "Let $N$ be the number of solutions to $f(x) \\equiv 0(n)$ and $N_{i}$ be the number of solutions to $f(x) \\equiv 0\\left(p_{i}^{a_{i}}\\right)$. Prove that $N=N_{1} N_{2} \\cdots N_{i}$.", "id": 280}
-{"nl_statement": "Show that $x^{2} \\equiv 1\\left(2^{b}\\right)$ has one solution if $b=1$, two solutions if $b=2$, and four solutions if $b \\geq 3$.", "id": 281}
-{"nl_statement": "Consider a prime $p$ of the form $4 t+1$. Show that $a$ is a primitive root modulo $p$ iff - $a$ is a primitive root modulo $p$.", "id": 282}
-{"nl_statement": "Consider a prime $p$ of the form $4 t+3$. Show that $a$ is a primitive root modulo $p$ iff $-a$ has order $(p-1) / 2$.", "id": 283}
-{"nl_statement": "If $p=2^{n}+1$ is a Fermat prime, show that 3 is a primitive root modulo $p$.", "id": 284}
-{"nl_statement": "Let $p$ be an odd prime. Show that $a$ is a primitive root module $p$ iff $a^{(p-1) / q} \\not \\equiv 1(p)$ for all prime divisors $q$ of $p-1$.", "id": 285}
-{"nl_statement": "Show that the product of all the primitive roots modulo $p$ is congruent to $(-1)^{\\phi(p-1)}$ modulo $p$.", "id": 286}
-{"nl_statement": "Show that the sum of all the primitive roots modulo $p$ is congruent to $\\mu(p-1)$ modulo $p$.", "id": 287}
-{"nl_statement": "Prove that $1^{k}+2^{k}+\\cdots+(p-1)^{k} \\equiv 0(p)$ if $p-1 \\nmid k$ and $-1(p)$ if $p-1 \\mid k$.", "id": 288}
-{"nl_statement": "If $a$ has order 3 modulo $p$, show that $1+a$ has order 6 .", "id": 289}
-{"nl_statement": "Show that $a x^{m}+b y^{n} \\equiv c(p)$ has the same number of solutions as $a x^{m^{\\prime}}+b y^{n^{\\prime}} \\equiv c(p)$, where $m^{\\prime}=(m, p-1)$ and $n^{\\prime}=(n, p-1)$.", "id": 290}
-{"nl_statement": "Show that the number of solutions to $x^{2} \\equiv a(p)$ is given by $1+(a / p)$.", "id": 291}
-{"nl_statement": "Suppose that $p \\nmid a$. Show that the number of solutions to $a x^{2}+b x+c \\equiv 0(p)$ is given by $1+\\left(\\left(b^{2}-4 a c\\right) / p\\right)$.", "id": 292}
-{"nl_statement": "Prove that $\\sum_{a=1}^{p-1}(a / p)=0$.", "id": 293}
-{"nl_statement": "Prove that $\\sum_{\\substack{p-1 \\\\ x=0}}((a x+b) / p)=0$ provided that $p \\nmid a .$", "id": 294}
-{"nl_statement": "Show that the number of solutions to $x^{2}-y^{2} \\equiv a(p)$ is given by $\\sum_{y=0}^{p-1}\\left(1+\\left(\\left(y^{2}+a\\right) / p\\right)\\right) .$", "id": 295}
-{"nl_statement": "By calculating directly show that the number of solutions to $x^{2}-y^{2} \\equiv a(p)$ is $p-1$ if $p \\nmid a$ and $2 p-1$ if $p \\mid a$.", "id": 296}
-{"nl_statement": "Show that any prime divisor of $x^{4}-x^{2}+1$ is congruent to 1 modulo 12 .", "id": 297}
-{"nl_statement": "Suppose that $f$ is such that $b \\equiv a f(p)$. Show that $f^{2} \\equiv-1(p)$ and that $2^{(p-1) / 4} \\equiv$ $f^{a b / 2}(p)$", "id": 298}
-{"nl_statement": "Show that $x^{4} \\equiv 2(p)$ has a solution for $p \\equiv 1(4)$ iff $p$ is of the form $A^{2}+64 B^{2}$.", "id": 299}
-{"nl_statement": "Show that if $a$ is negative then $p \\equiv q(4 a), p \\times a$ implies $(a / p)=(a / q)$.", "id": 300}
-{"nl_statement": "Show that there exist algebraic numbers of arbitrarily high degree.", "id": 301}
-{"nl_statement": "Let $K \\supset F$ be finite fields with $[K: F]=3$. Show that if $\\alpha \\in F$ is not a square in $F$, it is not a square in $K$.", "id": 302}
-{"nl_statement": "Suppose that $f(x) \\in \\mathbb{Z} / p \\mathbb{Z}[x]$ has the property that $f(x+y)=f(x)+$ $f(y) \\in \\mathbb{Z} / p \\mathbb{Z}[x, y]$. Show that $f(x)$ must be of the form $a_{0} x+a_{1} x^{p}+a_{2} x^{p^{2}}+$ $\\cdots+a_{m} x^{p^{m}}$.", "id": 303}
-{"nl_statement": "Show that $\\sin (\\pi / 12)$ is an algebraic number.", "id": 304}
-{"nl_statement": "Show that a finite integral domain is a field.", "id": 305}
-{"nl_statement": "Let $F \\subset E$ be algebraic number fields. Show that any isomorphism of $F$ into $\\mathbb{C}$ extends in exactly $[E: F]$ ways to an isomorphism of $E$ into $\\mathbb{C}$.", "id": 306}
-{"nl_statement": "Let $p$ be an odd prime and consider $\\mathbb{Q}(\\sqrt{p})$. If $q \\neq p$ is prime show that $\\sigma_{q}(\\sqrt{p})=$ $(p / q) \\sqrt{p}$ where $\\sigma_{q}$ is the Frobenius automorphism at a prime ideal in $\\mathbb{Q}(\\sqrt{p})$ lying above $q$.", "id": 307}
-{"nl_statement": "Show that $165 x^{2}-21 y^{2}=19$ has no integral solution.", "id": 308}
-{"nl_statement": "Show that 1729 is the smallest positive integer expressible as the sum of two different integral cubes in two ways.", "id": 309}
-{"nl_statement": "Let $d$ be a square-free integer $d \\equiv 1$ or 2 modulo 4 . Show that if $x$ and $y$ are integers such that $y^{2}=x^{3}-d$ then $(x, 2 d)=1$.", "id": 310}
-{"nl_statement": "Munkres.13.1", "id": 311}
-{"nl_statement": "Show that if $\\mathcal{A}$ is a basis for a topology on $X$, then the topology generated by $\\mathcal{A}$ equals the intersection of all topologies on $X$ that contain $\\mathcal{A}$.", "id": 312}
-{"nl_statement": "Show that if $\\mathcal{A}$ is a subbasis for a topology on $X$, then the topology generated by $\\mathcal{A}$ equals the intersection of all topologies on $X$ that contain $\\mathcal{A}$.", "id": 313}
-{"nl_statement": "Show that if $Y$ is a subspace of $X$, and $A$ is a subset of $Y$, then the topology $A$ inherits as a subspace of $Y$ is the same as the topology it inherits as a subspace of $X$.", "id": 314}
-{"nl_statement": "A map $f: X \\rightarrow Y$ is said to be an open map if for every open set $U$ of $X$, the set $f(U)$ is open in $Y$. Show that $\\pi_{1}: X \\times Y \\rightarrow X$ and $\\pi_{2}: X \\times Y \\rightarrow Y$ are open maps.", "id": 315}
-{"nl_statement": "Show that the countable collection \\[\\{(a, b) \\times (c, d) | a < b \\text{ and } c < d, \\text{ and } a, b, c, d \\text{ are rational}\\}\\] is a basis for $\\mathbb{R}^2$.", "id": 316}
-{"nl_statement": "Show that the dictionary order topology on the set $\\mathbb{R} \\times \\mathbb{R}$ is the same as the product topology $\\mathbb{R}_d \\times \\mathbb{R}$, where $\\mathbb{R}_d$ denotes $\\mathbb{R}$ in the discrete topology.", "id": 317}
-{"nl_statement": "Show that if $A$ is closed in $Y$ and $Y$ is closed in $X$, then $A$ is closed in $X$.", "id": 318}
-{"nl_statement": "Show that if $A$ is closed in $X$ and $B$ is closed in $Y$, then $A \\times B$ is closed in $X \\times Y$.", "id": 319}
-{"nl_statement": "Show that if $U$ is open in $X$ and $A$ is closed in $X$, then $U-A$ is open in $X$, and $A-U$ is closed in $X$.", "id": 320}
-{"nl_statement": "Let $Y$ be an ordered set in the order topology. Let $f, g: X \\rightarrow Y$ be continuous. Show that the set $\\{x \\mid f(x) \\leq g(x)\\}$ is closed in $X$.", "id": 321}
-{"nl_statement": "Let $Y$ be an ordered set in the order topology. Let $f, g: X \\rightarrow Y$ be continuous. Let $h: X \\rightarrow Y$ be the function $h(x)=\\min \\{f(x), g(x)\\}.$ Show that $h$ is continuous.", "id": 322}
-{"nl_statement": "Let $A \\subset X$; let $f: A \\rightarrow Y$ be continuous; let $Y$ be Hausdorff. Show that if $f$ may be extended to a continuous function $g: \\bar{A} \\rightarrow Y$, then $g$ is uniquely determined by $f$.", "id": 323}
-{"nl_statement": "Show that $(X_1 \\times  \\cdots \\times X_{n-1}) \\times X_n$ is homeomorphic with $X_1 \\times  \\cdots \\times X_n$.", "id": 324}
-{"nl_statement": "Let $\\mathbf{x}_1, \\mathbf{x}_2, \\ldots$ be a sequence of the points of the product space $\\prod X_\\alpha$.  Show that this sequence converges to the point $\\mathbf{x}$ if and only if the sequence $\\pi_\\alpha(\\mathbf{x}_i)$ converges to $\\pi_\\alpha(\\mathbf{x})$ for each $\\alpha$.", "id": 325}
-{"nl_statement": "Show that the choice axiom is equivalent to the statement that for any indexed family of nonempty sets, $\\{A_\\alpha\\}_{\\alpha \\in J}$ with $J \\neq 0$, the cartesian product \\[\\prod_{\\alpha \\in J} A_\\alpha\\] is not empty.", "id": 326}
-{"nl_statement": "Show that $\\mathbb{R} \\times \\mathbb{R}$ in the dictionary order topology is metrizable.", "id": 327}
-{"nl_statement": "Let $\\mathbb{R}^\\infty$ be the subset of $\\mathbb{R}^\\omega$ consisting of all sequences that are eventually zero.  What is the closure of $\\mathbb{R}^\\infty$ in $\\mathbb{R}^\\omega$ in the uniform topology? Justify your answer.", "id": 328}
-{"nl_statement": "Define $f_{n}:[0,1] \\rightarrow \\mathbb{R}$ by the equation $f_{n}(x)=x^{n}$. Show that the sequence $\\left(f_{n}(x)\\right)$ converges for each $x \\in[0,1]$.", "id": 329}
-{"nl_statement": "Define $f_{n}:[0,1] \\rightarrow \\mathbb{R}$ by the equation $f_{n}(x)=x^{n}$. Show that the sequence $\\left(f_{n}\\right)$ does not converge uniformly.", "id": 330}
-{"nl_statement": "Let $X$ be a topological space and let $Y$ be a metric space. Let $f_{n}: X \\rightarrow Y$ be a sequence of continuous functions. Let $x_{n}$ be a sequence of points of $X$ converging to $x$. Show that if the sequence $\\left(f_{n}\\right)$ converges uniformly to $f$, then $\\left(f_{n}\\left(x_{n}\\right)\\right)$ converges to $f(x)$.", "id": 331}
-{"nl_statement": "Let $p: X \\rightarrow Y$ be a continuous map. Show that if there is a continuous map $f: Y \\rightarrow X$ such that $p \\circ f$ equals the identity map of $Y$, then $p$ is a quotient map.", "id": 332}
-{"nl_statement": "If $A \\subset X$, a retraction of $X$ onto $A$ is a continuous map $r: X \\rightarrow A$ such that $r(a)=a$ for each $a \\in A$. Show that a retraction is a quotient map.", "id": 333}
-{"nl_statement": "Let $p \\colon X \\rightarrow Y$ be an open map. Show that if $A$ is open in $X$, then the map $q \\colon A \\rightarrow p(A)$ obtained by restricting $p$ is an open map.", "id": 334}
-{"nl_statement": "Let $\\left\\{A_{n}\\right\\}$ be a sequence of connected subspaces of $X$, such that $A_{n} \\cap A_{n+1} \\neq \\varnothing$ for all $n$. Show that $\\bigcup A_{n}$ is connected.", "id": 335}
-{"nl_statement": "Let $\\left\\{A_{\\alpha}\\right\\}$ be a collection of connected subspaces of $X$; let $A$ be a connectea eubsen of $X$ Show that if $A \\cap A_{\\alpha} \\neq \\varnothing$ for all $\\alpha$, then $A \\cup\\left(\\bigcup A_{\\alpha}\\right)$ is connected.", "id": 336}
-{"nl_statement": "Show that if $X$ is an infinite set, it is connected in the finite complement topology.", "id": 337}
-{"nl_statement": "Let $A \\subset X$. Show that if $C$ is a connected", "id": 338}
-{"nl_statement": "Let $A$ be a proper subset of $X$, and let $B$ be a proper subset of $Y$. If $X$ and $Y$ are connected, show that $(X \\times Y)-(A \\times B)$ is connected.", "id": 339}
-{"nl_statement": "Let $p: X \\rightarrow Y$ be a quotient map. Show that if each set $p^{-1}(\\{y\\})$ is connected, and if $Y$ is connected, then $X$ is connected.", "id": 340}
-{"nl_statement": "Let $Y \\subset X$; let $X$ and $Y$ be connected. Show that if $A$ and $B$ form a separation of $X-Y$, then $Y \\cup A$ and $Y \\cup B$ are connected.", "id": 341}
-{"nl_statement": "Let $f: S^{1} \\rightarrow \\mathbb{R}$ be a continuous map. Show there exists a point $x$ of $S^{1}$ such that $f(x)=f(-x)$.", "id": 342}
-{"nl_statement": "Let $f \\colon X \\rightarrow X$ be continuous. Show that if $X = [0, 1]$, there is a point $x$ such that $f(x) = x$. (The point $x$ is called a fixed point of $f$.)", "id": 343}
-{"nl_statement": "Let $X$ be an ordered set in the order topology. Show that if $X$ is connected, then $X$ is a linear continuum.", "id": 344}
-{"nl_statement": "Show that if $X$ is a well-ordered set, then $X \\times [0, 1)$ in the dictionary order is a linear continuum.", "id": 345}
-{"nl_statement": "Let $X$ be locally path connected. Show that every connected open set in $X$ is path connected.", "id": 346}
-{"nl_statement": "Let $G$ be a topological group; let $C$ be the component of $G$ containing the identity element $e$. Show that $C$ is a normal subgroup of $G$.", "id": 347}
-{"nl_statement": "Let $A$ and $B$ be subspaces of $X$ and $Y$, respectively; let $N$ be an open set in $X \\times Y$ containing $A \\times B$. If $A$ and $B$ are compact, then there exist open sets $U$ and $V$ in $X$ and $Y$, respectively, such that $A \\times B \\subset U \\times V \\subset N .$", "id": 348}
-{"nl_statement": "Let $X$ be a compact Hausdorff space. Let $\\mathcal{A}$ be a collection of closed connected subsets of $X$ that is simply ordered by proper inclusion. Then $Y=\\bigcap_{A \\in \\mathcal{A}} A$ is connected.", "id": 349}
-{"nl_statement": "Let $p: X \\rightarrow Y$ be a closed continuous surjective map such that $p^{-1}(\\{y\\})$ is compact, for each $y \\in Y$. (Such a map is called a perfect map.) Show that if $Y$ is compact, then $X$ is compact.", "id": 350}
-{"nl_statement": "Prove that if $X$ is an ordered set in which every", "id": 351}
-{"nl_statement": "Show that a connected metric space having more than one point is uncountable.", "id": 352}
-{"nl_statement": "A space $X$ is said to be countably compact if every countable open covering of $X$ contains a finite subcollection that covers $X$. Show that for a $T_1$ space $X$, countable compactness is equivalent to limit point compactness.", "id": 353}
-{"nl_statement": "Show that X is countably compact if and only if every", "id": 354}
-{"nl_statement": "Let $(X, d)$ be a metric space. If $f: X \\rightarrow X$ satisfies the condition $d(f(x), f(y))=d(x, y)$ for all $x, y \\in X$, then $f$ is called an isometry of $X$. Show that if $f$ is an isometry and $X$ is compact, then $f$ is bijective and hence a homeomorphism.", "id": 355}
-{"nl_statement": "Show that the rationals $\\mathbb{Q}$ are not locally compact.", "id": 356}
-{"nl_statement": "Show that $[0, 1]^\\omega$ is not locally compact in the uniform topology.", "id": 357}
-{"nl_statement": "If $f \\colon X_1 \\rightarrow X_2$ is a homeomorphism of locally compact Hausdorff spaces, show that $f$ extends to a homeomorphism of their one-point compactifications.", "id": 358}
-{"nl_statement": "Show that the one-point compactification of $\\mathbb{R}$ is homeomorphic with the circle $S^1$.", "id": 359}
-{"nl_statement": "Show that if $X$ is a Hausdorff space that is locally compact at the point $x$, then for each neighborhood $U$ of $x$, there is a neighborhood $V$ of $x$ such that $\\bar{V}$ is compact and $\\bar{V} \\subset U$.", "id": 360}
-{"nl_statement": "Show that if $X$ is a countable product of spaces having countable dense subsets, then $X$ has a countable dense subset.", "id": 361}
-{"nl_statement": "Show that if $X$ has a countable dense subset, every collection of disjoint open sets in $X$ is countable.", "id": 362}
-{"nl_statement": "Show that if $X$ is regular, every pair of points of $X$ have neighborhoods whose closures are disjoint.", "id": 363}
-{"nl_statement": "Show that if $X$ is normal, every pair of disjoint closed sets have neighborhoods whose closures are disjoint.", "id": 364}
-{"nl_statement": "Show that every order topology is regular.", "id": 365}
-{"nl_statement": "Show that a closed subspace of a normal space is normal.", "id": 366}
-{"nl_statement": "Show that if $\\prod X_\\alpha$ is Hausdorff, or regular, or normal, then so is $X_\\alpha$. Assume that each $X_\\alpha$ is nonempty.", "id": 367}
-{"nl_statement": "Show that every locally compact Hausdorff space is regular.", "id": 368}
-{"nl_statement": "Show that every locally compact Hausdorff space is completely regular.", "id": 369}
-{"nl_statement": "Let $X$ be completely regular, let $A$ and $B$ be disjoint closed subsets of $X$. Show that if $A$ is compact, there is a continuous function $f \\colon X \\rightarrow [0, 1]$ such that $f(A) = \\{0\\}$ and $f(B) = \\{1\\}$.", "id": 370}
-{"nl_statement": "Let $X$ be a compact Hausdorif space that is the union of the closed subspaces $X_1$ and $X_2$. If $X_1$ and $X_2$ are metrizable, show that $X$ is metrizable.", "id": 371}
-{"nl_statement": "A collection $\\mathcal{A}$ of subsets of $X$ has the countable intersection property if every countable intersection of elements of $\\mathcal{A}$ is nonempty. Show that $X$ is a Lindelöf space if and only if for every collection $\\mathcal{A}$ of subsets of $X$ having the countable intersection property, $\\bigcap_{A \\in \\mathcal{A}} \\bar{A}$ is nonempty.", "id": 372}
-{"nl_statement": "Let $Y$ be an arbitrary compactification of $X$; let $\\beta(X)$ be the Stone-Čech compactification. Show there is a continuous surjective closed map $g \\colon \\beta(X)\\rightarrow Y$ that equals the identity on $X$.", "id": 373}
-{"nl_statement": "Let $X$ be completely regular. Show that $X$ is", "id": 374}
-{"nl_statement": "Show that if X has a countable basis, a collection", "id": 375}
-{"nl_statement": "Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces; let $Y$ be complete. Let $A \\subset X$. Show that if $f \\colon A \\rightarrow Y$ is uniformly continuous, then $f$ can be uniquely extended to a continuous function $g \\colon \\bar{A} \\rightarrow Y$, and $g$ is uniformly continuous.", "id": 376}
-{"nl_statement": "Show that the set of all sequences $(x_1, x_2, \\ldots)$ such that $\\sum x_i^2$ converges is complete in $l^2$-metric.", "id": 377}
-{"nl_statement": "Let $(p_n)$ be a sequence and $f:\\mathbb{N}\\to\\mathbb{N}$ a bijection. The sequence $(q_k)_{k\\in\\mathbb{N}}$ with $q_k=p_{f(k)}$ is called a rearrangement of $(p_n)$. Show that if $f$ is an injection, the limit of a sequence is unaffected by rearrangement.", "id": 378}
-{"nl_statement": "Let $(p_n)$ be a sequence and $f:\\mathbb{N}\\to\\mathbb{N}$ a bijection. The sequence $(q_k)_{k\\in\\mathbb{N}}$ with $q_k=p_{f(k)}$ is called a rearrangement of $(p_n)$. Show that if $f$ is a surjection, the limit of a sequence is unaffected by rearrangement.", "id": 379}
-{"nl_statement": "Prove that a set $U \\subset M$ is open if and only if none of its points are limits of its complement.", "id": 380}
-{"nl_statement": "Let $\\mathcal{T}$ be the collection of open subsets of a metric space $\\mathrm{M}$, and $\\mathcal{K}$ the collection of closed subsets. Show that there is a bijection from $\\mathcal{T}$ onto $\\mathcal{K}$.", "id": 381}
-{"nl_statement": "Show that every subset of $\\mathbb{N}$ is clopen.", "id": 382}
-{"nl_statement": "Let $\\|\\cdot\\|$ be any norm on $\\mathbb{R}^{m}$ and let $B=\\left\\{x \\in \\mathbb{R}^{m}:\\|x\\| \\leq 1\\right\\}$. Prove that $B$ is compact.", "id": 383}
-{"nl_statement": "Assume that $A, B$ are compact, disjoint, nonempty subsets of $M$. Prove that there are $a_0 \\in A$ and $b_0 \\in B$ such that for all $a \\in A$ and $b \\in B$ we have $d(a_0, b_0) \\leq d(a, b)$.", "id": 384}
-{"nl_statement": "Prove that there is an embedding of the line as a closed subset of the plane, and there is an embedding of the line as a bounded subset of the plane, but there is no embedding of the line as a closed and bounded subset of the plane.", "id": 385}
-{"nl_statement": "Prove that the 2-sphere is not homeomorphic to the plane.", "id": 386}
-{"nl_statement": "Show that if $S$ is connected, it is not true in general that its interior is connected.", "id": 387}
-{"nl_statement": "Prove that if $M$ is nonempty compact, locally path-connected and connected then it is path-connected.", "id": 388}
-{"nl_statement": "Suppose that $M$ is compact and that $\\mathcal{U}$ is an open covering of $M$ which is redundant in the sense that each $p \\in M$ is contained in at least two members of $\\mathcal{U}$. Show that $\\mathcal{U}$ reduces to a finite subcovering with the same property.", "id": 389}
-{"nl_statement": "Give a direct proof that the nested decreasing intersection of nonempty covering compact sets is nonempty.", "id": 390}
-{"nl_statement": "A metric on $M$ is an ultrametric if for all $x, y, z \\in M$, $d(x, z) \\leq \\max \\{d(x, y), d(y, z)\\} .$ Show that a metric space with an ultrametric is totally disconnected.", "id": 391}
-{"nl_statement": "Suppose that $E$ is an uncountable subset of $\\mathbb{R}$. Prove that there exists a point $p \\in \\mathbb{R}$ at which $E$ condenses.", "id": 392}
-{"nl_statement": "Let $P$ be a closed perfect subset of a separable complete metric space $M$. Prove that each point of $P$ is a condensation point of $P$.", "id": 393}
-{"nl_statement": "Given a Cantor space $M \\subset R^2$, given a line segment $[p, q] \\subset R^2$ with $p, q \\not\\in M$, and given an $\\epsilon > 0$, prove that there exists a path $A$ in the $\\epsilon$-neighborhood of $[p, q]$ that joins $p$ to $q$ and is disjoint from $M$.", "id": 394}
-{"nl_statement": "Assume that $f \\colon \\mathbb{R} \\rightarrow \\mathbb{R}$ satisfies $|f(t)-f(x)| \\leq|t-x|^{2}$ for all $t, x$. Prove that $f$ is constant.", "id": 395}
-{"nl_statement": "Prove that $\\sqrt{n+1}-\\sqrt{n} \\rightarrow 0$ as $n \\rightarrow \\infty$.", "id": 396}
-{"nl_statement": "Let $f \\colon (a, b) \\rightarrow \\mathbb{R}$ be given.  If $f''(x)$ exists, prove that \\[\\lim_{h \\rightarrow 0} \\frac{f(x - h) - 2f(x) + f(x + h)}{h^2} = f''(x).\\]", "id": 397}
-{"nl_statement": "Show that the bump function $\\beta(x)=e^{2} e(1-x) \\cdot e(x+1)$ is smooth.", "id": 398}
-{"nl_statement": "Show that the bump function $\\beta(x)=e^{2} e(1-x) \\cdot e(x+1)$ is identically 0 outside the interval $(-1, 1)$.", "id": 399}
-{"nl_statement": "Let $L$ be any closed set in $\\mathbb{R}$. Prove that there is a smooth function $f \\colon \\mathbb{R} \\rightarrow [0, 1]$ such that $f(x) = 0$ if and only if $x \\in L$.", "id": 400}
-{"nl_statement": "Let $\\psi(x) = x \\sin 1/x$ for $0 < x \\leq 1$ and $\\psi(0) = 0$.  If $f \\colon [-1, 1] \\rightarrow \\mathbb{R}$ is Riemann integrable, prove that $f \\circ \\psi$ is Riemann integrable.", "id": 401}
-{"nl_statement": "Given $f, g \\in \\mathcal{R}$, prove that $\\max(f, g)$ and $\\min(f, g)$ are Riemann integrable, where $\\max(f, g)(x) = \\max(f(x), g(x))$ and $\\min(f, g)(x) = \\min(f(x), g(x))$.", "id": 402}
-{"nl_statement": "Prove that if $a_n \\geq 0$ and $\\sum a_n$ converges then $\\sum \\sqrt{a_n}/n$ converges.", "id": 403}
-{"nl_statement": "Prove that $\\sum 1/k(\\log(k))^p$ converges when $p > 1$ and diverges when $p \\leq 1$.", "id": 404}
-{"nl_statement": "A continuous, strictly increasing function $\\mu \\colon (0, \\infty) \\rightarrow (0, \\infty)$ is a modulus of continuity if $\\mu(s) \\rightarrow 0$ as $s \\rightarrow 0$. A function $f \\colon [a, b] \\rightarrow \\mathbb{R}$ has modulus of continuity $\\mu$ if $|f(s) - f(t)| \\leq \\mu(|s - t|)$ for all $s, t \\in [a, b]$. Prove that a function is uniformly continuous if and only if it has a modulus of continuity.", "id": 405}
-{"nl_statement": "A continuous, strictly increasing function $\\mu \\colon (0, \\infty) \\rightarrow (0, \\infty)$ is a modulus of continuity if $\\mu(s) \\rightarrow 0$ as $s \\rightarrow 0$. A function $f \\colon [a, b] \\rightarrow \\mathbb{R}$ has modulus of continuity $\\mu$ if $|f(s) - f(t)| \\leq \\mu(|s - t|)$ for all $s, t \\in [a, b]$. Prove that a family of functions is equicontinuous if and only if its members.", "id": 406}
-{"nl_statement": "If $M$ is compact and $A$ is dense in $M$, prove that for each $\\delta > 0$ there is a finite subset $\\{a_1, \\ldots , a_k\\} \\subset A$ which is $\\delta$-dense in $M$ in the sense that each $x \\in M$ lies within distance $\\delta$ of at least one of the points $a_1,\\ldots, a_k$.", "id": 407}
-{"nl_statement": "Suppose that the ODE $x' = f(x)$ on $\\mathbb{R}$ is bounded, $|f(x)| \\leq M$ for all x. Prove that no solution of the ODE escapes to infinity in finite time.", "id": 408}
-{"nl_statement": "Prove that $\\mathbb{R}$ cannot be expressed as the countable union of Cantor sets.", "id": 409}
-{"nl_statement": "Let $L$ be the vector space of continuous linear transformations from a normed space $V$ to a normed space $W$. Show that the operator norm makes $L$ a normed space.", "id": 410}
-{"nl_statement": "Assume that $U$ is a connected open subset of $\\mathbb{R}^n$ and $f \\colon U \\rightarrow \\mathbb{R}^m$ is differentiable everywhere on $U$. If $(Df)_p = 0$ for all $p \\in U$, show that $f$ is constant.", "id": 411}
-{"nl_statement": "If $Y$ is a metric space and $f \\colon [a, b] \\times Y \\rightarrow \\mathbb{R}$ is continuous, show that $F(y) = \\int^b_a f(x,y) dx$ is continuous.", "id": 412}
-{"nl_statement": "Suppose that $T \\colon R^n \\rightarrow R^m$ has rank $k$.  Show there exists a $\\delta > 0$ such that if $S \\colon R^n \\rightarrow R^m$ and $||S - T|| < \\delta$ then $S$ has rank $\\geq k$.", "id": 413}
-{"nl_statement": "If $f$ and $g$ are integrable prove that their maximum and minimum are integrable.", "id": 414}
-{"nl_statement": "Suppose that $f$ and $g$ are measurable and their squares are integrable. Prove that $fg$ is measurable, integrable, and $\\int fg \\leq \\sqrt{\\int f^2} \\sqrt{\\int g^2}$.", "id": 415}
-{"nl_statement": "Prove that $g(y) = \\int_0^\\infty e^{-x} \\sin(x + y) dx$ is differentiable and find $g'(y)$.", "id": 416}
-{"nl_statement": "Prove that $f \\colon \\mathbb{R} \\rightarrow \\mathbb{R}$ is Lebesgue measurable if and only if the preimage of every Borel set is a Lebesgue measurable.", "id": 417}
-{"nl_statement": "Let $F_{0}, F_{1}, \\ldots$ be the sequence of Fibonacci numbers, with $F_{0}=0, F_{1}=1$, and $F_{n}=F_{n-1}+F_{n-2}$ for $n \\geq 2$. For $m>2$, let $R_{m}$ be the remainder when the product $\\prod_{k=1}^{F_{m}-1} k^{k}$ is divided by $F_{m}$. Prove that $R_{m}$ is also a Fibonacci number.", "id": 418}
-{"nl_statement": "For $j \\in\\{1,2,3,4\\}$, let $z_{j}$ be a complex number with $\\left|z_{j}\\right|=1$ and $z_{j} \\neq 1$. Prove that $3-z_{1}-z_{2}-z_{3}-z_{4}+z_{1} z_{2} z_{3} z_{4} \\neq 0 .$", "id": 419}
-{"nl_statement": "Let $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ be an infinitely differentiable function satisfying $f(0)=0, f(1)=1$, and $f(x) \\geq 0$ for all $x \\in$ $\\mathbb{R}$. Show that there exist a positive integer $n$ and a real number $x$ such that $f^{(n)}(x)<0$.", "id": 420}
-{"nl_statement": "Let $n$ be a positive integer, and let $f_{n}(z)=n+(n-1) z+$ $(n-2) z^{2}+\\cdots+z^{n-1}$. Prove that $f_{n}$ has no roots in the closed unit disk $\\{z \\in \\mathbb{C}:|z| \\leq 1\\}$.", "id": 421}
-{"nl_statement": "Given a real number $a$, we define a sequence by $x_{0}=1$, $x_{1}=x_{2}=a$, and $x_{n+1}=2 x_{n} x_{n-1}-x_{n-2}$ for $n \\geq 2$. Prove that if $x_{n}=0$ for some $n$, then the sequence is periodic.", "id": 422}
-{"nl_statement": "Let $S$ be the set of sequences of length 2018 whose terms are in the set $\\{1,2,3,4,5,6,10\\}$ and sum to 3860 . Prove that the cardinality of $S$ is at most $2^{3860} \\cdot\\left(\\frac{2018}{2048}\\right)^{2018} .$", "id": 423}
-{"nl_statement": "Suppose that $f(x)=\\sum_{i=0}^{\\infty} c_{i} x^{i}$ is a power series for which each coefficient $c_{i}$ is 0 or 1 . Show that if $f(2 / 3)=3 / 2$, then $f(1 / 2)$ must be irrational.", "id": 424}
-{"nl_statement": "Suppose that $G$ is a finite group generated by the two elements $g$ and $h$, where the order of $g$ is odd. Show that every element of $G$ can be written in the form $g^{m_1} h^{n_1} g^{m_2} h^{n_2} \\cdots g^{m_r} h^{n_r}$", "id": 425}
-{"nl_statement": "Let $f$ be a three times differentiable function (defined on $\\mathbb{R}$ and real-valued) such that $f$ has at least five distinct real zeros. Prove that $f+6 f^{\\prime}+12 f^{\\prime \\prime}+8 f^{\\prime \\prime \\prime}$ has at least two distinct real zeros.", "id": 426}
-{"nl_statement": "If $r$ is rational $(r \\neq 0)$ and $x$ is irrational, prove that $r+x$ and $r x$ are irrational.", "id": 427}
+{"nl_statement": "Prove that as vector spaces over $\\mathbb{Q}, \\mathbb{R}^n \\cong \\mathbb{R}$, for all $n \\in \\mathbb{Z}^{+}$.", "id": 197}
+{"nl_statement": "Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define $\\operatorname{Ann}(S)=\\{v \\in V \\mid f(v)=0 \\text{ for all } f \\in S\\}$. Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that $\\operatorname{Ann}(W_1+W_2)=\\operatorname{Ann}(W_1) \\cap\\operatorname{Ann}(W_2)$.", "id": 198}
+{"nl_statement": "Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define $\\operatorname{Ann}(S)=\\{v \\in V \\mid f(v)=0 \\text{ for all } f \\in S\\}$. Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that $\\operatorname{Ann}(W_1\\cap W_2)=\\operatorname{Ann}(W_1) + \\operatorname{Ann}(W_2)$.", "id": 199}
+{"nl_statement": "Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define $\\operatorname{Ann}(S)=\\{v \\in V \\mid f(v)=0 \\text{ for all } f \\in S\\}$. Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that $W_1=W_2$ if and only if $\\operatorname{Ann}(W_1)=\\operatorname{Ann}(W_2)$.", "id": 200}
+{"nl_statement": "Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define $\\operatorname{Ann}(S)=\\{v \\in V \\mid f(v)=0 \\text{ for all } f \\in S\\}$. Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that if $W^*$ is any subspace of $V^*$ then $\\operatorname{dim} \\operatorname{Ann}(W^*)=\\operatorname{dim} V-\\operatorname{dim} W^*$.", "id": 201}
+{"nl_statement": "If $G$ is a finite group of even order, show that there must be an element $a \\neq e$ such that $a=a^{-1}$.", "id": 202}
+{"nl_statement": "Show that a group of order 5 must be abelian.", "id": 203}
+{"nl_statement": "If $G$ is a finite group, prove that, given $a \\in G$, there is a positive integer $n$, depending on $a$, such that $a^n = e$.", "id": 204}
+{"nl_statement": "If $G$ is a finite group, prove that there is an integer $m > 0$ such that $a^m = e$ for all $a \\in G$.", "id": 205}
+{"nl_statement": "If $G$ is a group in which $(a b)^{i}=a^{i} b^{i}$ for three consecutive integers $i$, prove that $G$ is abelian.", "id": 206}
+{"nl_statement": "Let $G$ be a group in which $(a b)^{3}=a^{3} b^{3}$ and $(a b)^{5}=a^{5} b^{5}$ for all $a, b \\in G$. Show that $G$ is abelian.", "id": 207}
+{"nl_statement": "Let $G$ be a group in which $(a b)^{n}=a^{n} b^{n}$ for some fixed integer $n>1$ for all $a, b \\in G$. For all $a, b \\in G$, prove that $\\left(a b a^{-1} b^{-1}\\right)^{n(n-1)}=e$. ", "id": 208}
+{"nl_statement": "If $G$ is a group and $a, x \\in G$, prove that $C\\left(x^{-1} a x\\right)=x^{-1} C(a) x$", "id": 209}
+{"nl_statement": "If $M$ is a subgroup of $G$ such that $x^{-1} M x \\subset M$ for all $x \\in G$, prove that actually $x^{-1} M x=M$. ", "id": 210}
+{"nl_statement": "If a group $G$ has no proper subgroups, prove that $G$ is cyclic of order $p$, where $p$ is a prime number.", "id": 211}
+{"nl_statement": "If $A, B$ are subgroups of $G$ such that $b^{-1} Ab \\subset A$ for all $b \\in B$, show that $AB$ is a subgroup of $G$.", "id": 212}
+{"nl_statement": "If $A$ and $B$ are finite subgroups, of orders $m$ and $n$, respectively, of the abelian group $G$, prove that $AB$ is a subgroup of order $mn$ if $m$ and $n$ are relatively prime.", "id": 213}
+{"nl_statement": "Let $M, N$ be subgroups of $G$ such that $x^{-1}Mx \\subset M$ and $x^{-1} N x \\subset N$ for all $x \\in G$. Prove that $MN$ is a subgroup of $G$ and that $x^{-1} (MN)x \\subset MN$ for all $x \\in G$.", "id": 214}
+{"nl_statement": "If $M$ is a subgroup of $G$ such that $x^{-1}Mx \\subset M$ for all $x \\in G$, prove that actually $x^{-1}Mx = M$.", "id": 215}
+{"nl_statement": "If every right coset of $H$ in $G$ is a left coset of $H$ in $G$, prove that $aHa^{-1} = H$ for all $a \\in G$.", "id": 216}
+{"nl_statement": "Let $G$ be a group, $H$ a subgroup of $G$, and let $S$ be the set of all distinct right cosets of $H$ in $G$, $T$ the set of all left cosets of $H$ in $G$. Prove that there is a 1-1 mapping of $S$ onto $T$.", "id": 217}
+{"nl_statement": "Let $G$ be a finite group, $H$ a subgroup of $G$. Let $f(a)$ be the least positive $m$ such that $a^m \\in H$. Prove that $f(a) \\mid o(a)$, where $o(a)$ is an order of $a$.", "id": 218}
+{"nl_statement": "If $a > 1$ is an integer, show that $n \\mid \\varphi(a^n - 1)$, where $\\phi$ is the Euler $\\varphi$-function.", "id": 219}
+{"nl_statement": "Prove that if $\\varphi \\colon G \\rightarrow G'$ is a homomorphism, then $\\varphi(G)$, the image of $G$, is a subgroup of $G'$.", "id": 220}
+{"nl_statement": "Let $G$ be a group such that all subgroups of $G$ are normal in $G$. If $a, b \\in G$, prove that $ba = a^jb$ for some $j$.", "id": 221}
+{"nl_statement": "Suppose that $|G| = pm$, where $p \\nmid m$ and $p$ is a prime. If $H$ is a normal subgroup of order $p$ in $G$, prove that $H$ is characteristic.", "id": 222}
+{"nl_statement": "Suppose that $G$ is an abelian group of order $p^nm$ where $p \\nmid m$ is a prime.  If $H$ is a subgroup of $G$ of order $p^n$, prove that $H$ is a characteristic subgroup of $G$.", "id": 223}
+{"nl_statement": "If $G$ is a nonabelian group of order 6, prove that $G \\simeq S_3$.", "id": 224}
+{"nl_statement": "Prove that a group of order 9 must be abelian.", "id": 225}
+{"nl_statement": "Prove that a group of order $p^2$, $p$ a prime, has a normal subgroup of order $p$.", "id": 226}
+{"nl_statement": "Let $G$ be a finite group and $\\varphi$ an automorphism of $G$ such that $\\varphi(x) = x^{-1}$ for more than three-fourths of the elements of $G$. Prove that $\\varphi(y) = y^{-1}$ for all $y \\in G$, and so $G$ is abelian.", "id": 227}
+{"nl_statement": "If $G$ is an abelian group and if $G$ has an element of order $m$ and one of order $n$, where $m$ and $n$ are relatively prime, prove that $G$ has an element of order $mn$.", "id": 228}
+{"nl_statement": "Let $G$ be the group of nonzero real numbers under multiplication and let $N = \\{1, -1\\}$. Prove that $G / N \\simeq$ positive real numbers under multiplication.", "id": 229}
+{"nl_statement": "If $\\varphi$ is a homomorphism of $G$ onto $G'$ and $N \\triangleleft G$, show that $\\varphi(N) \\triangleleft G'$.", "id": 230}
+{"nl_statement": "If $G$ is a group with subgroups $A, B$ of orders $m, n$, respectively, where $m$ and $n$ are relatively prime, prove that the subset of $G$, $AB = \\{ab \\mid a \\in A, b \\in B\\}$, has $mn$ distinct elements.", "id": 231}
+{"nl_statement": "Prove that any two nonabelian groups of order 21 are isomorphic.", "id": 232}
+{"nl_statement": "Prove that if $p > q$ are two primes such that $q \\mid p - 1$, then any two nonabelian groups of order $pq$ are isomorphic.", "id": 233}
+{"nl_statement": "If $G_1$ and $G_2$ are cyclic groups of orders $m$ and $n$, respectively, prove that $G_1 \\times G_2$ is cyclic if and only if $m$ and $n$ are relatively prime.", "id": 234}
+{"nl_statement": "Let $A$ be a normal subgroup of a group $G$, and suppose that $b \\in G$ is an element of prime order $p$, and that $b \\not\\in A$. Show that $A \\cap (b) = (e)$.", "id": 235}
+{"nl_statement": "If $P$ is a $p$-Sylow subgroup of $G$ and $P \\triangleleft G$, prove that $P$ is the only $p$-Sylow subgroup of $G$.", "id": 236}
+{"nl_statement": "If $P \\triangleleft G$, $P$ a $p$-Sylow subgroup of $G$, prove that $\\varphi(P) = P$ for every automorphism $\\varphi$ of $G$.", "id": 237}
+{"nl_statement": "Show that any subgroup of order $p^{n-1}$ in a group $G$ of order $p^n$ is normal in $G$.", "id": 238}
+{"nl_statement": "If $\\sigma, \\tau$ are two permutations that disturb no common element and $\\sigma \\tau = e$, prove that $\\sigma = \\tau = e$.", "id": 239}
+{"nl_statement": "Let $\\sigma, \\tau$ be two permutations such that they both have decompositions into disjoint cycles of cycles of lengths $m_1, m_2, \\ldots, m_k$. Prove that for some permutation $\\beta, \\tau = \\beta \\sigma \\beta^{-1}$.", "id": 240}
+{"nl_statement": "If $\\sigma$ is a $k$-cycle, show that $\\sigma$ is an odd permutation if $k$ is even, and is an even permutation if $k$ is odd.", "id": 241}
+{"nl_statement": "If $n \\geq 5$ and $(e) \\neq N \\subset A_n$ is a normal subgroup of $A_n$, show that $N$ must contain a 3-cycle.", "id": 242}
+{"nl_statement": "Show that there is an infinite number of solutions to $x^2 = -1$ in the quaternions.", "id": 243}
+{"nl_statement": "Show that $\\{x \\in R \\mid \\det x \\neq O\\}$ forms a group, $G$, under matrix multiplication and that $N = \\{x \\in R \\mid \\det x = 1\\}$ is a normal subgroup of $G$.", "id": 244}
+{"nl_statement": "If $x \\in R$ is a zero-divisor, show that $\\det x = 0$, and, conversely, if $x \\neq 0$ is such that $\\det x = 0$, then $x$ is a zero-divisor in $R$.", "id": 245}
+{"nl_statement": "Let $T$ be the group of matrices $A$ with entries in the field $\\mathbb{Z}_2$ such that $\\det A$ is not equal to 0. Prove that $T$ is isomorphic to $S_3$, the symmetric group of degree 3.", "id": 246}
+{"nl_statement": "Let $R$ be a ring in which $x^3 = x$ for every $x \\in R$. Prove that $R$ is commutative.", "id": 247}
+{"nl_statement": "If $a^2 = 0$ in $R$, show that $ax + xa$ commutes with $a$.", "id": 248}
+{"nl_statement": "Let $p$ be an odd prime and let $1 + \\frac{1}{2} + ... + \\frac{1}{p - 1} = \\frac{a}{b}$, where $a, b$ are integers. Show that $p \\mid a$.", "id": 249}
+{"nl_statement": "If $R$ is a commutative ring and $a \\in R$, let $L(a) = \\{x \\in R \\mid xa = 0\\}$. Prove that $L(a)$ is an ideal of $R$.", "id": 250}
+{"nl_statement": "If $I, J$ are ideals of $R$, define $I + J$ by $I + J = {i + j \\mid i \\in I, j \\in J}$. Prove that $I + J$ is an ideal of $R$.", "id": 251}
+{"nl_statement": "Let $R$ be the ring of $2 \\times 2$ matrices over the real numbers; suppose that $I$ is an ideal of $R$. Show that $I = (0)$ or $I = R$.", "id": 252}
+{"nl_statement": "Show that $(p - 1)/2$ of the numbers $1, 2, \\ldots, p - 1$ are quadratic residues and $(p - 1)/2$ are quadratic nonresidues $\\mod p$.", "id": 253}
+{"nl_statement": "If $F \\subset K$ are two fields and $f(x), g(x) \\in F[x]$ are relatively prime in $F[x]$, show that they are relatively prime in $K[x]$.", "id": 254}
+{"nl_statement": "Let $F = \\mathbb{Z}_p$ be the field of integers $\\mod p$, where $p$ is a prime, and let $q(x) \\in F[x]$ be irreducible of degree $n$. Show that $F[x]/(q(x))$ is a field having at exactly $p^n$ elements.", "id": 255}
+{"nl_statement": "Let $F = \\mathbb{Z}_7$ and let $p(x) = x^3 - 2$ and $q(x) = x^3 + 2$ be in $F[x]$. Show that $p(x)$ and $q(x)$ are irreducible in $F[x]$ and that the fields $F[x]/(p(x))$ and $F[x]/(q(x))$ are isomorphic.", "id": 256}
+{"nl_statement": "If $p$ is a prime, show that $q(x) = 1 + x + x^2 + \\cdots x^{p - 1}$ is irreducible in $Q[x]$.", "id": 257}
+{"nl_statement": "Prove that $f(x) = x^3 + 3x + 2$ is irreducible in $Q[x]$.", "id": 258}
+{"nl_statement": "Show that there is an infinite number of integers a such that $f(x) = x^7 + 15x^2 - 30x + a$ is irreducible in $Q[x]$.", "id": 259}
+{"nl_statement": "If $F$ is a field of characteristic $p \\neq 0$, show that $(a + b)^m = a^m + b^m$, where $m = p^n$, for all $a, b \\in F$ and any positive integer $n$.", "id": 260}
+{"nl_statement": "Let $V$ be a vector space over an infinite field $F$. Show that $V$ cannot be the set-theoretic union of a finite number of proper subspaces of $V$.", "id": 261}
+{"nl_statement": "If $a \\in K$ is such that $a^2$ is algebraic over the subfield $F$ of $K$, show that a is algebraic over $F$.", "id": 262}
+{"nl_statement": "Prove that $\\cos 1^{\\circ}$  is algebraic over $\\mathbb{Q}$.", "id": 263}
+{"nl_statement": "If $a \\in C$ is such that $p(a) = 0$, where $p(x) = x^5 + \\sqrt{2}x^3 + \\sqrt{5}x^2 + \\sqrt{7}x + \\sqrt{11}$, show that $a$ is algebraic over $\\mathbb{Q}$ of degree at most 80.", "id": 264}
+{"nl_statement": "Prove that $x^3 - 3x - 1$ is irreducible over $\\mathbb{Q}$.", "id": 265}
+{"nl_statement": "Let $\\mathbb{Q}$ be the rational field and let $p(x) = x^4 + x^3 + x^2 + x + 1$.  Show that there is an extension $K$ of $Q$ with $[K:Q] = 4$ over which $p(x)$ splits into linear factors.", "id": 266}
+{"nl_statement": "If $F$ is of characteristic $p \\neq 0$, show that all the roots of $x^m - x$, where $m = p^n$, are distinct.", "id": 267}
+{"nl_statement": "For all odd $n$ show that $8 \\mid n^{2}-1$.", "id": 268}
+{"nl_statement": "Prove that $\\frac{1}{2}+\\frac{1}{3}+\\cdots+\\frac{1}{n}$ is not an integer.", "id": 269}
+{"nl_statement": "Show that 2 is divisible by $(1+i)^{2}$ in $\\mathbb{Z}[i]$.", "id": 270}
+{"nl_statement": "If $a$ is a nonzero integer, then for $n>m$ show that $\\left(a^{2^{n}}+1, a^{2^{m}}+1\\right)=1$ or 2 depending on whether $a$ is odd or even.", "id": 271}
+{"nl_statement": "Define $\\wedge(n)=\\log p$ if $n$ is a power of $p$ and zero otherwise. Prove that $\\sum_{A \\mid n} \\mu(n / d) \\log d$ $=\\wedge(n)$.", "id": 272}
+{"nl_statement": "Show that $\\sum^{\\prime} 1 / n$, the sum being over square free integers, diverges.", "id": 273}
+{"nl_statement": "Show that there are infinitely many primes congruent to $-1$ modulo 6 .", "id": 274}
+{"nl_statement": "Show that the equation $3 x^{2}+2=y^{2}$ has no solution in integers.", "id": 275}
+{"nl_statement": "Show that the equation $7 x^{3}+2=y^{3}$ has no solution in integers.", "id": 276}
+{"nl_statement": "If $n$ is not a prime, show that $(n-1) ! \\equiv 0(n)$, except when $n=4$.", "id": 277}
+{"nl_statement": "Let $p$ and $q$ be distinct odd primes such that $p-1$ divides $q-1$. If $(n, p q)=1$, show that $n^{q-1} \\equiv 1(p q)$.", "id": 278}
+{"nl_statement": "Let $N$ be the number of solutions to $f(x) \\equiv 0(n)$ and $N_{i}$ be the number of solutions to $f(x) \\equiv 0\\left(p_{i}^{a_{i}}\\right)$. Prove that $N=N_{1} N_{2} \\cdots N_{i}$.", "id": 279}
+{"nl_statement": "Show that $x^{2} \\equiv 1\\left(2^{b}\\right)$ has one solution if $b=1$, two solutions if $b=2$, and four solutions if $b \\geq 3$.", "id": 280}
+{"nl_statement": "Consider a prime $p$ of the form $4 t+1$. Show that $a$ is a primitive root modulo $p$ iff - $a$ is a primitive root modulo $p$.", "id": 281}
+{"nl_statement": "Consider a prime $p$ of the form $4 t+3$. Show that $a$ is a primitive root modulo $p$ iff $-a$ has order $(p-1) / 2$.", "id": 282}
+{"nl_statement": "If $p=2^{n}+1$ is a Fermat prime, show that 3 is a primitive root modulo $p$.", "id": 283}
+{"nl_statement": "Let $p$ be an odd prime. Show that $a$ is a primitive root module $p$ iff $a^{(p-1) / q} \\not \\equiv 1(p)$ for all prime divisors $q$ of $p-1$.", "id": 284}
+{"nl_statement": "Show that the product of all the primitive roots modulo $p$ is congruent to $(-1)^{\\phi(p-1)}$ modulo $p$.", "id": 285}
+{"nl_statement": "Show that the sum of all the primitive roots modulo $p$ is congruent to $\\mu(p-1)$ modulo $p$.", "id": 286}
+{"nl_statement": "Prove that $1^{k}+2^{k}+\\cdots+(p-1)^{k} \\equiv 0(p)$ if $p-1 \\nmid k$ and $-1(p)$ if $p-1 \\mid k$.", "id": 287}
+{"nl_statement": "If $a$ has order 3 modulo $p$, show that $1+a$ has order 6 .", "id": 288}
+{"nl_statement": "Show that $a x^{m}+b y^{n} \\equiv c(p)$ has the same number of solutions as $a x^{m^{\\prime}}+b y^{n^{\\prime}} \\equiv c(p)$, where $m^{\\prime}=(m, p-1)$ and $n^{\\prime}=(n, p-1)$.", "id": 289}
+{"nl_statement": "Show that the number of solutions to $x^{2} \\equiv a(p)$ is given by $1+(a / p)$.", "id": 290}
+{"nl_statement": "Suppose that $p \\nmid a$. Show that the number of solutions to $a x^{2}+b x+c \\equiv 0(p)$ is given by $1+\\left(\\left(b^{2}-4 a c\\right) / p\\right)$.", "id": 291}
+{"nl_statement": "Prove that $\\sum_{a=1}^{p-1}(a / p)=0$.", "id": 292}
+{"nl_statement": "Prove that $\\sum_{\\substack{p-1 \\\\ x=0}}((a x+b) / p)=0$ provided that $p \\nmid a .$", "id": 293}
+{"nl_statement": "Show that the number of solutions to $x^{2}-y^{2} \\equiv a(p)$ is given by $\\sum_{y=0}^{p-1}\\left(1+\\left(\\left(y^{2}+a\\right) / p\\right)\\right) .$", "id": 294}
+{"nl_statement": "By calculating directly show that the number of solutions to $x^{2}-y^{2} \\equiv a(p)$ is $p-1$ if $p \\nmid a$ and $2 p-1$ if $p \\mid a$.", "id": 295}
+{"nl_statement": "Show that any prime divisor of $x^{4}-x^{2}+1$ is congruent to 1 modulo 12 .", "id": 296}
+{"nl_statement": "Suppose that $f$ is such that $b \\equiv a f(p)$. Show that $f^{2} \\equiv-1(p)$ and that $2^{(p-1) / 4} \\equiv$ $f^{a b / 2}(p)$", "id": 297}
+{"nl_statement": "Show that $x^{4} \\equiv 2(p)$ has a solution for $p \\equiv 1(4)$ iff $p$ is of the form $A^{2}+64 B^{2}$.", "id": 298}
+{"nl_statement": "Show that if $a$ is negative then $p \\equiv q(4 a), p \\times a$ implies $(a / p)=(a / q)$.", "id": 299}
+{"nl_statement": "Show that there exist algebraic numbers of arbitrarily high degree.", "id": 300}
+{"nl_statement": "Let $K \\supset F$ be finite fields with $[K: F]=3$. Show that if $\\alpha \\in F$ is not a square in $F$, it is not a square in $K$.", "id": 301}
+{"nl_statement": "Suppose that $f(x) \\in \\mathbb{Z} / p \\mathbb{Z}[x]$ has the property that $f(x+y)=f(x)+$ $f(y) \\in \\mathbb{Z} / p \\mathbb{Z}[x, y]$. Show that $f(x)$ must be of the form $a_{0} x+a_{1} x^{p}+a_{2} x^{p^{2}}+$ $\\cdots+a_{m} x^{p^{m}}$.", "id": 302}
+{"nl_statement": "Show that $\\sin (\\pi / 12)$ is an algebraic number.", "id": 303}
+{"nl_statement": "Show that a finite integral domain is a field.", "id": 304}
+{"nl_statement": "Let $F \\subset E$ be algebraic number fields. Show that any isomorphism of $F$ into $\\mathbb{C}$ extends in exactly $[E: F]$ ways to an isomorphism of $E$ into $\\mathbb{C}$.", "id": 305}
+{"nl_statement": "Let $p$ be an odd prime and consider $\\mathbb{Q}(\\sqrt{p})$. If $q \\neq p$ is prime show that $\\sigma_{q}(\\sqrt{p})=$ $(p / q) \\sqrt{p}$ where $\\sigma_{q}$ is the Frobenius automorphism at a prime ideal in $\\mathbb{Q}(\\sqrt{p})$ lying above $q$.", "id": 306}
+{"nl_statement": "Show that $165 x^{2}-21 y^{2}=19$ has no integral solution.", "id": 307}
+{"nl_statement": "Show that 1729 is the smallest positive integer expressible as the sum of two different integral cubes in two ways.", "id": 308}
+{"nl_statement": "Let $d$ be a square-free integer $d \\equiv 1$ or 2 modulo 4 . Show that if $x$ and $y$ are integers such that $y^{2}=x^{3}-d$ then $(x, 2 d)=1$.", "id": 309}
+{"nl_statement": "Let $X$ be a topological space; let $A$ be a subset of $X$. Suppose that for each $x \\in A$ there is an open set $U$ containing $x$ such that $U \\subset A$. Show that $A$ is open in $X$.", "id": 310}
+{"nl_statement": "Show that if $\\mathcal{A}$ is a basis for a topology on $X$, then the topology generated by $\\mathcal{A}$ equals the intersection of all topologies on $X$ that contain $\\mathcal{A}$.", "id": 311}
+{"nl_statement": "Show that if $\\mathcal{A}$ is a subbasis for a topology on $X$, then the topology generated by $\\mathcal{A}$ equals the intersection of all topologies on $X$ that contain $\\mathcal{A}$.", "id": 312}
+{"nl_statement": "Show that if $Y$ is a subspace of $X$, and $A$ is a subset of $Y$, then the topology $A$ inherits as a subspace of $Y$ is the same as the topology it inherits as a subspace of $X$.", "id": 313}
+{"nl_statement": "A map $f: X \\rightarrow Y$ is said to be an open map if for every open set $U$ of $X$, the set $f(U)$ is open in $Y$. Show that $\\pi_{1}: X \\times Y \\rightarrow X$ and $\\pi_{2}: X \\times Y \\rightarrow Y$ are open maps.", "id": 314}
+{"nl_statement": "Show that the countable collection \\[\\{(a, b) \\times (c, d) | a < b \\text{ and } c < d, \\text{ and } a, b, c, d \\text{ are rational}\\}\\] is a basis for $\\mathbb{R}^2$.", "id": 315}
+{"nl_statement": "Show that the dictionary order topology on the set $\\mathbb{R} \\times \\mathbb{R}$ is the same as the product topology $\\mathbb{R}_d \\times \\mathbb{R}$, where $\\mathbb{R}_d$ denotes $\\mathbb{R}$ in the discrete topology.", "id": 316}
+{"nl_statement": "Show that if $A$ is closed in $Y$ and $Y$ is closed in $X$, then $A$ is closed in $X$.", "id": 317}
+{"nl_statement": "Show that if $A$ is closed in $X$ and $B$ is closed in $Y$, then $A \\times B$ is closed in $X \\times Y$.", "id": 318}
+{"nl_statement": "Show that if $U$ is open in $X$ and $A$ is closed in $X$, then $U-A$ is open in $X$, and $A-U$ is closed in $X$.", "id": 319}
+{"nl_statement": "Let $Y$ be an ordered set in the order topology. Let $f, g: X \\rightarrow Y$ be continuous. Show that the set $\\{x \\mid f(x) \\leq g(x)\\}$ is closed in $X$.", "id": 320}
+{"nl_statement": "Let $Y$ be an ordered set in the order topology. Let $f, g: X \\rightarrow Y$ be continuous. Let $h: X \\rightarrow Y$ be the function $h(x)=\\min \\{f(x), g(x)\\}.$ Show that $h$ is continuous.", "id": 321}
+{"nl_statement": "Let $A \\subset X$; let $f: A \\rightarrow Y$ be continuous; let $Y$ be Hausdorff. Show that if $f$ may be extended to a continuous function $g: \\bar{A} \\rightarrow Y$, then $g$ is uniquely determined by $f$.", "id": 322}
+{"nl_statement": "Show that $(X_1 \\times  \\cdots \\times X_{n-1}) \\times X_n$ is homeomorphic with $X_1 \\times  \\cdots \\times X_n$.", "id": 323}
+{"nl_statement": "Let $\\mathbf{x}_1, \\mathbf{x}_2, \\ldots$ be a sequence of the points of the product space $\\prod X_\\alpha$.  Show that this sequence converges to the point $\\mathbf{x}$ if and only if the sequence $\\pi_\\alpha(\\mathbf{x}_i)$ converges to $\\pi_\\alpha(\\mathbf{x})$ for each $\\alpha$.", "id": 324}
+{"nl_statement": "Show that the choice axiom is equivalent to the statement that for any indexed family of nonempty sets, $\\{A_\\alpha\\}_{\\alpha \\in J}$ with $J \\neq 0$, the cartesian product \\[\\prod_{\\alpha \\in J} A_\\alpha\\] is not empty.", "id": 325}
+{"nl_statement": "Show that $\\mathbb{R} \\times \\mathbb{R}$ in the dictionary order topology is metrizable.", "id": 326}
+{"nl_statement": "Let $\\mathbb{R}^\\infty$ be the subset of $\\mathbb{R}^\\omega$ consisting of all sequences that are eventually zero.  What is the closure of $\\mathbb{R}^\\infty$ in $\\mathbb{R}^\\omega$ in the uniform topology? Justify your answer.", "id": 327}
+{"nl_statement": "Define $f_{n}:[0,1] \\rightarrow \\mathbb{R}$ by the equation $f_{n}(x)=x^{n}$. Show that the sequence $\\left(f_{n}(x)\\right)$ converges for each $x \\in[0,1]$.", "id": 328}
+{"nl_statement": "Define $f_{n}:[0,1] \\rightarrow \\mathbb{R}$ by the equation $f_{n}(x)=x^{n}$. Show that the sequence $\\left(f_{n}\\right)$ does not converge uniformly.", "id": 329}
+{"nl_statement": "Let $X$ be a topological space and let $Y$ be a metric space. Let $f_{n}: X \\rightarrow Y$ be a sequence of continuous functions. Let $x_{n}$ be a sequence of points of $X$ converging to $x$. Show that if the sequence $\\left(f_{n}\\right)$ converges uniformly to $f$, then $\\left(f_{n}\\left(x_{n}\\right)\\right)$ converges to $f(x)$.", "id": 330}
+{"nl_statement": "Let $p: X \\rightarrow Y$ be a continuous map. Show that if there is a continuous map $f: Y \\rightarrow X$ such that $p \\circ f$ equals the identity map of $Y$, then $p$ is a quotient map.", "id": 331}
+{"nl_statement": "If $A \\subset X$, a retraction of $X$ onto $A$ is a continuous map $r: X \\rightarrow A$ such that $r(a)=a$ for each $a \\in A$. Show that a retraction is a quotient map.", "id": 332}
+{"nl_statement": "Let $p \\colon X \\rightarrow Y$ be an open map. Show that if $A$ is open in $X$, then the map $q \\colon A \\rightarrow p(A)$ obtained by restricting $p$ is an open map.", "id": 333}
+{"nl_statement": "Let $\\left\\{A_{n}\\right\\}$ be a sequence of connected subspaces of $X$, such that $A_{n} \\cap A_{n+1} \\neq \\varnothing$ for all $n$. Show that $\\bigcup A_{n}$ is connected.", "id": 334}
+{"nl_statement": "Let $\\left\\{A_{\\alpha}\\right\\}$ be a collection of connected subspaces of $X$; let $A$ be a connectea eubsen of $X$ Show that if $A \\cap A_{\\alpha} \\neq \\varnothing$ for all $\\alpha$, then $A \\cup\\left(\\bigcup A_{\\alpha}\\right)$ is connected.", "id": 335}
+{"nl_statement": "Show that if $X$ is an infinite set, it is connected in the finite complement topology.", "id": 336}
+{"nl_statement": "Let $A \\subset X$. Show that if $C$ is a connected subspace of $X$ that intersects both $A$ and $X-A$, then $C$ intersects $\\operatorname{Bd} A$.", "id": 337}
+{"nl_statement": "Let $A$ be a proper subset of $X$, and let $B$ be a proper subset of $Y$. If $X$ and $Y$ are connected, show that $(X \\times Y)-(A \\times B)$ is connected.", "id": 338}
+{"nl_statement": "Let $p: X \\rightarrow Y$ be a quotient map. Show that if each set $p^{-1}(\\{y\\})$ is connected, and if $Y$ is connected, then $X$ is connected.", "id": 339}
+{"nl_statement": "Let $Y \\subset X$; let $X$ and $Y$ be connected. Show that if $A$ and $B$ form a separation of $X-Y$, then $Y \\cup A$ and $Y \\cup B$ are connected.", "id": 340}
+{"nl_statement": "Let $f: S^{1} \\rightarrow \\mathbb{R}$ be a continuous map. Show there exists a point $x$ of $S^{1}$ such that $f(x)=f(-x)$.", "id": 341}
+{"nl_statement": "Let $f \\colon X \\rightarrow X$ be continuous. Show that if $X = [0, 1]$, there is a point $x$ such that $f(x) = x$. (The point $x$ is called a fixed point of $f$.)", "id": 342}
+{"nl_statement": "Let $X$ be an ordered set in the order topology. Show that if $X$ is connected, then $X$ is a linear continuum.", "id": 343}
+{"nl_statement": "Show that if $X$ is a well-ordered set, then $X \\times [0, 1)$ in the dictionary order is a linear continuum.", "id": 344}
+{"nl_statement": "Let $X$ be locally path connected. Show that every connected open set in $X$ is path connected.", "id": 345}
+{"nl_statement": "Let $G$ be a topological group; let $C$ be the component of $G$ containing the identity element $e$. Show that $C$ is a normal subgroup of $G$.", "id": 346}
+{"nl_statement": "Let $A$ and $B$ be subspaces of $X$ and $Y$, respectively; let $N$ be an open set in $X \\times Y$ containing $A \\times B$. If $A$ and $B$ are compact, then there exist open sets $U$ and $V$ in $X$ and $Y$, respectively, such that $A \\times B \\subset U \\times V \\subset N .$", "id": 347}
+{"nl_statement": "Let $X$ be a compact Hausdorff space. Let $\\mathcal{A}$ be a collection of closed connected subsets of $X$ that is simply ordered by proper inclusion. Then $Y=\\bigcap_{A \\in \\mathcal{A}} A$ is connected.", "id": 348}
+{"nl_statement": "Let $p: X \\rightarrow Y$ be a closed continuous surjective map such that $p^{-1}(\\{y\\})$ is compact, for each $y \\in Y$. (Such a map is called a perfect map.) Show that if $Y$ is compact, then $X$ is compact.", "id": 349}
+{"nl_statement": "Prove that if $X$ is an ordered set in which every closed interval is compact, then $X$ has the least upper bound property.", "id": 350}
+{"nl_statement": "Show that a connected metric space having more than one point is uncountable.", "id": 351}
+{"nl_statement": "A space $X$ is said to be countably compact if every countable open covering of $X$ contains a finite subcollection that covers $X$. Show that for a $T_1$ space $X$, countable compactness is equivalent to limit point compactness.", "id": 352}
+{"nl_statement": "Show that X is countably compact if and only if every nested sequence $C_1 \\supset C_2 \\supset \\cdots$ of closed nonempty sets of X has a nonempty intersection.", "id": 353}
+{"nl_statement": "Let $(X, d)$ be a metric space. If $f: X \\rightarrow X$ satisfies the condition $d(f(x), f(y))=d(x, y)$ for all $x, y \\in X$, then $f$ is called an isometry of $X$. Show that if $f$ is an isometry and $X$ is compact, then $f$ is bijective and hence a homeomorphism.", "id": 354}
+{"nl_statement": "Show that the rationals $\\mathbb{Q}$ are not locally compact.", "id": 355}
+{"nl_statement": "Show that $[0, 1]^\\omega$ is not locally compact in the uniform topology.", "id": 356}
+{"nl_statement": "If $f \\colon X_1 \\rightarrow X_2$ is a homeomorphism of locally compact Hausdorff spaces, show that $f$ extends to a homeomorphism of their one-point compactifications.", "id": 357}
+{"nl_statement": "Show that the one-point compactification of $\\mathbb{R}$ is homeomorphic with the circle $S^1$.", "id": 358}
+{"nl_statement": "Show that if $X$ is a Hausdorff space that is locally compact at the point $x$, then for each neighborhood $U$ of $x$, there is a neighborhood $V$ of $x$ such that $\\bar{V}$ is compact and $\\bar{V} \\subset U$.", "id": 359}
+{"nl_statement": "Show that if $X$ is a countable product of spaces having countable dense subsets, then $X$ has a countable dense subset.", "id": 360}
+{"nl_statement": "Show that if $X$ has a countable dense subset, every collection of disjoint open sets in $X$ is countable.", "id": 361}
+{"nl_statement": "Show that if $X$ is regular, every pair of points of $X$ have neighborhoods whose closures are disjoint.", "id": 362}
+{"nl_statement": "Show that if $X$ is normal, every pair of disjoint closed sets have neighborhoods whose closures are disjoint.", "id": 363}
+{"nl_statement": "Show that every order topology is regular.", "id": 364}
+{"nl_statement": "Show that a closed subspace of a normal space is normal.", "id": 365}
+{"nl_statement": "Show that if $\\prod X_\\alpha$ is Hausdorff, or regular, or normal, then so is $X_\\alpha$. Assume that each $X_\\alpha$ is nonempty.", "id": 366}
+{"nl_statement": "Show that every locally compact Hausdorff space is regular.", "id": 367}
+{"nl_statement": "Show that every locally compact Hausdorff space is completely regular.", "id": 368}
+{"nl_statement": "Let $X$ be completely regular, let $A$ and $B$ be disjoint closed subsets of $X$. Show that if $A$ is compact, there is a continuous function $f \\colon X \\rightarrow [0, 1]$ such that $f(A) = \\{0\\}$ and $f(B) = \\{1\\}$.", "id": 369}
+{"nl_statement": "Let $X$ be a compact Hausdorif space that is the union of the closed subspaces $X_1$ and $X_2$. If $X_1$ and $X_2$ are metrizable, show that $X$ is metrizable.", "id": 370}
+{"nl_statement": "A collection $\\mathcal{A}$ of subsets of $X$ has the countable intersection property if every countable intersection of elements of $\\mathcal{A}$ is nonempty. Show that $X$ is a Lindelöf space if and only if for every collection $\\mathcal{A}$ of subsets of $X$ having the countable intersection property, $\\bigcap_{A \\in \\mathcal{A}} \\bar{A}$ is nonempty.", "id": 371}
+{"nl_statement": "Let $Y$ be an arbitrary compactification of $X$; let $\\beta(X)$ be the Stone-Čech compactification. Show there is a continuous surjective closed map $g \\colon \\beta(X)\\rightarrow Y$ that equals the identity on $X$.", "id": 372}
+{"nl_statement": "Let $X$ be completely regular. Show that $X$ is connected if and only if $\\beta(X)$ is connected.", "id": 373}
+{"nl_statement": "Show that if X has a countable basis, a collection $\\mathcal{A}$ of subsets of $X$ is countably locally finite if and only if it is countable.", "id": 374}
+{"nl_statement": "Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces; let $Y$ be complete. Let $A \\subset X$. Show that if $f \\colon A \\rightarrow Y$ is uniformly continuous, then $f$ can be uniquely extended to a continuous function $g \\colon \\bar{A} \\rightarrow Y$, and $g$ is uniformly continuous.", "id": 375}
+{"nl_statement": "Show that the set of all sequences $(x_1, x_2, \\ldots)$ such that $\\sum x_i^2$ converges is complete in $l^2$-metric.", "id": 376}
+{"nl_statement": "Let $(p_n)$ be a sequence and $f:\\mathbb{N}\\to\\mathbb{N}$ a bijection. The sequence $(q_k)_{k\\in\\mathbb{N}}$ with $q_k=p_{f(k)}$ is called a rearrangement of $(p_n)$. Show that if $f$ is an injection, the limit of a sequence is unaffected by rearrangement.", "id": 377}
+{"nl_statement": "Let $(p_n)$ be a sequence and $f:\\mathbb{N}\\to\\mathbb{N}$ a bijection. The sequence $(q_k)_{k\\in\\mathbb{N}}$ with $q_k=p_{f(k)}$ is called a rearrangement of $(p_n)$. Show that if $f$ is a surjection, the limit of a sequence is unaffected by rearrangement.", "id": 378}
+{"nl_statement": "Prove that a set $U \\subset M$ is open if and only if none of its points are limits of its complement.", "id": 379}
+{"nl_statement": "Let $\\mathcal{T}$ be the collection of open subsets of a metric space $\\mathrm{M}$, and $\\mathcal{K}$ the collection of closed subsets. Show that there is a bijection from $\\mathcal{T}$ onto $\\mathcal{K}$.", "id": 380}
+{"nl_statement": "Show that every subset of $\\mathbb{N}$ is clopen.", "id": 381}
+{"nl_statement": "Let $\\|\\cdot\\|$ be any norm on $\\mathbb{R}^{m}$ and let $B=\\left\\{x \\in \\mathbb{R}^{m}:\\|x\\| \\leq 1\\right\\}$. Prove that $B$ is compact.", "id": 382}
+{"nl_statement": "Assume that $A, B$ are compact, disjoint, nonempty subsets of $M$. Prove that there are $a_0 \\in A$ and $b_0 \\in B$ such that for all $a \\in A$ and $b \\in B$ we have $d(a_0, b_0) \\leq d(a, b)$.", "id": 383}
+{"nl_statement": "Prove that there is an embedding of the line as a closed subset of the plane, and there is an embedding of the line as a bounded subset of the plane, but there is no embedding of the line as a closed and bounded subset of the plane.", "id": 384}
+{"nl_statement": "Prove that the 2-sphere is not homeomorphic to the plane.", "id": 385}
+{"nl_statement": "Show that if $S$ is connected, it is not true in general that its interior is connected.", "id": 386}
+{"nl_statement": "Prove that if $M$ is nonempty compact, locally path-connected and connected then it is path-connected.", "id": 387}
+{"nl_statement": "Suppose that $M$ is compact and that $\\mathcal{U}$ is an open covering of $M$ which is redundant in the sense that each $p \\in M$ is contained in at least two members of $\\mathcal{U}$. Show that $\\mathcal{U}$ reduces to a finite subcovering with the same property.", "id": 388}
+{"nl_statement": "Give a direct proof that the nested decreasing intersection of nonempty covering compact sets is nonempty.", "id": 389}
+{"nl_statement": "A metric on $M$ is an ultrametric if for all $x, y, z \\in M$, $d(x, z) \\leq \\max \\{d(x, y), d(y, z)\\} .$ Show that a metric space with an ultrametric is totally disconnected.", "id": 390}
+{"nl_statement": "Suppose that $E$ is an uncountable subset of $\\mathbb{R}$. Prove that there exists a point $p \\in \\mathbb{R}$ at which $E$ condenses.", "id": 391}
+{"nl_statement": "Let $P$ be a closed perfect subset of a separable complete metric space $M$. Prove that each point of $P$ is a condensation point of $P$.", "id": 392}
+{"nl_statement": "Given a Cantor space $M \\subset R^2$, given a line segment $[p, q] \\subset R^2$ with $p, q \\not\\in M$, and given an $\\epsilon > 0$, prove that there exists a path $A$ in the $\\epsilon$-neighborhood of $[p, q]$ that joins $p$ to $q$ and is disjoint from $M$.", "id": 393}
+{"nl_statement": "Assume that $f \\colon \\mathbb{R} \\rightarrow \\mathbb{R}$ satisfies $|f(t)-f(x)| \\leq|t-x|^{2}$ for all $t, x$. Prove that $f$ is constant.", "id": 394}
+{"nl_statement": "Prove that $\\sqrt{n+1}-\\sqrt{n} \\rightarrow 0$ as $n \\rightarrow \\infty$.", "id": 395}
+{"nl_statement": "Let $f \\colon (a, b) \\rightarrow \\mathbb{R}$ be given.  If $f''(x)$ exists, prove that \\[\\lim_{h \\rightarrow 0} \\frac{f(x - h) - 2f(x) + f(x + h)}{h^2} = f''(x).\\]", "id": 396}
+{"nl_statement": "Show that the bump function $\\beta(x)=e^{2} e(1-x) \\cdot e(x+1)$ is smooth.", "id": 397}
+{"nl_statement": "Show that the bump function $\\beta(x)=e^{2} e(1-x) \\cdot e(x+1)$ is identically 0 outside the interval $(-1, 1)$.", "id": 398}
+{"nl_statement": "Let $L$ be any closed set in $\\mathbb{R}$. Prove that there is a smooth function $f \\colon \\mathbb{R} \\rightarrow [0, 1]$ such that $f(x) = 0$ if and only if $x \\in L$.", "id": 399}
+{"nl_statement": "Let $\\psi(x) = x \\sin 1/x$ for $0 < x \\leq 1$ and $\\psi(0) = 0$.  If $f \\colon [-1, 1] \\rightarrow \\mathbb{R}$ is Riemann integrable, prove that $f \\circ \\psi$ is Riemann integrable.", "id": 400}
+{"nl_statement": "Given $f, g \\in \\mathcal{R}$, prove that $\\max(f, g)$ and $\\min(f, g)$ are Riemann integrable, where $\\max(f, g)(x) = \\max(f(x), g(x))$ and $\\min(f, g)(x) = \\min(f(x), g(x))$.", "id": 401}
+{"nl_statement": "Prove that if $a_n \\geq 0$ and $\\sum a_n$ converges then $\\sum \\sqrt{a_n}/n$ converges.", "id": 402}
+{"nl_statement": "Prove that $\\sum 1/k(\\log(k))^p$ converges when $p > 1$ and diverges when $p \\leq 1$.", "id": 403}
+{"nl_statement": "A continuous, strictly increasing function $\\mu \\colon (0, \\infty) \\rightarrow (0, \\infty)$ is a modulus of continuity if $\\mu(s) \\rightarrow 0$ as $s \\rightarrow 0$. A function $f \\colon [a, b] \\rightarrow \\mathbb{R}$ has modulus of continuity $\\mu$ if $|f(s) - f(t)| \\leq \\mu(|s - t|)$ for all $s, t \\in [a, b]$. Prove that a function is uniformly continuous if and only if it has a modulus of continuity.", "id": 404}
+{"nl_statement": "A continuous, strictly increasing function $\\mu \\colon (0, \\infty) \\rightarrow (0, \\infty)$ is a modulus of continuity if $\\mu(s) \\rightarrow 0$ as $s \\rightarrow 0$. A function $f \\colon [a, b] \\rightarrow \\mathbb{R}$ has modulus of continuity $\\mu$ if $|f(s) - f(t)| \\leq \\mu(|s - t|)$ for all $s, t \\in [a, b]$. Prove that a family of functions is equicontinuous if and only if its members.", "id": 405}
+{"nl_statement": "If $M$ is compact and $A$ is dense in $M$, prove that for each $\\delta > 0$ there is a finite subset $\\{a_1, \\ldots , a_k\\} \\subset A$ which is $\\delta$-dense in $M$ in the sense that each $x \\in M$ lies within distance $\\delta$ of at least one of the points $a_1,\\ldots, a_k$.", "id": 406}
+{"nl_statement": "Suppose that the ODE $x' = f(x)$ on $\\mathbb{R}$ is bounded, $|f(x)| \\leq M$ for all x. Prove that no solution of the ODE escapes to infinity in finite time.", "id": 407}
+{"nl_statement": "Prove that $\\mathbb{R}$ cannot be expressed as the countable union of Cantor sets.", "id": 408}
+{"nl_statement": "Let $L$ be the vector space of continuous linear transformations from a normed space $V$ to a normed space $W$. Show that the operator norm makes $L$ a normed space.", "id": 409}
+{"nl_statement": "Assume that $U$ is a connected open subset of $\\mathbb{R}^n$ and $f \\colon U \\rightarrow \\mathbb{R}^m$ is differentiable everywhere on $U$. If $(Df)_p = 0$ for all $p \\in U$, show that $f$ is constant.", "id": 410}
+{"nl_statement": "If $Y$ is a metric space and $f \\colon [a, b] \\times Y \\rightarrow \\mathbb{R}$ is continuous, show that $F(y) = \\int^b_a f(x,y) dx$ is continuous.", "id": 411}
+{"nl_statement": "Suppose that $T \\colon R^n \\rightarrow R^m$ has rank $k$.  Show there exists a $\\delta > 0$ such that if $S \\colon R^n \\rightarrow R^m$ and $||S - T|| < \\delta$ then $S$ has rank $\\geq k$.", "id": 412}
+{"nl_statement": "If $f$ and $g$ are integrable prove that their maximum and minimum are integrable.", "id": 413}
+{"nl_statement": "Suppose that $f$ and $g$ are measurable and their squares are integrable. Prove that $fg$ is measurable, integrable, and $\\int fg \\leq \\sqrt{\\int f^2} \\sqrt{\\int g^2}$.", "id": 414}
+{"nl_statement": "Prove that $g(y) = \\int_0^\\infty e^{-x} \\sin(x + y) dx$ is differentiable and find $g'(y)$.", "id": 415}
+{"nl_statement": "Prove that $f \\colon \\mathbb{R} \\rightarrow \\mathbb{R}$ is Lebesgue measurable if and only if the preimage of every Borel set is a Lebesgue measurable.", "id": 416}
+{"nl_statement": "Let $F_{0}, F_{1}, \\ldots$ be the sequence of Fibonacci numbers, with $F_{0}=0, F_{1}=1$, and $F_{n}=F_{n-1}+F_{n-2}$ for $n \\geq 2$. For $m>2$, let $R_{m}$ be the remainder when the product $\\prod_{k=1}^{F_{m}-1} k^{k}$ is divided by $F_{m}$. Prove that $R_{m}$ is also a Fibonacci number.", "id": 417}
+{"nl_statement": "For $j \\in\\{1,2,3,4\\}$, let $z_{j}$ be a complex number with $\\left|z_{j}\\right|=1$ and $z_{j} \\neq 1$. Prove that $3-z_{1}-z_{2}-z_{3}-z_{4}+z_{1} z_{2} z_{3} z_{4} \\neq 0 .$", "id": 418}
+{"nl_statement": "Let $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ be an infinitely differentiable function satisfying $f(0)=0, f(1)=1$, and $f(x) \\geq 0$ for all $x \\in$ $\\mathbb{R}$. Show that there exist a positive integer $n$ and a real number $x$ such that $f^{(n)}(x)<0$.", "id": 419}
+{"nl_statement": "Let $n$ be a positive integer, and let $f_{n}(z)=n+(n-1) z+$ $(n-2) z^{2}+\\cdots+z^{n-1}$. Prove that $f_{n}$ has no roots in the closed unit disk $\\{z \\in \\mathbb{C}:|z| \\leq 1\\}$.", "id": 420}
+{"nl_statement": "Given a real number $a$, we define a sequence by $x_{0}=1$, $x_{1}=x_{2}=a$, and $x_{n+1}=2 x_{n} x_{n-1}-x_{n-2}$ for $n \\geq 2$. Prove that if $x_{n}=0$ for some $n$, then the sequence is periodic.", "id": 421}
+{"nl_statement": "Let $S$ be the set of sequences of length 2018 whose terms are in the set $\\{1,2,3,4,5,6,10\\}$ and sum to 3860 . Prove that the cardinality of $S$ is at most $2^{3860} \\cdot\\left(\\frac{2018}{2048}\\right)^{2018} .$", "id": 422}
+{"nl_statement": "Suppose that $f(x)=\\sum_{i=0}^{\\infty} c_{i} x^{i}$ is a power series for which each coefficient $c_{i}$ is 0 or 1 . Show that if $f(2 / 3)=3 / 2$, then $f(1 / 2)$ must be irrational.", "id": 423}
+{"nl_statement": "Suppose that $G$ is a finite group generated by the two elements $g$ and $h$, where the order of $g$ is odd. Show that every element of $G$ can be written in the form $g^{m_1} h^{n_1} g^{m_2} h^{n_2} \\cdots g^{m_r} h^{n_r}$ with $1 \\leq r \\leq|G|$ and $m_1, n_1, m_2, n_2, \\ldots, m_r, n_r \\in$ $\\{-1,1\\} .$ (Here $|G|$ is the number of elements of $G$.)", "id": 424}
+{"nl_statement": "Let $f$ be a three times differentiable function (defined on $\\mathbb{R}$ and real-valued) such that $f$ has at least five distinct real zeros. Prove that $f+6 f^{\\prime}+12 f^{\\prime \\prime}+8 f^{\\prime \\prime \\prime}$ has at least two distinct real zeros.", "id": 425}
+{"nl_statement": "If $r$ is rational $(r \\neq 0)$ and $x$ is irrational, prove that $r+x$ is irrational.", "id": 426}
+{"nl_statement": "If $r$ is rational $(r \\neq 0)$ and $x$ is irrational, prove that $rx$ is irrational.", "id": 427}
 {"nl_statement": "Prove that there is no rational number whose square is $12$.", "id": 428}
 {"nl_statement": "Let $E$ be a nonempty subset of an ordered set; suppose $\\alpha$ is a lower bound of $E$ and $\\beta$ is an upper bound of $E$. Prove that $\\alpha \\leq \\beta$.", "id": 429}
 {"nl_statement": "Let $A$ be a nonempty set of real numbers which is bounded below. Let $-A$ be the set of all numbers $-x$, where $x \\in A$. Prove that $\\inf A=-\\sup (-A)$.", "id": 430}
@@ -447,7 +447,7 @@
 {"nl_statement": "Prove that the Cauchy product of two absolutely convergent series converges absolutely.", "id": 447}
 {"nl_statement": "Suppose $\\left\\{p_{n}\\right\\}$ is a Cauchy sequence in a metric space $X$, and some sequence $\\left\\{p_{n l}\\right\\}$ converges to a point $p \\in X$. Prove that the full sequence $\\left\\{p_{n}\\right\\}$ converges to $p$.", "id": 448}
 {"nl_statement": "If $\\left\\{E_{n}\\right\\}$ is a sequence of closed nonempty and bounded sets in a complete metric space $X$, if $E_{n} \\supset E_{n+1}$, and if $\\lim _{n \\rightarrow \\infty} \\operatorname{diam} E_{n}=0,$ then $\\bigcap_{1}^{\\infty} E_{n}$ consists of exactly one point.", "id": 449}
-{"nl_statement": "Suppose $X$ is a nonempty complete metric space, and", "id": 450}
+{"nl_statement": "Suppose $X$ is a nonempty complete metric space, and $\\left\\{G_{n}\\right\\}$ is a sequence of dense open sets of $X$. Prove Baire's theorem, namely, that $\\bigcap_{1}^{\\infty} G_{n}$ is not empty.", "id": 450}
 {"nl_statement": "If $f$ is a continuous mapping of a metric space $X$ into a metric space $Y$, prove that $f(\\overline{E}) \\subset \\overline{f(E)}$ for every set $E \\subset X$. ($\\overline{E}$ denotes the closure of $E$).", "id": 451}
 {"nl_statement": "Let $f$ be a continuous real function on a metric space $X$. Let $Z(f)$ (the zero set of $f$ ) be the set of all $p \\in X$ at which $f(p)=0$. Prove that $Z(f)$ is closed.", "id": 452}
 {"nl_statement": "Let $f$ and $g$ be continuous mappings of a metric space $X$ into a metric space $Y$, and let $E$ be a dense subset of $X$. Prove that $f(E)$ is dense in $f(X)$.", "id": 453}
@@ -470,11 +470,11 @@
 {"nl_statement": "Suppose (a) $f$ is continuous for $x \\geq 0$, (b) $f^{\\prime}(x)$ exists for $x>0$, (c) $f(0)=0$, (d) $f^{\\prime}$ is monotonically increasing. Put $g(x)=\\frac{f(x)}{x} \\quad(x>0)$ and prove that $g$ is monotonically increasing.", "id": 470}
 {"nl_statement": "Suppose $f^{\\prime}(x), g^{\\prime}(x)$ exist, $g^{\\prime}(x) \\neq 0$, and $f(x)=g(x)=0$. Prove that $\\lim _{t \\rightarrow x} \\frac{f(t)}{g(t)}=\\frac{f^{\\prime}(x)}{g^{\\prime}(x)}.$", "id": 471}
 {"nl_statement": "Suppose $a \\in R^{1}, f$ is a twice-differentiable real function on $(a, \\infty)$, and $M_{0}, M_{1}, M_{2}$ are the least upper bounds of $|f(x)|,\\left|f^{\\prime}(x)\\right|,\\left|f^{\\prime \\prime}(x)\\right|$, respectively, on $(a, \\infty)$. Prove that $M_{1}^{2} \\leq 4 M_{0} M_{2} .$", "id": 472}
-{"nl_statement": "Suppose $f$ is a real, three times differentiable function on $[-1,1]$, such that", "id": 473}
-{"nl_statement": "Suppose $\\alpha$ increases on $[a, b], a \\leq x_{0}", "id": 474}
+{"nl_statement": "Suppose $f$ is a real, three times differentiable function on $[-1,1]$, such that $f(-1)=0, \\quad f(0)=0, \\quad f(1)=1, \\quad f^{\\prime}(0)=0 .$ Prove that $f^{(3)}(x) \\geq 3$ for some $x \\in(-1,1)$.", "id": 473}
+{"nl_statement": "Suppose $\\alpha$ increases on $[a, b], a \\leq x_{0} \\leq b, \\alpha$ is continuous at $x_{0}, f\\left(x_{0}\\right)=1$, and $f(x)=0$ if $x \\neq x_{0}$. Prove that $f \\in \\mathcal{R}(\\alpha)$ and that $\\int f d \\alpha=0$.", "id": 474}
 {"nl_statement": "Suppose $f \\geq 0, f$ is continuous on $[a, b]$, and $\\int_{a}^{b} f(x) d x=0$. Prove that $f(x)=0$ for all $x \\in[a, b]$.", "id": 475}
-{"nl_statement": "If $f(x)=0$ for all irrational $x, f(x)=1$ for all", "id": 476}
-{"nl_statement": "Let $P$ be the Cantor set. Let $f$ be a bounded real", "id": 477}
+{"nl_statement": "If $f(x)=0$ for all irrational $x, f(x)=1$ for all rational $x$, prove that $f \\notin \\mathcal{R}$ on $[a, b]$ for any $a<b$.", "id": 476}
+{"nl_statement": "Let $P$ be the Cantor set. Let $f$ be a bounded real function on $[0,1]$ which is continuous at every point outside $P$. Prove that $f \\in \\mathcal{R}$ on $[0,1]$.", "id": 477}
 {"nl_statement": "Suppose that $f$ is holomorphic in an open set $\\Omega$. Prove that if $\\text{Re}(f)$ is constant, then $f$ is constant.", "id": 478}
 {"nl_statement": "Suppose that $f$ is holomorphic in an open set $\\Omega$. Prove that if $\\text{Im}(f)$ is constant, then $f$ is constant.", "id": 479}
 {"nl_statement": "Suppose that $f$ is holomorphic in an open set $\\Omega$. Prove that if $|f|$ is constant, then $f$ is constant.", "id": 480}

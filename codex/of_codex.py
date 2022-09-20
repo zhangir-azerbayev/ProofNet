@@ -18,7 +18,7 @@ def batch_loader(seq, size):
 # calls=3, period=60 is max for reliability with batch_size=20
 # might want to throttle it to keep lean chat up
 @sleep_and_retry
-@limits(calls=1, period=60)
+@limits(calls=2, period=60)
 def call_api(prompt, stop, max_tokens=150,):
     return openai.Completion.create(
         engine="code-davinci-002",

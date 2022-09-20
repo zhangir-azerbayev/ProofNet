@@ -18,6 +18,7 @@ id_to_exercise_name = dict([(e['id'], e['name']) for e in id_to_exercise_name])
 books_exercices = {}
 for exercise in codex:
     statement = exercise['formal_statement']
+    statement = statement.strip()
     try:
         statement = statement.split(' ', maxsplit=1)[1] # remove theorem name
     except:
@@ -28,9 +29,9 @@ for exercise in codex:
     number = name.split('.', maxsplit=1)[1]
     number = 'theorem exercise_' + number
     try:
-        books_exercices[book].append(number + statement)
+        books_exercices[book].append(number + ' ' + statement)
     except:
-        books_exercices[book] = [number + statement]
+        books_exercices[book] = [number + ' ' + statement]
 
 
 for book in books_exercices:

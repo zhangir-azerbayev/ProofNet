@@ -2,9 +2,9 @@ import tactic
 import data.rat.basic
 import data.real.basic
 import data.real.irrational
+import data.real.sqrt
 import analysis.inner_product_space.basic
 import analysis.inner_product_space.pi_L2
-import data.real.sqrt
 import analysis.specific_limits.basic
 import analysis.specific_limits.normed
 import analysis.specific_limits.basic
@@ -17,9 +17,9 @@ import dynamics.ergodic.measure_preserving
 open real complex
 open_locale topological_space
 open_locale big_operators
-noncomputable theory
-open_locale big_operators
 open_locale complex_conjugate
+
+noncomputable theory
 
 -- exercise exercise_1_1 is already in mathlib (data.real.irrational.add_rat)
 theorem exercise_1_1a
@@ -39,8 +39,6 @@ begin
   intro g,
   apply irrational.mul_rat g h,
 end
-
-#check norm_num.ne_zero_of_pos
 
 theorem exercise_1_2
 : ¬ ∃ (x : ℚ), ( x ^ 2 = 12 ) :=
@@ -90,7 +88,17 @@ begin
   exact xlez.trans zley,
 end
 
-theorem exercise_1_11
+theorem exercise_1_5
+    (A minus_A : set ℝ) (hA : A.nonempty) (hA_bdd_below : bdd_below A)
+    (hminus_A : minus_A = {x | -x ∈ A}) :
+    Inf A = Sup minus_A :=
+sorry
+
+theorem exercise_1_8
+    : ¬ ∃ (r : ℂ → ℂ → Prop), is_linear_order ℂ r :=
+sorry
+
+theorem exercise_1_11a
   (z : ℂ) : ∃ (r : ℝ) (w : ℂ), abs w = 1 ∧ z = r * w :=
 begin
   by_cases h : z = 0,
@@ -114,8 +122,6 @@ begin
   },
 end
 
-#check complex.abs_add
-
 theorem exercise_1_12
   (n : ℕ) (f : ℕ → ℂ)
   : abs (∑ i in finset.range n, f i) ≤ ∑ i in finset.range n, abs (f i) :=
@@ -131,18 +137,14 @@ end
 theorem exercise_1_13
   (x y : ℂ)
   : |(abs x) - (abs y)| ≤ abs (x - y) :=
-begin
-  sorry,
-end
+sorry
 
 theorem exercise_1_14
   (z : ℂ) (h : abs z = 1)
   : (abs (1 + z)) ^ 2 + (abs (1 - z)) ^ 2 = 4 :=
-begin
-  sorry,
-end
+sorry
 
-theorem exercise_1_16_a
+theorem exercise_1_16a
   (n : ℕ)
   (d r : ℝ)
   (x y z : euclidean_space ℝ (fin n)) -- R^n
@@ -152,26 +154,20 @@ theorem exercise_1_16_a
   (h₄ : r > 0)
   (h₅ : 2 * r > d)
   : set.infinite {z : euclidean_space ℝ (fin n) | ∥z - x∥ = r ∧ ∥z - y∥ = r} :=
-begin
-  sorry,
-end
+sorry
 
 theorem exercise_1_17
   (n : ℕ)
   (x y : euclidean_space ℝ (fin n)) -- R^n
   : ∥x + y∥^2 + ∥x - y∥^2 = 2*∥x∥^2 + 2*∥y∥^2 :=
-begin
-  sorry,
-end
+sorry
 
-theorem exercise_1_18_a
+theorem exercise_1_18a
   (n : ℕ)
   (h : n > 1)
   (x : euclidean_space ℝ (fin n)) -- R^n
   : ∃ (y : euclidean_space ℝ (fin n)), y ≠ 0 ∧ (inner x y) = (0 : ℝ) :=
-begin
-  sorry,
-end
+sorry
 
 theorem exercise_1_18_b
   : ¬ ∀ (x : ℝ), ∃ (y : ℝ), y ≠ 0 ∧ x * y = 0 :=
@@ -198,7 +194,7 @@ end
 
 open filter
 
-theorem exercise_3_1
+theorem exercise_3_1a
   (f : ℕ → ℝ)
   (h : ∃ (a : ℝ), tendsto (λ (n : ℕ), f n) at_top (𝓝 a))
   : ∃ (a : ℝ), tendsto (λ (n : ℕ), |f n|) at_top (𝓝 a) :=
@@ -261,14 +257,11 @@ noncomputable def f : ℕ → ℝ
 
 theorem exercise_3_3
   : ∃ (x : ℝ), tendsto f at_top (𝓝 x) ∧ ∀ n, f n < 2 :=
-begin
-  sorry,
-end
+sorry
 
 def g (n : ℕ) : ℝ := sqrt (n + 1) - sqrt n
 
-theorem exercise_3_4_a
---(f : ℕ → ℝ := λ n, sqrt (n + 1) + sqrt n)
+theorem exercise_3_6a
 : tendsto (λ (n : ℕ), (∑ i in finset.range n, g i)) at_top at_top :=
 begin
   simp,
@@ -284,7 +277,6 @@ begin
   --apply filter.tendsto.sqrt,
   sorry
 end
-
 
 theorem exercise_4_1
   : ∃ (f : ℝ → ℝ), (∀ (x : ℝ), tendsto (λ y, f(x + y) - f(x - y)) (𝓝 0) (𝓝 0)) ∧ ¬ continuous f :=
@@ -506,7 +498,7 @@ begin
   exact is_closed_singleton,
 end
 
-theorem exercise_4_4_a
+theorem exercise_4_4a
   {α : Type} [metric_space α]
   {β : Type} [metric_space β]
   (f : α → β)
@@ -519,7 +511,7 @@ begin
   exact continuous.range_subset_closure_image_dense h₁ h₂,
 end
 
-theorem exercise_4_4_b
+theorem exercise_4_4b
   {α : Type} [metric_space α]
   {β : Type} [metric_space β]
   (f g : α → β)

@@ -29,9 +29,9 @@ for exercise in codex:
     number = name.split('.', maxsplit=1)[1]
     number = 'theorem exercise_' + number
     try:
-        books_exercices[book].append(number + ' ' + statement)
+        books_exercices[book].append(number.replace('.', '_') + ' ' + statement)
     except:
-        books_exercices[book] = [number + ' ' + statement]
+        books_exercices[book] = [number.replace('.', '_') + ' ' + statement]
 
 
 for book in books_exercices:

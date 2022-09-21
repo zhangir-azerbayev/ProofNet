@@ -10,6 +10,7 @@ import analysis.specific_limits.normed
 import analysis.specific_limits.basic
 import analysis.specific_limits.normed
 import data.set.intervals.basic
+import topology.basic
 import topology.metric_space.basic
 import topology.instances.real
 import dynamics.ergodic.measure_preserving
@@ -21,7 +22,6 @@ open_locale complex_conjugate
 
 noncomputable theory
 
--- exercise exercise_1_1 is already in mathlib (data.real.irrational.add_rat)
 theorem exercise_1_1a
 (x : ℝ)
 (y : ℚ)
@@ -188,11 +188,51 @@ theorem exercise_1_19
   (h₂ : 3 • c = 4 • b - a)
   (h₃ : 3 * r = 2 * ∥x - b∥)
   : ∥x - a∥ = 2 * ∥x - b∥ ↔ ∥x - c∥ = r :=
-begin
-  sorry,
-end
+sorry
 
+open topological_space
 open filter
+open_locale filter
+
+theorem exercise_2_19a {X : Type*} [metric_space X]
+    (A B : set X) (hA : is_closed A) (hB : is_closed B) (hAB : disjoint A B) :
+    separated A B :=
+sorry
+
+
+theorem exercise_2_24 {X : Type*} [metric_space X]
+    (hX : ∀ (A : set X), infinite A → ∃ (x : X), x ∈ closure A) :
+    separable_space X :=
+sorry
+
+theorem exercise_2_25 {K : Type*} [metric_space K] [compact_space K] :
+    ∃ (B : set (set K)), set.countable B ∧ is_topological_basis B :=
+sorry
+
+theorem exercise_2_27a (k : ℕ) (E P : set (euclidean_space ℝ (fin k)))
+  (hE : E.nonempty ∧ ¬ set.countable E)
+  (hP : P = {x | ∀ U ∈ 𝓝 x, ¬ set.countable (P ∩ E)}) :
+  is_closed P ∧ P = {x | cluster_pt x (𝓟 P)}  :=
+sorry
+
+theorem exercise_2_27b (k : ℕ) (E P : set (euclidean_space ℝ (fin k)))
+  (hE : E.nonempty ∧ ¬ set.countable E)
+  (hP : P = {x | ∀ U ∈ 𝓝 x, (P ∩ E).nonempty ∧ ¬ set.countable (P ∩ E)}) :
+  set.countable (E \ P) :=
+sorry
+
+theorem exercise_2_28 (X : Type*) [metric_space X] [separable_space X]
+  (A : set X) (hA : is_closed A) :
+  ∃ P₁ P₂ : set X, A = P₁ ∪ P₂ ∧
+  is_closed P₁ ∧ P₁ = {x | cluster_pt x (𝓟 P₁)} ∧
+  set.countable P₂ :=
+sorry
+
+theorem exercise_2_29 (U : set ℝ) (hU : is_open U) :
+  ∃ (f : ℕ → set ℝ), (∀ n, ∃ a b : ℝ, f n = {x | a < x ∧ x < b}) ∧ (∀ n, f n ⊆ U) ∧
+  (∀ n m, n ≠ m → f n ∩ f m = ∅) ∧
+  U = ⋃ n, f n :=
+sorry
 
 theorem exercise_3_1a
   (f : ℕ → ℝ)
@@ -204,7 +244,7 @@ begin
   apply filter.tendsto.abs h,
 end
 
-theorem exercise_3_2
+theorem exercise_3_2a
   : tendsto (λ (n : ℝ), (sqrt (n^2 + n) - n)) at_top (𝓝 (1/2)) :=
 begin
   have h : ∀ (n : ℝ), n > 0 → sqrt (n^2 + n) - n = 1 / (sqrt (1 + 1 / n) + 1) :=
@@ -470,7 +510,7 @@ begin
   },
 end
 
-theorem exercise_4_2
+theorem exercise_4_2a
   {α : Type} [metric_space α]
   {β : Type} [metric_space β]
   (f : α → β)
@@ -536,17 +576,15 @@ begin
   exact h₈ x,
 end
 
-theorem exercise_4_5_a
+theorem exercise_4_5a
   (f : ℝ → ℝ)
   (E : set ℝ)
   (h₁ : is_closed E)
   (h₂ : continuous_on f E)
   : ∃ (g : ℝ → ℝ), continuous g ∧ ∀ x ∈ E, f x = g x :=
-begin
-  sorry,
-end
+sorry
 
-theorem exercise_4_5_b
+theorem exercise_4_5b
   : ∃ (E : set ℝ) (f : ℝ → ℝ), (continuous_on f E) ∧
     (¬ ∃ (g : ℝ → ℝ), continuous g ∧ ∀ x ∈ E, f x = g x) :=
 begin
@@ -721,6 +759,4 @@ theorem exercise_4_6
   (h₁ : is_compact E)
   (h₂ : G = {(x, f x) | x ∈ E})
   : continuous_on f E ↔ is_compact G :=
-begin
-  sorry,
-end
+sorry

@@ -9,6 +9,7 @@ import analysis.specific_limits.basic
 import analysis.specific_limits.normed
 import analysis.specific_limits.basic
 import analysis.specific_limits.normed
+import analysis.box_integral.basic
 import data.set.intervals.basic
 import topology.basic
 import topology.metric_space.basic
@@ -23,9 +24,8 @@ open_locale complex_conjugate
 noncomputable theory
 
 theorem exercise_1_1a
-(x : ℝ)
-(y : ℚ)
-: ( irrational x ) -> irrational ( x + y ) :=
+    (x : ℝ) (y : ℚ) :
+    ( irrational x ) -> irrational ( x + y ) :=
 begin
   apply irrational.add_rat,
 end
@@ -299,6 +299,12 @@ theorem exercise_3_3
   : ∃ (x : ℝ), tendsto f at_top (𝓝 x) ∧ ∀ n, f n < 2 :=
 sorry
 
+theorem exercise_3_5
+  (a b : ℕ → ℝ)
+  (h : limsup a + limsup b ≠ 0) :
+  limsup (λ n, a n + b n) ≤ limsup a + limsup b :=
+sorry
+
 def g (n : ℕ) : ℝ := sqrt (n + 1) - sqrt n
 
 theorem exercise_3_6a
@@ -318,7 +324,49 @@ begin
   sorry
 end
 
-theorem exercise_4_1
+theorem exercise_3_7
+    (a : ℕ → ℝ)
+    (h : ∃ y, (tendsto (λ n, (∑ i in (finset.range n), a i)) at_top (𝓝 y))) :
+    ∃ y, tendsto (λ n, (∑ i in (finset.range n), sqrt (a i) / n)) at_top (𝓝 y) :=
+sorry
+
+theorem exercise_3_8
+    (a b : ℕ → ℝ)
+    (h1 : ∃ y, (tendsto (λ n, (∑ i in (finset.range n), a i)) at_top (𝓝 y)))
+    (h2 : monotone b)
+    (h3 : metric.bounded (set.range b)) :
+    ∃ y, tendsto (λ n, (∑ i in (finset.range n), (a i) * (b i))) at_top (𝓝 y) :=
+sorry
+
+theorem exercise_3_13
+    (a b : ℕ → ℝ)
+    (ha : ∃ y, (tendsto (λ n, (∑ i in (finset.range n), |a i|)) at_top (𝓝 y)))
+    (hb : ∃ y, (tendsto (λ n, (∑ i in (finset.range n), |b i|)) at_top (𝓝 y))) :
+    ∃ y, (tendsto (λ n, (∑ i in (finset.range n),
+    λ i, (∑ j in finset.range (i + 1), a j * b (i - j)))) at_top (𝓝 y)) :=
+sorry
+
+theorem exercise_3_20 {X : Type*} [metric_space X]
+    (p : ℕ → X) (l : ℕ) (r : X)
+    (hp : cauchy_seq p)
+    (hpl : tendsto (λ n, p (l * n)) at_top (𝓝 r)) :
+    tendsto p at_top (𝓝 r) :=
+sorry
+
+theorem exercise_3_21
+    {X : Type*} [metric_space X] [complete_space X]
+    (E : ℕ → set X)
+    (hE : ∀ n, E n ⊃ E (n + 1))
+    (hE' : tendsto (λ n, metric.diam (E n)) at_top (𝓝 0)) :
+    ∃ a, set.Inter E = {a} :=
+sorry
+
+theorem exercise_3_22 (X : Type*) [metric_space X] [complete_space X]
+    (G : ℕ → set X) (hG : ∀ n, is_open (G n) ∧ dense (G n)) :
+    ∃ x, ∀ n, x ∈ G n :=
+sorry
+
+theorem exercise_4_1a
   : ∃ (f : ℝ → ℝ), (∀ (x : ℝ), tendsto (λ y, f(x + y) - f(x - y)) (𝓝 0) (𝓝 0)) ∧ ¬ continuous f :=
 begin
   use λ x, if x = 0 then (1 : ℝ) else (0 : ℝ),
@@ -759,4 +807,133 @@ theorem exercise_4_6
   (h₁ : is_compact E)
   (h₂ : G = {(x, f x) | x ∈ E})
   : continuous_on f E ↔ is_compact G :=
+sorry
+
+
+theorem exercise_4_8a
+    (E : set ℝ) (f : ℝ → ℝ) (hf : uniform_continuous_on f E)
+    (hE : metric.bounded E) : metric.bounded (set.image f E) :=
+sorry
+
+theorem exercise_4_8b
+    (E : set ℝ) :
+    ∃ f : ℝ → ℝ, uniform_continuous_on f E ∧ ¬ metric.bounded (set.image f E) :=
+sorry
+
+theorem exercise_4_11a
+    {X : Type*} [metric_space X]
+    {Y : Type*} [metric_space Y]
+    (f : X → Y) (hf : uniform_continuous f)
+    (x : ℕ → X) (hx : cauchy_seq x) :
+    cauchy_seq (λ n, f (x n)) :=
+sorry
+
+theorem exercise_4_12
+    {α β γ : Type*} [uniform_space α] [uniform_space β] [uniform_space γ]
+    {f : α → β} {g : β → γ}
+    (hf : uniform_continuous f) (hg : uniform_continuous g) :
+    uniform_continuous (g ∘ f) :=
+sorry
+
+theorem exercise_4_14 {I : Type*} [topological_space I]
+    [linear_order I] (f : I → I) (hf : continuous f) :
+    ∃ (x : I), f x = x :=
+sorry
+
+theorem exercise_4_15 {f : ℝ → ℝ}
+    (hf : continuous f) (hof : is_open_map f) :
+    monotone f :=
+sorry
+
+theorem exercise_4_19
+    {f : ℝ → ℝ} (hf : ∀ a b c, a < b → f a < c → c < f b → ∃ x, a < x ∧ x < b ∧ f x = c)
+    (hg : ∀ r : ℚ, is_closed {x | f x = r}) : continuous f :=
+sorry
+
+theorem exercise_4_21a {X : Type*} [metric_space X]
+    (K F : set X) (hK : is_compact K) (hF : is_closed F) (hKF : disjoint K F) :
+    ∃ (δ : ℝ), δ > 0 ∧ ∀ (p q : X), p ∈ K → q ∈ F → dist p q ≥ δ :=
+sorry
+
+theorem exercise_4_24 {f : ℝ → ℝ}
+    (hf : continuous f) (a b : ℝ) (hab : a < b)
+    (h : ∀ x y : ℝ, a < x → x < b → a < y → y < b → f ((x + y) / 2) ≤ (f x + f y) / 2) :
+    convex_on ℝ (set.Ioo a b) f :=
+sorry
+
+theorem exercise_4_26a
+    {X Y Z : Type*} [metric_space X] [metric_space Y] [metric_space Z]
+    (hY : compact_space Y) (f : X → Y) (g : Y → Z) (hgc : continuous g)
+    (hgi : function.injective g)
+    (h : uniform_continuous (g ∘ f)) : uniform_continuous f :=
+sorry
+
+theorem exercise_5_1
+    {f : ℝ → ℝ} (hf : ∀ x y : ℝ, | (f x - f y) | ≤ (x - y) ^ 2) :
+    ∃ c, f = λ x, c :=
+sorry
+
+theorem exercise_5_2 {a b : ℝ}
+    {f g : ℝ → ℝ} (hf : ∀ x ∈ set.Ioo a b, deriv f x > 0)
+    (hg : g = f⁻¹)
+    (hg_diff : differentiable_on ℝ g (set.Ioo a b)) :
+    differentiable_on ℝ g (set.Ioo a b) ∧
+    ∀ x ∈ set.Ioo a b, deriv g x = 1 / deriv f x :=
+sorry
+
+theorem exercise_5_3 {g : ℝ → ℝ} (hg : continuous g)
+    (hg' : ∃ M : ℝ, ∀ x : ℝ, | deriv g x | ≤ M) :
+    ∃ N, ∀ ε > 0, ε < N → function.injective (λ x : ℝ, x + ε * g x) :=
+sorry
+
+theorem exercise_5_4 {n : ℕ}
+    (C : ℕ → ℝ)
+    (hC : ∑ i in (finset.range (n + 1)), (C i) / (i + 1) = 0) :
+    ∃ x, x ∈ (set.Icc (0 : ℝ) 1) ∧ ∑ i in finset.range (n + 1), (C i) * (x^i) = 0 :=
+sorry
+
+theorem exercise_5_5
+    {f : ℝ → ℝ}
+    (hfd : differentiable ℝ f)
+    (hf : tendsto (deriv f) at_top (𝓝 0)) :
+    tendsto (λ x, f (x + 1) - f x) at_top at_top :=
+sorry
+
+theorem exercise_5_6
+    {f : ℝ → ℝ}
+    (hf1 : continuous f)
+    (hf2 : ∀ x, differentiable_at ℝ f x)
+    (hf3 : f 0 = 0)
+    (hf4 : monotone (deriv f)) :
+    monotone_on (λ x, f x / x) (set.Ioi 0) :=
+sorry
+
+theorem exercise_5_7
+    {f g : ℝ → ℝ} {x : ℝ}
+    (hf' : differentiable_at ℝ f 0)
+    (hg' : differentiable_at ℝ g 0)
+    (hg'_ne_0 : deriv g 0 ≠ 0)
+    (f0 : f 0 = 0) (g0 : g 0 = 0) :
+    tendsto (λ x, f x / g x) (𝓝 x) (𝓝 (deriv f x / deriv g x)) :=
+sorry
+
+theorem exercise_5_15 {f : ℝ → ℝ} (a M0 M1 M2 : ℝ)
+    (hf' : differentiable_on ℝ f (set.Ici a))
+    (hf'' : differentiable_on ℝ (deriv f) (set.Ici a))
+    (hM0 : M0 = Sup {(| f x | )| x ∈ (set.Ici a)})
+    (hM1 : M1 = Sup {(| deriv f x | )| x ∈ (set.Ici a)})
+    (hM2 : M2 = Sup {(| deriv (deriv f) x | )| x ∈ (set.Ici a)}) :
+    (M1 ^ 2) ≤ 4 * M0 * M2 :=
+sorry
+
+theorem exercise_5_17
+    {f : ℝ → ℝ}
+    (hf' : differentiable_on ℝ f (set.Icc (-1) 1))
+    (hf'' : differentiable_on ℝ (deriv f) (set.Icc 1 1))
+    (hf''' : differentiable_on ℝ (deriv (deriv f)) (set.Icc 1 1))
+    (hf0 : f (-1) = 0)
+    (hf1 : f 0 = 0)
+    (hf2 : f 1 = 1)
+    (hf3 : deriv f 0 = 0) :
+    ∃ x, x ∈ set.Ioo (-1 : ℝ) 1 ∧ deriv (deriv (deriv f)) x ≥ 3 :=
 sorry

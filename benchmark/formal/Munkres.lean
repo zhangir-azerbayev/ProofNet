@@ -139,6 +139,18 @@ noncomputable theorem exercise_13_4c4 :
     ∀ T', is_topology X4c T' → T' ⊆ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} → T' ⊆ T } :=
 sorry
 
+open topological_space
+
+noncomputable theorem exercise_13_5a {X : Type*}
+    [topological_space X] (A : set (set X)) (hA : is_topological_basis A) :
+    generate_from A = generate_from (sInter {T | is_topology X T ∧ A ⊆ T}) :=
+sorry
+
+noncomputable theorem exercise_13_5b {X : Type*}
+    [t : topological_space X] (A : set (set X)) (hA : t = generate_from A) :
+    generate_from A = generate_from (sInter {T | is_topology X T ∧ A ⊆ T}) :=
+sorry
+
 def lower_limit_topology (X : Type) [preorder X] :=
   topological_space.generate_from {S : set X | ∃ a b, a < b ∧ S = Ico a b}
 
@@ -161,3 +173,4 @@ theorem exercise_13_8b :
   (topological_space.generate_from {S : set ℝ | ∃ a b : ℚ, a < b ∧ S = Ico a b}).is_open ≠
     (lower_limit_topology ℝ).is_open :=
 sorry
+

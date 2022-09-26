@@ -2,6 +2,7 @@ import topology.basic
 import topology.constructions
 import topology.bases
 import topology.metric_space.basic
+import topology.metric_space.metrizable
 import data.real.basic
 import data.set.countable
 import data.real.irrational
@@ -226,4 +227,56 @@ theorem exercise_18_13
     (g : closure A → Y)
     (g_con : continuous g) :
     ∀ (g' : closure A → Y), continuous g' →  (∀ (x : closure A), g x = g' x) :=
+sorry
+
+open filter
+open_locale filter
+open_locale topological_space
+
+theorem exercise_19_6a
+  {n : ℕ}
+  {f : fin n → Type*} {x : ℕ → Πa, f a}
+  (y : Πi, f i)
+  [Πa, topological_space (f a)] :
+  tendsto x at_top (𝓝 y) ↔ ∀ i, tendsto (λ j, (x j) i) at_top (𝓝 (y i)) :=
+sorry
+
+theorem exercise_20_2 -- TODO dictionary order on R x R
+    : metrizable_space (ℝ × ℝ) :=
+sorry
+
+
+abbreviation I : set ℝ := set.Icc 0 1
+
+theorem exercise_21_6a
+  (f : ℕ → I → ℝ )
+  (h : ∀ x n, f n x = x ^ n) :
+  ∀ x, ∃ y, tendsto (λ n, f n x) at_top (𝓝 y) :=
+sorry
+
+theorem exercise_21_6b
+  (f : ℕ → I → ℝ )
+  (h : ∀ x n, f n x = x ^ n) :
+  ¬ ∃ f₀, tendsto_uniformly f f₀ at_top :=
+sorry
+
+theorem exercise_21_8
+    {X : Type*} [topological_space X] {Y : Type*} [metric_space Y]
+    {f : ℕ → X → Y} {x : ℕ → X}
+    (hf : ∀ n, continuous (f n))
+    (x₀ : X)
+    (hx : tendsto x at_top (𝓝 x₀))
+    (f₀ : X → Y)
+    (hh : tendsto_uniformly f f₀ at_top) :
+    tendsto (λ n, f n (x n)) at_top (𝓝 (f₀ x₀)) :=
+sorry
+
+theorem exercise_22_2a {X Y : Type*} [topological_space X]
+    [topological_space Y] (p : X → Y) (h : continuous p) :
+    quotient_map p ↔ ∃ (f : Y → X), continuous f ∧ p ∘ f = id :=
+sorry
+
+theorem exercise_22_2b {X : Type*} [topological_space X]
+    {A : set X} (r : X → A) (hr : continuous r) (h : ∀ x : A, r x = x) :
+    quotient_map r :=
 sorry

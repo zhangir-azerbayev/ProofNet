@@ -202,3 +202,28 @@ theorem exercise_16_6
     ∧ s = {x | ∃ x₁ x₂, x = (x₁, x₂) ∧ a < x₁ ∧ x₁ < b ∧ c < x₂ ∧ x₂ < d})) :
   is_topological_basis S :=
 sorry
+
+theorem exercise_17_4 {X : Type*} [topological_space X]
+    (U A : set X) (hU : is_open U) (hA : is_closed A) :
+    is_open (U \ A) ∧ is_closed (A \ U) :=
+sorry
+
+theorem exercise_18_8a {X Y : Type*} [topological_space X] [topological_space Y]
+  [linear_order Y] [order_topology Y] {f g : X → Y}
+  (hf : continuous f) (hg : continuous g) :
+  is_closed {x | f x ≤ g x} :=
+sorry
+
+theorem exercise_18_8b {X Y : Type*} [topological_space X] [topological_space Y]
+  [linear_order Y] [order_topology Y] {f g : X → Y}
+  (hf : continuous f) (hg : continuous g) :
+  continuous (λ x, min (f x) (g x)) :=
+sorry
+
+theorem exercise_18_13
+    {X : Type*} [topological_space X] {Y : Type*} [topological_space Y]
+    [t2_space Y] {A : set X} {f : A → Y} (hf : continuous f)
+    (g : closure A → Y)
+    (g_con : continuous g) :
+    ∀ (g' : closure A → Y), continuous g' →  (∀ (x : closure A), g x = g' x) :=
+sorry

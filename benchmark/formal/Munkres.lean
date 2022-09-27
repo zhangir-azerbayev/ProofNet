@@ -280,3 +280,36 @@ theorem exercise_22_2b {X : Type*} [topological_space X]
     {A : set X} (r : X → A) (hr : continuous r) (h : ∀ x : A, r x = x) :
     quotient_map r :=
 sorry
+
+theorem exercise_22_5 {X Y : Type*} [topological_space X]
+    [topological_space Y] (p : X → Y) (hp : is_open_map p)
+    (A : set X) (hA : is_open A) : is_open_map (p ∘ subtype.val : A → Y) :=
+sorry
+
+theorem exercise_23_2 {X : Type*}
+    [topological_space X] {A : ℕ → set X} (hA : ∀ n, is_connected (A n))
+    (hAn : ∀ n, A n ∩ A (n + 1) ≠ ∅) :
+    is_connected (⋃ n, A n) :=
+sorry
+
+theorem exercise_23_3 {X : Type*} [topological_space X]
+    [topological_space X] {A : ℕ → set X}
+    (hAn : ∀ n, is_connected (A n))
+    (A₀ : set X)
+    (hA : is_connected A₀)
+    (h : ∀ n, A₀ ∩ A n ≠ ∅) :
+    is_connected (A₀ ∪ (⋃ n, A n)) :=
+sorry
+
+theorem exercise_23_4 {X : Type*} [topological_space X] [cofinite_topology X]
+  (s : set X) : set.infinite s → is_connected s :=
+sorry
+
+theorem exercise_23_6 {X : Type*}
+    [topological_space X] {A C : set X} (hc : is_connected C)
+    (hCA : C ∩ A ≠ ∅) (hCXA : C ∩ (A.compl) ≠ ∅) :
+    C ∩ (frontier A) ≠ ∅ :=
+sorry
+
+
+

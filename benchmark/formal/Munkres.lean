@@ -1,11 +1,13 @@
 import topology.basic
 import topology.constructions
 import topology.bases
+import topology.path_connected
 import topology.metric_space.basic
 import topology.metric_space.metrizable
 import data.real.basic
 import data.set.countable
 import data.real.irrational
+import deprecated.subgroup
 
 open_locale classical
 open set
@@ -319,7 +321,167 @@ theorem exercise_23_9 {X Y : Type*}
     (hB : B₁ ⊂ B₂)
     (hA : is_connected A₂)
     (hB : is_connected B₂) :
-    is_connected ((A₂ × B₂) \ (A₁ × B₁)) :=
+    is_connected ({x | ∃ a b, x = (a, b) ∧ a ∈ A₂ ∧ b ∈ B₂} \
+                  {x | ∃ a b, x = (a, b) ∧ a ∈ A₁ ∧ b ∈ B₁}) :=
 sorry
 
+
+theorem exercise_23_11 {X Y : Type*} [topological_space X] [topological_space Y]
+  (p : X → Y) (hq : quotient_map p)
+  (hY : connected_space Y) (hX : ∀ y : Y, is_connected (p ⁻¹' {y})) :
+  connected_space X :=
+sorry
+
+theorem exercise_24_2 {f : (metric.sphere 0 1 : set ℝ) → ℝ}
+    (hf : continuous f) : ∃ x, f x = f (-x) :=
+sorry
+
+theorem exercise_24_3a [topological_space I]
+    (f : I → I) (hf : continuous f) :
+    ∃ (x : I), f x = x :=
+sorry
+
+theorem exercise_25_4 {X : Type*} [topological_space X]
+    [loc_path_connected_space X] (U : set X) (hU : is_open U)
+    (hcU : is_connected U) : is_path_connected U :=
+sorry
+
+theorem exercise_25_9 {G : Type*} [topological_space G] [group G]
+  [topological_group G] (C : set G) (h : C = connected_component 1) :
+  is_normal_subgroup C :=
+sorry
+
+theorem exercise_26_11
+    {X : Type*} [topological_space X] [compact_space X] [t2_space X]
+    (A : set (set X)) (hA : ∀ (a b : set X), a ∈ A → b ∈ A → a ⊆ b ∨ b ⊆ a)
+    (hA' : ∀ a ∈ A, is_closed a) (hA'' : ∀ a ∈ A, is_connected a) :
+    is_connected (⋂₀ A) :=
+sorry
+
+theorem exercise_26_12 {X Y : Type*} [topological_space X] [topological_space Y]
+  (p : X → Y) (h : function.surjective p) (hc : continuous p) (hp : ∀ y, is_compact (p ⁻¹' {y}))
+  (hY : compact_space Y) : compact_space X :=
+sorry
+
+theorem exercise_27_4
+    {X : Type*} [metric_space X] [connected_space X] (hX : ∃ x y : X, x ≠ y) :
+    ¬ countable (univ : set X) :=
+sorry
+
+def countably_compact (X : Type*) [topological_space X] :=
+  ∀ U : ℕ → set X,
+    (∀ i, is_open (U i)) ∧ ((univ : set X) ⊆ ⋃ i, U i) →
+    (∃ t : finset ℕ, (univ : set X) ⊆ ⋃ i ∈ t, U i)
+
+def limit_point_compact (X : Type*) [topological_space X] :=
+  ∀ U : set X, set.infinite U → ∃ x ∈ U, cluster_pt x (𝓟 U)
+
+theorem exercise_28_4 {X : Type*}
+    [topological_space X] (hT1 : t1_space X) :
+    countably_compact X ↔ limit_point_compact X :=
+sorry
+
+theorem exercise_28_5
+    (X : Type*) [topological_space X] :
+    countably_compact X ↔ ∀ (C : ℕ → set X), (∀ n, is_closed (C n)) ∧
+    (∀ n, C n ≠ ∅) ∧ (∀ n, C n ⊆ C (n + 1)) → ∃ x, ∀ n, x ∈ C n :=
+sorry
+
+theorem exercise_28_6 {X : Type*} [metric_space X]
+    [compact_space X] {f : X → X} (hf : isometry f) :
+    function.bijective f :=
+sorry
+
+theorem exercise_29_1 : ¬ locally_compact_space ℚ :=
+sorry
+
+theorem exercise_29_4 [topological_space (ℕ → I)] :
+  ¬ locally_compact_space (ℕ → I) :=
+sorry -- TODO check
+
+theorem exercise_29_10 {X : Type*}
+    [topological_space X] [t2_space X] (x : X)
+    (hx : ∃ U : set X, x ∈ U ∧ is_open U ∧ (∃ K : set X, U ⊂ K ∧ is_compact K))
+    (U : set X) (hU : is_open U) (hxU : x ∈ U) :
+    ∃ (V : set X), is_open V ∧ x ∈ V ∧ is_compact (closure V) ∧ closure V ⊆ U :=
+sorry
+
+theorem exercise_30_10
+    {X : ℕ → Type*} [∀ i, topological_space (X i)]
+    (h : ∀ i, ∃ (s : set (X i)), countable s ∧ dense s) :
+    ∃ (s : set (Π i, X i)), countable s ∧ dense s :=
+sorry
+
+theorem exercise_30_13 {X : Type*} [topological_space X]
+    (h : ∃ (s : set X), countable s ∧ dense s) (U : set (set X))
+    (hU : ∀ (x y : set X), x ∈ U → y ∈ U → x ≠ y → x ∩ y = ∅) :
+    countable U :=
+sorry
+
+theorem exercise_31_1 {X : Type*} [topological_space X]
+    (hX : regular_space X) (x y : X) :
+    ∃ (U V : set X), is_open U ∧ is_open V ∧ x ∈ U ∧ y ∈ V ∧ closure U ∩ closure V = ∅ :=
+sorry
+
+theorem exercise_31_2 {X : Type*}
+    [topological_space X] [normal_space X] {A B : set X}
+    (hA : is_closed A) (hB : is_closed B) (hAB : disjoint A B) :
+    ∃ (U V : set X), is_open U ∧ is_open V ∧ A ⊆ U ∧ B ⊆ V ∧ closure U ∩ closure V = ∅ :=
+sorry
+
+theorem exercise_31_3 {α : Type*} [partial_order α]
+    [topological_space α] (h : order_topology α) : regular_space α :=
+sorry
+
+theorem exercise_32_1 {X : Type*} [topological_space X]
+    (hX : normal_space X) (A : set X) (hA : is_closed A) :
+    normal_space {x // x ∈ A} :=
+sorry
+
+theorem exercise_32_2a
+    {ι : Type*} {X : ι → Type*} [∀ i, topological_space (X i)]
+    (h : ∀ i, nonempty (X i)) (h2 : t2_space (Π i, X i)) :
+    ∀ i, t2_space (X i) :=
+sorry
+
+theorem exercise_32_2b
+    {ι : Type*} {X : ι → Type*} [∀ i, topological_space (X i)]
+    (h : ∀ i, nonempty (X i)) (h2 : regular_space (Π i, X i)) :
+    ∀ i, regular_space (X i) :=
+sorry
+
+theorem exercise_32_2c
+    {ι : Type*} {X : ι → Type*} [∀ i, topological_space (X i)]
+    (h : ∀ i, nonempty (X i)) (h2 : normal_space (Π i, X i)) :
+    ∀ i, normal_space (X i) :=
+sorry
+
+theorem exercise_32_3 {X : Type*} [topological_space X]
+    (hX : locally_compact_space X) (hX' : t2_space X) :
+    regular_space X :=
+sorry
+
+theorem exercise_32_7 {X : Type*} [topological_space X]
+    (hX : locally_compact_space X) (hX' : t2_space X) :
+    ∀ x A, is_closed A ∧ ¬ x ∈ A →
+      ∃ (f : X → I), continuous f ∧ f x = 1 ∧ f '' A = {0}
+    :=
+sorry
+
+theorem exercise_33_8
+    (X : Type*) [topological_space X] [regular_space X]
+    (h : ∀ x A, is_closed A ∧ ¬ x ∈ A →
+      ∃ (f : X → I), continuous f ∧ f x = (1 : I) ∧ f '' A = {0})
+    (A B : set X) (hA : is_closed A) (hB : is_closed B)
+    (hAB : disjoint A B)
+    (hAc : is_compact A) :
+    ∃ (f : X → I), continuous f ∧ f '' A = {0} ∧ f '' B = {1} :=
+sorry
+
+theorem exercise_34_9
+    (X : Type*) [topological_space X] [compact_space X]
+    (X1 X2 : set X) (hX1 : is_closed X1) (hX2 : is_closed X2)
+    (hX : X1 ∪ X2 = univ) (hX1m : metrizable_space X1)
+    (hX2m : metrizable_space X2) : metrizable_space X :=
+sorry
 

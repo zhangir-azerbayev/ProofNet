@@ -4,7 +4,7 @@ import data.real.basic
 import data.complex.basic
 import data.fintype.basic
 import data.zmod.basic 
-ipmort group_theory.subgroup.basic
+import group_theory.subgroup.basic
 import group_theory.quotient_group
 import group_theory.index 
 import group_theory.specific_groups.cyclic

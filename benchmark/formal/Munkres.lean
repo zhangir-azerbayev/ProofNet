@@ -311,5 +311,15 @@ theorem exercise_23_6 {X : Type*}
     C ∩ (frontier A) ≠ ∅ :=
 sorry
 
+theorem exercise_23_9 {X Y : Type*}
+    [topological_space X] [topological_space Y]
+    (A₁ A₂ : set X)
+    (B₁ B₂ : set Y)
+    (hA : A₁ ⊂ A₂)
+    (hB : B₁ ⊂ B₂)
+    (hA : is_connected A₂)
+    (hB : is_connected B₂) :
+    is_connected ((A₂ × B₂) \ (A₁ × B₁)) :=
+sorry
 
 

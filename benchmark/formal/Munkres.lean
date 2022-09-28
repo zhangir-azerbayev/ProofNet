@@ -1,6 +1,7 @@
 import topology.basic
 import topology.constructions
 import topology.bases
+import topology.stone_cech
 import topology.path_connected
 import topology.metric_space.basic
 import topology.metric_space.metrizable
@@ -182,7 +183,7 @@ noncomputable
 theorem exercise_16_1 {X : Type*} [topological_space X]
   (Y A : set X)
   (hA : A ⊂ Y)
-  [topological_space {x // x ∈ Y}]
+  [tY : topological_space {x // x ∈ Y}]
   [tAX : topological_space {x : X // x ∈ A}]
   [tAY : topological_space {x : {x // x ∈ Y} // x ∈ A}]
   :
@@ -485,3 +486,26 @@ theorem exercise_34_9
     (hX2m : metrizable_space X2) : metrizable_space X :=
 sorry
 
+theorem exercise_38_4 {X Y S : Type*}
+    [topological_space Y] [compact_space Y] [t2_space Y]
+    (X : set Y)
+    [topological_space {x // x ∈ X}]
+    (hc : closure X = (univ : set Y))
+    (hs : S = stone_cech {x // x ∈ X}) :
+    ∃ (g : S → Y), continuous g ∧ function.surjective g ∧ is_closed_map g ∧
+      ∀ x ∈ X, g x = x :=
+sorry -- TODO fix
+
+theorem exercise_38_6 {X : Type*}
+    (X : Type*) [topological_space X] [regular_space X]
+    (h : ∀ x A, is_closed A ∧ ¬ x ∈ A →
+      ∃ (f : X → I), continuous f ∧ f x = (1 : I) ∧ f '' A = {0}) :
+    is_connected (univ : set X) ↔ is_connected (univ : set (stone_cech X)) :=
+sorry
+
+theorem exercise_43_2 {X : Type*} [metric_space X]
+    {Y : Type*} [metric_space Y] [complete_space Y] (A : set X)
+    (f : A → Y) (hf : uniform_continuous f) :
+    ∃! (g : closure A → Y), continuous g ∧ uniform_continuous g ∧
+    ∀ (x : A), g x = f x :=
+sorry

@@ -245,6 +245,7 @@ theorem exercise_19_6a
 sorry
 
 theorem exercise_20_2 -- TODO dictionary order on R x R
+    [order_topology (ℝ × ℝ)]
     : metrizable_space (ℝ × ℝ) :=
 sorry
 

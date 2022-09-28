@@ -1,6 +1,7 @@
 import topology.basic
 import topology.constructions
 import topology.bases
+import topology.stone_cech
 import topology.path_connected
 import topology.metric_space.basic
 import topology.metric_space.metrizable
@@ -180,13 +181,10 @@ sorry
 
 noncomputable
 theorem exercise_16_1 {X : Type*} [topological_space X]
-  (Y A : set X)
-  (hA : A ⊂ Y)
-  [topological_space {x // x ∈ Y}]
-  [tAX : topological_space {x : X // x ∈ A}]
-  [tAY : topological_space {x : {x // x ∈ Y} // x ∈ A}]
+  (Y : set X)
+  (A : set Y)
   :
-  tAY = tAX :=
+  ∀ U : set A, is_open U ↔ is_open (subtype.val '' U) :=
 sorry
 
 theorem exercise_16_4 {X Y : Type*} [topological_space X] [topological_space Y]
@@ -243,8 +241,9 @@ theorem exercise_19_6a
   tendsto x at_top (𝓝 y) ↔ ∀ i, tendsto (λ j, (x j) i) at_top (𝓝 (y i)) :=
 sorry
 
-theorem exercise_20_2 -- TODO dictionary order on R x R
-    : metrizable_space (ℝ × ℝ) :=
+theorem exercise_20_2
+    [topological_space (ℝ ×ₗ ℝ)] [order_topology (ℝ ×ₗ ℝ)]
+    : metrizable_space (ℝ ×ₗ ℝ) :=
 sorry
 
 
@@ -485,3 +484,27 @@ theorem exercise_34_9
     (hX2m : metrizable_space X2) : metrizable_space X :=
 sorry
 
+theorem exercise_38_4
+  {X Y S : Type*}
+  [topological_space Y] [compact_space Y] [t2_space Y]
+  [topological_space S]
+  (X : set Y)
+  (hc : closure X = (univ : set Y))
+  (hs : S = stone_cech {x // x ∈ X}) :
+  ∃ (g : S → Y), continuous g ∧ function.surjective g ∧ is_closed_map g ∧
+    ∀ x ∈ X, g x = coe x :=
+sorry -- TODO fix
+
+theorem exercise_38_6 {X : Type*}
+    (X : Type*) [topological_space X] [regular_space X]
+    (h : ∀ x A, is_closed A ∧ ¬ x ∈ A →
+      ∃ (f : X → I), continuous f ∧ f x = (1 : I) ∧ f '' A = {0}) :
+    is_connected (univ : set X) ↔ is_connected (univ : set (stone_cech X)) :=
+sorry
+
+theorem exercise_43_2 {X : Type*} [metric_space X]
+    {Y : Type*} [metric_space Y] [complete_space Y] (A : set X)
+    (f : X → Y) (hf : uniform_continuous_on f A) :
+    ∃! (g : X → Y), continuous_on g (closure A) ∧
+      uniform_continuous_on g (closure A) ∧ ∀ (x : A), g x = f x :=
+sorry

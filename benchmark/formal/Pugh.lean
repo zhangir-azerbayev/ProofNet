@@ -48,4 +48,27 @@ theorem exercise_2_41 (m : ℕ) {X : Type*} [normed_space ℝ ((fin m) → ℝ)]
   is_compact (metric.closed_ball 0 1) :=
 sorry
 
+theorem exercise_2_46 {M : Type*} [metric_space M]
+    {A B : set M} (hA : is_compact A) (hB : is_compact B)
+    (hAB : disjoint A B) (hA₀ : A ≠ ∅) (hB₀ : B ≠ ∅) :
+    ∃ a₀ b₀, a₀ ∈ A ∧ b₀ ∈ B ∧ ∀ (a : M) (b : M),
+    a ∈ A → b ∈ B → dist a₀ b₀ ≤ dist a b :=
+sorry
+
+theorem exercise_2_57 {X : Type*} [topological_space X]
+    : ∃ (S : set X), is_connected S ∧ ¬ is_connected (interior S) :=
+sorry
+
+theorem exercise_2_79
+    {M : Type*} [topological_space M] [compact_space M]
+    [loc_path_connected_space M] (hM : nonempty M)
+    (hM : connected_space M) : path_connected_space M :=
+sorry
+
+theorem exercise_2_85
+    (M : Type*) [topological_space M] [compact_space M]
+    (U : set (set M)) (hU : ∀ p, ∃ (U₁ U₂ ∈ U), p ∈ U₁ ∧ p ∈ U₂ ∧ U₁ ≠ U₂) :
+    ∃ (V : set (set M)), set.finite V ∧
+      ∀ p, ∃ (V₁ V₂ ∈ V), p ∈ V₁ ∧ p ∈ V₂ ∧ V₁ ≠ V₂ :=
+sorry
 

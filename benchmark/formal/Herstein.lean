@@ -16,12 +16,17 @@ import group_theory.solvable
 import group_theory.free_group
 import group_theory.presented_group
 import group_theory.group_action.conj_act
+import group_theory.sylow
 import number_theory.zsqrtd.gaussian_int
 import ring_theory.ideal.operations
 import algebra.char_p.basic
+import algebra.quaternion
+import linear_algebra.general_linear_group
+import field_theory.finite.galois_field
 
-open set function nat fintype subgroup ideal polynomial submodule zsqrtd 
-open char_p mul_aut
+open set function nat fintype real 
+open subgroup ideal polynomial submodule zsqrtd 
+open char_p mul_aut matrix
 open_locale big_operators
 noncomputable theory
 
@@ -140,35 +145,40 @@ theorem exercise_2_5_37 (G : Type*) [group G] [fintype G]
   G ≅ equiv.perm (fin 3) :=
 sorry
 
-theorem exercise_2_5_43 (G : Type*) [group G] (hG : order G = 9) :
-    abelian G :=
+theorem exercise_2_5_43 (G : Type*) [group G] [fintype G]
+  (hG : card G = 9) :
+  comm_group G :=
 sorry
 
-theorem exercise_2_5_44 {G : Type*} 
-    [group G] (p : ℕ) (hp : nat.prime p) (hG : (p ^ 2 : ℕ) ∣ G.card) :
-    ∃ (N : subgroup G), N.card = p ∧ N.normal :=
+theorem exercise_2_5_44 {G : Type*} [group G] [fintype G] {p : ℕ}
+  (hp : nat.prime p) (hG : card G = p^2) :
+  ∃ (N : subgroup G) (fin : fintype N), @card N fin = p ∧ N.normal :=
 sorry
 
-theorem exercise_2_5_52 {G : Type*} [group G] 
-    (φ : G → G) (hφ : is_automorphism φ) (h : ∀ x : G, φ x = x⁻¹) : 
-    is_abelian G :=
+theorem exercise_2_5_52 {G : Type*} [group G] [fintype G]
+  (φ : G ≃* G) {I : finset G} (hI : ∀ x ∈ I, φ x = x⁻¹)
+  (hI1 : 0.75 * card G ≤ card I) : 
+  ∀ x : G, φ x = x⁻¹ ∧ ∀ x y : G, x*y = y*x :=
 sorry
 
-theorem exercise_2_6_15 {G : Type*} [group G] 
-    (m n : ℕ) (hm : ∃ (g : G), g.order = m) (hn : ∃ (g : G), g.order = n) 
-    (hmn : nat.relprime m n) :
-    ∃ (g : G), g.order = m * n :=
+theorem exercise_2_6_15 {G : Type*} [comm_group G] {m n : ℕ} 
+  (hm : ∃ (g : G), order_of g = m) 
+  (hn : ∃ (g : G), order_of g = n) 
+  (hmn : m.coprime n) :
+  ∃ (g : G), order_of g = m * n :=
 sorry
 
+-- positive real number under multiplication?
 theorem exercise_2_7_3 :
     quotient_group (nonzero ℝ) (group_of_order_two) ≅ multiplicative ℝ :=
 sorry
 
 theorem exercise_2_7_7 {G : Type*} [group G] {G' : Type*} [group G']
-    (φ : G →* G') (hφ : function.surjective φ) (N : set G) 
-    (hN : is_normal_subgroup N) : is_normal_subgroup (φ '' N) :=
+  (φ : G →* G') (N : subgroup G) [N.normal] : 
+  (map φ N).normal  :=
 sorry
 
+-- product of subgroups?
 theorem exercise_2_8_7 {G : Type*} [group G] 
     {A B : set G} (hA : is_subgroup A) (hB : is_subgroup B) 
     (hA_finite : fintype.card A < ⊤) (hB_finite : fintype.card B < ⊤) 
@@ -176,180 +186,164 @@ theorem exercise_2_8_7 {G : Type*} [group G]
     fintype.card (A * B) = fintype. :=
 sorry
 
-theorem exercise_2_8_12 (G H : Type*) 
-    [group G] [group H] (hG : G.card = 21) (hH : H.card = 21) 
-    (hG_nonabelian : ¬ abelian G) (hH_nonabelian : ¬ abelian H) :
-    G ≃ H :=
+theorem exercise_2_8_12 {G H : Type*} [fintype G] [fintype H] 
+  [group G] [group H] (hG : card G = 21) (hH : card H = 21) 
+  (hG1 : is_empty(comm_group G)) (hH1 : is_empty (comm_group G)) :
+  G ≃ H :=
 sorry
 
-theorem exercise_2_8_15 (p q : ℕ) 
-    (hp : nat.prime p) (hq : nat.prime q) (h : q ∣ p - 1) :
-    ∀ (G H : Type*) [group G] [group H] [fintype G] [fintype H] 
-    (hG : G.card = p * q) (hH : H.card = p * q) (hGn : ¬ abelian G) 
-    (hHn : ¬ abelian H), G ≃ H :=
+theorem exercise_2_8_15 {G H: Type*} [fintype G] [group G] [fintype H]
+  [group H] {p q : ℕ} (hp : nat.prime p) (hq : nat.prime q) 
+  (h : p > q) (h1 : q ∣ p - 1) (hG : card G = p*q) (hH : card G = p*q) :
+  G ≃* H :=
 sorry
 
-theorem exercise_2_9_2 {G₁ G₂ : Type*} [group G₁] [group G₂]
-    [is_cyclic G₁] [is_cyclic G₂] :
-    is_cyclic (G₁ × G₂) ↔ nat.gcd (order G₁) (order G₂) = 1 :=
+theorem exercise_2_9_2 {G H : Type*} [fintype G] [fintype H] [group G] 
+  [group H] (hG : is_cyclic G) (hH : is_cyclic H) :
+  is_cyclic (G × H) ↔ (card G).coprime (card H) :=
 sorry
 
-theorem exercise_2_10_1 
-    {G : Type*} [group G] {A : subgroup G} (hA : A.normal) 
-    (b : G) (hb : b.prime_order) (hbA : b ∉ A) :
-    A ∩ (b) = (1) :=
+theorem exercise_2_10_1 {G : Type*} [group G] (A : subgroup G) 
+  [A.normal] {b : G} (hp : nat.prime (order_of b)) :
+  A ⊓ (closure {b}) = ⊥ :=
 sorry
 
-theorem exercise_2_11_6 {p : ℕ} {G : Type*} 
-    [group G] {P : subgroup G} (hP : is_p_group p P) (hPn : P ≤ normalizer G P) :
-    ∀ (Q : sylow p G), P = Q :=
+theorem exercise_2_11_6 {G : Type*} [group G] {p : ℕ} (hp : nat.prime p) 
+  {P : sylow p G} (hP : P.normal) :
+  ∀ (Q : sylow p G), P = Q :=
 sorry
 
-theorem exercise_2_11_7 {p : ℕ} {G : Type*} 
-    [group G] {P : subgroup G} (hP : is_p_group p P) (hP_sylow : is_sylow p G P) 
-    (φ : G →+* G) : φ '' P = P :=
+theorem exercise_2_11_7 {G : Type*} [group G] {p : ℕ} (hp : nat.prime p)
+  {P : sylow p G} (hP : P.normal) : 
+  characteristic (P : subgroup G) :=
 sorry
 
-theorem exercise_2_11_22 {p : ℕ} {n : ℕ} {G : Type*} [group G]
-    (hG : order_of G = p ^ n) (H : subgroup G) (hH : order_of H = p ^ (n - 1)) :
-    is_normal H G :=
+theorem exercise_2_11_22 {p : ℕ} {n : ℕ} {G : Type*} [fintype G] 
+  [group G] (hp : nat.prime p) (hG : card G = p ^ n) {K : subgroup G}
+  [fintype K] (hK : card K = p ^ (n-1)) : 
+  K.normal :=
 sorry
 
-theorem exercise_3_2_21 {α : Type*} [decidable_eq α]
-  (σ τ : perm α) (hστ : disjoint_support σ τ) (hστ_eq_one : σ * τ = 1) :
+theorem exercise_3_2_21 {α : Type*} [fintype α] {σ τ: equiv.perm α} 
+  (h1 : ∀ a : α, σ a = a ↔ τ a ≠ a) (h2 : τ ∘ σ = id) : 
   σ = 1 ∧ τ = 1 :=
 sorry
 
-theorem exercise_3_2_23 {α : Type*} 
-    [fintype α] [decidable_eq α] (σ τ : perm α) 
-    (hσ : σ.is_cycle_decomposition) (hτ : τ.is_cycle_decomposition) 
-    (h : ∀ i, ∃ j, hσ i = hτ j) :
-    ∃ (β : perm α), τ = β * σ * β⁻¹ :=
+-- how to talk about cycle decompositions? 
+theorem exercise_3_2_23 {α : Type*} [fintype α] {σ τ: equiv.perm α} 
+  (hs : ∃ )
 sorry
 
+-- how to talk about cycles?
 theorem exercise_3_3_2 {k : ℕ} (hk : k > 0) (σ : perm k) 
     (hσ : is_k_cycle σ k) :
     is_odd σ ↔ k % 2 = 0 :=
 sorry
 
+-- cycles!
 theorem exercise_3_3_9 (n : ℕ) (h : n ≥ 5) 
     (N : subgroup (perm.perm_group n)) (hN : N ≠ ⊥) (hN_normal : N.normal) :
     ∃ (p : perm n), p.is_three_cycle :=
 sorry
 
-theorem exercise_4_1_19 :
-    ∃ (x : quaternion ℂ), x ^ 2 = -1 :=
+theorem exercise_4_1_19 : infinite {x : quaternion ℝ | x^2 = -1} :=
 sorry
 
-theorem exercise_4_1_28 {R : Type*} [ring R] [decidable_eq R] 
-    [fintype R] [decidable_eq (matrix R 2 2)] :
-    group (matrix R 2 2) :=
-sorry
-
-theorem exercise_4_1_29 {R : Type*} [comm_ring R] 
-    (x : R) :
-    det x = 0 ↔ x ≠ 0 ∧ x ∈ zero_divisors R :=
-sorry
-
-theorem exercise_4_1_34 (T : Type*) [group T] 
-    (hT : ∀ (A : T), det A ≠ 0) :
-    is_isomorphic T (perm.group 3) :=
+theorem exercise_4_1_34 : equiv.perm (fin 3) ≃* general_linear_group (fin 2) (zmod 2) :=
 sorry
 
 theorem exercise_4_2_5 {R : Type*} [ring R] 
-    (h : ∀ x : R, x ^ 3 = x) : comm_ring R :=
+  (h : ∀ x : R, x ^ 3 = x) : comm_ring R :=
 sorry
 
 theorem exercise_4_2_6 {R : Type*} [ring R] (a x : R) 
-    (h : a ^ 2 = 0) : a * (x + x * a) = (x + x * a) * a :=
+  (h : a ^ 2 = 0) : a * (x + x * a) = (x + x * a) * a :=
 sorry
 
-theorem exercise_4_2_9 (p : ℕ) 
-    (hp : nat.prime p) (hp1 : p % 2 = 1) :
-    ∀ (a b : ℕ), a / b = ∑ i in (finset.range (p - 1) : finset ℕ), 1 / (i + 1) → p ∣ a :=
+theorem exercise_4_2_9 {p : ℕ} (hp : nat.prime p) (hp1 : odd p) :
+  ∃ (a b : ℤ), a / b = ∑ i in finset.range p, 1 / (i + 1) → ↑p ∣ a :=
 sorry
 
 theorem exercise_4_3_1 {R : Type*} [comm_ring R] (a : R) :
-    ideal.left_mul a = {x | x * a = 0} :=
+  ∃ I : ideal R, {x : R | x*a=0} = I :=
 sorry
 
-theorem exercise_4_3_4 {R : Type*} [comm_ring R] (I J : ideal R) :
-    ideal.is_ideal (I + J) :=
-sorry
-
-theorem exercise_4_3_25 {R : Type*} [ring R] 
-    (M : Type*) [add_comm_group M] [module R M] [fintype M] [decidable_eq M] 
-    (I : ideal R) :
-    I = ⊥ ∨ I = ⊤ :=
+theorem exercise_4_3_25 (I : ideal (matrix (fin 2) (fin 2) ℝ)) : 
+  I = ⊥ ∨ I = ⊤ :=
 sorry
 
 theorem exercise_4_4_9 (p : ℕ) (hp : nat.prime p) :
-    (p - 1) / 2 = card {x : ℕ | x < p ∧ x.quadratic_residue p} ∧
-    (p - 1) / 2 = card {x : ℕ | x < p ∧ x.quadratic_nonresidue p} :=
+    ∃ S : finset (zmod p), S.card = (p-1)/2 ∧ ∃ x : zmod p, x^2 = p ∧ 
+    ∃ S : finset (zmod p), S.card = (p-1)/2 ∧ ¬ ∃ x : zmod p, x^2 = p :=
 sorry
 
-theorem exercise_4_5_12 {F K : Type*} [field F] [field K]
-    (hF : F ⊆ K) (f g : polynomial F) (hfg : f.coprime g) :
-    f.map hF.to_embedding.to_fun.coprime g.map hF.to_embedding.to_fun :=
+-- how to lift polynomial?
+theorem exercise_4_5_12 {K : Type*} [field K] (F : subfield K) 
+  (f g : polynomial F) (hfg : is_coprime f g) :
+  is_coprime (f : polynomial K) g :=
 sorry
 
-theorem exercise_4_5_16 {p : ℕ} (hp : nat.prime p) 
-    (n : ℕ) (q : polynomial ℤ_p) (hq : irreducible q) :
-    ∃ (F : Type*) [field F], cardinal.mk F = p ^ n :=
+theorem exercise_4_5_16 {p n: ℕ} (hp : nat.prime p) 
+  {q : polynomial (zmod p)} (hq : irreducible q) (hn : q.degree = n) :
+  ∃ is_fin : fintype $ polynomial (zmod p) ⧸ ideal.span ({q} : set (polynomial $ zmod p)), 
+  @card (polynomial (zmod p) ⧸ ideal.span {q}) is_fin = p ^ n ∧ 
+  is_field (polynomial $ zmod p):=
 sorry
 
-theorem exercise_4_5_23 
-    {F : Type*} [field F] (p : polynomial F) (h : p.degree = 3) 
-    (h2 : ∀ (a : F), p.eval a = 0 → is_root_of_unity a) : 
-    is_irreducible p :=
+theorem exercise_4_5_23 {p q: polynomial (zmod 7)} 
+  (hp : p = X^3 - 2) (hq : q = X^3 + 2) : 
+  irreducible p ∧ irreducible q ∧ 
+  (nonempty $ polynomial (zmod 7) ⧸ ideal.span ({p} : set $ polynomial $ zmod 7) ≃+*
+  polynomial (zmod 7) ⧸ ideal.span ({q} : set $ polynomial $ zmod 7)) :=
 sorry
 
-theorem exercise_4_5_25 (p : ℕ) (hp : nat.prime p) :
-    irreducible (polynomial.q_polynomial p) :=
+theorem exercise_4_5_25 {p : ℕ} (hp : nat.prime p) :
+  irreducible (∑ i : finset.range p, X ^ p : polynomial ℚ) :=
 sorry
 
-theorem exercise_4_6_2 (x : polynomial ℚ) :
-  irreducible (x^3 + 3*x + 2) :=
+theorem exercise_4_6_2 : irreducible (X^3 + 3*X + 2 : polynomial ℚ) :=
 sorry
 
-theorem exercise_4_6_3 (a : ℕ) :
-    ∃ (a : ℕ), irreducible (polynomial.C a * polynomial.X ^ 7 + polynomial.C 15 * polynomial.X ^ 2 - polynomial.C 30 * polynomial.X + polynomial.C a) :=
+theorem exercise_4_6_3 :
+  infinite {a : ℤ | irreducible (X^7 + 15*X^2 - 30*X + a : polynomial ℚ)} :=
 sorry
 
-theorem exercise_5_1_8 {F : Type*} [field F] (hF : char_p F) 
-    (a b : F) (m : ℕ) (hmn : m = (char_p.pos hF).pow n) (hn : 0 < n) :
-    (a + b) ^ m = a ^ m + b ^ m :=
+theorem exercise_5_1_8 {p m n: ℕ} {F : Type*} [field F] 
+  (hp : nat.prime p) (hF : char_p F p) (a b : F) (hm : m = p ^ n) : 
+  (a + b) ^ m = a^m + b^m :=
 sorry
 
-theorem exercise_5_2_20 {V : Type*} [add_comm_group V] 
-    [vector_space ℂ V] (hV : ∀ (n : ℕ), ∃ (W : submodule ℂ V), 
-    (finite.card W = n) ∧ (W ≠ ⊤)) : false :=
+theorem exercise_5_2_20 {F V ι: Type*} [infinite F] [field F] 
+  [add_comm_group V] [module F V] {u : ι → submodule F V} 
+  (hu : ∀ i : ι, u i ≠ ⊤) : 
+  (⋃ i : ι, (u i : set V)) ≠ ⊤ :=
 sorry
 
-theorem exercise_5_3_7 {K : Type*} [field K] {F : Type*} 
-    [field F] (a : K) (h : is_algebraic K (a ^ 2) F) : is_algebraic K a F :=
+theorem exercise_5_3_7 {K : Type*} [field K] {F : subfield K} 
+  {a : K} (ha : is_algebraic F (a ^ 2)) : is_algebraic F a :=
+sorry 
+
+theorem exercise_5_3_10 : is_algebraic ℚ (cos (real.pi / 180)) :=
 sorry
 
-theorem exercise_5_3_10 : algebraic ℚ (cos (1 : ℝ)) :=
+theorem exercise_5_4_3 {a : ℂ} {p : ℂ → ℂ} 
+  (hp : p = λ x, x^5 + real.sqrt 2 * x^3 + real.sqrt 5 * x^2 + 
+  real.sqrt 7 * x + 11)
+  (ha : p a = 0) : 
+  ∃ p : polynomial ℂ , p.degree < 80 ∧ a ∈ p.roots ∧ 
+  ∀ n : p.support, ∃ a b : ℤ, p.coeff n = a / b :=
 sorry
 
-theorem exercise_5_4_3 
-    (a : ℂ) (h : polynomial.eval ℂ (polynomial.X ^ 5 + √2 * polynomial.X ^ 3 + 
-    √5 * polynomial.X ^ 2 + √7 * polynomial.X + √11) a = 0) :
-    ∃ (p : polynomial ℂ), degree p ≤ 80 ∧ polynomial.eval ℂ p a = 0 :=
-sorry
+theorem exercise_5_5_2 : irreducible (X^3 - 3*X - 1 : polynomial ℚ)
 
-theorem exercise_5_5_2 : irreducible (polynomial.C (-1) * X^3 + polynomial.C 3 * X + 1) :=
-sorry
-
+-- I don't even know what this means
 theorem exercise_5_6_3 (p : polynomial ℚ) 
     (hp : p = X^4 + X^3 + X^2 + X + 1) :
     ∃ (K : Type*) [field K] [algebra ℚ K] (hK : degree K = 4), 
     is_splitting_field ℚ p K :=
 sorry
 
-theorem exercise_5_6_14 {F : Type*} [field F] 
-    (p : ℕ) (hp : p ≠ 0) (n : ℕ) :
-    (∀ (x : F), x ^ p ^ n - x = 0) → 
-    ∀ (x y : F), x ≠ y → x ^ p ^ n ≠ y ^ p ^ n :=
+theorem exercise_5_6_14 {p m n: ℕ} (hp : nat.prime p) {F : Type*} 
+  [field F] [char_p F p] (hm : m = p ^ n) : 
+  card (root_set (X ^ m - X : polynomial F) F) = m :=
 sorry

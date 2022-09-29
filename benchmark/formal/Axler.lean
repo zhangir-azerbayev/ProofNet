@@ -3,6 +3,7 @@ import linear_algebra.eigenspace
 import data.complex.basic
 import analysis.inner_product_space.basic
 import analysis.inner_product_space.projection
+import analysis.inner_product_space.adjoint
 
 open set fintype complex polynomial submodule linear_map 
 open finite_dimensional module module.End inner_product_space
@@ -168,92 +169,92 @@ theorem exercise_6_16 {V : Type*} [inner_product_space ℂ V]
   Uᗮ = ⊥ ↔ U = ⊤ :=
 sorry
 
--- same problem as with group theory stuff
+-- how do I extend the map?
 theorem exercise_6_17 {V : Type*} [inner_product_space ℂ V]
-  [complete_space V]
+  [finite_dimensional ℂ V]
   {P : End ℂ V} (hP : P ^ 2 = P) 
   (hP1 : ∀ u v : V, u ∈ P.ker → v ∈ linear_map.range P → ⟪u, v⟫_ℂ = 0) : 
-  ∃ U : submodule ℂ V, complete_space U ∧ P = orthogonal_projection U :=
+  ∃ U : submodule ℂ V, P = orthogonal_projection U :=
 sorry
 
+-- how do I extend the map?
 theorem exercise_6_18 {V : Type*} [inner_product_space ℂ V]
-    {P : V → V} (hP : self_adjoint P) (hP2 : P ∘ P = P) 
-    (hP_le : ∀ v : V, ∥P v∥ ≤ ∥v∥) : is_projection P :=
+  [finite_dimensional ℂ V]
+  {P : End ℂ V} (hP : P ^ 2 = P) 
+  (hP1 : ∀ v : V, ∥P v∥ ≤ ∥v∥) : 
+  ∃ U : submodule ℂ V, P = orthogonal_projection U :=
 sorry
 
-theorem exercise_6_19 {V : Type*} 
-    [add_comm_group V] [vector_space ℂ V] {T : V →ₗ[ℂ] V} 
-    (U : submodule ℂ V) :
-    U.is_invariant T ↔ T.comp (U.subtype.projection) = 
-    (U.subtype.projection).comp T :=
+-- how do I extend the map?
+theorem exercise_6_19 {V : Type*} [inner_product_space ℂ V]
+  [finite_dimensional ℂ V] (T : End ℂ V) (U : submodule ℂ V) : 
+  (map T U = U ∧ map T Uᗮ = Uᗮ) ↔ false := --put stuff here
 sorry
 
-theorem exercise_6_20 {V : Type*} [add_comm_group V] 
-    [vector_space ℂ V] (T : V →ₗ[ℂ] V) (U : submodule ℂ V) :
-    is_invariant U T ↔ T.comp (projection U) = projection U.comp T :=
+-- how do I extend orthogonal projection?
+theorem exercise_6_20 {V : Type*} [inner_product_space ℂ V]
+  [finite_dimensional ℂ V] (T : End ℂ V) (U : submodule ℂ V) : 
+    :=
 sorry
 
-theorem exercise_6_29 {V : Type*} 
-    [inner_product_space ℂ V] {T : V →ₗ[ℂ] V} (U : submodule ℂ V) :
-    U.is_invariant T ↔ U.orthogonal.is_invariant T.adjoint :=
+theorem exercise_6_29 {V : Type*} [inner_product_space ℂ V]
+  [finite_dimensional ℂ V] (T : V →ₗ[ℂ] V) (U : submodule ℂ V) :
+  map T U = U ↔ map Uᗮ (T.adjoint) = Uᗮ :=
 sorry
 
 theorem exercise_7_4 {V : Type*} [inner_product_space ℂ V]
-    [normed_group V] [normed_space ℂ V] (P : V →ₗ[ℂ] V) (hP : P.is_projection) :
-    P.is_self_adjoint ↔ P.is_projection :=
-sorry
+  [finite_dimensional ℂ V] {P : End ℂ V} (hP : P ^ 2 = P) : 
+  ∃ U : submodule ℂ V, P = orthogonal_projection U ↔ 
+  is_self_adjoint P :=
+sorry 
 
-theorem exercise_7_5 {V : Type*} [finite_dimensional ℂ V]
-    (hV : dim V ≥ 2) :
-    ¬ (normal_ops V).is_subspace :=
+theorem exercise_7_5 {V : Type*} [inner_product_space ℂ V] 
+  [finite_dimensional ℂ V] (hV : finrank V ≥ 2) :
+  ∀ U : submodule ℂ (End ℂ V), U.carrier ≠ 
+  {T | T * T.adjoint = T.adjoint * T} :=
 sorry
 
 theorem exercise_7_6 {V : Type*} [inner_product_space ℂ V] 
-    [normed_space ℂ V] (T : V →ₗ[ℂ] V) (hT : T.is_normal) :
-    T.range = T.adjoint.range :=
+  [finite_dimensional ℂ V] (T : End ℂ V) 
+  (hT : T * T.adjoint = T.adjoint * T) :
+  T.range = T.adjoint.range :=
 sorry
 
+--specific matrices 
 theorem exercise_7_8 {R : Type*} [ring R] 
     [semiring R] [add_comm_group R] [module R R] [vector_space ℝ R] 
     [inner_product_space ℝ R] [normed_group R] [normed_space ℝ R] 
     [complete_space ℝ R] (T : R →ₗ[R] R) (hT : T.is_self_adjoint) 
-    (hT1 : T (1 : R) = 0) (hT2 : T (2 : R) = 2 :=
+    (hT1 : T (1 : R) = 0) (hT2 : T (2 : R) = 2):=
 sorry
 
 theorem exercise_7_9 {V : Type*} [inner_product_space ℂ V]
-    [normed_group V] [normed_space ℂ V] {T : V →ₗ[ℂ] V} (hT : T.is_normal) :
-    T.is_self_adjoint ↔ ∀ (λ : ℂ), T.is_eigenvalue λ → λ.is_real :=
+  [finite_dimensional ℂ V] (T : End ℂ V) 
+  (hT : T * T.adjoint = T.adjoint * T) : 
+  is_self_adjoint T ↔ ∀ e : T.eigenvalues, (e : ℂ).im = 0 :=
 sorry
 
 theorem exercise_7_10 {V : Type*} [inner_product_space ℂ V]
-    {T : V →ₗ[ℂ] V} (hT : is_normal T) (hT9 : T ^ 9 = T ^ 8) :
-    T = T⁻¹ ↔ is_self_adjoint T :=
+  [finite_dimensional ℂ V] (T : End ℂ V)
+  (hT : T * T.adjoint = T.adjoint * T) (hT1 : T^9 = T^8) : 
+  is_self_adjoint T ∧ T^2 = T :=
 sorry
 
 theorem exercise_7_11 {V : Type*} [inner_product_space ℂ V] 
-    {T : V →ₗ[ℂ] V} (hT : T.is_normal) :
-    ∃ (S : V →ₗ[ℂ] V), S.is_normal ∧ S ^ 2 = T :=
+  [finite_dimensional ℂ V] {T : End ℂ V} (hT : T*T.adjoint = T.adjoint*T) :
+  ∃ (S : End ℂ V), S ^ 2 = T :=
 sorry
 
-theorem exercise_7_14 
-    {V : Type*} [inner_product_space ℂ V] [normed_group V] [normed_space ℂ V]
-    {T : V →ₗ[ℂ] V} (hT : self_adjoint T) (λ : ℂ) (ε : ℝ) 
-    (hε : ε > 0) (v : V) (hv : ∥v∥ = 1) (hvT : ∥T v - λ • v∥ < ε) : :=
+theorem exercise_7_14 {𝕜 V : Type*} [is_R_or_C 𝕜] 
+  [inner_product_space 𝕜 V] [finite_dimensional 𝕜 V]
+  {T : End 𝕜 V} (hT : is_self_adjoint T) 
+  {l : 𝕜} {ε : ℝ} (he : ε > 0) : ∃ v : V, ∥v∥ = 1 ∧ ∥T v - l • v∥ < ε → 
+  ∃ l' : T.eigenvalues, ∥l - l'∥ < ε :=
 sorry
 
+-- this is unnatural
 theorem exercise_7_15 {U : Type*} 
     [finite_dimensional ℝ U] (T : linear_map ℝ U U) :
     ∃ (b : set U), is_basis ℝ b ∧ ∀ (v : U), v ∈ b → is_eigenvector ℝ T v ↔ 
     ∃ (ip : inner_product_space ℝ U), is_self_adjoint ℝ ip T :=
-sorry
-
-theorem exercise_7_17 {V : Type*} [inner_product_space ℂ V] 
-    {A B : V →ₗ[ℂ] V} (hA : A.is_self_adjoint) (hB : B.is_self_adjoint) 
-    (hApos : A.is_positive) (hBpos : B.is_positive) :
-    (A + B).is_positive :=
-sorry
-
-theorem exercise_7_18 {V : Type*} [inner_product_space ℂ V] [normed_group V] 
-    [normed_space ℂ V] (T : V →ₗ[ℂ] V) (hT : T.is_positive) (k : ℕ) :
-    T^k.is_positive :=
 sorry

@@ -16,8 +16,10 @@ import group_theory.free_group
 import group_theory.presented_group
 import number_theory.zsqrtd.gaussian_int
 import ring_theory.ideal.operations
+import algebra.char_p.basic
 
 open function fintype subgroup ideal polynomial submodule zsqrtd 
+open char_p
 open_locale big_operators
 noncomputable theory
 
@@ -136,13 +138,11 @@ sorry
 theorem exercise_10_4_7a {R : Type*} [comm_ring R] [no_zero_divisors R] 
     (I J : ideal R) (hIJ : I + J = ⊤) : I * J = I ⊓ J :=
 sorry
-
--- this is a tough one
-theorem exercise_10_5_16 {R : Type*} 
-    [comm_monoid_with_zero R] (f : nat.arithmetic_function R) 
-    (hf : f.is_multiplicative) (g : nat.arithmetic_function R) 
-    (hg : g.is_multiplicative) :
-    f = g ↔ ∀ (p i : ℕ), nat.prime p → f (p ^ i) = g (p ^ i) :=
+ 
+theorem exercise_10_5_16 {F : Type*} [fintype F] [field F] : 
+    is_empty ((polynomial F) ⧸ ideal.span ({X^2} : set (polynomial F)) ≃
+    (polynomial F) ⧸ ideal.span ({X^2 - 1} : set (polynomial F))) ↔
+    ring_char F ≠ 2 := 
 sorry
 
 theorem exercise_10_7_6 {F : Type*} [fintype F] [field F] 
@@ -191,6 +191,7 @@ theorem exercise_11_4_8 {p : ℕ} (hp : prime p) (n : ℕ) :
     irreducible (X ^ n - p : polynomial ℚ) :=
 sorry
 
+-- this is thorny
 theorem exercise_11_4_10 irreducible_of_degree_two_n_plus_one_of_nonzero_leading_coeff_of_zero_coeffs_of_nonzero_constant_coeff_of_zero_coeffs_of_zero_coeffs_of_nonzero_constant_coeff_of_zero_coeffs_of_zero_coeffs_of_nonzero_constant_coeff_of_zero_coeffs_of_zero_coeffs_of_nonzero_constant_coeff_of_zero_coeffs_of_zero_coeffs_of_nonzero_constant :=
 sorry
 
@@ -211,8 +212,8 @@ sorry
 
 -- Why is this erroring?
 theorem exercise_13_1_3 {R : Type*} [comm_ring R] [no_zero_divisors R] 
-    {F : subring R} [module F R] [finite_dimensional F R] : 
-    field R :=
+  {F : subring R} [field F] [module F R] [finite_dimensional F R] : 
+  field R :=
 sorry
 
 -- Not really sure how to do this

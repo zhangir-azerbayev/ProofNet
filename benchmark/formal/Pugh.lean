@@ -22,13 +22,13 @@ open_locale filter
 open_locale topological_space
 
 theorem exercise_2_12a (f : ℕ → ℕ) (p : ℕ → ℝ) (a : ℝ)
-    (hf : injective f) (hp : tendsto p at_top (𝓝 a)) :
-    tendsto (λ n, p (f n)) at_top (𝓝 a) :=
+  (hf : injective f) (hp : tendsto p at_top (𝓝 a)) :
+  tendsto (λ n, p (f n)) at_top (𝓝 a) :=
 sorry
 
 theorem exercise_2_12b (f : ℕ → ℕ) (p : ℕ → ℝ) (a : ℝ)
-    (hf : surjective f) (hp : tendsto p at_top (𝓝 a)) :
-    tendsto (λ n, p (f n)) at_top (𝓝 a) :=
+  (hf : surjective f) (hp : tendsto p at_top (𝓝 a)) :
+  tendsto (λ n, p (f n)) at_top (𝓝 a) :=
 sorry
 
 theorem exercise_2_26 {M : Type*} [topological_space M]
@@ -50,35 +50,35 @@ theorem exercise_2_41 (m : ℕ) {X : Type*} [normed_space ℝ ((fin m) → ℝ)]
 sorry
 
 theorem exercise_2_46 {M : Type*} [metric_space M]
-    {A B : set M} (hA : is_compact A) (hB : is_compact B)
-    (hAB : disjoint A B) (hA₀ : A ≠ ∅) (hB₀ : B ≠ ∅) :
-    ∃ a₀ b₀, a₀ ∈ A ∧ b₀ ∈ B ∧ ∀ (a : M) (b : M),
-    a ∈ A → b ∈ B → dist a₀ b₀ ≤ dist a b :=
+  {A B : set M} (hA : is_compact A) (hB : is_compact B)
+  (hAB : disjoint A B) (hA₀ : A ≠ ∅) (hB₀ : B ≠ ∅) :
+  ∃ a₀ b₀, a₀ ∈ A ∧ b₀ ∈ B ∧ ∀ (a : M) (b : M),
+  a ∈ A → b ∈ B → dist a₀ b₀ ≤ dist a b :=
 sorry
 
 theorem exercise_2_57 {X : Type*} [topological_space X]
-    : ∃ (S : set X), is_connected S ∧ ¬ is_connected (interior S) :=
+  : ∃ (S : set X), is_connected S ∧ ¬ is_connected (interior S) :=
 sorry
 
 theorem exercise_2_79
-    {M : Type*} [topological_space M] [compact_space M]
-    [loc_path_connected_space M] (hM : nonempty M)
-    (hM : connected_space M) : path_connected_space M :=
+  {M : Type*} [topological_space M] [compact_space M]
+  [loc_path_connected_space M] (hM : nonempty M)
+  (hM : connected_space M) : path_connected_space M :=
 sorry
 
 theorem exercise_2_85
-    (M : Type*) [topological_space M] [compact_space M]
-    (U : set (set M)) (hU : ∀ p, ∃ (U₁ U₂ ∈ U), p ∈ U₁ ∧ p ∈ U₂ ∧ U₁ ≠ U₂) :
-    ∃ (V : set (set M)), set.finite V ∧
-      ∀ p, ∃ (V₁ V₂ ∈ V), p ∈ V₁ ∧ p ∈ V₂ ∧ V₁ ≠ V₂ :=
+  (M : Type*) [topological_space M] [compact_space M]
+  (U : set (set M)) (hU : ∀ p, ∃ (U₁ U₂ ∈ U), p ∈ U₁ ∧ p ∈ U₂ ∧ U₁ ≠ U₂) :
+  ∃ (V : set (set M)), set.finite V ∧
+  ∀ p, ∃ (V₁ V₂ ∈ V), p ∈ V₁ ∧ p ∈ V₂ ∧ V₁ ≠ V₂ :=
 sorry
 
 theorem exercise_2_92 {α : Type*} [topological_space α]
-    {s : ℕ → set α}
-    (hs : ∀ i, is_compact (s i))
-    (hs : ∀ i, (s i).nonempty)
-    (hs : ∀ i, (s i) ⊃ (s (i + 1))) :
-    (⋂ i, s i).nonempty :=
+  {s : ℕ → set α}
+  (hs : ∀ i, is_compact (s i))
+  (hs : ∀ i, (s i).nonempty)
+  (hs : ∀ i, (s i) ⊃ (s (i + 1))) :
+  (⋂ i, s i).nonempty :=
 sorry
 
 theorem exercise_2_109
@@ -88,7 +88,7 @@ theorem exercise_2_109
 sorry
 
 theorem exercise_2_126 {E : set ℝ}
-    (hE : ¬ set.countable E) : ∃ (p : ℝ), cluster_pt p (𝓟 E) :=
+  (hE : ¬ set.countable E) : ∃ (p : ℝ), cluster_pt p (𝓟 E) :=
 sorry
 
 open topological_space
@@ -97,7 +97,7 @@ theorem exercise_2_137
   {M : Type*} [metric_space M] [separable_space M] [complete_space M]
   {P : set M} (hP : is_closed P)
   (hP' : is_closed P ∧ P = {x | cluster_pt x (𝓟 P)}) :
-    ∀ x ∈ P, ∀ n ∈ (𝓝 x), ¬ set.countable n :=
+  ∀ x ∈ P, ∀ n ∈ (𝓝 x), ¬ set.countable n :=
 sorry
 
 theorem exercise_3_1 {f : ℝ → ℝ}
@@ -120,9 +120,8 @@ sorry
 local notation `∞` := (⊤ : with_top ℕ)
 
 theorem exercise_3_18 {L : set ℝ} (hL : is_closed L) :
-    ∃ (f : ℝ → ℝ), (cont_diff ℝ ∞ f) ∧ ∀ (x : ℝ), f x = 0 ↔ x ∈ L :=
+  ∃ (f : ℝ → ℝ), (cont_diff ℝ ∞ f) ∧ ∀ (x : ℝ), f x = 0 ↔ x ∈ L :=
 sorry -- TODO range should be [0,1]
-
 
 theorem exercise_3_63a (p : ℝ) (f : ℕ → ℝ) (hp : p > 1)
   (h : f = λ k, (1 : ℝ) / (k * (log k) ^ p)) :
@@ -135,20 +134,20 @@ theorem exercise_3_63b (p : ℝ) (f : ℕ → ℝ) (hp : p ≤ 1)
 sorry
 
 theorem exercise_4_15a {α : Type*}
-    (a b : ℝ) (F : set (ℝ → ℝ)) :
-    (∀ (x : ℝ) (ε > 0), ∃ (U ∈ (𝓝 x)),
-      (∀ (y z ∈ U) (f : ℝ → ℝ), f ∈ F → (dist (f y) (f z) < ε)))
-    ↔
-      ∃ (μ : ℝ → ℝ), ∀ (x : ℝ), (0 : ℝ) ≤ μ x ∧ tendsto μ (𝓝 0) (𝓝 0) ∧
-        (∀ (s t ∈ ℝ) (f : ℝ → ℝ), f ∈ F → |(f s) - (f t)| ≤ μ (|s - t|)) :=
+  (a b : ℝ) (F : set (ℝ → ℝ)) :
+  (∀ (x : ℝ) (ε > 0), ∃ (U ∈ (𝓝 x)),
+  (∀ (y z ∈ U) (f : ℝ → ℝ), f ∈ F → (dist (f y) (f z) < ε)))
+  ↔
+  ∃ (μ : ℝ → ℝ), ∀ (x : ℝ), (0 : ℝ) ≤ μ x ∧ tendsto μ (𝓝 0) (𝓝 0) ∧
+  (∀ (s t ∈ ℝ) (f : ℝ → ℝ), f ∈ F → |(f s) - (f t)| ≤ μ (|s - t|)) :=
 sorry
 
 theorem exercise_4_19 {M : Type*} [metric_space M]
-    [compact_space M] (A : set M) (hA : dense A) (δ : ℝ) (hδ : δ > 0) :
-    ∃ (A_fin : set M), A_fin ⊂ A ∧ set.finite A_fin ∧ ∀ (x : M), ∃ i ∈ A_fin, dist x i < δ :=
+  [compact_space M] (A : set M) (hA : dense A) (δ : ℝ) (hδ : δ > 0) :
+  ∃ (A_fin : set M), A_fin ⊂ A ∧ set.finite A_fin ∧ ∀ (x : M), ∃ i ∈ A_fin, dist x i < δ :=
 sorry
 
 theorem exercise_5_2 {V : Type*} [normed_group V]
-    [normed_space ℂ V] {W : Type*} [normed_group W] [normed_space ℂ W] :
-    normed_space ℂ (continuous_linear_map V W) :=
+  [normed_space ℂ V] {W : Type*} [normed_group W] [normed_space ℂ W] :
+  normed_space ℂ (continuous_linear_map V W) :=
 sorry

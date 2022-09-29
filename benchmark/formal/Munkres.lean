@@ -20,11 +20,11 @@ begin
   have : A = ⋃ x, ⋃ h : x ∈ A, (classical.some (h1 x h)),
   { ext x, simp, split,
   { intro xA,
-    use [x, xA],
-    exact (classical.some_spec (h1 x xA)).1},
+  use [x, xA],
+  exact (classical.some_spec (h1 x xA)).1},
   { rintros ⟨y, yA, yspec⟩,
-    have h := classical.some_spec (h1 y yA),
-    exact h.2.2 yspec }, },
+  have h := classical.some_spec (h1 y yA),
+  exact h.2.2 yspec }, },
   rw this,
   apply is_open_Union,
   intro x,
@@ -42,28 +42,28 @@ def exercise_13_3a (X : Type*) : topological_space X :=
   is_open_univ := by { right, simp },
   is_open_inter :=
   begin
-    rintros s t (rfl | cs),
-    { intro _, left, simp },
-    rintros (rfl | ct),
-    { left, simp [cs] },
-    right,
-    rw [set.compl_inter, set.countable_union],
-    exact ⟨cs, ct⟩
+  rintros s t (rfl | cs),
+  { intro _, left, simp },
+  rintros (rfl | ct),
+  { left, simp [cs] },
+  right,
+  rw [set.compl_inter, set.countable_union],
+  exact ⟨cs, ct⟩
   end,
   is_open_sUnion :=
   begin
-    intros s hs,
-    by_cases h : ∀ t ∈ s, t = ∅,
-    { left,
-    simp,
-    exact h },
-    push_neg at h,
-    rcases h with ⟨t, ts, tne⟩,
-    right,
-    have := (hs t ts).resolve_left tne,
-    apply countable.mono _ this,
-    simp,
-    exact subset_sUnion_of_mem ts
+  intros s hs,
+  by_cases h : ∀ t ∈ s, t = ∅,
+  { left,
+  simp,
+  exact h },
+  push_neg at h,
+  rcases h with ⟨t, ts, tne⟩,
+  right,
+  have := (hs t ts).resolve_left tne,
+  apply countable.mono _ this,
+  simp,
+  exact subset_sUnion_of_mem ts
   end }
 
 def Tinfty {X : Type*} : set X → Prop :=
@@ -200,13 +200,13 @@ def rational (x : ℝ) := x ∈ set.range (coe : ℚ → ℝ)
 theorem exercise_16_6
   (S : set (set (ℝ × ℝ)))
   (hS : ∀ s, s ∈ S → ∃ a b c d, (rational a ∧ rational b ∧ rational c ∧ rational d
-    ∧ s = {x | ∃ x₁ x₂, x = (x₁, x₂) ∧ a < x₁ ∧ x₁ < b ∧ c < x₂ ∧ x₂ < d})) :
+  ∧ s = {x | ∃ x₁ x₂, x = (x₁, x₂) ∧ a < x₁ ∧ x₁ < b ∧ c < x₂ ∧ x₂ < d})) :
   is_topological_basis S :=
 sorry
 
 theorem exercise_17_4 {X : Type*} [topological_space X]
-    (U A : set X) (hU : is_open U) (hA : is_closed A) :
-    is_open (U \ A) ∧ is_closed (A \ U) :=
+  (U A : set X) (hU : is_open U) (hA : is_closed A) :
+  is_open (U \ A) ∧ is_closed (A \ U) :=
 sorry
 
 theorem exercise_18_8a {X Y : Type*} [topological_space X] [topological_space Y]
@@ -222,11 +222,11 @@ theorem exercise_18_8b {X Y : Type*} [topological_space X] [topological_space Y]
 sorry
 
 theorem exercise_18_13
-    {X : Type*} [topological_space X] {Y : Type*} [topological_space Y]
-    [t2_space Y] {A : set X} {f : A → Y} (hf : continuous f)
-    (g : closure A → Y)
-    (g_con : continuous g) :
-    ∀ (g' : closure A → Y), continuous g' →  (∀ (x : closure A), g x = g' x) :=
+  {X : Type*} [topological_space X] {Y : Type*} [topological_space Y]
+  [t2_space Y] {A : set X} {f : A → Y} (hf : continuous f)
+  (g : closure A → Y)
+  (g_con : continuous g) :
+  ∀ (g' : closure A → Y), continuous g' →  (∀ (x : closure A), g x = g' x) :=
 sorry
 
 open filter
@@ -242,10 +242,9 @@ theorem exercise_19_6a
 sorry
 
 theorem exercise_20_2
-    [topological_space (ℝ ×ₗ ℝ)] [order_topology (ℝ ×ₗ ℝ)]
-    : metrizable_space (ℝ ×ₗ ℝ) :=
+  [topological_space (ℝ ×ₗ ℝ)] [order_topology (ℝ ×ₗ ℝ)]
+  : metrizable_space (ℝ ×ₗ ℝ) :=
 sorry
-
 
 abbreviation I : set ℝ := set.Icc 0 1
 
@@ -262,44 +261,44 @@ theorem exercise_21_6b
 sorry
 
 theorem exercise_21_8
-    {X : Type*} [topological_space X] {Y : Type*} [metric_space Y]
-    {f : ℕ → X → Y} {x : ℕ → X}
-    (hf : ∀ n, continuous (f n))
-    (x₀ : X)
-    (hx : tendsto x at_top (𝓝 x₀))
-    (f₀ : X → Y)
-    (hh : tendsto_uniformly f f₀ at_top) :
-    tendsto (λ n, f n (x n)) at_top (𝓝 (f₀ x₀)) :=
+  {X : Type*} [topological_space X] {Y : Type*} [metric_space Y]
+  {f : ℕ → X → Y} {x : ℕ → X}
+  (hf : ∀ n, continuous (f n))
+  (x₀ : X)
+  (hx : tendsto x at_top (𝓝 x₀))
+  (f₀ : X → Y)
+  (hh : tendsto_uniformly f f₀ at_top) :
+  tendsto (λ n, f n (x n)) at_top (𝓝 (f₀ x₀)) :=
 sorry
 
 theorem exercise_22_2a {X Y : Type*} [topological_space X]
-    [topological_space Y] (p : X → Y) (h : continuous p) :
-    quotient_map p ↔ ∃ (f : Y → X), continuous f ∧ p ∘ f = id :=
+  [topological_space Y] (p : X → Y) (h : continuous p) :
+  quotient_map p ↔ ∃ (f : Y → X), continuous f ∧ p ∘ f = id :=
 sorry
 
 theorem exercise_22_2b {X : Type*} [topological_space X]
-    {A : set X} (r : X → A) (hr : continuous r) (h : ∀ x : A, r x = x) :
-    quotient_map r :=
+  {A : set X} (r : X → A) (hr : continuous r) (h : ∀ x : A, r x = x) :
+  quotient_map r :=
 sorry
 
 theorem exercise_22_5 {X Y : Type*} [topological_space X]
-    [topological_space Y] (p : X → Y) (hp : is_open_map p)
-    (A : set X) (hA : is_open A) : is_open_map (p ∘ subtype.val : A → Y) :=
+  [topological_space Y] (p : X → Y) (hp : is_open_map p)
+  (A : set X) (hA : is_open A) : is_open_map (p ∘ subtype.val : A → Y) :=
 sorry
 
 theorem exercise_23_2 {X : Type*}
-    [topological_space X] {A : ℕ → set X} (hA : ∀ n, is_connected (A n))
-    (hAn : ∀ n, A n ∩ A (n + 1) ≠ ∅) :
-    is_connected (⋃ n, A n) :=
+  [topological_space X] {A : ℕ → set X} (hA : ∀ n, is_connected (A n))
+  (hAn : ∀ n, A n ∩ A (n + 1) ≠ ∅) :
+  is_connected (⋃ n, A n) :=
 sorry
 
 theorem exercise_23_3 {X : Type*} [topological_space X]
-    [topological_space X] {A : ℕ → set X}
-    (hAn : ∀ n, is_connected (A n))
-    (A₀ : set X)
-    (hA : is_connected A₀)
-    (h : ∀ n, A₀ ∩ A n ≠ ∅) :
-    is_connected (A₀ ∪ (⋃ n, A n)) :=
+  [topological_space X] {A : ℕ → set X}
+  (hAn : ∀ n, is_connected (A n))
+  (A₀ : set X)
+  (hA : is_connected A₀)
+  (h : ∀ n, A₀ ∩ A n ≠ ∅) :
+  is_connected (A₀ ∪ (⋃ n, A n)) :=
 sorry
 
 theorem exercise_23_4 {X : Type*} [topological_space X] [cofinite_topology X]
@@ -307,23 +306,22 @@ theorem exercise_23_4 {X : Type*} [topological_space X] [cofinite_topology X]
 sorry
 
 theorem exercise_23_6 {X : Type*}
-    [topological_space X] {A C : set X} (hc : is_connected C)
-    (hCA : C ∩ A ≠ ∅) (hCXA : C ∩ (A.compl) ≠ ∅) :
-    C ∩ (frontier A) ≠ ∅ :=
+  [topological_space X] {A C : set X} (hc : is_connected C)
+  (hCA : C ∩ A ≠ ∅) (hCXA : C ∩ (A.compl) ≠ ∅) :
+  C ∩ (frontier A) ≠ ∅ :=
 sorry
 
 theorem exercise_23_9 {X Y : Type*}
-    [topological_space X] [topological_space Y]
-    (A₁ A₂ : set X)
-    (B₁ B₂ : set Y)
-    (hA : A₁ ⊂ A₂)
-    (hB : B₁ ⊂ B₂)
-    (hA : is_connected A₂)
-    (hB : is_connected B₂) :
-    is_connected ({x | ∃ a b, x = (a, b) ∧ a ∈ A₂ ∧ b ∈ B₂} \
-                  {x | ∃ a b, x = (a, b) ∧ a ∈ A₁ ∧ b ∈ B₁}) :=
+  [topological_space X] [topological_space Y]
+  (A₁ A₂ : set X)
+  (B₁ B₂ : set Y)
+  (hA : A₁ ⊂ A₂)
+  (hB : B₁ ⊂ B₂)
+  (hA : is_connected A₂)
+  (hB : is_connected B₂) :
+  is_connected ({x | ∃ a b, x = (a, b) ∧ a ∈ A₂ ∧ b ∈ B₂} \
+      {x | ∃ a b, x = (a, b) ∧ a ∈ A₁ ∧ b ∈ B₁}) :=
 sorry
-
 
 theorem exercise_23_11 {X Y : Type*} [topological_space X] [topological_space Y]
   (p : X → Y) (hq : quotient_map p)
@@ -332,17 +330,17 @@ theorem exercise_23_11 {X Y : Type*} [topological_space X] [topological_space Y]
 sorry
 
 theorem exercise_24_2 {f : (metric.sphere 0 1 : set ℝ) → ℝ}
-    (hf : continuous f) : ∃ x, f x = f (-x) :=
+  (hf : continuous f) : ∃ x, f x = f (-x) :=
 sorry
 
 theorem exercise_24_3a [topological_space I]
-    (f : I → I) (hf : continuous f) :
-    ∃ (x : I), f x = x :=
+  (f : I → I) (hf : continuous f) :
+  ∃ (x : I), f x = x :=
 sorry
 
 theorem exercise_25_4 {X : Type*} [topological_space X]
-    [loc_path_connected_space X] (U : set X) (hU : is_open U)
-    (hcU : is_connected U) : is_path_connected U :=
+  [loc_path_connected_space X] (U : set X) (hU : is_open U)
+  (hcU : is_connected U) : is_path_connected U :=
 sorry
 
 theorem exercise_25_9 {G : Type*} [topological_space G] [group G]
@@ -351,10 +349,10 @@ theorem exercise_25_9 {G : Type*} [topological_space G] [group G]
 sorry
 
 theorem exercise_26_11
-    {X : Type*} [topological_space X] [compact_space X] [t2_space X]
-    (A : set (set X)) (hA : ∀ (a b : set X), a ∈ A → b ∈ A → a ⊆ b ∨ b ⊆ a)
-    (hA' : ∀ a ∈ A, is_closed a) (hA'' : ∀ a ∈ A, is_connected a) :
-    is_connected (⋂₀ A) :=
+  {X : Type*} [topological_space X] [compact_space X] [t2_space X]
+  (A : set (set X)) (hA : ∀ (a b : set X), a ∈ A → b ∈ A → a ⊆ b ∨ b ⊆ a)
+  (hA' : ∀ a ∈ A, is_closed a) (hA'' : ∀ a ∈ A, is_connected a) :
+  is_connected (⋂₀ A) :=
 sorry
 
 theorem exercise_26_12 {X Y : Type*} [topological_space X] [topological_space Y]
@@ -363,32 +361,32 @@ theorem exercise_26_12 {X Y : Type*} [topological_space X] [topological_space Y]
 sorry
 
 theorem exercise_27_4
-    {X : Type*} [metric_space X] [connected_space X] (hX : ∃ x y : X, x ≠ y) :
-    ¬ countable (univ : set X) :=
+  {X : Type*} [metric_space X] [connected_space X] (hX : ∃ x y : X, x ≠ y) :
+  ¬ countable (univ : set X) :=
 sorry
 
 def countably_compact (X : Type*) [topological_space X] :=
   ∀ U : ℕ → set X,
-    (∀ i, is_open (U i)) ∧ ((univ : set X) ⊆ ⋃ i, U i) →
-    (∃ t : finset ℕ, (univ : set X) ⊆ ⋃ i ∈ t, U i)
+  (∀ i, is_open (U i)) ∧ ((univ : set X) ⊆ ⋃ i, U i) →
+  (∃ t : finset ℕ, (univ : set X) ⊆ ⋃ i ∈ t, U i)
 
 def limit_point_compact (X : Type*) [topological_space X] :=
   ∀ U : set X, set.infinite U → ∃ x ∈ U, cluster_pt x (𝓟 U)
 
 theorem exercise_28_4 {X : Type*}
-    [topological_space X] (hT1 : t1_space X) :
-    countably_compact X ↔ limit_point_compact X :=
+  [topological_space X] (hT1 : t1_space X) :
+  countably_compact X ↔ limit_point_compact X :=
 sorry
 
 theorem exercise_28_5
-    (X : Type*) [topological_space X] :
-    countably_compact X ↔ ∀ (C : ℕ → set X), (∀ n, is_closed (C n)) ∧
-    (∀ n, C n ≠ ∅) ∧ (∀ n, C n ⊆ C (n + 1)) → ∃ x, ∀ n, x ∈ C n :=
+  (X : Type*) [topological_space X] :
+  countably_compact X ↔ ∀ (C : ℕ → set X), (∀ n, is_closed (C n)) ∧
+  (∀ n, C n ≠ ∅) ∧ (∀ n, C n ⊆ C (n + 1)) → ∃ x, ∀ n, x ∈ C n :=
 sorry
 
 theorem exercise_28_6 {X : Type*} [metric_space X]
-    [compact_space X] {f : X → X} (hf : isometry f) :
-    function.bijective f :=
+  [compact_space X] {f : X → X} (hf : isometry f) :
+  function.bijective f :=
 sorry
 
 theorem exercise_29_1 : ¬ locally_compact_space ℚ :=
@@ -399,89 +397,89 @@ theorem exercise_29_4 [topological_space (ℕ → I)] :
 sorry -- TODO check
 
 theorem exercise_29_10 {X : Type*}
-    [topological_space X] [t2_space X] (x : X)
-    (hx : ∃ U : set X, x ∈ U ∧ is_open U ∧ (∃ K : set X, U ⊂ K ∧ is_compact K))
-    (U : set X) (hU : is_open U) (hxU : x ∈ U) :
-    ∃ (V : set X), is_open V ∧ x ∈ V ∧ is_compact (closure V) ∧ closure V ⊆ U :=
+  [topological_space X] [t2_space X] (x : X)
+  (hx : ∃ U : set X, x ∈ U ∧ is_open U ∧ (∃ K : set X, U ⊂ K ∧ is_compact K))
+  (U : set X) (hU : is_open U) (hxU : x ∈ U) :
+  ∃ (V : set X), is_open V ∧ x ∈ V ∧ is_compact (closure V) ∧ closure V ⊆ U :=
 sorry
 
 theorem exercise_30_10
-    {X : ℕ → Type*} [∀ i, topological_space (X i)]
-    (h : ∀ i, ∃ (s : set (X i)), countable s ∧ dense s) :
-    ∃ (s : set (Π i, X i)), countable s ∧ dense s :=
+  {X : ℕ → Type*} [∀ i, topological_space (X i)]
+  (h : ∀ i, ∃ (s : set (X i)), countable s ∧ dense s) :
+  ∃ (s : set (Π i, X i)), countable s ∧ dense s :=
 sorry
 
 theorem exercise_30_13 {X : Type*} [topological_space X]
-    (h : ∃ (s : set X), countable s ∧ dense s) (U : set (set X))
-    (hU : ∀ (x y : set X), x ∈ U → y ∈ U → x ≠ y → x ∩ y = ∅) :
-    countable U :=
+  (h : ∃ (s : set X), countable s ∧ dense s) (U : set (set X))
+  (hU : ∀ (x y : set X), x ∈ U → y ∈ U → x ≠ y → x ∩ y = ∅) :
+  countable U :=
 sorry
 
 theorem exercise_31_1 {X : Type*} [topological_space X]
-    (hX : regular_space X) (x y : X) :
-    ∃ (U V : set X), is_open U ∧ is_open V ∧ x ∈ U ∧ y ∈ V ∧ closure U ∩ closure V = ∅ :=
+  (hX : regular_space X) (x y : X) :
+  ∃ (U V : set X), is_open U ∧ is_open V ∧ x ∈ U ∧ y ∈ V ∧ closure U ∩ closure V = ∅ :=
 sorry
 
 theorem exercise_31_2 {X : Type*}
-    [topological_space X] [normal_space X] {A B : set X}
-    (hA : is_closed A) (hB : is_closed B) (hAB : disjoint A B) :
-    ∃ (U V : set X), is_open U ∧ is_open V ∧ A ⊆ U ∧ B ⊆ V ∧ closure U ∩ closure V = ∅ :=
+  [topological_space X] [normal_space X] {A B : set X}
+  (hA : is_closed A) (hB : is_closed B) (hAB : disjoint A B) :
+  ∃ (U V : set X), is_open U ∧ is_open V ∧ A ⊆ U ∧ B ⊆ V ∧ closure U ∩ closure V = ∅ :=
 sorry
 
 theorem exercise_31_3 {α : Type*} [partial_order α]
-    [topological_space α] (h : order_topology α) : regular_space α :=
+  [topological_space α] (h : order_topology α) : regular_space α :=
 sorry
 
 theorem exercise_32_1 {X : Type*} [topological_space X]
-    (hX : normal_space X) (A : set X) (hA : is_closed A) :
-    normal_space {x // x ∈ A} :=
+  (hX : normal_space X) (A : set X) (hA : is_closed A) :
+  normal_space {x // x ∈ A} :=
 sorry
 
 theorem exercise_32_2a
-    {ι : Type*} {X : ι → Type*} [∀ i, topological_space (X i)]
-    (h : ∀ i, nonempty (X i)) (h2 : t2_space (Π i, X i)) :
-    ∀ i, t2_space (X i) :=
+  {ι : Type*} {X : ι → Type*} [∀ i, topological_space (X i)]
+  (h : ∀ i, nonempty (X i)) (h2 : t2_space (Π i, X i)) :
+  ∀ i, t2_space (X i) :=
 sorry
 
 theorem exercise_32_2b
-    {ι : Type*} {X : ι → Type*} [∀ i, topological_space (X i)]
-    (h : ∀ i, nonempty (X i)) (h2 : regular_space (Π i, X i)) :
-    ∀ i, regular_space (X i) :=
+  {ι : Type*} {X : ι → Type*} [∀ i, topological_space (X i)]
+  (h : ∀ i, nonempty (X i)) (h2 : regular_space (Π i, X i)) :
+  ∀ i, regular_space (X i) :=
 sorry
 
 theorem exercise_32_2c
-    {ι : Type*} {X : ι → Type*} [∀ i, topological_space (X i)]
-    (h : ∀ i, nonempty (X i)) (h2 : normal_space (Π i, X i)) :
-    ∀ i, normal_space (X i) :=
+  {ι : Type*} {X : ι → Type*} [∀ i, topological_space (X i)]
+  (h : ∀ i, nonempty (X i)) (h2 : normal_space (Π i, X i)) :
+  ∀ i, normal_space (X i) :=
 sorry
 
 theorem exercise_32_3 {X : Type*} [topological_space X]
-    (hX : locally_compact_space X) (hX' : t2_space X) :
-    regular_space X :=
+  (hX : locally_compact_space X) (hX' : t2_space X) :
+  regular_space X :=
 sorry
 
 theorem exercise_32_7 {X : Type*} [topological_space X]
-    (hX : locally_compact_space X) (hX' : t2_space X) :
-    ∀ x A, is_closed A ∧ ¬ x ∈ A →
-      ∃ (f : X → I), continuous f ∧ f x = 1 ∧ f '' A = {0}
-    :=
+  (hX : locally_compact_space X) (hX' : t2_space X) :
+  ∀ x A, is_closed A ∧ ¬ x ∈ A →
+  ∃ (f : X → I), continuous f ∧ f x = 1 ∧ f '' A = {0}
+  :=
 sorry
 
 theorem exercise_33_8
-    (X : Type*) [topological_space X] [regular_space X]
-    (h : ∀ x A, is_closed A ∧ ¬ x ∈ A →
-      ∃ (f : X → I), continuous f ∧ f x = (1 : I) ∧ f '' A = {0})
-    (A B : set X) (hA : is_closed A) (hB : is_closed B)
-    (hAB : disjoint A B)
-    (hAc : is_compact A) :
-    ∃ (f : X → I), continuous f ∧ f '' A = {0} ∧ f '' B = {1} :=
+  (X : Type*) [topological_space X] [regular_space X]
+  (h : ∀ x A, is_closed A ∧ ¬ x ∈ A →
+  ∃ (f : X → I), continuous f ∧ f x = (1 : I) ∧ f '' A = {0})
+  (A B : set X) (hA : is_closed A) (hB : is_closed B)
+  (hAB : disjoint A B)
+  (hAc : is_compact A) :
+  ∃ (f : X → I), continuous f ∧ f '' A = {0} ∧ f '' B = {1} :=
 sorry
 
 theorem exercise_34_9
-    (X : Type*) [topological_space X] [compact_space X]
-    (X1 X2 : set X) (hX1 : is_closed X1) (hX2 : is_closed X2)
-    (hX : X1 ∪ X2 = univ) (hX1m : metrizable_space X1)
-    (hX2m : metrizable_space X2) : metrizable_space X :=
+  (X : Type*) [topological_space X] [compact_space X]
+  (X1 X2 : set X) (hX1 : is_closed X1) (hX2 : is_closed X2)
+  (hX : X1 ∪ X2 = univ) (hX1m : metrizable_space X1)
+  (hX2m : metrizable_space X2) : metrizable_space X :=
 sorry
 
 theorem exercise_38_4
@@ -492,19 +490,19 @@ theorem exercise_38_4
   (hc : closure X = (univ : set Y))
   (hs : S = stone_cech {x // x ∈ X}) :
   ∃ (g : S → Y), continuous g ∧ function.surjective g ∧ is_closed_map g ∧
-    ∀ x ∈ X, g x = coe x :=
+  ∀ x ∈ X, g x = coe x :=
 sorry -- TODO fix
 
 theorem exercise_38_6 {X : Type*}
-    (X : Type*) [topological_space X] [regular_space X]
-    (h : ∀ x A, is_closed A ∧ ¬ x ∈ A →
-      ∃ (f : X → I), continuous f ∧ f x = (1 : I) ∧ f '' A = {0}) :
-    is_connected (univ : set X) ↔ is_connected (univ : set (stone_cech X)) :=
+  (X : Type*) [topological_space X] [regular_space X]
+  (h : ∀ x A, is_closed A ∧ ¬ x ∈ A →
+  ∃ (f : X → I), continuous f ∧ f x = (1 : I) ∧ f '' A = {0}) :
+  is_connected (univ : set X) ↔ is_connected (univ : set (stone_cech X)) :=
 sorry
 
 theorem exercise_43_2 {X : Type*} [metric_space X]
-    {Y : Type*} [metric_space Y] [complete_space Y] (A : set X)
-    (f : X → Y) (hf : uniform_continuous_on f A) :
-    ∃! (g : X → Y), continuous_on g (closure A) ∧
-      uniform_continuous_on g (closure A) ∧ ∀ (x : A), g x = f x :=
+  {Y : Type*} [metric_space Y] [complete_space Y] (A : set X)
+  (f : X → Y) (hf : uniform_continuous_on f A) :
+  ∃! (g : X → Y), continuous_on g (closure A) ∧
+  uniform_continuous_on g (closure A) ∧ ∀ (x : A), g x = f x :=
 sorry

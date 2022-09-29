@@ -53,9 +53,9 @@ sorry
 
 -- same issue as above
 theorem exercise_2_2
-    {V : Type*} [add_comm_group V] [vector_space ℂ V]
-    {v : list V} (hv : linear_independent ℂ v) :
-    linear_independent ℂ (list.sub_list v) :=
+  {V : Type*} [add_comm_group V] [vector_space ℂ V]
+  {v : list V} (hv : linear_independent ℂ v) :
+  linear_independent ℂ (list.sub_list v) :=
 sorry
 
 -- space of continuous functions?
@@ -77,23 +77,23 @@ theorem exercise_3_8 {F V W : Type*}  [add_comm_group V]
 sorry
 
 theorem exercise_3_9
-    {F : Type*} [field F] {n m : ℕ} (T : F^n → F^m)
-    (hT : T.null_space = span ({(5,1,0,0),(0,0,7,1)} : set (F^4))) :
-    T.surjective :=
+  {F : Type*} [field F] {n m : ℕ} (T : F^n → F^m)
+  (hT : T.null_space = span ({(5,1,0,0),(0,0,7,1)} : set (F^4))) :
+  T.surjective :=
 sorry
 
 theorem exercise_3_10
-    (F : Type*) [field F] (f : F → F) (hf : linear_map F F f)
-    (h : f.null_space = span F (set.range (λ (i : fin 5),
-    (λ (x : F) (i : fin 5), x) (3 : F) i))) :
-    injective f :=
+  (F : Type*) [field F] (f : F → F) (hf : linear_map F F f)
+  (h : f.null_space = span F (set.range (λ (i : fin 5),
+  (λ (x : F) (i : fin 5), x) (3 : F) i))) :
+  injective f :=
 sorry
 
 theorem exercise_3_11 {V : Type*}
-    [add_comm_group V] [vector_space ℂ V] {W : Type*}
-    [add_comm_group W] [vector_space ℂ W] (f : V →ₗ[ℂ] W)
-    (hf : finite_dimensional ℂ (f.null_space) ∧
-    finite_dimensional ℂ (f.range)) : finite_dimensional ℂ V :=
+  [add_comm_group V] [vector_space ℂ V] {W : Type*}
+  [add_comm_group W] [vector_space ℂ W] (f : V →ₗ[ℂ] W)
+  (hf : finite_dimensional ℂ (f.null_space) ∧
+  finite_dimensional ℂ (f.range)) : finite_dimensional ℂ V :=
 sorry
 
 -- is this correct?
@@ -194,7 +194,7 @@ sorry
 -- how do I extend orthogonal projection?
 theorem exercise_6_20 {V : Type*} [inner_product_space ℂ V]
   [finite_dimensional ℂ V] (T : End ℂ V) (U : submodule ℂ V) :
-    :=
+  :=
 sorry
 
 theorem exercise_6_29 {V : Type*} [inner_product_space ℂ V]
@@ -222,10 +222,10 @@ sorry
 
 --specific matrices
 theorem exercise_7_8 {R : Type*} [ring R]
-    [semiring R] [add_comm_group R] [module R R] [vector_space ℝ R]
-    [inner_product_space ℝ R] [normed_group R] [normed_space ℝ R]
-    [complete_space ℝ R] (T : R →ₗ[R] R) (hT : T.is_self_adjoint)
-    (hT1 : T (1 : R) = 0) (hT2 : T (2 : R) = 2):=
+  [semiring R] [add_comm_group R] [module R R] [vector_space ℝ R]
+  [inner_product_space ℝ R] [normed_group R] [normed_space ℝ R]
+  [complete_space ℝ R] (T : R →ₗ[R] R) (hT : T.is_self_adjoint)
+  (hT1 : T (1 : R) = 0) (hT2 : T (2 : R) = 2):=
 sorry
 
 theorem exercise_7_9 {V : Type*} [inner_product_space ℂ V]
@@ -254,7 +254,7 @@ sorry
 
 -- this is unnatural
 theorem exercise_7_15 {U : Type*}
-    [finite_dimensional ℝ U] (T : linear_map ℝ U U) :
-    ∃ (b : set U), is_basis ℝ b ∧ ∀ (v : U), v ∈ b → is_eigenvector ℝ T v ↔
-    ∃ (ip : inner_product_space ℝ U), is_self_adjoint ℝ ip T :=
+  [finite_dimensional ℝ U] (T : linear_map ℝ U U) :
+  ∃ (b : set U), is_basis ℝ b ∧ ∀ (v : U), v ∈ b → is_eigenvector ℝ T v ↔
+  ∃ (ip : inner_product_space ℝ U), is_self_adjoint ℝ ip T :=
 sorry

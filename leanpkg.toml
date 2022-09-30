@@ -1,8 +1,8 @@
 [package]
 name = "ProofNet"
 version = "0.1"
-lean_version = "leanprover-community/lean:3.42.1"
+lean_version = "leanprover-community/lean:3.48.0"
 path = "src"
 
 [dependencies]
-mathlib = {git = "https://github.com/leanprover-community/mathlib", rev = "fe21f5def4efb38467704b653d2b3f334b48945e"}
+mathlib = {git = "https://github.com/leanprover-community/mathlib", rev = "801c013fed96f0d3d9c15e23fe3ddad4481960a8"}

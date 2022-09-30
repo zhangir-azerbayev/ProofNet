@@ -74,7 +74,7 @@ def main():
         for text_out, step in zip(text_outs, batch):
             step[OUT_KEY] = text_out
 
-            with open(os.path.join(save_dir, save_path), "a+") as f: 
+            with open(os.path.join(save_dir, save_file), "a+") as f: 
                 record = json.dumps(step)
                 f.write(record+"\n")
 

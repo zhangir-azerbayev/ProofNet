@@ -40,7 +40,7 @@ if os.path.isfile(out_file):
 
     old_data_ids = set([x["id"] for x in old_data])
     for eyed in formal_dict.keys(): 
-        if eyed in formal_dict.keys() and eyed not in old_data_ids: 
+        if eyed in informal_dict.keys() and eyed not in old_data_ids: 
             old_data.append({"id": eyed, "formal_statement": formal_dict[eyed], 
                 "nl_statement": informal_dict[eyed]})
     

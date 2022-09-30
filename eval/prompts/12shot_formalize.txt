@@ -21,45 +21,45 @@ theorem is_multiplicative.eq_iff_eq_on_prime_powers {R : Type*}
   (hg : g.is_multiplicative) :
   f = g ↔ ∀ (p i : ℕ), nat.prime p → f (p ^ i) = g (p ^ i) :=
 
-Natural language version: \"If $z_1, \\dots, z_n$ are complex, then $|z_1 + z_2 + \\dots + z_n|\\leq |z_1| + |z_2| + \\dots + |z_n|$.\" Translate the natural language version to a Lean mathlib version:
+Natural language version: "If $z_1, \\dots, z_n$ are complex, then $|z_1 + z_2 + \\dots + z_n|\\leq |z_1| + |z_2| + \\dots + |z_n|$." Translate the natural language version to a Lean mathlib version:
 theorem abs_sum_leq_sum_abs (n : ℕ) (f : ℕ → ℂ) :
   abs (∑ i in finset.range n, f i) ≤ ∑ i in finset.range n, abs (f i) :=
 
-Natural language version: \"If x and y are in $\\mathbb{R}^n$, then $|x+y|^2 + |x-y|^2 = 2|x|^2 + 2|y|^2$.\" Translate the natural language version to a Lean mathlib version:
+Natural language version: "If x and y are in $\\mathbb{R}^n$, then $|x+y|^2 + |x-y|^2 = 2|x|^2 + 2|y|^2$." Translate the natural language version to a Lean mathlib version:
 theorem sum_add_square_sub_square_eq_sum_square (n : ℕ) (x y : euclidean_space ℝ (fin n)) :
   ∥x + y∥^2 + ∥x - y∥^2 = 2*∥x∥^2 + 2*∥y∥^2 :=
 
-Natural language version: \"If $x$ is an element of infinite order in $G$, prove that the elements $x^n$, $n\\in\\mathbb{Z}$ are all distinct.\" Translate the natural language version to a Lean mathlib version:
+Natural language version: "If $x$ is an element of infinite order in $G$, prove that the elements $x^n$, $n\\in\\mathbb{Z}$ are all distinct." Translate the natural language version to a Lean mathlib version:
 theorem distinct_powers_of_infinite_order_element (G : Type*) [group G] (x : G)
   (hx_inf : ∀ n : ℕ, x ^ n ≠ 1) :
   ∀ m n : ℤ, m ≠ n → x ^ m ≠ x ^ n :=
 
-Natural language version \"A set of vectors $\{v_i\}_{i\in I}$ orthogonal with respect to some bilinear form $B: V\times V\to K$ is linearly independent if for all $i \in I, B(v_i, v_i)\neq 0$.\" Translate the natural language version to a Lean mathlib version:
+Natural language version "A set of vectors $\{v_i\}_{i\in I}$ orthogonal with respect to some bilinear form $B: V\times V\to K$ is linearly independent if for all $i \in I, B(v_i, v_i)\neq 0$." Translate the natural language version to a Lean mathlib version:
 theorem linear_independent_of_is_Ortho {V K : Type*} [field K] 
   [add_comm_group V] [module K V] {n : Type*} {B : bilin_form K V} 
   {v : n → V} (hv₁ : B.is_Ortho v) 
   (hv₂ : ∀ (i : n), ¬B.is_ortho (v i) (v i)) :
   linear_independent K v :=
 
-Natural language version: \"Suppose that $V$ is an $n$-dimensional vector space. Then for some set of vectors $\{v_i\}_{i=1}^k$, if $k>n$ then there exist scalars $f_1, \dots, f_k$ such that $\sum_{i=1}^k f_kv_k = 0$.\" Translate the natural language version to a Lean mathlib version: 
+Natural language version: "Suppose that $V$ is an $n$-dimensional vector space. Then for some set of vectors $\{v_i\}_{i=1}^k$, if $k>n$ then there exist scalars $f_1, \dots, f_k$ such that $\sum_{i=1}^k f_kv_k = 0$." Translate the natural language version to a Lean mathlib version: 
 theorem exists_nontrivial_relation_sum_zero_of_dim_succ_lt_card {K V : Type*} 
   [division_ring K] [add_comm_group V] [module K V] [finite_dimensional K V] 
   {t : finset V} (h : finite_dimensional.finrank K V + 1 < t.card) :
   ∃ (f : V → K), t.sum (λ (e : V), f e • e) = 0 ∧ t.sum (λ (e : V), f e) = 0 
   ∧ ∃ (x : V) (H : x ∈ t), f x ≠ 0 := 
 
-Natural language version: \"A group is commutative if the quotient by the center is cyclic.\" Translate the natural language version to a Lean mathlib version: 
+Natural language version: "A group is commutative if the quotient by the center is cyclic." Translate the natural language version to a Lean mathlib version: 
 theorem comm_group_of_cycle_center_quotient {G H : Type*} [group G] [group H]
   [is_cyclic H] (f : G →* H) (hf : f.ker ≤ center G) :
   comm_group G :=
 
-Natural language version: \"If $H$ is a $p$-subgroup of $G$, then the index of $H$ inside its normalizer is congruent modulo $p$ to the index of $H$.\" Translate the natural language version to a Lean mathlib version: 
+Natural language version: "If $H$ is a $p$-subgroup of $G$, then the index of $H$ inside its normalizer is congruent modulo $p$ to the index of $H$." Translate the natural language version to a Lean mathlib version: 
 theorem card_quotient_normalizer_modeq_card_quotient {G : Type*} [group G] 
   [fintype G] {p n : ℕ} [hp : fact (nat.prime p)] {H : subgroup G} 
   (hH : card H = p ^ n) :
   card (H.normalizer ⧸ subgroup.comap H.normalizer.subtype H) ≡  card (G ⧸ H) [MOD p] :=
 
-Natural language version: \"Suppose $X, Y, Z$ are metric spaces, and $Y$ is compact. Let $f$ map $X$ into $Y$, let $g$ be a continuous one-to-one mapping of $Y$ into $Z$, and put $h(x)=g(f(x))$ for $x \in X$. Prove that $f$ is uniformly continuous if $h$ is uniformly continuous.\"
+Natural language version: "Suppose $X, Y, Z$ are metric spaces, and $Y$ is compact. Let $f$ map $X$ into $Y$, let $g$ be a continuous one-to-one mapping of $Y$ into $Z$, and put $h(x)=g(f(x))$ for $x \in X$. Prove that $f$ is uniformly continuous if $h$ is uniformly continuous." Translate the natural language version to a Lean mathlib version:
 theorem uniform_continuous_of_continuous_injective_uniform_continuous_comp
   {X Y Z : Type*} [metric_space X] [metric_space Y] [metric_space Z]
   (hY : compact_space Y) (f : X → Y) (g : Y → Z) (hgc : continuous g)

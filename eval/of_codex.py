@@ -43,8 +43,6 @@ def main():
     save_dir = cfg["save_dir"]
     save_file = cfg["save_file"]
     pathlib.Path(save_dir).mkdir(parents=True, exist_ok=True) 
-    if os.path.isfile(os.path.join(save_dir, save_file)): 
-        raise OSError("save_path already exists")
     few_shot_prompt_path = cfg["few_shot_prompt_path"]
     data_path = cfg["data_path"]
     STOP = cfg["stop"]
@@ -55,6 +53,14 @@ def main():
 
     with open(data_path) as f:
         data = ndjson.load(f)
+
+    if os.path.isfile(os.path.join(save_dir, save_file)): 
+        print("WARNING: AUGMENTING EXISTING FILE WITH NEW IDS")
+        with open(os.path.join(save_dir, save_file)) as f: 
+            old_data = ndjson.load(f)
+
+        old_data_ids = set([x["id"] for x in old_data])
+        data = [x for x in data if x["id"] not in old_data_ids]
 
     dataloader = batch_loader(data, BATCH_SIZE)
 

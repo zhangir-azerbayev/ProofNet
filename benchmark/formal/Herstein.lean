@@ -202,8 +202,8 @@ theorem exercise_4_3_25 (I : ideal (matrix (fin 2) (fin 2) ℝ)) :
 sorry
 
 theorem exercise_4_4_9 (p : ℕ) (hp : nat.prime p) :
-    ∃ S : finset (zmod p), S.card = (p-1)/2 ∧ ∃ x : zmod p, x^2 = p ∧ 
-    ∃ S : finset (zmod p), S.card = (p-1)/2 ∧ ¬ ∃ x : zmod p, x^2 = p :=
+  ∃ S : finset (zmod p), S.card = (p-1)/2 ∧ ∃ x : zmod p, x^2 = p ∧ 
+  ∃ S : finset (zmod p), S.card = (p-1)/2 ∧ ¬ ∃ x : zmod p, x^2 = p :=
 sorry
 
 theorem exercise_4_5_16 {p n: ℕ} (hp : nat.prime p) 

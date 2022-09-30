@@ -68,8 +68,8 @@ theorem exercise_1_1_17 {G : Type*} [group G] {x : G} {n : ℕ}
 sorry
 
 theorem exercise_1_1_18 {G : Type*} [group G] {x y : G} : 
-    x * y = y * x ↔ y⁻¹ * x * y = x ∧ 
-    x * y = y * x ↔ x⁻¹ * y⁻¹ * x * y = 1 :=
+  x * y = y * x ↔ y⁻¹ * x * y = x ∧ 
+  x * y = y * x ↔ x⁻¹ * y⁻¹ * x * y = 1 :=
 sorry 
 
 theorem exercise_1_1_20 {G : Type*} [group G] {x : G} :
@@ -77,7 +77,7 @@ theorem exercise_1_1_20 {G : Type*} [group G] {x : G} :
 sorry
 
 theorem exercise_1_1_22a {G : Type*} [group G] (x g : G) :
-    order_of x = order_of (g⁻¹ * x * g) :=
+  order_of x = order_of (g⁻¹ * x * g) :=
 sorry
 
 theorem exercise_1_1_22b {G: Type*} [group G] (a b : G) : 
@@ -126,23 +126,23 @@ theorem exercise_2_1_13 (H : add_subgroup ℚ) {x : ℚ}
 sorry
 
 theorem exercise_3_1_3a {A : Type*} [comm_group A] (B : subgroup A) :
-    ∀ a b : A ⧸ B, a*b = b*a   :=
+  ∀ a b : A ⧸ B, a*b = b*a   :=
 sorry
 
 theorem exercise_3_1_22a (G : Type*) [group G] (H K : subgroup G) 
-    [subgroup.normal H] [subgroup.normal K] :
-    subgroup.normal (H ⊓ K) :=
+  [subgroup.normal H] [subgroup.normal K] :
+  subgroup.normal (H ⊓ K) :=
 sorry
 
 theorem exercise_3_1_22b {G : Type*} [group G] (I : Type*)
-    (H : I → subgroup G) (hH : ∀ i : I, subgroup.normal (H i)) : 
-    subgroup.normal (⨅ (i : I), H i):=
+  (H : I → subgroup G) (hH : ∀ i : I, subgroup.normal (H i)) : 
+  subgroup.normal (⨅ (i : I), H i):=
 sorry
 
 theorem exercise_3_2_8 {G : Type*} [group G] (H K : subgroup G)
-    [fintype H] [fintype K] 
-    (hHK : nat.coprime (fintype.card H) (fintype.card K)) : 
-    H ⊓ K = ⊥ :=
+  [fintype H] [fintype K] 
+  (hHK : nat.coprime (fintype.card H) (fintype.card K)) : 
+  H ⊓ K = ⊥ :=
 sorry
 
 theorem exercise_3_2_16 (p : ℕ) (hp : nat.prime p) (a : ℕ) :
@@ -150,8 +150,8 @@ theorem exercise_3_2_16 (p : ℕ) (hp : nat.prime p) (a : ℕ) :
 sorry
 
 theorem exercise_3_2_21a (G : Type*) [group G] 
-    [fintype G] [decidable_eq G] (H : subgroup G) (hH : H ≠ ⊥) :
-    H = ⊤ :=
+  [fintype G] [decidable_eq G] (H : subgroup G) (hH : H ≠ ⊥) :
+  H = ⊤ :=
 sorry
 
 theorem exercise_3_4_1 (G : Type*) [comm_group G] [is_simple_group G] :
@@ -164,28 +164,27 @@ theorem exercise_3_4_4 {G : Type*} [comm_group G] [fintype G] {n : ℕ}
 sorry
 
 theorem exercise_3_4_5a {G : Type*} [group G] 
-    (H : subgroup G) [is_solvable G] : is_solvable H :=
+  (H : subgroup G) [is_solvable G] : is_solvable H :=
 sorry
 
 theorem exercise_3_4_5b {G : Type*} [group G] [is_solvable G] 
-    (H : subgroup G) [subgroup.normal H] : 
-    is_solvable (G ⧸ H) :=
+  (H : subgroup G) [subgroup.normal H] : 
+  is_solvable (G ⧸ H) :=
 sorry
 
 theorem exercise_4_3_26 {α : Type*} [fintype α] (ha : fintype.card α > 1)
-    (h_tran : ∀ a b: α, ∃ σ : equiv.perm α, σ a = b) : 
-    ∃ σ : equiv.perm α, ∀ a : α, σ a ≠ a := 
+  (h_tran : ∀ a b: α, ∃ σ : equiv.perm α, σ a = b) : 
+  ∃ σ : equiv.perm α, ∀ a : α, σ a ≠ a := 
 sorry
 
 theorem exercise_4_4_6a {G : Type*} [group G] (H : subgroup G)
-    [subgroup.characteristic H] : subgroup.normal H  :=
+  [subgroup.characteristic H] : subgroup.normal H  :=
 sorry
 
 theorem exercise_4_5_1a {p : ℕ} {G : Type*} [group G] 
-    {P : subgroup G} (hP : is_p_group p P) (H : subgroup G) 
-    (hH : P ≤ H) : is_p_group p H :=
+  {P : subgroup G} (hP : is_p_group p P) (H : subgroup G) 
+  (hH : P ≤ H) : is_p_group p H :=
 sorry
-
 
 theorem exercise_4_5_13 {G : Type*} [group G] [fintype G]
     (hG : card G = 56) :

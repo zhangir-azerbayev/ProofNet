@@ -1,0 +1,12 @@
+batch_size: 1
+before_example: "\nNatural language version: \""
+after_example: "\" Translate the natural language version to a Lean mathlib version:\ntheorem"
+in_key: "nl_statement"
+out_key: "gptj_formal_statement"
+save_dir: "results/gptj_6shot_formalize"
+save_file: "out.jsonl"
+few_shot_prompt_path: "prompts/6shot_formalize.txt"
+data_path: "model_input.jsonl"
+stop: ":="
+max_tokens: 350
+

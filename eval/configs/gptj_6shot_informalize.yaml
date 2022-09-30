@@ -1,0 +1,12 @@
+batch_size: 1
+before_example: "\nLean mathlib version:\n"
+after_example: "\nTranslate the Lean mathlib version to a natural language version: \""
+in_key: "formal_statement"
+out_key: "gptj_nl_statement"
+save_dir: "results/gptj_6shot_informalize"
+save_file: "out.jsonl"
+few_shot_prompt_path: "prompts/6shot_informalize.txt"
+data_path: "model_input.jsonl"
+stop: "\""
+max_tokens: 350
+

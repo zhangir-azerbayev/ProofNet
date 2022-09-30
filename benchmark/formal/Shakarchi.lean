@@ -14,6 +14,7 @@ import topology.basic
 import topology.bases
 import topology.metric_space.basic
 import topology.instances.real
+import measure_theory.integral.interval_integral
 
 open complex filter function
 open_locale big_operators
@@ -50,3 +51,8 @@ theorem exercise_1_19c (z : ℂ) (hz : abs z = 1) (hz2 : z ≠ 1) (s : ℕ → �
     ∃ z, tendsto s at_top (𝓝 z) :=
 sorry
 
+theorem exercise_2_9
+  {f : ℂ → ℂ} (Ω : set ℂ) (b : metric.bounded Ω) (h : is_open Ω)
+  (hf : differentiable_on ℂ f Ω) (z ∈ Ω) (hz : f z = z) (h'z : deriv f z = 1) :
+  ∃ (f_lin : ℂ →L[ℂ] ℂ), ∀ x ∈ Ω, f x = f_lin x :=
+sorry

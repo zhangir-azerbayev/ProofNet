@@ -174,7 +174,7 @@ theorem exercise_1_18a
   : ∃ (y : euclidean_space ℝ (fin n)), y ≠ 0 ∧ (inner x y) = (0 : ℝ) :=
 sorry
 
-theorem exercise_1_18_b
+theorem exercise_1_18b
   : ¬ ∀ (x : ℝ), ∃ (y : ℝ), y ≠ 0 ∧ x * y = 0 :=
 begin
   simp,

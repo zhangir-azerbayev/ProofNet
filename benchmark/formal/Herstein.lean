@@ -75,48 +75,7 @@ sorry
 
 theorem exercise_2_3_16 {G : Type*} [group G]
   (hG : ∀ H : subgroup G, H = ⊤ ∨ H = ⊥) :
-  is_cyclic G ∧ ∃ (p : ℕ) (fin : fintype G), prime p ∧ @card G fin = p :=
-sorry
-
--- how to talk about product of subgroups, actions?
-theorem exercise_2_3_21 {G : Type*} [group G] {A B : subgroup G}
-  (hAB : ∀ (a : A) (b : B), (b⁻¹*a*b : G) ∈ A) : 
-  ∃ H : subgroup G, H.carrier = A.carrier * B.carrier  :=
-sorry
-
--- again, products of subgroups? 
-theorem exercise_2_3_22 {G : Type*} [group G] 
-    (A B : subgroup G) (hA : fintype.card A.carrier = nat.prime_factors A.card) 
-    (hB : fintype.card B.carrier = nat.prime_factors B.card) 
-    (hAB : nat.relprime A.card B.card) :
-    is_subgroup (A.carrier * B.carrier) :=
-sorry
-
-theorem exercise_2_3_28 {G : Type*} [group G] 
-    {M N : subgroup G} (hM : ∀ (x : G), x⁻¹ * M * x ⊆ M) 
-    (hN : ∀ (x : G), x⁻¹ * N * x ⊆ N) :
-    ∀ (x : G), x⁻¹ * (M * N) * x ⊆ M * N :=
-sorry
-
-theorem exercise_2_3_29 {G : Type*} [group G] {M : subgroup G} 
-    (hM : ∀ (x : G), x⁻¹ * M * x ⊆ M) :
-    ∀ (x : G), x⁻¹ * M * x = M :=
-sorry
-
-theorem exercise_2_4_8 {G : Type*} [group G] 
-    (H : subgroup G) (h : ∀ (a : G), H * a = a * H) :
-    ∀ (a : G), a * H * a⁻¹ = H :=
-sorry
-
-theorem exercise_2_4_26 {G : Type*} [group G] 
-    (H : subgroup G) (S : set (set G)) (T : set (set G)) 
-    (hS : S = set.univ.image (λ (g : G), g • H)) 
-    (hT : T = set.univ.image (λ (g : G), H • g)) :
-    ∃ (f : S → T), function.bijective f :=
-sorry
-
-theorem exercise_2_4_32 {G : Type*} [group G] [fintype G]
-  (f : G → ℕ)  :=
+  is_cyclic G ∧ ∃ (p : ℕ) (fin : fintype G), nat.prime p ∧ @card G fin = p :=
 sorry
 
 theorem exercise_2_4_36 {a n : ℕ} (h : a > 1) :
@@ -168,22 +127,9 @@ theorem exercise_2_6_15 {G : Type*} [comm_group G] {m n : ℕ}
   ∃ (g : G), order_of g = m * n :=
 sorry
 
--- positive real number under multiplication?
-theorem exercise_2_7_3 :
-    quotient_group (nonzero ℝ) (group_of_order_two) ≅ multiplicative ℝ :=
-sorry
-
 theorem exercise_2_7_7 {G : Type*} [group G] {G' : Type*} [group G']
   (φ : G →* G') (N : subgroup G) [N.normal] : 
   (map φ N).normal  :=
-sorry
-
--- product of subgroups?
-theorem exercise_2_8_7 {G : Type*} [group G] 
-    {A B : set G} (hA : is_subgroup A) (hB : is_subgroup B) 
-    (hA_finite : fintype.card A < ⊤) (hB_finite : fintype.card B < ⊤) 
-    (hAB_coprime : nat.coprime (fintype.card A) (fintype.card B)) :
-    fintype.card (A * B) = fintype. :=
 sorry
 
 theorem exercise_2_8_12 {G H : Type*} [fintype G] [fintype H] 
@@ -229,23 +175,6 @@ theorem exercise_3_2_21 {α : Type*} [fintype α] {σ τ: equiv.perm α}
   σ = 1 ∧ τ = 1 :=
 sorry
 
--- how to talk about cycle decompositions? 
-theorem exercise_3_2_23 {α : Type*} [fintype α] {σ τ: equiv.perm α} 
-  (hs : ∃ )
-sorry
-
--- how to talk about cycles?
-theorem exercise_3_3_2 {k : ℕ} (hk : k > 0) (σ : perm k) 
-    (hσ : is_k_cycle σ k) :
-    is_odd σ ↔ k % 2 = 0 :=
-sorry
-
--- cycles!
-theorem exercise_3_3_9 (n : ℕ) (h : n ≥ 5) 
-    (N : subgroup (perm.perm_group n)) (hN : N ≠ ⊥) (hN_normal : N.normal) :
-    ∃ (p : perm n), p.is_three_cycle :=
-sorry
-
 theorem exercise_4_1_19 : infinite {x : quaternion ℝ | x^2 = -1} :=
 sorry
 
@@ -275,12 +204,6 @@ sorry
 theorem exercise_4_4_9 (p : ℕ) (hp : nat.prime p) :
     ∃ S : finset (zmod p), S.card = (p-1)/2 ∧ ∃ x : zmod p, x^2 = p ∧ 
     ∃ S : finset (zmod p), S.card = (p-1)/2 ∧ ¬ ∃ x : zmod p, x^2 = p :=
-sorry
-
--- how to lift polynomial?
-theorem exercise_4_5_12 {K : Type*} [field K] (F : subfield K) 
-  (f g : polynomial F) (hfg : is_coprime f g) :
-  is_coprime (f : polynomial K) g :=
 sorry
 
 theorem exercise_4_5_16 {p n: ℕ} (hp : nat.prime p) 
@@ -334,14 +257,8 @@ theorem exercise_5_4_3 {a : ℂ} {p : ℂ → ℂ}
   ∀ n : p.support, ∃ a b : ℤ, p.coeff n = a / b :=
 sorry
 
-theorem exercise_5_5_2 : irreducible (X^3 - 3*X - 1 : polynomial ℚ)
-
--- I don't even know what this means
-theorem exercise_5_6_3 (p : polynomial ℚ) 
-    (hp : p = X^4 + X^3 + X^2 + X + 1) :
-    ∃ (K : Type*) [field K] [algebra ℚ K] (hK : degree K = 4), 
-    is_splitting_field ℚ p K :=
-sorry
+theorem exercise_5_5_2 : irreducible (X^3 - 3*X - 1 : polynomial ℚ) :=
+sorry 
 
 theorem exercise_5_6_14 {p m n: ℕ} (hp : nat.prime p) {F : Type*} 
   [field F] [char_p F p] (hm : m = p ^ n) : 

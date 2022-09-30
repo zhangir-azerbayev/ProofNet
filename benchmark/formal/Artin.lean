@@ -46,13 +46,6 @@ theorem exercise_2_8_6 {G H : Type*} [group G] [group H] :
   center (G × H) ≃* (center G) × (center H) :=
 sorry
 
--- how to talk about ℝ+?
-theorem exercise_2_10_11 
-    {G : Type*} [add_group G] {H : Type*} [add_group H] {f : G → H} 
-    (hf : is_add_group_hom f) {g : H → G} (hg : is_add_group_hom g) :
-    is_add_group_hom (g ∘ f) :=
-sorry
-
 theorem exercise_2_11_3 {G : Type*} [group G] [fintype G]
     (hG : even (card G)) : ∃ x : G, order_of x = 2 :=
 sorry
@@ -119,17 +112,6 @@ theorem exercise_10_6_7 {I : ideal gaussian_int}
     (hI : I ≠ ⊥) : ∃ (z : I), z ≠ 0 ∧ (z : gaussian_int).im = 0 :=
 sorry
 
--- this is a thorny one
-theorem exercise_10_6_16 {R : Type*} [ring R] (x : polynomial R)
-    (a : R) :
-    ∃ n : ℕ, x = ∑ (i : fin n), :=
-sorry
-
--- problem of passing typeclass
-theorem exercise_10_3_24a : 
-    ∃ (R : Type*) [ring R] (I J: ideal R), :=
-sorry
-
 theorem exercise_10_4_6 {R : Type*} [comm_ring R] 
     [no_zero_divisors R] (I J : ideal R) : 
     ∀ x : I ⊓ J, is_nilpotent ((ideal.quotient.mk (I*J)) x) :=
@@ -163,12 +145,6 @@ theorem exercise_11_3_1 {F : Type*} [field F] (a b : F) (ha : a ≠ 0) (p : poly
     irreducible p ↔ irreducible (∑ n in p.support, p.coeff n • (a • X + b • 1)^n : polynomial F) :=
 sorry
 
-theorem exercise_11_3_2 {F : Type*} 
-    [field F] (f g : polynomial F) (h : ∃ (h : polynomial F), 
-    is_factor_of h f ∧ is_factor_of h g) :
-    ∃ (h : polynomial F), is_factor_of h f ∧ is_factor_of h g :=
-sorry
-
 theorem exercise_11_3_4 : irreducible (X^3 + 6*X + 12 : polynomial ℚ) :=
 sorry
 
@@ -184,21 +160,11 @@ theorem exercise_11_4_6b {F : Type*} [field F] [fintype F] (hF : card F = 31) :
     irreducible (X ^ 3 - 9 : polynomial F) :=
 sorry
 
-theorem exercise_11_4_6c : irreducible (X^3 - 9 : polynomial ℤ_31) :=
+theorem exercise_11_4_6c : irreducible (X^3 - 9 : polynomial (zmod 31)) :=
 sorry
 
 theorem exercise_11_4_8 {p : ℕ} (hp : prime p) (n : ℕ) :
     irreducible (X ^ n - p : polynomial ℚ) :=
-sorry
-
--- this is thorny
-theorem exercise_11_4_10 irreducible_of_degree_two_n_plus_one_of_nonzero_leading_coeff_of_zero_coeffs_of_nonzero_constant_coeff_of_zero_coeffs_of_zero_coeffs_of_nonzero_constant_coeff_of_zero_coeffs_of_zero_coeffs_of_nonzero_constant_coeff_of_zero_coeffs_of_zero_coeffs_of_nonzero_constant_coeff_of_zero_coeffs_of_zero_coeffs_of_nonzero_constant :=
-sorry
-
-theorem exercise_11_9_4 {R : Type*} 
-    [comm_ring R] (p : R) (h : nat.prime (p.nat_abs)) (hp : p.nat_abs.prime_splits) 
-    (α : R) (hα : p ∣ α → p ∣ 1) :
-    ideal.generated_by (p, α) = ideal.mul (ideal.generated_by p) (ideal.generated_by α) :=
 sorry
 
 theorem exercise_11_12_3 (p : ℕ) (hp : nat.prime p) {a : zmod p} 
@@ -208,25 +174,6 @@ sorry
 
 theorem exercise_11_13_3 (N : ℕ):
     ∃ p ≥ N, nat.prime p ∧ p + 1 ≡ 0 [MOD 4] :=
-sorry
-
--- Why is this erroring?
-theorem exercise_13_1_3 {R : Type*} [comm_ring R] [no_zero_divisors R] 
-  {F : subring R} [field F] [module F R] [finite_dimensional F R] : 
-  field R :=
-sorry
-
--- Not really sure how to do this
-theorem exercise_13_3_1 {F : Type*} [field F] (f : polynomial F)
-    (hf : f.degree = 5)   :=
-sorry
-
--- also not sure how to do this
-theorem exercise_13_3_8 {F : Type*} [field F] {K : Type*} 
-    [field K] (hK : algebra.is_field_extension F K) (α : K) (β : K) 
-    (hα : algebra.is_integral F α) (hβ : algebra.is_integral F β) 
-    (hαβ : nat.coprime (algebra.degree F α) (algebra.degree F β)) :
-    algebra.degree F K = algebra.degree F α * algebra.degree F β :=
 sorry
 
 theorem exercise_13_4_10 

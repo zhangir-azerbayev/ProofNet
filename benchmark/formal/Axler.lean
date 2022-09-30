@@ -45,24 +45,6 @@ theorem exercise_1_9 {F V : Type*} [add_comm_group V] [field F]
   ∃ U' : submodule F V, U'.carrier = ↑U ∩ ↑W ↔ U ≤ W ∨ W ≤ U :=
 sorry
 
--- set builder
-theorem exercise_2_1 {F V : Type*} [add_comm_group V] [field F]
-  [module F V] {n : ℕ} (ι : fin n → V) (h : span (set.image ι (fin n))) :
-   :=
-sorry
-
--- same issue as above
-theorem exercise_2_2 
-    {V : Type*} [add_comm_group V] [vector_space ℂ V] 
-    {v : list V} (hv : linear_independent ℂ v) :
-    linear_independent ℂ (list.sub_list v) :=
-sorry
-
--- space of continuous functions?
-theorem exercise_2_6 : finite_dimensional ℝ 
-  ({f ∣ λ f : set.Icc 0 1 → ℝ, (continuous f).is_open_preimage} ) → false :=
-sorry
-
 theorem exercise_3_1 {F V : Type*}  
   [add_comm_group V] [field F] [module F V] [finite_dimensional F V]
   (T : V →ₗ[F] V) (hT : finrank F V = 1) : 
@@ -76,27 +58,6 @@ theorem exercise_3_8 {F V W : Type*}  [add_comm_group V]
   linear_map.range L = range (dom_restrict L U):=
 sorry
 
-theorem exercise_3_9 
-    {F : Type*} [field F] {n m : ℕ} (T : F^n → F^m) 
-    (hT : T.null_space = span ({(5,1,0,0),(0,0,7,1)} : set (F^4))) : 
-    T.surjective :=
-sorry
-
-theorem exercise_3_10 
-    (F : Type*) [field F] (f : F → F) (hf : linear_map F F f) 
-    (h : f.null_space = span F (set.range (λ (i : fin 5), 
-    (λ (x : F) (i : fin 5), x) (3 : F) i))) : 
-    injective f :=
-sorry
-
-theorem exercise_3_11 {V : Type*} 
-    [add_comm_group V] [vector_space ℂ V] {W : Type*} 
-    [add_comm_group W] [vector_space ℂ W] (f : V →ₗ[ℂ] W) 
-    (hf : finite_dimensional ℂ (f.null_space) ∧ 
-    finite_dimensional ℂ (f.range)) : finite_dimensional ℂ V :=
-sorry
-
--- is this correct? 
 theorem exercise_4_4 (p : polynomial ℂ) :
   p.degree = @card (root_set p ℂ) (polynomial.root_set_fintype p ℂ) ↔ 
   disjoint 
@@ -169,45 +130,6 @@ theorem exercise_6_16 {V : Type*} [inner_product_space ℂ V]
   Uᗮ = ⊥ ↔ U = ⊤ :=
 sorry
 
--- how do I extend the map?
-theorem exercise_6_17 {V : Type*} [inner_product_space ℂ V]
-  [finite_dimensional ℂ V]
-  {P : End ℂ V} (hP : P ^ 2 = P) 
-  (hP1 : ∀ u v : V, u ∈ P.ker → v ∈ linear_map.range P → ⟪u, v⟫_ℂ = 0) : 
-  ∃ U : submodule ℂ V, P = orthogonal_projection U :=
-sorry
-
--- how do I extend the map?
-theorem exercise_6_18 {V : Type*} [inner_product_space ℂ V]
-  [finite_dimensional ℂ V]
-  {P : End ℂ V} (hP : P ^ 2 = P) 
-  (hP1 : ∀ v : V, ∥P v∥ ≤ ∥v∥) : 
-  ∃ U : submodule ℂ V, P = orthogonal_projection U :=
-sorry
-
--- how do I extend the map?
-theorem exercise_6_19 {V : Type*} [inner_product_space ℂ V]
-  [finite_dimensional ℂ V] (T : End ℂ V) (U : submodule ℂ V) : 
-  (map T U = U ∧ map T Uᗮ = Uᗮ) ↔ false := --put stuff here
-sorry
-
--- how do I extend orthogonal projection?
-theorem exercise_6_20 {V : Type*} [inner_product_space ℂ V]
-  [finite_dimensional ℂ V] (T : End ℂ V) (U : submodule ℂ V) : 
-    :=
-sorry
-
-theorem exercise_6_29 {V : Type*} [inner_product_space ℂ V]
-  [finite_dimensional ℂ V] (T : V →ₗ[ℂ] V) (U : submodule ℂ V) :
-  map T U = U ↔ map Uᗮ (T.adjoint) = Uᗮ :=
-sorry
-
-theorem exercise_7_4 {V : Type*} [inner_product_space ℂ V]
-  [finite_dimensional ℂ V] {P : End ℂ V} (hP : P ^ 2 = P) : 
-  ∃ U : submodule ℂ V, P = orthogonal_projection U ↔ 
-  is_self_adjoint P :=
-sorry 
-
 theorem exercise_7_5 {V : Type*} [inner_product_space ℂ V] 
   [finite_dimensional ℂ V] (hV : finrank V ≥ 2) :
   ∀ U : submodule ℂ (End ℂ V), U.carrier ≠ 
@@ -218,14 +140,6 @@ theorem exercise_7_6 {V : Type*} [inner_product_space ℂ V]
   [finite_dimensional ℂ V] (T : End ℂ V) 
   (hT : T * T.adjoint = T.adjoint * T) :
   T.range = T.adjoint.range :=
-sorry
-
---specific matrices 
-theorem exercise_7_8 {R : Type*} [ring R] 
-    [semiring R] [add_comm_group R] [module R R] [vector_space ℝ R] 
-    [inner_product_space ℝ R] [normed_group R] [normed_space ℝ R] 
-    [complete_space ℝ R] (T : R →ₗ[R] R) (hT : T.is_self_adjoint) 
-    (hT1 : T (1 : R) = 0) (hT2 : T (2 : R) = 2):=
 sorry
 
 theorem exercise_7_9 {V : Type*} [inner_product_space ℂ V]
@@ -250,11 +164,4 @@ theorem exercise_7_14 {𝕜 V : Type*} [is_R_or_C 𝕜]
   {T : End 𝕜 V} (hT : is_self_adjoint T) 
   {l : 𝕜} {ε : ℝ} (he : ε > 0) : ∃ v : V, ∥v∥ = 1 ∧ ∥T v - l • v∥ < ε → 
   ∃ l' : T.eigenvalues, ∥l - l'∥ < ε :=
-sorry
-
--- this is unnatural
-theorem exercise_7_15 {U : Type*} 
-    [finite_dimensional ℝ U] (T : linear_map ℝ U U) :
-    ∃ (b : set U), is_basis ℝ b ∧ ∀ (v : U), v ∈ b → is_eigenvector ℝ T v ↔ 
-    ∃ (ip : inner_product_space ℝ U), is_self_adjoint ℝ ip T :=
 sorry

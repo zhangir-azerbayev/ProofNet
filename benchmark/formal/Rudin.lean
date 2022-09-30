@@ -866,13 +866,6 @@ theorem exercise_4_24 {f : ℝ → ℝ}
   convex_on ℝ (set.Ioo a b) f :=
 sorry
 
-theorem exercise_4_26a
-  {X Y Z : Type*} [metric_space X] [metric_space Y] [metric_space Z]
-  (hY : compact_space Y) (f : X → Y) (g : Y → Z) (hgc : continuous g)
-  (hgi : function.injective g)
-  (h : uniform_continuous (g ∘ f)) : uniform_continuous f :=
-sorry
-
 theorem exercise_5_1
   {f : ℝ → ℝ} (hf : ∀ x y : ℝ, | (f x - f y) | ≤ (x - y) ^ 2) :
   ∃ c, f = λ x, c :=

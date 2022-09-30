@@ -37,7 +37,7 @@ end
 def Tc (X : Type*) : set X → Prop :=
   λ U, U = ∅ ∨ countable Uᶜ
 
-def exercise_13_3a (X : Type*) : topological_space X :=
+theorem exercise_13_3a (X : Type*) : topological_space X :=
 { is_open := Tc X,
   is_open_univ := by { right, simp },
   is_open_inter :=
@@ -120,29 +120,29 @@ theorem exercise_13_4b2 (X I : Type*) (T : I → set (set X)) (h : ∀ i, is_top
   ∀ T'', is_topology X T'' → (∀ i, T'' ⊆ T i) → T' ⊆ T'' :=
 sorry
 
-inductive X4c | a | b | c
+--inductive X4c | a | b | c
 
--- Find the unique smallest topology containing {∅, X, {a}, {a, b}}.
-noncomputable theorem exercise_13_4c1 :
-  { T // is_topology X4c T ∧ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ⊆ T ∧
-  ∀ T', is_topology X4c T' → {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ⊆ T' → T ⊆ T' } :=
-sorry
-
-noncomputable theorem exercise_13_4c2 :
-  { T // is_topology X4c T ∧ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ⊆ T ∧
-  ∀ T', is_topology X4c T' → {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ⊆ T' → T ⊆ T' } :=
-sorry
-
--- Find the unique largest topology contained in {∅, X, {a}, {a, b}}.
-noncomputable theorem exercise_13_4c3 :
-  { T // is_topology X4c T ∧ T ⊆ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ∧
-  ∀ T', is_topology X4c T' → T' ⊆ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} → T' ⊆ T } :=
-sorry
-
-noncomputable theorem exercise_13_4c4 :
-  { T // is_topology X4c T ∧ T ⊆ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ∧
-  ∀ T', is_topology X4c T' → T' ⊆ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} → T' ⊆ T } :=
-sorry
+---- Find the unique smallest topology containing {∅, X, {a}, {a, b}}.
+--noncomputable theorem exercise_13_4c1 :
+--  { T // is_topology X4c T ∧ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ⊆ T ∧
+--  ∀ T', is_topology X4c T' → {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ⊆ T' → T ⊆ T' } :=
+--sorry
+--
+--noncomputable theorem exercise_13_4c2 :
+--  { T // is_topology X4c T ∧ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ⊆ T ∧
+--  ∀ T', is_topology X4c T' → {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ⊆ T' → T ⊆ T' } :=
+--sorry
+--
+---- Find the unique largest topology contained in {∅, X, {a}, {a, b}}.
+--noncomputable theorem exercise_13_4c3 :
+--  { T // is_topology X4c T ∧ T ⊆ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ∧
+--  ∀ T', is_topology X4c T' → T' ⊆ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} → T' ⊆ T } :=
+--sorry
+--
+--noncomputable theorem exercise_13_4c4 :
+--  { T // is_topology X4c T ∧ T ⊆ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ∧
+--  ∀ T', is_topology X4c T' → T' ⊆ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} → T' ⊆ T } :=
+--sorry
 
 open topological_space
 
@@ -458,7 +458,7 @@ theorem exercise_32_3 {X : Type*} [topological_space X]
   regular_space X :=
 sorry
 
-theorem exercise_32_7 {X : Type*} [topological_space X]
+theorem exercise_33_7 {X : Type*} [topological_space X]
   (hX : locally_compact_space X) (hX' : t2_space X) :
   ∀ x A, is_closed A ∧ ¬ x ∈ A →
   ∃ (f : X → I), continuous f ∧ f x = 1 ∧ f '' A = {0}

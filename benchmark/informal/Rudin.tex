@@ -377,14 +377,47 @@ $$
 
 
 \paragraph{Exercise 4.4a} Let $f$ and $g$ be continuous mappings of a metric space $X$ into a metric space $Y$, and let $E$ be a dense subset of $X$. Prove that $f(E)$ is dense in $f(X)$.
+\begin{proof}
+    Solution. To prove that $f(E)$ is dense in $f(X)$, simply use that $f(X)=f(\bar{E}) \subseteq \overline{f(E)}$.
+\end{proof}
+
 
 \paragraph{Exercise 4.4b} Let $f$ and $g$ be continuous mappings of a metric space $X$ into a metric space $Y$, and let $E$ be a dense subset of $X$. Prove that if $g(p) = f(p)$ for all $p \in P$ then $g(p) = f(p)$ for all $p \in X$.
+\begin{proof}
+    The function $\varphi: X \rightarrow R^1$ given by
+$$
+\varphi(p)=d_Y(f(p), g(p))
+$$
+is continuous, since
+$$
+\left|d_Y(f(p), g(p))-d_Y(f(q), g(q))\right| \leq d_Y(f(p), f(q))+d_Y(g(p), g(q))
+$$
+(This inequality follows from the triangle inequality, since
+$$
+d_Y(f(p), g(p)) \leq d_Y(f(p), f(q))+d_Y(f(q), g(q))+d_Y(g(q), g(p)),
+$$
+and the same inequality holds with $p$ and $q$ interchanged. The absolute value $\left|d_Y(f(p), g(p))-d_Y(f(q), g(q))\right|$ must be either $d_Y(f(p), g(p))-d_Y(f(q), g(q))$ or $d_Y(f(q), g(q))-d_Y(f(p), g(p))$, and the triangle inequality shows that both of these numbers are at most $d_Y(f(p), f(q))+d_Y(g(p), g(q))$.)
+By the previous problem, the zero set of $\varphi$ is closed. But by definition
+$$
+Z(\varphi)=\{p: f(p)=g(p)\} .
+$$
+Hence the set of $p$ for which $f(p)=g(p)$ is closed. Since by hypothesis it is dense, it must be $X$.
+\end{proof}
+
 
 \paragraph{Exercise 4.5a} If $f$ is a real continuous function defined on a closed set $E \subset \mathbb{R}$, prove that there exist continuous real functions $g$ on $\mathbb{R}$ such that $g(x)=f(x)$ for all $x \in E$.
 
 \paragraph{Exercise 4.5b} Show that there exist a set $E \subset \mathbb{R}$ and a real continuous function $f$ defined on $E$, such that there does not exist a continuous real function $g$ on $\mathbb{R}$ such that $g(x)=f(x)$ for all $x \in E$.
 
 \paragraph{Exercise 4.6} If $f$ is defined on $E$, the graph of $f$ is the set of points $(x, f(x))$, for $x \in E$. In particular, if $E$ is a set of real numbers, and $f$ is real-valued, the graph of $f$ is a subset of the plane. Suppose $E$ is compact, and prove that $f$ is continuous on $E$ if and only if its graph is compact.
+\begin{proof}
+    Solution. Let $Y$ be the co-domain of the function $f$. We invent a new metric space $E \times Y$ as the set of pairs of points $(x, y), x \in E, y \in Y$, with the metric $\rho\left(\left(x_1, y_1\right),\left(x_2, y_2\right)\right)=d_E\left(x_1, x_2\right)+d_Y\left(y_1, y_2\right)$. The function $\varphi(x)=(x, f(x))$ is then a mapping of $E$ into $E \times Y$.
+
+We claim that the mapping $\varphi$ is continuous if $f$ is continuous. Indeed, let $x \in X$ and $\varepsilon>0$ be given. Choose $\eta>0$ so that $d_Y(f(x), f(u))<\frac{\varepsilon}{2}$ if $d_E(x, y)<\eta$. Then let $\delta=\min \left(\eta, \frac{\varepsilon}{2}\right)$. It is easy to see that $\rho(\varphi(x), \varphi(u))<\varepsilon$ if $d_E(x, u)<\delta$. Conversely if $\varphi$ is continuous, it is obvious from the inequality $\rho(\varphi(x), \varphi(u)) \geq d_Y(f(x), f(u))$ that $f$ is continuous.
+
+From these facts we deduce immediately that the graph of a continuous function $f$ on a compact set $E$ is compact, being the image of $E$ under the continuous mapping $\varphi$. Conversely, if $f$ is not continuous at some point $x$, there is a sequence of points $x_n$ converging to $x$ such that $f\left(x_n\right)$ does not converge to $f(x)$. If no subsequence of $f\left(x_n\right)$ converges, then the sequence $\left\{\left(x_n, f\left(x_n\right)\right\}_{n=1}^{\infty}\right.$ has no convergent subsequence, and so the graph is not compact. If some subsequence of $f\left(x_n\right)$ converges, say $f\left(x_{n_k}\right) \rightarrow z$, but $z \neq f(x)$, then the graph of $f$ fails to contain the limit point $(x, z)$, and hence is not closed. A fortiori it is not compact.
+\end{proof}
+
 
 \paragraph{Exercise 4.8a} Let $f$ be a real uniformly continuous function on the bounded set $E$ in $R^{1}$. Prove that $f$ is bounded on $E$.
 
@@ -393,41 +426,238 @@ $$
 \paragraph{Exercise 4.11a} Suppose $f$ is a uniformly continuous mapping of a metric space $X$ into a metric space $Y$ and prove that $\left\{f\left(x_{n}\right)\right\}$ is a Cauchy sequence in $Y$ for every Cauchy sequence $\{x_n\}$ in $X$.
 
 \paragraph{Exercise 4.12} A uniformly continuous function of a uniformly continuous function is uniformly continuous.
+\begin{proof}
+    Solution. Let $f: X \rightarrow Y$ and $g: Y \rightarrow Z$ be uniformly continuous. Then $g \circ f: X \rightarrow Z$ is uniformly continuous, where $g \circ f(x)=g(f(x))$ for all $x \in X$.
+To prove this fact, let $\varepsilon>0$ be given. Then, since $g$ is uniformly continuous, there exists $\eta>0$ such that $d_Z(g(u), g(v))<\varepsilon$ if $d_Y(u, v)<\eta$. Since $f$ is uniformly continuous, there exists $\delta>0$ such that $d_Y(f(x), f(y))<\eta$ if $d_X(x, y)<\delta$
+
+It is then obvious that $d_Z(g(f(x)), g(f(y)))<\varepsilon$ if $d_X(x, y)<\delta$, so that $g \circ f$ is uniformly continuous.
+\end{proof}
+
 
 \paragraph{Exercise 4.14} Let $I=[0,1]$ be the closed unit interval. Suppose $f$ is a continuous mapping of $I$ into $I$. Prove that $f(x)=x$ for at least one $x \in I$.
+\begin{proof}
+    Solution. If $f(0)=0$ or $f(1)=1$, we are done. If not, then $0<f(0)$ and $f(1)<1$. Hence the continuous function $g(x)=x-f(x)$ satisfies $g(0)<0<$ $g(1)$. By the intermediate value theorem, there must be a point $x \in(0,1)$ where $g(x)=0$
+\end{proof}
+
 
 \paragraph{Exercise 4.15} Prove that every continuous open mapping of $R^{1}$ into $R^{1}$ is monotonic.
+\begin{proof}
+    Solution. Suppose $f$ is continuous and not monotonic, say there exist points $a<b<c$ with $f(a)<f(b)$, and $f(c)<f(b)$. Then the maximum value of $f$ on the closed interval $[a, c]$ is assumed at a point $u$ in the open interval $(a, c)$. If there is also a point $v$ in the open interval $(a, c)$ where $f$ assumes its minimum value on $[a, c]$, then $f(a, c)=[f(v), f(u)]$. If no such point $v$ exists, then $f(a, c)=(d, f(u)]$, where $d=\min (f(a), f(c))$. In either case, the image of $(a, c)$ is not open.
+\end{proof}
+
 
 \paragraph{Exercise 4.19} Suppose $f$ is a real function with domain $R^{1}$ which has the intermediate value property: if $f(a)<c<f(b)$, then $f(x)=c$ for some $x$ between $a$ and $b$. Suppose also, for every rational $r$, that the set of all $x$ with $f(x)=r$ is closed. Prove that $f$ is continuous.
+\begin{proof}
+    Solution. The contradiction is evidently that $x_0$ is a limit point of the set of $t$ such that $f(t)=r$, yet, $x_0$ does not belong to this set. This contradicts the hypothesis that the set is closed.
+\end{proof}
+
 
 \paragraph{Exercise 4.21a} Suppose $K$ and $F$ are disjoint sets in a metric space $X, K$ is compact, $F$ is closed. Prove that there exists $\delta>0$ such that $d(p, q)>\delta$ if $p \in K, q \in F$.
 
 \paragraph{Exercise 4.24} Assume that $f$ is a continuous real function defined in $(a, b)$ such that $f\left(\frac{x+y}{2}\right) \leq \frac{f(x)+f(y)}{2}$ for all $x, y \in(a, b)$. Prove that $f$ is convex.
+\begin{proof}
+    Solution. We shall prove that
+$$
+f(\lambda x+(1-\lambda) y) \leq \lambda f(x)+(1-\lambda) f(y)
+$$
+for all "dyadic rational" numbers, i.e., all numbers of the form $\lambda=\frac{k}{2^n}$, where $k$ is a nonnegative integer not larger than $2^n$. We do this by induction on $n$. The case $n=0$ is trivial (since $\lambda=0$ or $\lambda=1$ ). In the case $n=1$ we have $\lambda=0$ or $\lambda=1$ or $\lambda=\frac{1}{2}$. The first two cases are again trivial, and the third is precisely the hypothesis of the theorem. Suppose the result is proved for $n \leq r$, and consider $\lambda=\frac{k}{2^{r+1}}$. If $k$ is even, say $k=2 l$, then $\frac{k}{2^{r+1}}=\frac{l}{2^r}$, and we can appeal to the induction hypothesis. Now suppose $k$ is odd. Then $1 \leq k \leq 2^{r+1}-1$, and so the numbers $l=\frac{k-1}{2}$ and $m=\frac{k+1}{2}$ are integers with $0 \leq l<m \leq 2^r$. We can now write
+$$
+\lambda=\frac{s+t}{2},
+$$
+where $s=\frac{k-1}{2^{r+1}}=\frac{l}{2^r}$ and $t=\frac{k+1}{2^{r+1}}=\frac{m}{2^r}$. We then have
+$$
+\lambda x+(1-\lambda) y=\frac{[s x+(1-s) y]+[t x+(1-t) y]}{2}
+$$
+Hence by the hypothesis of the theorem and the induction hypothesis we have
+$$
+\begin{aligned}
+f(\lambda x+(1-\lambda) y) & \leq \frac{f(s x+(1-s) y)+f(t x+(1-t) y)}{2} \\
+& \leq \frac{s f(x)+(1-s) f(y)+t f(x)+(1-t) f(y)}{2} \\
+&=\left(\frac{s+t}{2}\right) f(x)+\left(1-\frac{s+t}{2}\right) f(y) \\
+&=\lambda f(x)+(1-\lambda) f(y)
+\end{aligned}
+$$
+This completes the induction.
+Now for each fixed $x$ and $y$ both sides of the inequality
+$$
+f(\lambda x+(1-\lambda) y) \leq \lambda f(x)+(1-\lambda) f(y)
+$$
+are continuous functions of $\lambda$. Hence the set on which this inequality holds (the inverse image of the closed set $[0, \infty)$ under the mapping $\lambda \mapsto \lambda f(x)+(1-$ $\lambda) f(y)-f(\lambda x+(1-\lambda) y))$ is a closed set. Since it contains all the points $\frac{k}{2^n}$, $0 \leq k \leq n, n=1,2, \ldots$, it must contain the closure of this set of points, i.e., it must contain all of $[0,1]$. Thus $f$ is convex.
+\end{proof}
+
 
 \paragraph{Exercise 5.1} Let $f$ be defined for all real $x$, and suppose that $|f(x)-f(y)| \leq (x-y)^{2}$ for all real $x$ and $y$. Prove that $f$ is constant.
+\begin{proof}
+    Solution. Dividing by $x-y$, and letting $x \rightarrow y$, we find that $f^{\prime}(y)=0$ for all $y$. Hence $f$ is constant.
+\end{proof}
+
 
 \paragraph{Exercise 5.2} Suppose $f^{\prime}(x)>0$ in $(a, b)$. Prove that $f$ is strictly increasing in $(a, b)$, and let $g$ be its inverse function. Prove that $g$ is differentiable, and that $g^{\prime}(f(x))=\frac{1}{f^{\prime}(x)} \quad(a<x<b)$.
+\begin{proof}
+   Solution. For any $c, d$ with $a<c<d<b$ there exists a point $p \in(c, d)$ such that $f(d)-f(c)=f^{\prime}(p)(d-c)>0$. Hence $f(c)<f(d)$
+
+We know from Theorem $4.17$ that the inverse function $g$ is continuous. (Its restriction to each closed subinterval $[c, d]$ is continuous, and that is sufficient.) Now observe that if $f(x)=y$ and $f(x+h)=y+k$, we have
+$$
+\frac{g(y+k)-g(y)}{k}-\frac{1}{f^{\prime}(x)}=\frac{1}{\frac{f(x+h)-f(x)}{h}}-\frac{1}{f^{\prime}(x)}
+$$
+Since we know $\lim \frac{1}{\varphi(t)}=\frac{1}{\lim \varphi(t)}$ provided $\lim \varphi(t) \neq 0$, it follows that for any $\varepsilon>0$ there exists $\eta>0$ such that
+$$
+\left|\frac{1}{\frac{f(x+h)-f(x)}{h}}-\frac{1}{f^{\prime}(x)}\right|<\varepsilon
+$$
+if $0<|h|<\eta$. Since $h=g(y+k)-g(y)$, there exists $\delta>0$ such that $0<|h|<\eta$ if $0<|k|<\delta$. The proof is now complete. 
+\end{proof}
+
 
 \paragraph{Exercise 5.3} Suppose $g$ is a real function on $R^{1}$, with bounded derivative (say $\left|g^{\prime}\right| \leq M$ ). Fix $\varepsilon>0$, and define $f(x)=x+\varepsilon g(x)$. Prove that $f$ is one-to-one if $\varepsilon$ is small enough.
+\begin{proof}
+    Solution. If $0<\varepsilon<\frac{1}{M}$, we certainly have
+$$
+f^{\prime}(x) \geq 1-\varepsilon M>0,
+$$
+and this implies that $f(x)$ is one-to-one, by the preceding problem.
+\end{proof}
+
 
 \paragraph{Exercise 5.4} If $C_{0}+\frac{C_{1}}{2}+\cdots+\frac{C_{n-1}}{n}+\frac{C_{n}}{n+1}=0,$ where $C_{0}, \ldots, C_{n}$ are real constants, prove that the equation $C_{0}+C_{1} x+\cdots+C_{n-1} x^{n-1}+C_{n} x^{n}=0$ has at least one real root between 0 and 1.
+\begin{proof}
+    Solution. Consider the polynomial
+$$
+p(x)=C_0 x+\frac{C_1}{2} x^2+\cdots+\frac{C_{n-1}}{n} x^n+\frac{C_n}{n+1} x^{n+1},
+$$
+whose derivative is
+$$
+p^{\prime}(x)=C_0+C_1 x+\cdots+C_{n-1} x^{n-1}+C_n x^n .
+$$
+It is obvious that $p(0)=0$, and the hypothesis of the problem is that $p(1)=0$. Hence Rolle's theorem implies that $p^{\prime}(x)=0$ for some $x$ between 0 and 1 .
+\end{proof}
+
 
 \paragraph{Exercise 5.5} Suppose $f$ is defined and differentiable for every $x>0$, and $f^{\prime}(x) \rightarrow 0$ as $x \rightarrow+\infty$. Put $g(x)=f(x+1)-f(x)$. Prove that $g(x) \rightarrow 0$ as $x \rightarrow+\infty$.
+\begin{proof}
+    Solution. Let $\varepsilon>0$. Choose $x_0$ such that $\left|f^{\prime}(x)\right|<\varepsilon$ if $x>x_0$. Then for any $x \geq x_0$ there exists $x_1 \in(x, x+1)$ such that
+$$
+f(x+1)-f(x)=f^{\prime}\left(x_1\right) .
+$$
+Since $\left|f^{\prime}\left(x_1\right)\right|<\varepsilon$, it follows that $|f(x+1)-f(x)|<\varepsilon$, as required.
+\end{proof}
+
 
 \paragraph{Exercise 5.6} Suppose (a) $f$ is continuous for $x \geq 0$, (b) $f^{\prime}(x)$ exists for $x>0$, (c) $f(0)=0$, (d) $f^{\prime}$ is monotonically increasing. Put $g(x)=\frac{f(x)}{x} \quad(x>0)$ and prove that $g$ is monotonically increasing.
+\begin{proof}
+    Put
+$$
+g(x)=\frac{f(x)}{x} \quad(x>0)
+$$
+and prove that $g$ is monotonically increasing.
+Solution. By the mean-value theorem
+$$
+f(x)=f(x)-f(0)=f^{\prime}(c) x
+$$
+for some $c \in(0, x)$. Since $f^{\prime}$ is monotonically increasing, this result implies that $f(x)<x f^{\prime}(x)$. It therefore follows that
+$$
+g^{\prime}(x)=\frac{x f^{\prime}(x)-f(x)}{x^2}>0,
+$$
+so that $g$ is also monotonically increasing.
+\end{proof}
+
 
 \paragraph{Exercise 5.7} Suppose $f^{\prime}(x), g^{\prime}(x)$ exist, $g^{\prime}(x) \neq 0$, and $f(x)=g(x)=0$. Prove that $\lim _{t \rightarrow x} \frac{f(t)}{g(t)}=\frac{f^{\prime}(x)}{g^{\prime}(x)}.$
+\begin{proof}
+    Solution. Since $f(x)=g(x)=0$, we have
+$$
+\begin{aligned}
+\lim _{t \rightarrow x} \frac{f(t)}{g(t)} &=\lim _{t \rightarrow x} \frac{\frac{f(t)-f(x)}{t-x}}{\frac{g(t)-g(x)}{t-x}} \\
+&=\frac{\lim _{t \rightarrow x} \frac{f(t)-f(x)}{t-x}}{\lim _{t \rightarrow x} \frac{g(t)-g(x)}{t-x}} \\
+&=\frac{f^{\prime}(x)}{g^{\prime}(x)}
+\end{aligned}
+$$
+\end{proof}
+
 
 \paragraph{Exercise 5.15} Suppose $a \in R^{1}, f$ is a twice-differentiable real function on $(a, \infty)$, and $M_{0}, M_{1}, M_{2}$ are the least upper bounds of $|f(x)|,\left|f^{\prime}(x)\right|,\left|f^{\prime \prime}(x)\right|$, respectively, on $(a, \infty)$. Prove that $M_{1}^{2} \leq 4 M_{0} M_{2} .$
+\begin{proof}
+    Solution. The inequality is obvious if $M_0=+\infty$ or $M_2=+\infty$, so we shall assume that $M_0$ and $M_2$ are both finite. We need to show that
+$$
+\left|f^{\prime}(x)\right| \leq 2 \sqrt{M_0 M_2}
+$$
+for all $x>a$. We note that this is obvious if $M_2=0$, since in that case $f^{\prime}(x)$ is constant, $f(x)$ is a linear function, and the only bounded linear function is a constant, whose derivative is zero. Hence we shall assume from now on that $0<M_2<+\infty$ and $0<M_0<+\infty$.
+Following the hint, we need only choose $h=\sqrt{\frac{M_0}{M_2}}$, and we obtain
+$$
+\left|f^{\prime}(x)\right| \leq 2 \sqrt{M_0 M_2},
+$$
+which is precisely the desired inequality.
+The case of equality follows, since the example proposed satisfies
+$$
+f(x)=1-\frac{2}{x^2+1}
+$$
+for $x \geq 0$. We see easily that $|f(x)| \leq 1$ for all $x>-1$. Now $f^{\prime}(x)=\frac{4 x}{\left(x^2+1\right)^2}$ for $x>0$ and $f^{\prime}(x)=4 x$ for $x<0$. It thus follows from Exercise 9 above that $f^{\prime}(0)=0$, and that $f^{\prime}(x)$ is continuous. Likewise $f^{\prime \prime}(x)=4$ for $x<0$ and $f^{\prime \prime}(x)=\frac{4-4 x^2}{\left(x^2+1\right)^3}=-4 \frac{x^2-1}{\left(x^2+1\right)^3}$. This shows that $\left|f^{\prime \prime}(x)\right|<4$ for $x>0$ and also that $\lim _{x \rightarrow 0} f^{\prime \prime}(x)=4$. Hence Exercise 9 again implies that $f^{\prime \prime}(x)$ is continuous and $f^{\prime \prime}(0)=4$.
+
+On $n$-dimensional space let $\mathbf{f}(x)=\left(f_1(x), \ldots, f_n(x)\right), M_0=\sup |\mathbf{f}(x)|$, $M_1=\sup \left|\mathbf{f}^{\prime}(x)\right|$, and $M_2=\sup \left|\mathbf{f}^{\prime \prime}(x)\right|$. Just as in the numerical case, there is nothing to prove if $M_2=0$ or $M_0=+\infty$ or $M_2=+\infty$, and so we assume $0<M_0<+\infty$ and $0<M_2<\infty$. Let $a$ be any positive number less than $M_1$, let $x_0$ be such that $\left|\mathbf{f}^{\prime}\left(x_0\right)\right|>a$, and let $\mathbf{u}=\frac{1}{\left|\mathbf{f}^{\prime}\left(x_0\right)\right|} \mathbf{f}^{\prime}\left(x_0\right)$. Consider the real-valued function $\varphi(x)=\mathrm{u} \cdot \mathrm{f}(x)$. Let $N_0, N_1$, and $N_2$ be the suprema of $|\varphi(x)|,\left|\varphi^{\prime}(x)\right|$, and $\left|\varphi^{\prime \prime}(x)\right|$ respectively. By the Schwarz inequality we have (since $|\mathbf{u}|=1) N_0 \leq M_0$ and $N_2 \leq M_2$, while $N_1 \geq \varphi\left(x_0\right)=\left|\mathbf{f}^{\prime}\left(x_0\right)\right|>a$. We therefore have $a^2<4 N_0 N_2 \leq 4 M_0 M_2$. Since $a$ was any positive number less than $M_1$, we have $M_1^2 \leq 4 M_0 M_2$, i.e., the result holds also for vector-valued functions.
+
+Equality can hold on any $R^n$, as we see by taking $\mathbf{f}(x)=(f(x), 0, \ldots, 0)$ or $\mathbf{f}(x)=(f(x), f(x), \ldots, f(x))$, where $f(x)$ is a real-valued function for which equality holds.
+
+\end{proof}
+
 
 \paragraph{Exercise 5.17} Suppose $f$ is a real, three times differentiable function on $[-1,1]$, such that $f(-1)=0, \quad f(0)=0, \quad f(1)=1, \quad f^{\prime}(0)=0 .$ Prove that $f^{(3)}(x) \geq 3$ for some $x \in(-1,1)$.
+\begin{proof}
+    Solution. Following the hint, we observe that Theorem $5.15$ (Taylor's formula with remainder) implies that
+$$
+\begin{aligned}
+f(1) &=f(0)+f^{\prime}(0)+\frac{1}{2} f^{\prime \prime}(0)+\frac{1}{6} f^{(3)}(s) \\
+f(-1) &=f(0)-f^{\prime}(0)+\frac{1}{2} f^{\prime \prime}(0)-\frac{1}{6} f^{(3)}(t)
+\end{aligned}
+$$
+for some $s \in(0,1), t \in(-1,0)$. By subtracting the second equation from the first and using the given values of $f(1), f(-1)$, and $f^{\prime}(0)$, we obtain
+$$
+1=\frac{1}{6}\left(f^{(3)}(s)+f^{(3)}(t)\right),
+$$
+which is the desired result. Note that we made no use of the hypothesis $f(0)=0$.
+\end{proof}
+
 
 \paragraph{Exercise 6.1} Suppose $\alpha$ increases on $[a, b], a \leq x_{0} \leq b, \alpha$ is continuous at $x_{0}, f\left(x_{0}\right)=1$, and $f(x)=0$ if $x \neq x_{0}$. Prove that $f \in \mathcal{R}(\alpha)$ and that $\int f d \alpha=0$.
+\begin{proof}
+    Solution. Let $\varepsilon>0$, and let $\delta$ be such that $\left|\alpha(x)-\alpha\left(x_0\right)\right|<\varepsilon$ if $\left|x-x_0\right|<\delta$. Now consider any partiion $a=t_0<t_1<\cdots<t_n=b$ with $n \geq 2$ such that $\left|t_i-t_{i-1}\right|<\frac{\delta}{2}$. There exists an index $i$ such that $t_{i-1}<x_0<t_{i+1}$ (there may possibly be 2 such indices). We then have, for any choice of $t_0^*, t_1^*, \ldots, t_n^*$,
+$$
+\begin{aligned}
+\left|\sum_{j=1}^n f\left(t_j^*\right)\left(\alpha\left(t_j\right)-\alpha\left(t_{j-1}\right)\right)\right| \leq &\left|f\left(t_i^*\right)\right|\left[\alpha\left(t_i\right)-\alpha\left(t_{i-1}\right) \mid+\right.\\
+& \quad+\left|f\left(t_{i+1}^*\right)\right|\left[\alpha\left(t_{i+1}\right)-\alpha\left(t_i\right)\right] \\
+& \leq \alpha\left(t_{i+1}\right)-\alpha\left(t_{i-1}\right)<\varepsilon
+\end{aligned}
+$$
+By definition of the Riemann-Stieltjes integral, this means that $f \in \mathcal{R}(\alpha)$ and $\int f d \alpha=0$
+\end{proof}
+
 
 \paragraph{Exercise 6.2} Suppose $f \geq 0, f$ is continuous on $[a, b]$, and $\int_{a}^{b} f(x) d x=0$. Prove that $f(x)=0$ for all $x \in[a, b]$.
+\begin{proof}
+    Solution. Suppose $f\left(x_0\right) \neq 0$ for some $x_0 \in[a, b]$. Since $f(x)$ is continuous on $[a, b]$ and $\frac{f\left(x_0\right)}{2}>0$, there exists $\delta>0$ such that $\left|f(x)-f\left(x_0\right)\right|<\frac{f\left(x_0\right)}{2}$ for all $x \in[a, b]$ such that $\left|x-x_0\right|<\delta$. Let $\eta=\min \left(\delta, \max \left(x_0-a, b-x_0\right)\right)$, so that $\eta>0$. Let $I$ be the interval $\left[x_0-\eta, x_0\right]$ if it is contained in $[a, b]$; otherwise let $I=\left[x_0, x_0+\eta\right]$. Whichever is the case, $I \subseteq[a, b]$ and $f(x)=$
+\end{proof}
+
 
 \paragraph{Exercise 6.4} If $f(x)=0$ for all irrational $x, f(x)=1$ for all rational $x$, prove that $f \notin \mathcal{R}$ on $[a, b]$ for any $a<b$.
+\begin{proof}
+    Solution. Every upper Riemann sum equals $b-a$, and every lower Riemann sum equals 0 . Hence the set of upper sums and the set of lower sums do not have a common bound.
+\end{proof}
+
 
 \paragraph{Exercise 6.6} Let $P$ be the Cantor set. Let $f$ be a bounded real function on $[0,1]$ which is continuous at every point outside $P$. Prove that $f \in \mathcal{R}$ on $[0,1]$.
+\begin{proof}
+    Solution. Let $M=\sup \{|f(x)|: a \leq x \leq b\}$, and let $\varepsilon>0$ be given. Cover $P$ by a finite collection of open intervals $O=\bigcup_{i=1}^k\left(a_i, b_i\right)$ such that $\sum\left(b_i-\right.$ $\left.a_i\right)<\frac{\varepsilon}{4 M}$. Let $\theta=\inf \{|x-y|: x \in P, y \in[a, b] \backslash O\}$. Since $x$ and $y$ range over disjoint compact sets, $\theta$ is a positive number. On the compact set $E=\left\{x: d(x, P) \geq \frac{1}{2} \theta\right\}$ the function $f$ is uniformly continuous. Let $\delta>0$ be such that $|f(x)-f(y)|<\frac{\varepsilon}{2(b-a)}$ if $x, y \in E$ and $|x-y|<\delta$. Then consider any partition $\left\{t_j\right\}$ of $[a, b]$ with $\max \left(t_j-t_{j-1}\right)<\min \left(\delta, \frac{1}{2} \theta\right)$. The difference between the upper and lower Riemann sums for this partition can be expressed as two sums:
+$$
+\sum\left(M_j-m_j\right)\left(t_j-t_{j-1}\right)=\Sigma_1+\Sigma_2,
+$$
+where $\Sigma_1$ contains all the terms for which $\left[t_{j-1}, t_j\right]$ is contained in $E$ and $\Sigma_2$ all the other terms. It is then obvious that
+$$
+\Sigma_1<\frac{\varepsilon}{2(b-a)} \sum\left(t_j-t_{j-1}\right) \leq \frac{\varepsilon}{2}
+$$
+and, since each interval $\left[t_{j-1}, t_j\right]$ that occurs in $\Sigma_2$ is contained in $O$,
+$$
+\Sigma_2<2 M \frac{\varepsilon}{4 M}=\frac{\varepsilon}{2} .
+$$
+Therefore the upper and lower Riemann sums for any such partition differ by less than $\varepsilon$, and so $f$ is Riemann integrable.
+\end{proof}
+
 
 \end{document}

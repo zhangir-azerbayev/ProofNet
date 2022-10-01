@@ -8,83 +8,373 @@ by Walter Rudin
 
 \date{}
 
-\usepackage{amsmath}
+\usepackage{amsmath, amsthm}
 \usepackage{amssymb}
+
+
+\theoremstyle{definition}
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{remark}[lem]{Remark}
+\newtheorem{defn}[lem]{Definition}
+
+\newtheorem*{prop*}{Proposition}
+\newtheorem*{thm*}{Theorem}
+\newtheorem*{defn*}{Definition}
+\newtheorem*{lem*}{Lemma}
 
 \begin{document}
 \maketitle
 
 \paragraph{Exercise 1.1a} If $r$ is rational $(r \neq 0)$ and $x$ is irrational, prove that $r+x$ is irrational.
+\begin{proof}
+    If $r$ and $r+x$ were both rational, then $x=r+x-r$ would also be rational.
+\end{proof}
+
 
 \paragraph{Exercise 1.1b} If $r$ is rational $(r \neq 0)$ and $x$ is irrational, prove that $rx$ is irrational.
+\begin{proof}
+    If $r x$ were rational, then $x=\frac{r x}{r}$ would also be rational.
+\end{proof}
+
 
 \paragraph{Exercise 1.2} Prove that there is no rational number whose square is $12$.
+\begin{proof}
+    Suppose $m^2=12 n^2$, where $m$ and $n$ have no common factor. It follows that $m$ must be even, and therefore $n$ must be odd. Let $m=2 r$. Then we have $r^2=3 n^2$, so that $r$ is also odd. Let $r=2 s+1$ and $n=2 t+1$. Then
+$$
+4 s^2+4 s+1=3\left(4 t^2+4 t+1\right)=12 t^2+12 t+3,
+$$
+so that
+$$
+4\left(s^2+s-3 t^2-3 t\right)=2 .
+$$
+But this is absurd, since 2 cannot be a multiple of 4 .
+\end{proof}
+
 
 \paragraph{Exercise 1.4} Let $E$ be a nonempty subset of an ordered set; suppose $\alpha$ is a lower bound of $E$ and $\beta$ is an upper bound of $E$. Prove that $\alpha \leq \beta$.
+\begin{proof}
+    Solution. Since $E$ is nonempty, there exists $x \in E$. Then by definition of lower and upper bounds we have $\alpha \leq x \leq \beta$, and hence by property $i i$ in the definition of an ordering, we have $\alpha<\beta$ unless $\alpha=x=\beta$.
+\end{proof}
+
 
 \paragraph{Exercise 1.5} Let $A$ be a nonempty set of real numbers which is bounded below. Let $-A$ be the set of all numbers $-x$, where $x \in A$. Prove that $\inf A=-\sup (-A)$.
+\begin{proof}
+    Solution: We need to prove that $-\sup (-A)$ is the greatest lower bound of $A$. For brevity, let $\alpha=-\sup (-A)$. We need to show that $\alpha \leq x$ for all $x \in A$ and $\alpha \geq \beta$ if $\beta$ is any lower bound of $A$.
+
+Suppose $x \in A$. Then, $-x \in-A$, and, hence $-x \leq \sup (-A)$. It follows that $x \geq-\sup (-A)$, i.e., $\alpha \leq x$. Thus $\alpha$ is a lower bound of $A$.
+
+Now let $\beta$ be any lower bound of $A$. This means $\beta \leq x$ for all $x$ in $A$. Hence $-x \leq-\beta$ for all $x \in A$, which says $y \leq-\beta$ for all $y \in-A$. This means $-\beta$ is an upper bound of $-A$. Hence $-\beta \geq \sup (-A)$ by definition of sup, i.e., $\beta \leq-\sup (-A)$, and so $-\sup (-A)$ is the greatest lower bound of $A$.
+\end{proof}
+
 
 \paragraph{Exercise 1.8} Prove that no order can be defined in the complex field that turns it into an ordered field.
+\begin{proof}
+    Solution. By Part (a) of Proposition $1.18$, either $i$ or $-i$ must be positive. Hence $-1=i^2=(-i)^2$ must be positive. But then $1=(-1)^2$, must also be positive, and this contradicts Part $(a)$ of Proposition 1.18, since 1 and $-1$ cannot both be positive.
+\end{proof}
+
 
 \paragraph{Exercise 1.11a} If $z$ is a complex number, prove that there exists an $r\geq 0$ and a complex number $w$ with $| w | = 1$ such that $z = rw$.
+\begin{proof}
+    Solution. If $z=0$, we take $r=0, w=1$. (In this case $w$ is not unique.) Otherwise we take $r=|z|$ and $w=z /|z|$, and these choices are unique, since if $z=r w$, we must have $r=r|w|=|r w|=|z|, z / r$
+\end{proof}
+
 
 \paragraph{Exercise 1.12} If $z_1, \ldots, z_n$ are complex, prove that $|z_1 + z_2 + \ldots + z_n| \leq |z_1| + |z_2| + \cdots + |z_n|$.
+\begin{proof}
+    We can apply the case $n=2$ and induction on $n$ to get
+$$
+\begin{aligned}
+\left|z_1+z_2+\cdots z_n\right| &=\left|\left(z_1+z_2+\cdots+z_{n-1}\right)+z_n\right| \\
+& \leq\left|z_1+z_2+\cdots+z_{n-1}\right|+\left|z_n\right| \\
+& \leq\left|z_1\right|+\left|z_2\right|+\cdots+\left|z_{n-1}\right|+\left|z_n\right|
+\end{aligned}
+$$
+\end{proof}
+
 
 \paragraph{Exercise 1.13} If $x, y$ are complex, prove that $||x|-|y|| \leq |x-y|$.
+\begin{proof}
+    Solution. Since $x=x-y+y$, the triangle inequality gives
+$$
+|x| \leq|x-y|+|y|
+$$
+so that $|x|-|y| \leq|x-y|$. Similarly $|y|-|x| \leq|x-y|$. Since $|x|-|y|$ is a real number we have either ||$x|-| y||=|x|-|y|$ or ||$x|-| y||=|y|-|x|$. In either case, we have shown that ||$x|-| y|| \leq|x-y|$.
+\end{proof}
+
 
 \paragraph{Exercise 1.14} If $z$ is a complex number such that $|z|=1$, that is, such that $z \bar{z}=1$, compute $|1+z|^{2}+|1-z|^{2}$.
+\begin{proof}
+    Solution. $|1+z|^2=(1+z)(1+\bar{z})=1+\bar{z}+z+z \bar{z}=2+z+\bar{z}$. Similarly $|1-z|^2=(1-z)(1-\bar{z})=1-z-\bar{z}+z \bar{z}=2-z-\bar{z}$. Hence
+$$
+|1+z|^2+|1-z|^2=4 \text {. }
+$$
+\end{proof}
+
 
 \paragraph{Exercise 1.16a} Suppose $k \geq 3, x, y \in \mathbb{R}^k, |x - y| = d > 0$, and $r > 0$. Prove that if $2r > d$, there are infinitely many $z \in \mathbb{R}^k$ such that $|z-x|=|z-y|=r$.
+\begin{proof}
+    Solution. (a) Let w be any vector satisfying the following two equations:
+$$
+\begin{aligned}
+\mathbf{w} \cdot(\mathbf{x}-\mathbf{y}) &=0, \\
+|\mathbf{w}|^2 &=r^2-\frac{d^2}{4} .
+\end{aligned}
+$$
+From linear algebra it is known that all but one of the components of a solution $\mathbf{w}$ of the first equation can be arbitrary. The remaining component is then uniquely determined. Also, if $w$ is any non-zero solution of the first equation, there is a unique positive number $t$ such that $t$ w satisfies both equations. (For example, if $x_1 \neq y_1$, the first equation is satisfied whenever
+$$
+z_1=\frac{z_2\left(x_2-y_2\right)+\cdots+z_k\left(x_k-y_k\right)}{y_1-x_1} .
+$$
+If $\left(z_1, z_2, \ldots, z_k\right)$ satisfies this equation, so does $\left(t z_1, t z_2, \ldots, t z_k\right)$ for any real number $t$.) Since at least two of these components can vary independently, we can find a solution with these components having any prescribed ratio. This ratio does not change when we multiply by the positive number $t$ to obtain a solution of both equations. Since there are infinitely many ratios, there are infinitely many distinct solutions. For each such solution $\mathbf{w}$ the vector $\mathbf{z}=$ $\frac{1}{2} \mathrm{x}+\frac{1}{2} \mathrm{y}+\mathrm{w}$ is a solution of the required equation. For
+$$
+\begin{aligned}
+|\mathrm{z}-\mathbf{x}|^2 &=\left|\frac{\mathbf{y}-\mathbf{x}}{2}+\mathbf{w}\right|^2 \\
+&=\left|\frac{\mathbf{y}-\mathbf{x}}{2}\right|^2+2 \mathbf{w} \cdot \frac{\mathbf{x}-\mathbf{y}}{2}+|\mathbf{w}|^2 \\
+&=\frac{d^2}{4}+0+r^2-\frac{d^2}{4} \\
+&=r^2
+\end{aligned}
+$$
+and a similar relation holds for $|z-y|^2$.
+\end{proof}
+
 
 \paragraph{Exercise 1.17} Prove that $|\mathbf{x}+\mathbf{y}|^{2}+|\mathbf{x}-\mathbf{y}|^{2}=2|\mathbf{x}|^{2}+2|\mathbf{y}|^{2}$ if $\mathbf{x} \in R^{k}$ and $\mathbf{y} \in R^{k}$.
+\begin{proof}
+    Solution. The proof is a routine computation, using the relation
+$$
+|x \pm y|^2=(x \pm y) \cdot(x \pm y)=|x|^2 \pm 2 x \cdot y+|y|^2 .
+$$
+If $\mathrm{x}$ and $\mathrm{y}$ are the sides of a parallelogram, then $\mathrm{x}+\mathrm{y}$ and $\mathbf{x}-\mathrm{y}$ are its diagonals. Hence this result says that the sum of the squares on the diagonals of a parallelogram equals the sum of the squares on the sides.
+\end{proof}
+
 
 \paragraph{Exercise 1.18a} If $k \geq 2$ and $\mathbf{x} \in R^{k}$, prove that there exists $\mathbf{y} \in R^{k}$ such that $\mathbf{y} \neq 0$ but $\mathbf{x} \cdot \mathbf{y}=0$
+\begin{proof}
+    Solution. If $\mathbf{x}$ has any components equal to 0 , then $\mathbf{y}$ can be taken to have the corresponding components equal to 1 and all others equal to 0 . If all the components of $\mathbf{x}$ are nonzero, $\mathbf{y}$ can be taken as $\left(-x_2, x_1, 0, \ldots, 0\right)$. This is, of course, not true when $k=1$, since the product of two nonzero real numbers is nonzero.
+\end{proof}
+
 
 \paragraph{Exercise 1.18b} If $k = 1$ and $\mathbf{x} \in R^{k}$, prove that there does not exist $\mathbf{y} \in R^{k}$ such that $\mathbf{y} \neq 0$ but $\mathbf{x} \cdot \mathbf{y}=0$
+\begin{proof}
+    Not true when $k=1$, since the product of two nonzero real numbers is nonzero.
+\end{proof}
+
 
 \paragraph{Exercise 1.19} Suppose $a, b \in R^k$. Find $c \in R^k$ and $r > 0$ such that $|x-a|=2|x-b|$ if and only if $| x - c | = r$. Prove that $3c = 4b - a$ and $3r = 2 |b - a|$.
+\begin{proof}
+    Solution. Since the solution is given to us, all we have to do is verify it, i.e., we need to show that the equation
+$$
+|\mathrm{x}-\mathrm{a}|=2|\mathrm{x}-\mathrm{b}|
+$$
+is equivalent to $|\mathrm{x}-\mathbf{c}|=r$, which says
+$$
+\left|\mathbf{x}-\frac{4}{3} \mathbf{b}+\frac{1}{3} \mathbf{a}\right|=\frac{2}{3}|\mathbf{b}-\mathbf{a}| .
+$$
+If we square both sides of both equations, we an equivalent pair of equations, the first of which reduces to
+$$
+3|\mathbf{x}|^2+2 \mathbf{a} \cdot \mathbf{x}-8 \mathbf{b} \cdot \mathbf{x}-|\mathbf{a}|^2+4|\mathbf{b}|^2=0,
+$$
+and the second of which reduces to this equation divided by 3 . Hence these equations are indeed equivalent.
+\end{proof}
+
 
 \paragraph{Exercise 2.19a} If $A$ and $B$ are disjoint closed sets in some metric space $X$, prove that they are separated.
+\begin{proof}
+    Solution. We are given that $A \cap B=\varnothing$. Since $A$ and $B$ are closed, this means $A \cap \bar{B}=\varnothing=\bar{A} \cap B$, which says that $A$ and $B$ are separated.
+\end{proof}
+
 
 \paragraph{Exercise 2.24} Let $X$ be a metric space in which every infinite subset has a limit point. Prove that $X$ is separable.
 
 \paragraph{Exercise 2.25} Prove that every compact metric space $K$ has a countable base.
+\begin{proof}
+    Solution. It is easier simply to refer to the previous problem. The hint shows that $K$ can be covered by a finite union of neighborhoods of radius $1 / n$, and the previous problem shows that this implies that $K$ is separable.
+
+It is not entirely obvious that a metric space with a countable base is separable. To prove this, let $\left\{V_n\right\}_{n=1}^{\infty}$ be a countable base, and let $x_n \in V_n$. The points $V_n$ must be dense in $X$. For if $G$ is any non-empty open set, then $G$ contains $V_n$ for some $n$, and hence $x_n \in G$. (Thus for a metric space, having a countable base and being separable are equivalent.)
+\end{proof}
+
 
 \paragraph{Exercise 2.27a} Suppose $E\subset\mathbb{R}^k$ is uncountable, and let $P$ be the set of condensation points of $E$. Prove that $P$ is perfect.
+\begin{proof}
+    Solution. We see that $E \cap W$ is at most countable, being a countable union of at-most-countable sets. It remains to show that $P=W^c$, and that $P$ is perfect.
+\end{proof}
+
 
 \paragraph{Exercise 2.27b} Suppose $E\subset\mathbb{R}^k$ is uncountable, and let $P$ be the set of condensation points of $E$. Prove that at most countably many points of $E$ are not in $P$.
+\begin{proof}
+    If $x \in W^c$, and $O$ is any neighborhood of $x$, then $x \in V_n \subseteq O$ for some n. Since $x \notin W, V_n \cap E$ is uncountable. Hence $O$ contains uncountably many points of $E$, and so $x$ is a condensation point of $E$. Thus $x \in P$, i.e., $W^c \subseteq P$.
+Conversely if $x \in W$, then $x \in V_n$ for some $V_n$ such that $V_n \cap E$ is countable. Hence $x$ has a neighborhood (any neighborhood contained in $V_n$ ) containing at most a countable set of points of $E$, and so $x \notin P$, i.e., $W \subseteq P^c$. Hence $P=W^c$.
+It is clear that $P$ is closed (since its complement $W$ is open), so that we need only show that $P \subseteq P^{\prime}$. Hence suppose $x \in P$, and $O$ is any neighborhood of $x$. (By definition of $P$ this means $O \cap E$ is uncountable.) We need to show that there is a point $y \in P \cap(O \backslash\{x\})$. If this is not the case, i.e., if every point $y$ in $O \backslash\{x\}$ is in $P^c$, then for each such point $y$ there is a set $V_n$ containing $y$ such that $V_n \cap E$ is at most countable. That would mean that $y \in W$, i.e., that $O \backslash\{x\}$ is contained in $W$. It would follow that $O \cap E \subseteq\{x\} \cup(W \cap E)$, and so $O \cap E$ contains at most a countable set of points, contrary to the hypothesis that $x \in P$. Hence $O$ contains a point of $P$ different from $x$, and so $P \subseteq P^{\prime}$. Thus $P$ is perfect.
+\end{proof}
+
 
 \paragraph{Exercise 2.28} Prove that every closed set in a separable metric space is the union of a (possibly empty) perfect set and a set which is at most countable.
+\begin{proof}
+    Solution. If $E$ is closed, it contains all its limit points, and hence certainly all its condensation points. Thus $E=P \cup(E \backslash P)$, where $P$ is perfect (the set of all condensation points of $E$ ), and $E \backslash P$ is at most countable.
+
+Since a perfect set in a separable metric space has the same cardinality as the real numbers, the set $P$ must be empty if $E$ is countable. The at-mostcountable set $E \backslash P$ cannot be perfect, hence must have isolated points if it is nonempty.
+\end{proof}
+
 
 \paragraph{Exercise 2.29} Prove that every open set in $\mathbb{R}$ is the union of an at most countable collection of disjoint segments.
+\begin{proof}
+    Solution. Let $O$ be open. For each pair of points $x \in O, y \in O$, we define an equivalence relation $x \sim y$ by saying $x \sim y$ if and only if $[\min (x, y), \max (x, y)] \subset$ 0 . This is an equivalence relation, since $x \sim x([x, x] \subset O$ if $x \in O)$; if $x \sim y$, then $y \sim x$ (since $\min (x, y)=\min (y, x)$ and $\max (x, y)=\max (y, x))$; and if $x \sim y$ and $y \sim z$, then $x \sim z([\min (x, z), \max (x, z)] \subseteq[\min (x, y), \max (x, y)] \cup$ $[\min (y, z), \max (y, z)] \subseteq O)$. In fact it is easy to prove that
+$$
+\min (x, z) \geq \min (\min (x, y), \min (y, z))
+$$
+and
+$$
+\max (x, z) \leq \max (\max (x, y), \max (y, z))
+$$
+It follows that $O$ can be written as a disjoint union of pairwise disjoint equivalence classes. We claim that each equivalence class is an open interval.
+
+To show this, for each $x \in O$; let $A=\{z:[z, x] \subseteq O\}$ and $B=\{z:[x, z] \subseteq$ $O\}$, and let $a=\inf A, b=\sup B$. We claim that $(a, b) \subset O$. Indeed if $a<z<b$, there exists $c \in A$ with $c<z$ and $d \in B$ with $d>z$. Then $z \in[c, x] \cup[x, d] \subseteq O$. We now claim that $(a, b)$ is the equivalence class containing $x$. It is clear that each element of $(a, b)$ is equivalent to $x$ by the way in which $a$ and $b$ were chosen. We need to show that if $z \notin(a, b)$, then $z$ is not equivalent to $x$. Suppose that $z<a$. If $z$ were equivalent to $x$, then $[z, x]$ would be contained in $O$, and so we would have $z \in A$. Hence $a$ would not be a lower bound for $A$. Similarly if $z>b$ and $z \sim x$, then $b$ could not be an upper bound for $B$.
+
+We have now established that $O$ is a union of pairwise disjoint open intervals. Such a union must be at most countable, since each open interval contains a rational number not in any other interval.
+\end{proof}
+
 
 \paragraph{Exercise 3.1a} Prove that convergence of $\left\{s_{n}\right\}$ implies convergence of $\left\{\left|s_{n}\right|\right\}$.
+\begin{proof}
+    Solution. Let $\varepsilon>0$. Since the sequence $\left\{s_n\right\}$ is a Cauchy sequence, there exists $N$ such that $\left|s_m-s_n\right|<\varepsilon$ for all $m>N$ and $n>N$. We then have ||$s_m|-| s_n|| \leq\left|s_m-s_n\right|<\varepsilon$ for all $m>N$ and $n>N$. Hence the sequence $\left\{\left|s_n\right|\right\}$ is also a Cauchy sequence, and therefore must converge.
+\end{proof}
+
 
 \paragraph{Exercise 3.2a} Prove that $\lim_{n \rightarrow \infty}\sqrt{n^2 + n} -n = 1/2$.
+\begin{proof}
+    Solution. Multiplying and dividing by $\sqrt{n^2+n}+n$ yields
+$$
+\sqrt{n^2+n}-n=\frac{n}{\sqrt{n^2+n}+n}=\frac{1}{\sqrt{1+\frac{1}{n}}+1} .
+$$
+It follows that the limit is $\frac{1}{2}$.
+\end{proof}
+
 
 \paragraph{Exercise 3.3} If $s_{1}=\sqrt{2}$, and $s_{n+1}=\sqrt{2+\sqrt{s_{n}}} \quad(n=1,2,3, \ldots),$ prove that $\left\{s_{n}\right\}$ converges, and that $s_{n}<2$ for $n=1,2,3, \ldots$.
+\begin{proof}
+    Solution. Since $\sqrt{2}<2$, it is manifest that if $s_n<2$, then $s_{n+1}<\sqrt{2+2}=2$. Hence it follows by induction that $\sqrt{2}<s_n<2$ for all $n$. In view of this fact,it also follows that $\left(s_n-2\right)\left(s_n+1\right)<0$ for all $n>1$, i.e., $s_n>s_n^2-2=s_{n-1}$. Hence the sequence is an increasing sequence that is bounded above (by 2 ) and so converges. Since the limit $s$ satisfies $s^2-s-2=0$, it follows that the limit is 2.
+\end{proof}
+
 
 \paragraph{Exercise 3.5} For any two real sequences $\left\{a_{n}\right\},\left\{b_{n}\right\}$, prove that $\limsup _{n \rightarrow \infty}\left(a_{n}+b_{n}\right) \leq \limsup _{n \rightarrow \infty} a_{n}+\limsup _{n \rightarrow \infty} b_{n},$ provided the sum on the right is not of the form $\infty-\infty$.
+\begin{proof}
+    Solution. Since the case when $\limsup _{n \rightarrow \infty} a_n=+\infty$ and $\limsup _{n \rightarrow \infty} b_n=-\infty$ has been excluded from consideration, we note that the inequality is obvious if $\limsup _{n \rightarrow \infty} a_n=+\infty$. Hence we shall assume that $\left\{a_n\right\}$ is bounded above.
+
+Let $\left\{n_k\right\}$ be a subsequence of the positive integers such that $\lim _{k \rightarrow \infty}\left(a_{n_k}+\right.$ $\left.b_{n_k}\right)=\limsup _{n \rightarrow \infty}\left(a_n+b_n\right)$. Then choose a subsequence of the positive integers $\left\{k_m\right\}$ such that
+$$
+\lim _{m \rightarrow \infty} a_{n_{k_m}}=\limsup _{k \rightarrow \infty} a_{n_k} .
+$$
+The subsequence $a_{n_{k_m}}+b_{n_{k_m}}$ still converges to the same limit as $a_{n_k}+b_{n_k}$, i.e., to $\limsup _{n \rightarrow \infty}\left(a_n+b_n\right)$. Hence, since $a_{n_k}$ is bounded above (so that $\limsup _{k \rightarrow \infty} a_{n_k}$ is finite), it follows that $b_{n_{k_m}}$ converges to the difference
+$$
+\lim _{m \rightarrow \infty} b_{n_{k_m}}=\lim _{m \rightarrow \infty}\left(a_{n_{k_m}}+b_{n_{k_m}}\right)-\lim _{m \rightarrow \infty} a_{n_{k_m}} .
+$$
+Thus we have proved that there exist subsequences $\left\{a_{n_{k_m}}\right\}$ and $\left\{b_{n_{k_m}}\right\}$ which converge to limits $a$ and $b$ respectively such that $a+b=\limsup _{n \rightarrow \infty}\left(a_n+b_n^*\right)$. Since $a$ is the limit of a subsequence of $\left\{a_n\right\}$ and $b$ is the limit of a subsequence of $\left\{b_n\right\}$, it follows that $a \leq \limsup _{n \rightarrow \infty} a_n$ and $b \leq \limsup _{n \rightarrow \infty} b_n$, from which the desired inequality follows.
+\end{proof}
+
 
 \paragraph{Exercise 3.6a} Prove that $\lim_{n \rightarrow \infty} \sum_{i<n} a_i = \infty$, where $a_i = \sqrt{i + 1} -\sqrt{i}$.
+\begin{proof}
+    Solution. (a) Multiplying and dividing $a_n$ by $\sqrt{n+1}+\sqrt{n}$, we find that $a_n=\frac{1}{\sqrt{n+1}+\sqrt{n}}$, which is larger than $\frac{1}{2 \sqrt{n+1}}$. The series $\sum a_n$ therefore diverges by comparison with the $p$ series $\left(p=\frac{1}{2}\right)$.
+\end{proof}
+
 
 \paragraph{Exercise 3.7} Prove that the convergence of $\Sigma a_{n}$ implies the convergence of $\sum \frac{\sqrt{a_{n}}}{n}$ if $a_n\geq 0$.
+\begin{proof}
+    Solution. Since $\left(\sqrt{a_n}-\frac{1}{n}\right)^2 \geq 0$, it follows that
+$$
+\frac{\sqrt{a_n}}{n} \leq \frac{1}{2}\left(a_n^2+\frac{1}{n^2}\right) .
+$$
+Now $\Sigma a_n^2$ converges by comparison with $\Sigma a_n$ (since $\Sigma a_n$ converges, we have $a_n<1$ for large $n$, and hence $\left.a_n^2<a_n\right)$. Since $\Sigma \frac{1}{n^2}$ also converges ($p$ series, $p=2$ ), it follows that $\Sigma \frac{\sqrt{a_n}}{n}$ converges.
+\end{proof}
+
 
 \paragraph{Exercise 3.8} If $\Sigma a_{n}$ converges, and if $\left\{b_{n}\right\}$ is monotonic and bounded, prove that $\Sigma a_{n} b_{n}$ converges.
+\begin{proof}
+    Solution. We shall show that the partial sums of this series form a Cauchy sequence, i.e., given $\varepsilon>0$ there exists $N$ such that $\left|\sum_{k=m+1}^n a_k b_k\right|\langle\varepsilon$ if $n\rangle$ $m \geq N$. To do this, let $S_n=\sum_{k=1}^n a_k\left(S_0=0\right)$, so that $a_k=S_k-S_{k-1}$ for $k=1,2, \ldots$ Let $M$ be an uppper bound for both $\left|b_n\right|$ and $\left|S_n\right|$, and let $S=\sum a_n$ and $b=\lim b_n$. Choose $N$ so large that the following three inequalities hold for all $m>N$ and $n>N$ :
+$$
+\left|b_n S_n-b S\right|<\frac{\varepsilon}{3} ; \quad\left|b_m S_m-b S\right|<\frac{\varepsilon}{3} ; \quad\left|b_m-b_n\right|<\frac{\varepsilon}{3 M} .
+$$
+Then if $n>m>N$, we have, from the formula for summation by parts,
+$$
+\sum_{k=m+1}^n a_n b_n=b_n S_n-b_m S_m+\sum_{k=m}^{n-1}\left(b_k-b_{k+1}\right) S_k
+$$
+Our assumptions yield immediately that $\left|b_n S_n-b_m S_m\right|<\frac{2 \varepsilon}{3}$, and
+$$
+\left|\sum_{k=m}^{n-1}\left(b_k-b_{k+1}\right) S_k\right| \leq M \sum_{k=m}^{n-1}\left|b_k-b_{k+1}\right| .
+$$
+Since the sequence $\left\{b_n\right\}$ is monotonic, we have
+$$
+\sum_{k=m}^{n-1}\left|b_k-b_{k+1}\right|=\left|\sum_{k=m}^{n-1}\left(b_k-b_{k+1}\right)\right|=\left|b_m-b_n\right|<\frac{\varepsilon}{3 M},
+$$
+from which the desired inequality follows.
+\end{proof}
+
 
 \paragraph{Exercise 3.13} Prove that the Cauchy product of two absolutely convergent series converges absolutely.
+\begin{proof}
+    Solution. Since both the hypothesis and conclusion refer to absolute convergence, we may assume both series consist of nonnegative terms. We let $S_n=\sum_{k=0}^n a_n, T_n=\sum_{k=0}^n b_n$, and $U_n=\sum_{k=0}^n \sum_{l=0}^k a_l b_{k-l}$. We need to show that $U_n$ remains bounded, given that $S_n$ and $T_n$ are bounded. To do this we make the convention that $a_{-1}=T_{-1}=0$, in order to save ourselves from having to separate off the first and last terms when we sum by parts. We then have
+$$
+\begin{aligned}
+U_n &=\sum_{k=0}^n \sum_{l=0}^k a_l b_{k-l} \\
+&=\sum_{k=0}^n \sum_{l=0}^k a_l\left(T_{k-l}-T_{k-l-1}\right) \\
+&=\sum_{k=0}^n \sum_{j=0}^k a_{k-j}\left(T_j-T_{j-1}\right) \\
+&=\sum_{k=0}^n \sum_{j=0}^k\left(a_{k-j}-a_{k-j-1}\right) T_j \\
+&=\sum_{j=0}^n \sum_{k=j}^n\left(a_{k-j}-a_{k-j-1}\right) T_j
+&=\sum_{j=0}^n a_{n-j} T_j \\
+&\leq T \sum_{m=0}^n a_m \\
+&=T S_n \\
+&\leq S T .
+\end{aligned}
+$$
+Thus $U_n$ is bounded, and hence approaches a finite limit.
+
+\end{proof}
+
 
 \paragraph{Exercise 3.20} Suppose $\left\{p_{n}\right\}$ is a Cauchy sequence in a metric space $X$, and some sequence $\left\{p_{n l}\right\}$ converges to a point $p \in X$. Prove that the full sequence $\left\{p_{n}\right\}$ converges to $p$.
+\begin{proof}
+    Solution. Let $\varepsilon>0$. Choose $N_1$ so large that $d\left(p_m, p_n\right)<\frac{\varepsilon}{2}$ if $m>N_1$ and $n>N_1$. Then choose $N \geq N_1$ so large that $d\left(p_{n_k}, p\right)<\frac{\varepsilon}{2}$ if $k>N$. Then if $n>N$, we have
+$$
+d\left(p_n, p\right) \leq d\left(p_n, p_{n_{N+1}}\right)+d\left(p_{n_{N+1}}, p\right)<\varepsilon
+$$
+For the first term on the right is less than $\frac{\varepsilon}{2}$ since $n>N_1$ and $n_{N+1}>N+1>$ $N_1$. The second term is less than $\frac{\varepsilon}{2}$ by the choice of $N$.
+\end{proof}
+
 
 \paragraph{Exercise 3.21} If $\left\{E_{n}\right\}$ is a sequence of closed nonempty and bounded sets in a complete metric space $X$, if $E_{n} \supset E_{n+1}$, and if $\lim _{n \rightarrow \infty} \operatorname{diam} E_{n}=0,$ then $\bigcap_{1}^{\infty} E_{n}$ consists of exactly one point.
+\begin{proof}
+    Solution. Choose $x_n \in E_n$. (We use the axiom of choice here.) The sequence $\left\{x_n\right\}$ is a Cauchy sequence, since the diameter of $E_n$ tends to zero as $n$ tends to infinity and $E_n$ contains $E_{n+1}$. Since the metric space $X$ is complete, the sequence $x_n$ converges to a point $x$, which must belong to $E_n$ for all $n$, since $E_n$ is closed and contains $x_m$ for all $m \geq n$. There cannot be a second point $y$ in all of the $E_n$, since for any point $y \neq x$ the diameter of $E_n$ is less $\operatorname{than} d(x, y)$ for large $n$.
+\end{proof}
+
 
 \paragraph{Exercise 3.22} Suppose $X$ is a nonempty complete metric space, and $\left\{G_{n}\right\}$ is a sequence of dense open sets of $X$. Prove Baire's theorem, namely, that $\bigcap_{1}^{\infty} G_{n}$ is not empty.
+\begin{proof}
+    Solution. Let $F_n$ be the complement of $G_n$, so that $F_n$ is closed and contains no open sets. We shall prove that any nonempty open set $U$ contains a point not in any $F_n$, hence in all $G_n$. To this end, we note that $U$ is not contained in $F_1$, so that there is a point $x_1 \in U \backslash F_1$. Since $U \backslash F_1$ is open, there exists $r_1>0$ such that $B_1$, defined as the open ball of radius $r_1$ about $x_1$, is contained in $U \backslash F_1$. Let $E_1$ be the open ball of radius $\frac{r_1}{2}$ about $x_1$, so that the closure of $E_1$ is contained in $B_1$. Now $F_2$ does not contain $E_1$, and so we can find a point $x_2 \in E_1 \backslash F_2$. Since $E_1 \backslash F_2$ is an open set, there exists a positive number $r_2$ such that $B_2$, the open ball of radius $R_2$ about $x_2$, is contained in $E_1 \backslash F_2$, which in turn is contained in $U \backslash\left(F_1 \cup F_2\right)$. We let $E_2$ be the open ball of radius $\frac{r_2}{2}$ about $x_2$, so that $\bar{E}_2 \subseteq B_2$. Proceeding in this way, we construct a sequence of open balls $E_j$, such that $E_j \supseteq \bar{E}_{j+1}$, and the diameter of $E_j$ tends to zero. By the previous exercise, there is a point $x$ belonging to all the sets $\bar{E}_j$, hence to all the sets $U \backslash\left(F_1 \cup F_2 \cup \cdots \cup F_n\right)$. Thus the point $x$ belongs to $U \cap\left(\cap_1^{\infty} G_n\right)$.
+\end{proof}
+
 
 \paragraph{Exercise 4.1a} Suppose $f$ is a real function defined on $\mathbb{R}$ which satisfies $\lim_{h \rightarrow 0} f(x + h) - f(x - h) = 0$ for every $x \in \mathbb{R}$. Show that $f$ does not need to be continuous.
+\begin{proof}
+    $$
+f(x)= \begin{cases}1 & \text { if } x \text { is an integer } \\ 0 & \text { if } x \text { is not an integer. }\end{cases}
+$$
+(If $x$ is an integer, then $f(x+h)-f(x-h) \equiv 0$ for all $h$; while if $x$ is not an integer, $f(x+h)-f(x-h)=0$ for $|h|<\min (x-[x], 1+[x]-x)$.
+\end{proof}
+
 
 \paragraph{Exercise 4.2a} If $f$ is a continuous mapping of a metric space $X$ into a metric space $Y$, prove that $f(\overline{E}) \subset \overline{f(E)}$ for every set $E \subset X$. ($\overline{E}$ denotes the closure of $E$).
+\begin{proof}
+    Solution. Let $x \in \bar{E}$. We need to show that $f(x) \in \overline{f(E)}$. To this end, let $O$ be any neighborhood of $f(x)$. Since $f$ is continuous, $f^{-1}(O)$ contains (is) a neighborhood of $x$. Since $x \in \bar{E}$, there is a point $u$ of $E$ in $f^{-1}(O)$. Hence $\frac{f(u)}{f(E)} \in O \cap f(E)$. Since $O$ was any neighborhood of $f(x)$, it follows that $f(x) \in \overline{f(E)}$
+\end{proof}
+
 
 \paragraph{Exercise 4.3} Let $f$ be a continuous real function on a metric space $X$. Let $Z(f)$ (the zero set of $f$ ) be the set of all $p \in X$ at which $f(p)=0$. Prove that $Z(f)$ is closed.
+\begin{proof}
+    Solution. $Z(f)=f^{-1}(\{0\})$, which is the inverse image of a closed set. Hence $Z(f)$ is closed.
+\end{proof}
+
 
 \paragraph{Exercise 4.4a} Let $f$ and $g$ be continuous mappings of a metric space $X$ into a metric space $Y$, and let $E$ be a dense subset of $X$. Prove that $f(E)$ is dense in $f(X)$.
 

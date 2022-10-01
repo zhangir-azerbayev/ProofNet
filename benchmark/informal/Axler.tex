@@ -8,15 +8,49 @@ by Sheldon Axler
 
 \date{}
 
-\usepackage{amsmath}
+\usepackage{amsmath, amsthm}
 \usepackage{amssymb}
+
+
+\theoremstyle{definition}
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{remark}[lem]{Remark}
+\newtheorem{defn}[lem]{Definition}
+
+\newtheorem*{prop*}{Proposition}
+\newtheorem*{thm*}{Theorem}
+\newtheorem*{defn*}{Definition}
+\newtheorem*{lem*}{Lemma}
+
 
 \begin{document}
 \maketitle
 
 \paragraph{Exercise 1.2} Show that $\frac{-1 + \sqrt{3}i}{2}$ is a cube root of 1 (meaning that its cube equals 1).
+\begin{proof}
+$$
+\left(\frac{-1+\sqrt{3} i}{2}\right)^2=\frac{-1-\sqrt{3} i}{2},
+$$
+hence
+$$
+\left(\frac{-1+\sqrt{3} i}{2}\right)^3=\frac{-1-\sqrt{3} i}{2} \cdot \frac{-1+\sqrt{3} i}{2}=1
+$$
+This means $\frac{-1+\sqrt{3} i}{2}$ is a cube root of 1.
+\end{proof}
+
 
 \paragraph{Exercise 1.3} Prove that $-(-v) = v$ for every $v \in V$.
+\begin{proof}
+    By definition, we have
+$$
+(-v)+(-(-v))=0 \quad \text { and } \quad v+(-v)=0 .
+$$
+This implies both $v$ and $-(-v)$ are additive inverses of $-v$, by the uniqueness of additive inverse, it follows that $-(-v)=v$.
+\end{proof}
+
 
 \paragraph{Exercise 1.4} Prove that if $a \in \mathbf{F}$, $v \in V$, and $av = 0$, then $a = 0$ or $v = 0$.
 

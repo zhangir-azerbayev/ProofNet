@@ -1,3 +1,21 @@
+import topology.basic
+import topology.constructions
+import topology.bases
+import topology.stone_cech
+import topology.path_connected
+import topology.metric_space.basic
+import topology.metric_space.metrizable
+import data.real.basic
+import data.set.countable
+import data.real.irrational
+import deprecated.subgroup
+
+open_locale classical
+open set
+
+open filter
+open_locale filter
+open_locale topological_space
 
 
 theorem exercise_13_1 (X : Type*) [topological_space X]

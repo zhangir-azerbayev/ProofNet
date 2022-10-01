@@ -1,4 +1,27 @@
+import tactic
+import data.rat.basic
+import data.real.basic
+import data.real.irrational
+import data.real.sqrt
+import analysis.inner_product_space.basic
+import analysis.inner_product_space.pi_L2
+import analysis.specific_limits.basic
+import analysis.specific_limits.normed
+import analysis.specific_limits.basic
+import analysis.specific_limits.normed
+import analysis.box_integral.basic
+import data.set.intervals.basic
+import topology.basic
+import topology.metric_space.basic
+import topology.instances.real
+import dynamics.ergodic.measure_preserving
 
+open real
+open_locale topological_space
+open_locale big_operators
+open_locale complex_conjugate
+
+noncomputable theory
 
 theorem exercise_1_11a {z : ℂ} :
   ∃ (r : ℝ) (w : ℂ), r ≥ 0 ∧ abs w = 1 ∧ z = r * w :=

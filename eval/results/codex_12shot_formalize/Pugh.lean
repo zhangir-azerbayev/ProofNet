@@ -1,3 +1,25 @@
+import data.rat.basic
+import data.real.basic
+import data.real.irrational
+import data.real.sqrt
+import analysis.inner_product_space.basic
+import analysis.inner_product_space.pi_L2
+import analysis.specific_limits.basic
+import analysis.specific_limits.normed
+import analysis.specific_limits.basic
+import analysis.specific_limits.normed
+import analysis.box_integral.basic
+import data.set.intervals.basic
+import topology.basic
+import topology.bases
+import topology.metric_space.basic
+import topology.instances.real
+import dynamics.ergodic.measure_preserving
+
+open real filter function
+open_locale big_operators
+open_locale filter
+open_locale topological_space
 
 
 theorem exercise_2_109 {M : Type*} [metric_space M]

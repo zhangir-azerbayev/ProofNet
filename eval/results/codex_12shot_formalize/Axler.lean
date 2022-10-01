@@ -1,3 +1,14 @@
+import linear_algebra.finite_dimensional
+import linear_algebra.eigenspace
+import data.complex.basic
+import analysis.inner_product_space.basic
+import analysis.inner_product_space.projection
+import analysis.inner_product_space.adjoint
+
+open set fintype complex polynomial submodule linear_map
+open finite_dimensional module module.End inner_product_space
+
+open_locale big_operators
 
 
 theorem exercise_1_2 :

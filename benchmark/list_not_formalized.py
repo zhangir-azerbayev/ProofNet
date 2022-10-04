@@ -17,9 +17,7 @@ formal = [l.split('exercise_')[1].split(' ')[0]
 formal = ['Exercise ' + f.replace('_', '.') for f in formal]
 
 for l in tex:
-    if not 'paragraph{Exercise ' in l:
-        print(l)
-    else:
+    if 'paragraph{Exercise ' in l:
         e = l.split('{')[1].split('}')[0]
-        if e in formal:
-            print(l)
+        if e not in formal:
+            print(e)

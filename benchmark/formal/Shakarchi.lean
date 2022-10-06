@@ -65,6 +65,21 @@ theorem exercise_2_13 {f : ℂ → ℂ}
     ∃ (c : ℕ → ℂ) (n : ℕ), f = λ z, ∑ i in finset.range n, (c i) * z ^ n :=
 sorry
 
+open interval_integral
+
+theorem exercise_3_3 (a : ℝ) (ha : 0 < a) :
+    tendsto (λ y, ∫ x in -y..y, real.cos x / (x ^ 2 + a ^ 2))
+      at_top (𝓝 (real.pi * (real.exp (-a) / a))) :=
+sorry
+
+theorem exercise_3_4 (a : ℝ) (ha : 0 < a) :
+    tendsto (λ y, ∫ x in -y..y, x * real.sin x / (x ^ 2 + a ^ 2))
+      at_top (𝓝 (real.pi * (real.exp (-a)))) :=
+sorry
+
+theorem exercise_3_9 : ∫ x in 0..1, real.log (real.sin (real.pi * x)) = - real.log 2 :=
+  sorry
+
 theorem exercise_3_14 {f : ℂ → ℂ} (hf : differentiable ℂ f)
     (hf_inj : function.injective f) :
     ∃ (a b : ℂ), f = (λ z, a * z + b) ∧ a ≠ 0 :=

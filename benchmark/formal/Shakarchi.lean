@@ -17,7 +17,7 @@ import topology.metric_space.basic
 import topology.instances.real
 import measure_theory.integral.interval_integral
 
-open complex filter function
+open complex filter function interval_integral
 open_locale big_operators
 open_locale filter
 open_locale topological_space
@@ -52,6 +52,22 @@ theorem exercise_1_19c (z : ℂ) (hz : abs z = 1) (hz2 : z ≠ 1) (s : ℕ → �
     ∃ z, tendsto s at_top (𝓝 z) :=
 sorry
 
+theorem exercise_1_22 (n : ℕ) (S : fin n → set ℕ) (f : fin n → ℕ × ℕ)
+  (h : ∀ i, S i = set.range (λ j, (f i).fst + j * (f i).snd)) :
+    ¬ (⋃ i, S i) = (set.univ : set ℕ) :=
+sorry
+
+theorem exercise_1_26
+  (f F₁ F₂ : ℂ → ℂ) (Ω : set ℂ) (h1 : is_open Ω) (h2 : is_connected Ω)
+  (hF₁ : differentiable_on ℂ F₁ Ω) (hF₂ : differentiable_on ℂ F₂ Ω)
+  (hdF₁ : ∀ x ∈ Ω, deriv F₁ x = f x) (hdF₂ : ∀ x ∈ Ω, deriv F₂ x = f x)
+  : ∃ c : ℂ, ∀ x, F₁ x = F₂ x + c :=
+sorry
+
+theorem exercise_2_2 :
+  tendsto (λ y, ∫ x in 0..y, real.sin x / x) at_top (𝓝 (real.pi / 2)) :=
+sorry
+
 theorem exercise_2_9
   {f : ℂ → ℂ} (Ω : set ℂ) (b : metric.bounded Ω) (h : is_open Ω)
   (hf : differentiable_on ℂ f Ω) (z ∈ Ω) (hz : f z = z) (h'z : deriv f z = 1) :
@@ -65,7 +81,6 @@ theorem exercise_2_13 {f : ℂ → ℂ}
     ∃ (c : ℕ → ℂ) (n : ℕ), f = λ z, ∑ i in finset.range n, (c i) * z ^ n :=
 sorry
 
-open interval_integral
 
 theorem exercise_3_3 (a : ℝ) (ha : 0 < a) :
     tendsto (λ y, ∫ x in -y..y, real.cos x / (x ^ 2 + a ^ 2))

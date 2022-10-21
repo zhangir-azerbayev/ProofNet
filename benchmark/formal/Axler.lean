@@ -125,10 +125,9 @@ theorem exercise_6_13 {V : Type*} [inner_product_space ℂ V] {n : ℕ}
   ∥v∥^2 = ∑ i : fin n, ∥⟪v, e i⟫_ℂ∥^2 ↔ v ∈ span ℂ (e '' univ) :=
 sorry
 
-theorem exercise_6_16 {V : Type*} [inner_product_space ℂ V]
-  {U : submodule ℂ V} :
-  Uᗮ = ⊥ ↔ U = ⊤ :=
-sorry
+theorem exercise_6_16 {K V : Type*} [is_R_or_C K] [inner_product_space K V]
+  {U : submodule K V} : 
+  U.orthogonal = ⊥  ↔ U = ⊤ 
 
 theorem exercise_7_5 {V : Type*} [inner_product_space ℂ V] 
   [finite_dimensional ℂ V] (hV : finrank V ≥ 2) :

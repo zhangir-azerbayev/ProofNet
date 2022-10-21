@@ -8,25 +8,30 @@ import data.zmod.basic
 import data.countable.basic
 import data.set.countable
 import data.polynomial.basic
+import group_theory.abelianization
 import group_theory.subgroup.basic
 import group_theory.quotient_group
 import group_theory.index 
 import group_theory.specific_groups.cyclic
+import group_theory.specific_groups.dihedral
 import group_theory.solvable 
 import group_theory.free_group
 import group_theory.presented_group
 import group_theory.group_action.conj_act
 import group_theory.sylow
+import group_theory.coset 
 import number_theory.zsqrtd.gaussian_int
 import ring_theory.ideal.operations
 import algebra.char_p.basic
 import algebra.quaternion
 import linear_algebra.general_linear_group
 import field_theory.finite.galois_field
-
+ 
 open set function nat fintype real 
 open subgroup ideal polynomial submodule zsqrtd 
 open char_p mul_aut matrix
+
+open_locale pointwise
 open_locale big_operators
 noncomputable theory
 
@@ -50,35 +55,39 @@ begin
 end
 
 theorem exercise_1_1_5 (n : ℕ) (hn : 1 < n) : 
-  is_empty (group (zmod n)) :=
-sorry
+  is_empty (group (zmod n)) := 
+sorry 
 
 theorem exercise_1_1_15 {G : Type*} [group G] (as : list G) :
   as.prod⁻¹ = (as.reverse.map (λ x, x⁻¹)).prod :=
-sorry
+begin 
+  simp only [list.prod_hom _, list.map_reverse, list.prod_reverse],
+  induction as generalizing, 
+  simp, 
+  simp *, 
+end
 
 theorem exercise_1_1_16 {G : Type*} [group G] 
   (x : G) (hx : x ^ 2 = 1) :
   order_of x = 1 ∨ order_of x = 2 :=
-sorry
+sorry 
 
 theorem exercise_1_1_17 {G : Type*} [group G] {x : G} {n : ℕ}
   (hxn: order_of x = n) :
   x⁻¹ = x ^ (n-1) :=
-sorry
-
-theorem exercise_1_1_18 {G : Type*} [group G] {x y : G} : 
-  x * y = y * x ↔ y⁻¹ * x * y = x ∧ 
-  x * y = y * x ↔ x⁻¹ * y⁻¹ * x * y = 1 :=
 sorry 
+
+theorem exercise_1_1_18 {G : Type*} [group G]
+  (x y : G) : x * y = y * x ↔ y⁻¹ * x * y = x ↔ x⁻¹ * y⁻¹ * x * y = 1 :=
+sorry
 
 theorem exercise_1_1_20 {G : Type*} [group G] {x : G} :
   order_of x = order_of x⁻¹ :=
-sorry
+sorry 
 
 theorem exercise_1_1_22a {G : Type*} [group G] (x g : G) :
   order_of x = order_of (g⁻¹ * x * g) :=
-sorry
+sorry 
 
 theorem exercise_1_1_22b {G: Type*} [group G] (a b : G) : 
   order_of (a * b) = order_of (b * a) :=
@@ -86,7 +95,7 @@ sorry
 
 theorem exercise_1_1_25 {G : Type*} [group G] 
   (h : ∀ x : G, x ^ 2 = 1) : ∀ a b : G, a*b = b*a :=
-sorry
+sorry 
 
 theorem exercise_1_1_29 {A B : Type*} [group A] [group B] :
   ∀ x y : A × B, x*y = y*x ↔ (∀ x y : A, x*y = y*x) ∧ 
@@ -120,13 +129,41 @@ theorem exercise_1_6_23 {G : Type*}
   ∀ x y : G, x*y = y*x :=
 sorry
 
+theorem exercise_2_1_5 {G : Type*} [group G] [fintype G] 
+  (hG : card G > 2) (H : subgroup G) [fintype H] : 
+  card H ≠ card G - 1 :=
+sorry 
+
 theorem exercise_2_1_13 (H : add_subgroup ℚ) {x : ℚ} 
   (hH : x ∈ H → (1 / x) ∈ H):
   H = ⊥ ∨ H = ⊤ :=
 sorry
 
+theorem exercise_2_4_4 {G : Type*} [group G] (H : subgroup G) : 
+  subgroup.closure ((H : set G) \ {1}) = ⊤ :=
+sorry 
+
+theorem exercise_2_4_16a {G : Type*} [group G] {H : subgroup G}  
+  (hH : H ≠ ⊤) : 
+  ∃ M : subgroup G, M ≠ ⊤ ∧
+  ∀ K : subgroup G, M ≤ K → K = M ∨ K = ⊤ ∧ 
+  H ≤ M :=
+sorry 
+
+theorem exercise_2_4_16b {n : ℕ} {hn : n ≠ 0} 
+  {R : subgroup (dihedral_group n)} 
+  (hR : R = subgroup.closure {dihedral_group.r 1}) : 
+  R ≠ ⊤ ∧ 
+  ∀ K : subgroup (dihedral_group n), R ≤ K → K = R ∨ K = ⊤ :=
+sorry 
+
+theorem exercise_2_4_16c {n : ℕ} (H : add_subgroup (zmod n)) : 
+  ∃ p : ℕ, nat.prime p ∧ H = add_subgroup.closure {p} ↔ 
+  H ≠ ⊤ ∧ ∀ K : add_subgroup (zmod n), H ≤ K → K = H ∨ K = ⊤ := 
+sorry 
+
 theorem exercise_3_1_3a {A : Type*} [comm_group A] (B : subgroup A) :
-  ∀ a b : A ⧸ B, a*b = b*a   :=
+  ∀ a b : A ⧸ B, a*b = b*a :=
 sorry
 
 theorem exercise_3_1_22a (G : Type*) [group G] (H K : subgroup G) 
@@ -143,16 +180,24 @@ theorem exercise_3_2_8 {G : Type*} [group G] (H K : subgroup G)
   [fintype H] [fintype K] 
   (hHK : nat.coprime (fintype.card H) (fintype.card K)) : 
   H ⊓ K = ⊥ :=
-sorry
+sorry 
+
+theorem exercise_3_2_11 {G : Type*} [group G] {H K : subgroup G}
+  (hHK : H ≤ K) : 
+  H.index = K.index * H.relindex K :=
+sorry 
 
 theorem exercise_3_2_16 (p : ℕ) (hp : nat.prime p) (a : ℕ) :
   nat.coprime a p → a ^ p ≡ a [MOD p] :=
 sorry
 
-theorem exercise_3_2_21a (G : Type*) [group G] 
-  [fintype G] [decidable_eq G] (H : subgroup G) (hH : H ≠ ⊥) :
-  H = ⊤ :=
+theorem exercise_3_2_21a (H : add_subgroup ℚ) (hH : H ≠ ⊤) : H.index = 0 :=
 sorry
+
+theorem exercise_3_3_3 {p : primes} {G : Type*} [group G] 
+  {H : subgroup G} [hH : H.normal] (hH1 : H.index = p) : 
+  ∀ K : subgroup G, K ≤ H ∨ H ⊔ K = ⊤ ∨ (K ⊓ H).relindex K = p :=
+sorry 
 
 theorem exercise_3_4_1 (G : Type*) [comm_group G] [is_simple_group G] :
     is_cyclic G ∧ ∃ G_fin : fintype G, nat.prime (@card G G_fin) :=
@@ -172,14 +217,54 @@ theorem exercise_3_4_5b {G : Type*} [group G] [is_solvable G]
   is_solvable (G ⧸ H) :=
 sorry
 
+theorem exercise_3_4_11 {G : Type*} [group G] [is_solvable G] 
+  {H : subgroup G} (hH : H ≠ ⊥) [H.normal] : 
+  ∃ A ≤ H, A.normal ∧ ∀ a b : A, a*b = b*a :=
+sorry 
+
+theorem exercise_4_2_8 {G : Type*} [group G] {H : subgroup G} 
+  {n : ℕ} (hn : n > 0) (hH : H.index = n) : 
+  ∃ K ≤ H, K.normal ∧ K.index ≤ n.factorial :=
+sorry 
+
 theorem exercise_4_3_26 {α : Type*} [fintype α] (ha : fintype.card α > 1)
   (h_tran : ∀ a b: α, ∃ σ : equiv.perm α, σ a = b) : 
   ∃ σ : equiv.perm α, ∀ a : α, σ a ≠ a := 
 sorry
 
+theorem exercise_4_2_9a {G : Type*} [fintype G] [group G] {p α : ℕ} 
+  (hp : p.prime) (ha : α > 0) (hG : card G = p ^ α) : 
+  ∀ H : subgroup G, H.index = p → H.normal :=
+sorry 
+
+theorem exercise_4_2_14 {G : Type*} [fintype G] [group G] 
+  (hG : ¬ (card G).prime) (hG1 : ∀ k ∣ card G, 
+  ∃ (H : subgroup G) (fH : fintype H), @card H fH = k) : 
+  ¬ is_simple_group G :=
+sorry 
+
+theorem exercise_4_4_2 {G : Type*} [fintype G] [group G] 
+  {p q : nat.primes} (hpq : p ≠ q) (hG : card G = p*q) : 
+  is_cyclic G :=
+sorry 
+
 theorem exercise_4_4_6a {G : Type*} [group G] (H : subgroup G)
   [subgroup.characteristic H] : subgroup.normal H  :=
 sorry
+
+theorem exercise_4_4_6b {G : Type*} [group G] : 
+  ∃ H : subgroup G, H.characteristic ∧ ¬ H.normal :=
+sorry 
+
+theorem exercise_4_4_7 {G : Type*} [group G] {H : subgroup G} [fintype H]
+  (hH : ∀ (K : subgroup G) (fK : fintype K), card H = @card K fK → H = K) : 
+  H.characteristic :=
+sorry 
+
+theorem exercise_4_4_8a {G : Type*} [group G] (H K : subgroup G)  
+  (hHK : H ≤ K) [hHK1 : (H.subgroup_of K).normal] [hK : K.normal] : 
+  H.normal :=
+sorry 
 
 theorem exercise_4_5_1a {p : ℕ} {G : Type*} [group G] 
   {P : subgroup G} (hP : is_p_group p P) (H : subgroup G) 
@@ -187,11 +272,83 @@ theorem exercise_4_5_1a {p : ℕ} {G : Type*} [group G]
 sorry
 
 theorem exercise_4_5_13 {G : Type*} [group G] [fintype G]
-    (hG : card G = 56) :
-    ∃ (p : ℕ) (P : sylow p G), P.normal :=
+  (hG : card G = 56) :
+  ∃ (p : ℕ) (P : sylow p G), P.normal :=
 sorry
 
 theorem exercise_4_5_14 {G : Type*} [group G] [fintype G]
-    (hG : card G = 312) :
-    ∃ (p : ℕ) (P : sylow p G), P.normal :=
+  (hG : card G = 312) :
+  ∃ (p : ℕ) (P : sylow p G), P.normal :=
 sorry
+
+theorem exercise_4_5_15 {G : Type*} [group G] [fintype G] 
+  (hG : card G = 351) : 
+  ∃ (p : ℕ) (P : sylow p G), P.normal :=
+sorry 
+
+theorem exercise_4_5_16 {p q r : ℕ} {G : Type*} [group G] 
+  [fintype G]  (hpqr : p < q ∧ q < r) 
+  (hpqr1 : p.prime ∧ q.prime ∧ r.prime)(hG : card G = p*q*r) : 
+  nonempty (sylow p G) ∨ nonempty(sylow q G) ∨ nonempty(sylow r G) :=
+sorry 
+
+theorem exercise_4_5_17 {G : Type*} [fintype G] [group G] 
+  (hG : card G = 105) : 
+  nonempty(sylow 5 G) ∧ nonempty(sylow 7 G) :=
+sorry 
+
+theorem exercise_4_5_18 {G : Type*} [fintype G] [group G] 
+  (hG : card G = 200) : 
+  ∃ N : sylow 5 G, N.normal :=
+sorry 
+
+theorem exercise_4_5_19 {G : Type*} [fintype G] [group G] 
+  (hG : card G = 6545) : ¬ is_simple_group G :=
+sorry 
+
+theorem exercise_4_5_20 {G : Type*} [fintype G] [group G]
+  (hG : card G = 1365) : ¬ is_simple_group G :=
+sorry 
+
+theorem exercise_4_5_21 {G : Type*} [fintype G] [group G]
+  (hG : card G = 2907) : ¬ is_simple_group G :=
+sorry 
+
+theorem exercise_4_5_22 {G : Type*} [fintype G] [group G]
+  (hG : card G = 132) : ¬ is_simple_group G :=
+sorry 
+
+theorem exercise_4_5_23 {G : Type*} [fintype G] [group G]
+  (hG : card G = 462) : ¬ is_simple_group G :=
+sorry 
+
+theorem exercise_4_5_28 {G : Type*} [group G] [fintype G] 
+  (hG : card G = 105) (P : sylow 3 G) [hP : P.normal] : 
+  comm_group G :=
+sorry 
+
+theorem exercise_4_5_33 {G : Type*} [group G] [fintype G] {p : ℕ} 
+  (P : sylow p G) [hP : P.normal] (H : subgroup G) [fintype H] : 
+  ∀ R : sylow p H, R.to_subgroup = (H ⊓ P.to_subgroup).subgroup_of H ∧
+  nonempty (sylow p H) :=
+sorry 
+
+theorem exercise_5_4_2 {G : Type*} [group G] (H : subgroup G) : 
+  H.normal ↔ ⁅(⊤ : subgroup G), H⁆ ≤ H := 
+sorry 
+
+theorem exercise_7_1_2 {R : Type*} [ring R] {u : R}
+  (hu : is_unit u) : is_unit (-u) :=
+sorry 
+
+theorem exercise_7_1_11 {R : Type*} [ring R] [is_domain R] 
+  {x : R} (hx : x^2 = 1) : x = 1 ∨ x = -1 :=
+sorry 
+
+theorem exercise_7_1_12 {F : Type*} [field F] {K : subring F}
+  (hK : (1 : F) ∈ K) : is_domain K :=
+sorry 
+
+theorem exercise_7_2_2 {R : Type*} [ring R] (p : polynomial R) :
+  p ∣ 0 ↔ ∃ b : R, b ≠ 0 ∧ b • p = 0 := 
+sorry 

@@ -561,25 +561,6 @@ and $a_t q(x)$ has degree strictly less than that of $q(x)$, so that by minimali
 By induction, $a_i q(x)=0$ for all $0 \leq i \leq n$. In particular, $a_i b_m=0$. Thus $b_m p(x)=0$.
 \end{proof}
 
-
-\paragraph{Exercise 7.2.4} Prove that if $R$ is an integral domain then the ring of formal power series $R[[x]]$ is also an integral domain.
-\begin{proof}
-    Solution: Let $\alpha$ and $\beta$ be two nonzero elements in $R[[x]]$. Let
-$$
-\alpha=\sum_{n \geqslant 0} a_n x^n, \quad \beta=\sum_{n \geqslant 0} b_n x^n .
-$$
-Suppose $i$ is the smallest nonnegative integer $n$ such that $a_n \neq 0$ and $j$ is the smallest nonnegative integer $m$ such that $b_m \neq 0$. Then $a_i \neq 0, b_j \neq 0$ and
-$$
-\alpha=\sum_{n \geqslant i} a_n x^n, \quad \beta=\sum_{m \geqslant j} b_m x^m .
-$$
-Then it is clear that
-$$
-\alpha \beta=a_i b_j x^{i+j}+\text { terms with higher degree. }
-$$
-Because $R$ is an integral domain, we have $a_i b_j \neq 0$. So $\alpha \beta \neq 0$. Therefore the ring $R[[x]]$ of formal power series is also an integral domain.
-\end{proof}
-
-
 \paragraph{Exercise 7.2.12} Let $G=\left\{g_{1}, \ldots, g_{n}\right\}$ be a finite group. Prove that the element $N=g_{1}+g_{2}+\ldots+g_{n}$ is in the center of the group ring $R G$.
 \begin{proof}
     Solution: Let $M=\sum_{i=1}^n r_i g_i$ be an element of $R[G]$. Note that for each $g_i \in G$, the action of $g_i$ on $G$ by conjugation permutes the subscripts. Then we have the following.

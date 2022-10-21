@@ -186,7 +186,7 @@ theorem exercise_4_2_5 {R : Type*} [ring R]
 sorry
 
 theorem exercise_4_2_6 {R : Type*} [ring R] (a x : R) 
-  (h : a ^ 2 = 0) : a * (x + x * a) = (x + x * a) * a :=
+  (h : a ^ 2 = 0) : a * (a * x + x * a) = (x + x * a) * a :=
 sorry
 
 theorem exercise_4_2_9 {p : ℕ} (hp : nat.prime p) (hp1 : odd p) :

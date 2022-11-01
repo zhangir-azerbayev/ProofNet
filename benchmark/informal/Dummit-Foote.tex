@@ -588,22 +588,6 @@ $$
 Thus $r \in Z(S)$.
 \end{proof}
 
-
-\paragraph{Exercise 7.3.28} Prove that an integral domain has characteristic $p$, where $p$ is either a prime or 0.
-\begin{proof}
-    Solution: Suppose the characteristic $n$ of $R$ is composite, and that $n=a b$ where $a$ and $b$ are both less than $n$. Letting
-$$
-\varphi: \mathbb{Z} \rightarrow R
-$$
-be the ring homomorphism that takes $k \in \mathbb{Z}$ to the $k$-fold sum of 1 or $-1$, we have $\varphi(a)$ and $\varphi(b)$ nonzero. However,
-$$
-\varphi(a) \varphi(b)=\varphi(a b)=\varphi(n)=0,
-$$
-so that $\varphi(a)$ and $\varphi(b)$ are zero divisors. Thus we have a contradiction.
-Hence, the characteristic of $R$ is not composite, and thus must be a prime or zero.
-\end{proof}
-
-
 \paragraph{Exercise 7.3.37} An ideal $N$ is called nilpotent if $N^{n}$ is the zero ideal for some $n \geq 1$. Prove that the ideal $p \mathbb{Z} / p^{m} \mathbb{Z}$ is a nilpotent ideal in the ring $\mathbb{Z} / p^{m} \mathbb{Z}$.
 \begin{proof}
     Solution: First we prove a lemma.
@@ -654,7 +638,7 @@ Thus $p \mathbb{Z} / p^m \mathbb{Z}$ is nilpotent in $\mathbb{Z} / p^m \mathbb{Z
 
 \paragraph{Exercise 9.4.2a} Prove that $x^4-4x^3+6$ is irreducible in $\mathbb{Z}[x]$.
 
-\paragraph{Exercise 9.4.2b} Prove that $x^6+30x^5-15x^+6x-120$ is irreducible in $\mathbb{Z}[x]$.
+\paragraph{Exercise 9.4.2b} Prove that $x^6+30x^5-15x^3 + 6x-120$ is irreducible in $\mathbb{Z}[x]$.
 
 \paragraph{Exercise 9.4.2c} Prove that $x^4+4x^3+6x^2+2x+1$ is irreducible in $\mathbb{Z}[x]$.
 
@@ -665,13 +649,5 @@ Thus $p \mathbb{Z} / p^m \mathbb{Z}$ is nilpotent in $\mathbb{Z} / p^m \mathbb{Z
 \paragraph{Exercise 9.4.11} Prove that $x^2+y^2-1$ is irreducible in $\mathbb{Q}[x,y]$.
 
 \paragraph{Exercise 11.1.13} Prove that as vector spaces over $\mathbb{Q}, \mathbb{R}^n \cong \mathbb{R}$, for all $n \in \mathbb{Z}^{+}$.
-
-\paragraph{Exercise 11.3.3bi} Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define $\operatorname{Ann}(S)=\{v \in V \mid f(v)=0 \text{ for all } f \in S\}$. Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that $\operatorname{Ann}(W_1+W_2)=\operatorname{Ann}(W_1) \cap\operatorname{Ann}(W_2)$.
-
-\paragraph{Exercise 11.3.3bii} Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define $\operatorname{Ann}(S)=\{v \in V \mid f(v)=0 \text{ for all } f \in S\}$. Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that $\operatorname{Ann}(W_1\cap W_2)=\operatorname{Ann}(W_1) + \operatorname{Ann}(W_2)$.
-
-\paragraph{Exercise 11.3.3c} Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define $\operatorname{Ann}(S)=\{v \in V \mid f(v)=0 \text{ for all } f \in S\}$. Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that $W_1=W_2$ if and only if $\operatorname{Ann}(W_1)=\operatorname{Ann}(W_2)$.
-
-\paragraph{Exercise 11.3f} Let $S$ be any subset of $V^*$ for some finite dimensional space $V$. Define $\operatorname{Ann}(S)=\{v \in V \mid f(v)=0 \text{ for all } f \in S\}$. Let $W_1$ and $W_2$ be subspaces of $V^*$. Prove that if $W^*$ is any subspace of $V^*$ then $\operatorname{dim} \operatorname{Ann}(W^*)=\operatorname{dim} V-\operatorname{dim} W^*$.
 
 \end{document}

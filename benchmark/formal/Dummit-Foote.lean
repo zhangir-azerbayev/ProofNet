@@ -22,14 +22,19 @@ import group_theory.sylow
 import group_theory.coset 
 import number_theory.zsqrtd.gaussian_int
 import ring_theory.ideal.operations
+import ring_theory.ideal.minimal_prime
 import algebra.char_p.basic
 import algebra.quaternion
+import algebra.gcd_monoid.basic
+import algebra.monoid_algebra.basic
 import linear_algebra.general_linear_group
 import field_theory.finite.galois_field
+import algebraic_geometry.prime_spectrum.basic
  
-open set function nat fintype real 
-open subgroup ideal polynomial submodule zsqrtd 
+open set function nat int fintype real 
+open subgroup ideal polynomial mv_polynomial submodule zsqrtd 
 open char_p mul_aut matrix
+open gaussian_int
 
 open_locale pointwise
 open_locale big_operators
@@ -40,15 +45,15 @@ begin
   use [0, 1]
 end
 
-theorem exercise_1_1_3 (n : ℕ) : 
-  ∀ (a b c : ℕ), (a+b)+c ≡ a+(b+c) [MOD n] :=
+theorem exercise_1_1_3 (n : ℤ) : 
+  ∀ (a b c : ℤ), (a+b)+c ≡ a+(b+c) [ZMOD n] :=
 begin 
   intros a b c, 
   ring_nf
 end
 
 theorem exercise_1_1_4 (n : ℕ) : 
-  ∀ (a b c : ℕ), (a * b) * c ≡ a * (b * c) [MOD n] :=
+  ∀ (a b c : ℕ), (a * b) * c ≡ a * (b * c) [ZMOD n] :=
 begin 
   intros a b c, 
   ring_nf, 
@@ -188,7 +193,7 @@ theorem exercise_3_2_11 {G : Type*} [group G] {H K : subgroup G}
 sorry 
 
 theorem exercise_3_2_16 (p : ℕ) (hp : nat.prime p) (a : ℕ) :
-  nat.coprime a p → a ^ p ≡ a [MOD p] :=
+  nat.coprime a p → a ^ p ≡ a [ZMOD p] :=
 sorry
 
 theorem exercise_3_2_21a (H : add_subgroup ℚ) (hH : H ≠ ⊤) : H.index = 0 :=
@@ -349,6 +354,109 @@ theorem exercise_7_1_12 {F : Type*} [field F] {K : subring F}
   (hK : (1 : F) ∈ K) : is_domain K :=
 sorry 
 
+theorem exercise_7_1_15 {R : Type*} [ring R] (hR : ∀ a : R, a^2 = a) :
+  comm_ring R :=
+sorry 
+
 theorem exercise_7_2_2 {R : Type*} [ring R] (p : polynomial R) :
   p ∣ 0 ↔ ∃ b : R, b ≠ 0 ∧ b • p = 0 := 
+sorry 
+
+theorem exercise_7_2_12 {R G : Type*} [ring R] [group G] [fintype G] : 
+  ∑ g : G, monoid_algebra.of R G g ∈ center (monoid_algebra R G) :=
+sorry 
+
+theorem exercise_7_3_16 {R S : Type*} [ring R] [ring S] 
+  {φ : R →+* S} (hf : surjective φ) : 
+  φ '' (center R) ⊂ center S :=
+sorry 
+
+theorem exercise_7_3_37 {R : Type*} {p m : ℕ} (hp : p.prime) 
+  (N : ideal $ zmod $ p^m) : 
+  is_nilpotent N ↔  is_nilpotent (ideal.span ({p} : set $ zmod $ p^m)) :=
+sorry 
+
+theorem exercise_7_4_27 {R : Type*} [comm_ring R] (hR : (0 : R) ≠ 1) 
+  {a : R} (ha : is_nilpotent a) (b : R) : 
+  is_unit (1-a*b) :=
+sorry 
+
+theorem exercise_8_1_12 {N : ℕ} (hN : N > 0) {M M': ℤ} {d : ℕ}
+  (hMN : M.gcd N = 1) (hMd : d.gcd N.totient = 1) 
+  (hM' : M' ≡ M^d [ZMOD N]) : 
+  ∃ d' : ℕ, d' * d ≡ 1 [ZMOD N.totient] ∧ 
+  M ≡ M'^d' [ZMOD N] :=
+sorry 
+
+theorem exercise_8_2_4 {R : Type*} [ring R][no_zero_divisors R] 
+  [cancel_comm_monoid_with_zero R] [gcd_monoid R]
+  (h1 : ∀ a b : R, a ≠ 0 → b ≠ 0 → ∃ r s : R, gcd a b = r*a + s*b)
+  (h2 : ∀ a : ℕ → R, (∀ i j : ℕ, i < j → a i ∣ a j) → 
+  ∃ N : ℕ, ∀ n ≥ N, ∃ u : R, is_unit u ∧ a n = u * a N) : 
+  is_principal_ideal_ring R :=
+sorry  
+
+theorem exercise_8_3_4 {R : Type*} {n : ℤ} {r s : ℚ} 
+  (h : r^2 + s^2 = n) : 
+  ∃ a b : ℤ, a^2 + b^2 = n :=
+sorry 
+
+theorem exercise_8_3_5a {n : ℤ} (hn0 : n > 3) (hn1 : squarefree n) : 
+  irreducible (2 :zsqrtd $ -n) ∧ 
+  irreducible (⟨0, 1⟩ : zsqrtd $ -n) ∧ 
+  irreducible (1 + ⟨0, 1⟩ : zsqrtd $ -n) :=
+sorry 
+
+theorem exercise_8_3_6a {R : Type*} [ring R]
+  (hR : R = (gaussian_int ⧸ ideal.span ({⟨0, 1⟩} : set gaussian_int))) :
+  is_field R ∧ ∃ finR : fintype R, @card R finR = 2 :=
+sorry 
+
+theorem exercise_8_3_6b {q : ℤ} (hq0 : prime q) 
+  (hq1 : q ≡ 3 [ZMOD 4]) {R : Type*} [ring R]
+  (hR : R = (gaussian_int ⧸ ideal.span ({q} : set gaussian_int))) : 
+  is_field R ∧ ∃ finR : fintype R, @card R finR = q^2 :=
+sorry 
+   
+theorem exercise_9_1_6 : ¬ is_principal 
+  (ideal.span ({X 0, X 1} : set (mv_polynomial (fin 2) ℚ))) :=
+sorry 
+
+theorem exercise_9_1_10 {f : ℕ → mv_polynomial ℕ ℤ} 
+  (hf : f = λ i, X i * X (i+1)): 
+  infinite (minimal_primes (mv_polynomial ℕ ℤ ⧸ ideal.span (range f))) := 
+sorry 
+
+theorem exercise_9_3_2 {f g : polynomial ℚ} (i j : ℕ)
+  (hfg : ∀ n : ℕ, ∃ a : ℤ, (f*g).coeff = a) :
+  ∃ a : ℤ, f.coeff i * g.coeff j = a :=
+sorry 
+
+theorem exercise_9_4_2a : irreducible (X^4 - 4*X^3 + 6 : polynomial ℤ) := 
+sorry 
+
+theorem exercise_9_4_2b : irreducible 
+  (X^6 + 30*X^5 - 15*X^3 + 6*X - 120 : polynomial ℤ) :=
+sorry 
+
+theorem exercise_9_4_2c : irreducible 
+  (X^4 + 4*X^3 + 6*X^2 + 2*X + 1 : polynomial ℤ) :=
+sorry 
+
+theorem exercise_9_4_2d {p : ℕ} (hp : p.prime ∧ p > 2) 
+  {f : polynomial ℤ} (hf : f = (X + 2)^p): 
+  irreducible (∑ n in (f.support - {0}), (f.coeff n) * X ^ (n-1) : 
+  polynomial ℤ) :=
+sorry 
+
+theorem exercise_9_4_9 : 
+  irreducible (X^2 - C sqrtd : polynomial (zsqrtd 2)) :=
+sorry 
+
+theorem exercise_9_4_11 : 
+  irreducible ((X 0)^2 + (X 1)^2 - 1 : mv_polynomial (fin 2) ℚ) :=
+sorry 
+
+theorem exercise_11_1_13 {ι : Type*} [fintype ι] : 
+  (ι → ℝ) ≃ₗ[ℚ] ℝ :=
 sorry 

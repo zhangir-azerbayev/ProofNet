@@ -134,9 +134,9 @@ sorry
 
 theorem exercise_2_8_12 {G H : Type*} [fintype G] [fintype H] 
   [group G] [group H] (hG : card G = 21) (hH : card H = 21) 
-  (hG1 : is_empty(comm_group G)) (hH1 : is_empty (comm_group G)) :
-  G ≃ H :=
-sorry
+  (hG1 : is_empty(comm_group G)) (hH1 : is_empty (comm_group H)) :
+  G ≃* H :=
+sorry 
 
 theorem exercise_2_8_15 {G H: Type*} [fintype G] [group G] [fintype H]
   [group H] {p q : ℕ} (hp : nat.prime p) (hq : nat.prime q) 

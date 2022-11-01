@@ -28,10 +28,6 @@ theorem exercise_2_2_9 {G : Type*} [group G] {a b : G}
   ∀ x y : closure {x | x = a ∨ x = b}, x*y = y*x :=
 sorry
 
--- this isn't quite correct, mult group of positive reals?
-theorem exercise_2_3_1 : multiplicative ℝ ≃ additive ℝ  :=
-sorry
-
 theorem exercise_2_3_2 {G : Type*} [group G] (a b : G) :
   ∃ g : G, b* a = g * a * b * g⁻¹ :=
 sorry
@@ -41,7 +37,6 @@ theorem exercise_2_4_19 {G : Type*} [group G] {x : G}
   x ∈ center G :=
 sorry
 
--- is this ok? Are they actually equal in Lean?
 theorem exercise_2_8_6 {G H : Type*} [group G] [group H] :
   center (G × H) ≃* (center G) × (center H) :=
 sorry
@@ -113,8 +108,8 @@ theorem exercise_10_6_7 {I : ideal gaussian_int}
 sorry
 
 theorem exercise_10_4_6 {R : Type*} [comm_ring R] 
-    [no_zero_divisors R] (I J : ideal R) : 
-    ∀ x : I ⊓ J, is_nilpotent ((ideal.quotient.mk (I*J)) x) :=
+  [no_zero_divisors R] {I J : ideal R} (x : I ⊓ J) : 
+  is_nilpotent ((ideal.quotient.mk (I*J)) x) :=
 sorry
 
 theorem exercise_10_4_7a {R : Type*} [comm_ring R] [no_zero_divisors R]

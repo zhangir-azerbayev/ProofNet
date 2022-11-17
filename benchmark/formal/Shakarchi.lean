@@ -1,21 +1,4 @@
-import data.rat.basic
-import data.real.basic
-import data.real.irrational
-import data.real.sqrt
-import analysis.inner_product_space.basic
-import analysis.inner_product_space.pi_L2
-import analysis.specific_limits.basic
-import analysis.specific_limits.normed
-import analysis.specific_limits.basic
-import analysis.specific_limits.normed
-import analysis.box_integral.basic
-import analysis.analytic.basic
-import data.set.intervals.basic
-import topology.basic
-import topology.bases
-import topology.metric_space.basic
-import topology.instances.real
-import measure_theory.integral.interval_integral
+import .common 
 
 open complex filter function interval_integral
 open_locale big_operators

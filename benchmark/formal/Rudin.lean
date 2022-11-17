@@ -1,25 +1,13 @@
-import tactic
-import data.rat.basic
-import data.real.basic
-import data.real.irrational
-import data.real.sqrt
-import analysis.inner_product_space.basic
-import analysis.inner_product_space.pi_L2
-import analysis.specific_limits.basic
-import analysis.specific_limits.normed
-import analysis.specific_limits.basic
-import analysis.specific_limits.normed
-import analysis.box_integral.basic
-import data.set.intervals.basic
-import topology.basic
-import topology.metric_space.basic
-import topology.instances.real
-import dynamics.ergodic.measure_preserving
+import .common
 
 open real
+open topological_space
+open filter
 open_locale topological_space
 open_locale big_operators
 open_locale complex_conjugate
+open_locale filter
+
 
 noncomputable theory
 
@@ -51,7 +39,7 @@ begin
   have h₅ : (factorization (4 : ℚ)) 3 = 0 := by sorry,
   have h₆: (12 : ℚ) * (x.denom ^ 2) = x.num ^ 2 := by {rw [←h, ←mul_pow], simp},
   have h₇ : factorization ((12 : ℚ) * (x.denom ^ 2)) 3 = factorization ((x.num : ℚ) ^ 2) 3 := by rw h₆,
-  have h₈ : 2 ∣ factorization ((x.num : ℚ) ^ 2) 3 := by {rw factorization_pow, simp},
+  have h₈ : 2 ∣ factorization ((x.num : ℚ) ^ 2) 3 := by {rw factorization_pow, sorry},
   have h₉ : ¬ 2 ∣ factorization ((12 : ℚ) * x.denom ^ 2) 3 :=
   begin
   rw factorization_mul h₁ h₂,
@@ -59,6 +47,7 @@ begin
   rw h₃,
   rw factorization_mul (by norm_num : (3 : ℚ) ≠ 0) (by norm_num : (4 : ℚ) ≠ 0),
   simp [h₄, h₅],
+  sorry, 
   end,
   have h₀ : 2 ∣ factorization ((12 : ℚ) * (x.denom ^ 2)) 3 := by {rw h₇, exact h₈},
   exact absurd h₀ h₉,
@@ -128,14 +117,7 @@ end
 theorem exercise_1_12
   (n : ℕ) (f : ℕ → ℂ)
   : abs (∑ i in finset.range n, f i) ≤ ∑ i in finset.range n, abs (f i) :=
-begin
-  induction n with n ih, simp,
-  rw finset.range_succ,
-  simp, transitivity,
-  apply complex.abs_add,
-  apply add_le_add_left,
-  exact ih,
-end
+sorry 
 
 theorem exercise_1_13
   (x y : ℂ)
@@ -195,13 +177,9 @@ theorem exercise_1_19
   : ∥x - a∥ = 2 * ∥x - b∥ ↔ ∥x - c∥ = r :=
 sorry
 
-open topological_space
-open filter
-open_locale filter
-
 theorem exercise_2_19a {X : Type*} [metric_space X]
   (A B : set X) (hA : is_closed A) (hB : is_closed B) (hAB : disjoint A B) :
-  separated A B :=
+  separated_nhds A B :=
 sorry
 
 theorem exercise_2_24 {X : Type*} [metric_space X]
@@ -264,7 +242,7 @@ begin
   calc  _ = (sqrt (n^2 + n) - n) * 1 : by rw mul_one _
   ... = (sqrt (n^2 + n) - n) * ((sqrt (n^2 + n) + n) /
           (sqrt (n^2 + n) + n)) : by rw ←((div_eq_one_iff_eq h₁).2 h₂)
-  ... = n / (sqrt (n^2 + n) + n) : by {field_simp, ring, simp [sq_sqrt h₅]}
+  ... = n / (sqrt (n^2 + n) + n) : by {field_simp, ring, sorry}
   ... = 1 / (sqrt (n^2 + n) / sqrt (n^2) + n / sqrt (n^2)) : by {field_simp, simp [sqrt_sq h₃]}
   ... = 1 / (sqrt (n^2 + n) / sqrt (n^2) + 1) : by simp [sqrt_sq h₃, (div_eq_one_iff_eq h₄).2]
   ... = 1 / (sqrt (1 + n / (n ^ 2)) + 1): by {rw ←(sqrt_div h₅ (n^2)), field_simp}

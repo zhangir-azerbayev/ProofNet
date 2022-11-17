@@ -1,25 +1,10 @@
-import data.rat.basic
-import data.real.basic
-import data.real.irrational
-import data.real.sqrt
-import analysis.inner_product_space.basic
-import analysis.inner_product_space.pi_L2
-import analysis.specific_limits.basic
-import analysis.specific_limits.normed
-import analysis.specific_limits.basic
-import analysis.specific_limits.normed
-import analysis.box_integral.basic
-import data.set.intervals.basic
-import topology.basic
-import topology.bases
-import topology.metric_space.basic
-import topology.instances.real
-import dynamics.ergodic.measure_preserving
+import .common
 
-open real filter function
+open set real filter function ring_hom
 open_locale big_operators
 open_locale filter
 open_locale topological_space
+noncomputable theory 
 
 theorem exercise_2_12a (f : ℕ → ℕ) (p : ℕ → ℝ) (a : ℝ)
   (hf : injective f) (hp : tendsto p at_top (𝓝 a)) :
@@ -32,7 +17,7 @@ theorem exercise_2_12b (f : ℕ → ℕ) (p : ℕ → ℝ) (a : ℝ)
 sorry
 
 theorem exercise_2_26 {M : Type*} [topological_space M]
-  (U : set M) : is_open U ↔ ∀ x ∈ U, ¬ cluster_pt x (𝓟 (set.compl U)) :=
+  (U : set M) : is_open U ↔ ∀ x ∈ U, ¬ cluster_pt x (𝓟 Uᶜ) :=
 sorry
 
 theorem exercise_2_29 (M : Type*) [metric_space M]
@@ -117,12 +102,6 @@ theorem exercise_3_11a
   ∧ deriv (deriv f) x = l :=
 sorry
 
-local notation `∞` := (⊤ : with_top ℕ)
-
-theorem exercise_3_18 {L : set ℝ} (hL : is_closed L) :
-  ∃ (f : ℝ → ℝ), (cont_diff ℝ ∞ f) ∧ ∀ (x : ℝ), f x = 0 ↔ x ∈ L :=
-sorry -- TODO range should be [0,1]
-
 theorem exercise_3_63a (p : ℝ) (f : ℕ → ℝ) (hp : p > 1)
   (h : f = λ k, (1 : ℝ) / (k * (log k) ^ p)) :
   ∃ l, tendsto f at_top (𝓝 l) :=
@@ -139,7 +118,7 @@ theorem exercise_4_15a {α : Type*}
   (∀ (y z ∈ U) (f : ℝ → ℝ), f ∈ F → (dist (f y) (f z) < ε)))
   ↔
   ∃ (μ : ℝ → ℝ), ∀ (x : ℝ), (0 : ℝ) ≤ μ x ∧ tendsto μ (𝓝 0) (𝓝 0) ∧
-  (∀ (s t ∈ ℝ) (f : ℝ → ℝ), f ∈ F → |(f s) - (f t)| ≤ μ (|s - t|)) :=
+  (∀ (s t : ℝ) (f : ℝ → ℝ), f ∈ F → |(f s) - (f t)| ≤ μ (|s - t|)) :=
 sorry
 
 theorem exercise_4_19 {M : Type*} [metric_space M]
@@ -147,7 +126,7 @@ theorem exercise_4_19 {M : Type*} [metric_space M]
   ∃ (A_fin : set M), A_fin ⊂ A ∧ set.finite A_fin ∧ ∀ (x : M), ∃ i ∈ A_fin, dist x i < δ :=
 sorry
 
-theorem exercise_5_2 {V : Type*} [normed_group V]
-  [normed_space ℂ V] {W : Type*} [normed_group W] [normed_space ℂ W] :
-  normed_space ℂ (continuous_linear_map V W) :=
+theorem exercise_5_2 {V : Type*} [normed_add_comm_group V]
+  [normed_space ℂ V] {W : Type*} [normed_add_comm_group W] [normed_space ℂ W] :
+  normed_space ℂ (continuous_linear_map (id ℂ) V W) :=
 sorry

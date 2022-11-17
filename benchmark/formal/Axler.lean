@@ -1,12 +1,7 @@
-import linear_algebra.finite_dimensional
-import linear_algebra.eigenspace
-import data.complex.basic
-import analysis.inner_product_space.basic
-import analysis.inner_product_space.projection
-import analysis.inner_product_space.adjoint
+import .common 
 
-open set fintype complex polynomial submodule linear_map
-open finite_dimensional module module.End inner_product_space
+open set fintype complex polynomial submodule linear_map finite_dimensional
+open module module.End inner_product_space
 
 open_locale big_operators
 
@@ -127,7 +122,8 @@ sorry
 
 theorem exercise_6_16 {K V : Type*} [is_R_or_C K] [inner_product_space K V]
   {U : submodule K V} : 
-  U.orthogonal = ⊥  ↔ U = ⊤ 
+  U.orthogonal = ⊥  ↔ U = ⊤ :=
+sorry 
 
 theorem exercise_7_5 {V : Type*} [inner_product_space ℂ V] 
   [finite_dimensional ℂ V] (hV : finrank V ≥ 2) :

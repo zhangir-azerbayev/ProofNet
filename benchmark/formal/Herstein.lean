@@ -1,31 +1,6 @@
-import algebra.group.basic
-import group_theory.order_of_element
-import data.nat.basic
-import data.real.basic 
-import data.complex.basic
-import data.fintype.basic
-import data.zmod.basic 
-import data.countable.basic
-import data.set.countable
-import data.polynomial.basic
-import group_theory.subgroup.basic
-import group_theory.quotient_group
-import group_theory.index 
-import group_theory.specific_groups.cyclic
-import group_theory.solvable 
-import group_theory.free_group
-import group_theory.presented_group
-import group_theory.group_action.conj_act
-import group_theory.sylow
-import number_theory.zsqrtd.gaussian_int
-import ring_theory.ideal.operations
-import algebra.char_p.basic
-import algebra.quaternion
-import linear_algebra.general_linear_group
-import field_theory.finite.galois_field
+import .common 
 
-open set function nat fintype real 
-open subgroup ideal polynomial submodule zsqrtd 
+open set function nat fintype real subgroup ideal polynomial submodule zsqrtd 
 open char_p mul_aut matrix
 open_locale big_operators
 noncomputable theory

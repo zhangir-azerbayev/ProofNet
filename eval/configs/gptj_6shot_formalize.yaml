@@ -1,12 +1,10 @@
+model_name: "../informalization/local_finetune/runs/proofGPT-1.3B/checkpoint-20000"
+tokenizer_name: "hoskinson-center/proofGPT-v0.1"
 batch_size: 1
-before_example: "\nNatural language version: \""
-after_example: "\" Translate the natural language version to a Lean mathlib version:\ntheorem"
 in_key: "nl_statement"
-out_key: "gptj_formal_statement"
-save_dir: "results/gptj_6shot_formalize"
+out_key: "gpt_formal_statement"
+save_dir: "results/proofgpt_formalize"
 save_file: "out.jsonl"
-few_shot_prompt_path: "prompts/6shot_formalize.txt"
-data_path: "model_input.jsonl"
-stop: ":="
+data_path: "workshop_model_input.jsonl"
 max_tokens: 350
 

@@ -14,9 +14,10 @@ def batch_loader(seq, size):
     """
     return [seq[pos : pos + size] for pos in range(0, len(seq), size)]
 
-# calls=3, period=60 is max for reliability
+# calls=3, period=60 is max for reliability with batch_size=20
+# might want to throttle it to keep lean chat up
 @sleep_and_retry
-@limits(calls=3, period=60)
+@limits(calls=1, period=60)
 def call_api(prompt):
     return openai.Completion.create(
         engine="code-davinci-002",

@@ -16,10 +16,6 @@ def merge_typestars_of_binders(binders):
 
     return [x for x in binders if x != ""]
             
-
-
-
-
 def assemble_statement(kind, nm, binders, tp): 
     binders = merge_typestars_of_binders(binders)
 
@@ -57,6 +53,7 @@ def parse_single_arg(arg):
             return "".join([parse_single_arg(x) for x in arg])
 
 
+print("loading docgen export...")
 with open("docgen_export_full.json") as f:
     db = json.load(f)
 

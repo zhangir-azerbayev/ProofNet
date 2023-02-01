@@ -65,6 +65,8 @@ def main():
     # set up language model
     print("loading tokenizer...")
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+    if not tokenizer.eos_token:
+        tokenizer.add_special_tokens({"eos_token": "<|endoftext|>"})
     tokenizer.pad_token_id=tokenizer.eos_token_id
 
     torch.cuda.empty_cache()

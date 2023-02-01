@@ -1,4 +1,4 @@
-model: "../informalization/local_finetune/runs/proofGPT-1.3B/checkpoint-20000"
+model: "../informalization/local_finetune/runs/proofGPT-1.3B/checkpoint-15000"
 tokenizer: "hoskinson-center/proofGPT-v0.1"
 batch_size: 1
 in_key: "nl_statement"

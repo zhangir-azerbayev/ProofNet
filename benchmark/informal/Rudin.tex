@@ -56,13 +56,13 @@ But this is absurd, since 2 cannot be a multiple of 4 .
 
 \paragraph{Exercise 1.4} Let $E$ be a nonempty subset of an ordered set; suppose $\alpha$ is a lower bound of $E$ and $\beta$ is an upper bound of $E$. Prove that $\alpha \leq \beta$.
 \begin{proof}
-    Solution. Since $E$ is nonempty, there exists $x \in E$. Then by definition of lower and upper bounds we have $\alpha \leq x \leq \beta$, and hence by property $i i$ in the definition of an ordering, we have $\alpha<\beta$ unless $\alpha=x=\beta$.
+Since $E$ is nonempty, there exists $x \in E$. Then by definition of lower and upper bounds we have $\alpha \leq x \leq \beta$, and hence by property $i i$ in the definition of an ordering, we have $\alpha<\beta$ unless $\alpha=x=\beta$.
 \end{proof}
 
 
 \paragraph{Exercise 1.5} Let $A$ be a nonempty set of real numbers which is bounded below. Let $-A$ be the set of all numbers $-x$, where $x \in A$. Prove that $\inf A=-\sup (-A)$.
 \begin{proof}
-    Solution: We need to prove that $-\sup (-A)$ is the greatest lower bound of $A$. For brevity, let $\alpha=-\sup (-A)$. We need to show that $\alpha \leq x$ for all $x \in A$ and $\alpha \geq \beta$ if $\beta$ is any lower bound of $A$.
+    We need to prove that $-\sup (-A)$ is the greatest lower bound of $A$. For brevity, let $\alpha=-\sup (-A)$. We need to show that $\alpha \leq x$ for all $x \in A$ and $\alpha \geq \beta$ if $\beta$ is any lower bound of $A$.
 
 Suppose $x \in A$. Then, $-x \in-A$, and, hence $-x \leq \sup (-A)$. It follows that $x \geq-\sup (-A)$, i.e., $\alpha \leq x$. Thus $\alpha$ is a lower bound of $A$.
 
@@ -72,13 +72,13 @@ Now let $\beta$ be any lower bound of $A$. This means $\beta \leq x$ for all $x$
 
 \paragraph{Exercise 1.8} Prove that no order can be defined in the complex field that turns it into an ordered field.
 \begin{proof}
-    Solution. By Part (a) of Proposition $1.18$, either $i$ or $-i$ must be positive. Hence $-1=i^2=(-i)^2$ must be positive. But then $1=(-1)^2$, must also be positive, and this contradicts Part $(a)$ of Proposition 1.18, since 1 and $-1$ cannot both be positive.
+    By Part (a) of Proposition $1.18$, either $i$ or $-i$ must be positive. Hence $-1=i^2=(-i)^2$ must be positive. But then $1=(-1)^2$, must also be positive, and this contradicts Part $(a)$ of Proposition 1.18, since 1 and $-1$ cannot both be positive.
 \end{proof}
 
 
 \paragraph{Exercise 1.11a} If $z$ is a complex number, prove that there exists an $r\geq 0$ and a complex number $w$ with $| w | = 1$ such that $z = rw$.
 \begin{proof}
-    Solution. If $z=0$, we take $r=0, w=1$. (In this case $w$ is not unique.) Otherwise we take $r=|z|$ and $w=z /|z|$, and these choices are unique, since if $z=r w$, we must have $r=r|w|=|r w|=|z|, z / r$
+    If $z=0$, we take $r=0, w=1$. (In this case $w$ is not unique.) Otherwise we take $r=|z|$ and $w=z /|z|$, and these choices are unique, since if $z=r w$, we must have $r=r|w|=|r w|=|z|, z / r$
 \end{proof}
 
 
@@ -97,7 +97,7 @@ $$
 
 \paragraph{Exercise 1.13} If $x, y$ are complex, prove that $||x|-|y|| \leq |x-y|$.
 \begin{proof}
-    Solution. Since $x=x-y+y$, the triangle inequality gives
+    Since $x=x-y+y$, the triangle inequality gives
 $$
 |x| \leq|x-y|+|y|
 $$
@@ -107,7 +107,7 @@ so that $|x|-|y| \leq|x-y|$. Similarly $|y|-|x| \leq|x-y|$. Since $|x|-|y|$ is a
 
 \paragraph{Exercise 1.14} If $z$ is a complex number such that $|z|=1$, that is, such that $z \bar{z}=1$, compute $|1+z|^{2}+|1-z|^{2}$.
 \begin{proof}
-    Solution. $|1+z|^2=(1+z)(1+\bar{z})=1+\bar{z}+z+z \bar{z}=2+z+\bar{z}$. Similarly $|1-z|^2=(1-z)(1-\bar{z})=1-z-\bar{z}+z \bar{z}=2-z-\bar{z}$. Hence
+    $|1+z|^2=(1+z)(1+\bar{z})=1+\bar{z}+z+z \bar{z}=2+z+\bar{z}$. Similarly $|1-z|^2=(1-z)(1-\bar{z})=1-z-\bar{z}+z \bar{z}=2-z-\bar{z}$. Hence
 $$
 |1+z|^2+|1-z|^2=4 \text {. }
 $$
@@ -116,7 +116,7 @@ $$
 
 \paragraph{Exercise 1.16a} Suppose $k \geq 3, x, y \in \mathbb{R}^k, |x - y| = d > 0$, and $r > 0$. Prove that if $2r > d$, there are infinitely many $z \in \mathbb{R}^k$ such that $|z-x|=|z-y|=r$.
 \begin{proof}
-    Solution. (a) Let w be any vector satisfying the following two equations:
+    (a) Let w be any vector satisfying the following two equations:
 $$
 \begin{aligned}
 \mathbf{w} \cdot(\mathbf{x}-\mathbf{y}) &=0, \\
@@ -142,7 +142,7 @@ and a similar relation holds for $|z-y|^2$.
 
 \paragraph{Exercise 1.17} Prove that $|\mathbf{x}+\mathbf{y}|^{2}+|\mathbf{x}-\mathbf{y}|^{2}=2|\mathbf{x}|^{2}+2|\mathbf{y}|^{2}$ if $\mathbf{x} \in R^{k}$ and $\mathbf{y} \in R^{k}$.
 \begin{proof}
-    Solution. The proof is a routine computation, using the relation
+    The proof is a routine computation, using the relation
 $$
 |x \pm y|^2=(x \pm y) \cdot(x \pm y)=|x|^2 \pm 2 x \cdot y+|y|^2 .
 $$
@@ -152,7 +152,7 @@ If $\mathrm{x}$ and $\mathrm{y}$ are the sides of a parallelogram, then $\mathrm
 
 \paragraph{Exercise 1.18a} If $k \geq 2$ and $\mathbf{x} \in R^{k}$, prove that there exists $\mathbf{y} \in R^{k}$ such that $\mathbf{y} \neq 0$ but $\mathbf{x} \cdot \mathbf{y}=0$
 \begin{proof}
-    Solution. If $\mathbf{x}$ has any components equal to 0 , then $\mathbf{y}$ can be taken to have the corresponding components equal to 1 and all others equal to 0 . If all the components of $\mathbf{x}$ are nonzero, $\mathbf{y}$ can be taken as $\left(-x_2, x_1, 0, \ldots, 0\right)$. This is, of course, not true when $k=1$, since the product of two nonzero real numbers is nonzero.
+    If $\mathbf{x}$ has any components equal to 0 , then $\mathbf{y}$ can be taken to have the corresponding components equal to 1 and all others equal to 0 . If all the components of $\mathbf{x}$ are nonzero, $\mathbf{y}$ can be taken as $\left(-x_2, x_1, 0, \ldots, 0\right)$. This is, of course, not true when $k=1$, since the product of two nonzero real numbers is nonzero.
 \end{proof}
 
 
@@ -164,7 +164,7 @@ If $\mathrm{x}$ and $\mathrm{y}$ are the sides of a parallelogram, then $\mathrm
 
 \paragraph{Exercise 1.19} Suppose $a, b \in R^k$. Find $c \in R^k$ and $r > 0$ such that $|x-a|=2|x-b|$ if and only if $| x - c | = r$. Prove that $3c = 4b - a$ and $3r = 2 |b - a|$.
 \begin{proof}
-    Solution. Since the solution is given to us, all we have to do is verify it, i.e., we need to show that the equation
+    Since the solution is given to us, all we have to do is verify it, i.e., we need to show that the equation
 $$
 |\mathrm{x}-\mathrm{a}|=2|\mathrm{x}-\mathrm{b}|
 $$
@@ -182,7 +182,7 @@ and the second of which reduces to this equation divided by 3 . Hence these equa
 
 \paragraph{Exercise 2.19a} If $A$ and $B$ are disjoint closed sets in some metric space $X$, prove that they are separated.
 \begin{proof}
-    Solution. We are given that $A \cap B=\varnothing$. Since $A$ and $B$ are closed, this means $A \cap \bar{B}=\varnothing=\bar{A} \cap B$, which says that $A$ and $B$ are separated.
+    We are given that $A \cap B=\varnothing$. Since $A$ and $B$ are closed, this means $A \cap \bar{B}=\varnothing=\bar{A} \cap B$, which says that $A$ and $B$ are separated.
 \end{proof}
 
 
@@ -190,7 +190,7 @@ and the second of which reduces to this equation divided by 3 . Hence these equa
 
 \paragraph{Exercise 2.25} Prove that every compact metric space $K$ has a countable base.
 \begin{proof}
-    Solution. It is easier simply to refer to the previous problem. The hint shows that $K$ can be covered by a finite union of neighborhoods of radius $1 / n$, and the previous problem shows that this implies that $K$ is separable.
+    It is easier simply to refer to the previous problem. The hint shows that $K$ can be covered by a finite union of neighborhoods of radius $1 / n$, and the previous problem shows that this implies that $K$ is separable.
 
 It is not entirely obvious that a metric space with a countable base is separable. To prove this, let $\left\{V_n\right\}_{n=1}^{\infty}$ be a countable base, and let $x_n \in V_n$. The points $V_n$ must be dense in $X$. For if $G$ is any non-empty open set, then $G$ contains $V_n$ for some $n$, and hence $x_n \in G$. (Thus for a metric space, having a countable base and being separable are equivalent.)
 \end{proof}
@@ -198,7 +198,7 @@ It is not entirely obvious that a metric space with a countable base is separabl
 
 \paragraph{Exercise 2.27a} Suppose $E\subset\mathbb{R}^k$ is uncountable, and let $P$ be the set of condensation points of $E$. Prove that $P$ is perfect.
 \begin{proof}
-    Solution. We see that $E \cap W$ is at most countable, being a countable union of at-most-countable sets. It remains to show that $P=W^c$, and that $P$ is perfect.
+    We see that $E \cap W$ is at most countable, being a countable union of at-most-countable sets. It remains to show that $P=W^c$, and that $P$ is perfect.
 \end{proof}
 
 
@@ -212,7 +212,7 @@ It is clear that $P$ is closed (since its complement $W$ is open), so that we ne
 
 \paragraph{Exercise 2.28} Prove that every closed set in a separable metric space is the union of a (possibly empty) perfect set and a set which is at most countable.
 \begin{proof}
-    Solution. If $E$ is closed, it contains all its limit points, and hence certainly all its condensation points. Thus $E=P \cup(E \backslash P)$, where $P$ is perfect (the set of all condensation points of $E$ ), and $E \backslash P$ is at most countable.
+    If $E$ is closed, it contains all its limit points, and hence certainly all its condensation points. Thus $E=P \cup(E \backslash P)$, where $P$ is perfect (the set of all condensation points of $E$ ), and $E \backslash P$ is at most countable.
 
 Since a perfect set in a separable metric space has the same cardinality as the real numbers, the set $P$ must be empty if $E$ is countable. The at-mostcountable set $E \backslash P$ cannot be perfect, hence must have isolated points if it is nonempty.
 \end{proof}
@@ -220,7 +220,7 @@ Since a perfect set in a separable metric space has the same cardinality as the 
 
 \paragraph{Exercise 2.29} Prove that every open set in $\mathbb{R}$ is the union of an at most countable collection of disjoint segments.
 \begin{proof}
-    Solution. Let $O$ be open. For each pair of points $x \in O, y \in O$, we define an equivalence relation $x \sim y$ by saying $x \sim y$ if and only if $[\min (x, y), \max (x, y)] \subset$ 0 . This is an equivalence relation, since $x \sim x([x, x] \subset O$ if $x \in O)$; if $x \sim y$, then $y \sim x$ (since $\min (x, y)=\min (y, x)$ and $\max (x, y)=\max (y, x))$; and if $x \sim y$ and $y \sim z$, then $x \sim z([\min (x, z), \max (x, z)] \subseteq[\min (x, y), \max (x, y)] \cup$ $[\min (y, z), \max (y, z)] \subseteq O)$. In fact it is easy to prove that
+    Let $O$ be open. For each pair of points $x \in O, y \in O$, we define an equivalence relation $x \sim y$ by saying $x \sim y$ if and only if $[\min (x, y), \max (x, y)] \subset$ 0 . This is an equivalence relation, since $x \sim x([x, x] \subset O$ if $x \in O)$; if $x \sim y$, then $y \sim x$ (since $\min (x, y)=\min (y, x)$ and $\max (x, y)=\max (y, x))$; and if $x \sim y$ and $y \sim z$, then $x \sim z([\min (x, z), \max (x, z)] \subseteq[\min (x, y), \max (x, y)] \cup$ $[\min (y, z), \max (y, z)] \subseteq O)$. In fact it is easy to prove that
 $$
 \min (x, z) \geq \min (\min (x, y), \min (y, z))
 $$
@@ -238,13 +238,13 @@ We have now established that $O$ is a union of pairwise disjoint open intervals.
 
 \paragraph{Exercise 3.1a} Prove that convergence of $\left\{s_{n}\right\}$ implies convergence of $\left\{\left|s_{n}\right|\right\}$.
 \begin{proof}
-    Solution. Let $\varepsilon>0$. Since the sequence $\left\{s_n\right\}$ is a Cauchy sequence, there exists $N$ such that $\left|s_m-s_n\right|<\varepsilon$ for all $m>N$ and $n>N$. We then have ||$s_m|-| s_n|| \leq\left|s_m-s_n\right|<\varepsilon$ for all $m>N$ and $n>N$. Hence the sequence $\left\{\left|s_n\right|\right\}$ is also a Cauchy sequence, and therefore must converge.
+    Let $\varepsilon>0$. Since the sequence $\left\{s_n\right\}$ is a Cauchy sequence, there exists $N$ such that $\left|s_m-s_n\right|<\varepsilon$ for all $m>N$ and $n>N$. We then have $\left| |s_m| - |s_n| \right| \leq\left|s_m-s_n\right|<\varepsilon$ for all $m>N$ and $n>N$. Hence the sequence $\left\{\left|s_n\right|\right\}$ is also a Cauchy sequence, and therefore must converge.
 \end{proof}
 
 
 \paragraph{Exercise 3.2a} Prove that $\lim_{n \rightarrow \infty}\sqrt{n^2 + n} -n = 1/2$.
 \begin{proof}
-    Solution. Multiplying and dividing by $\sqrt{n^2+n}+n$ yields
+    Multiplying and dividing by $\sqrt{n^2+n}+n$ yields
 $$
 \sqrt{n^2+n}-n=\frac{n}{\sqrt{n^2+n}+n}=\frac{1}{\sqrt{1+\frac{1}{n}}+1} .
 $$
@@ -254,13 +254,13 @@ It follows that the limit is $\frac{1}{2}$.
 
 \paragraph{Exercise 3.3} If $s_{1}=\sqrt{2}$, and $s_{n+1}=\sqrt{2+\sqrt{s_{n}}} \quad(n=1,2,3, \ldots),$ prove that $\left\{s_{n}\right\}$ converges, and that $s_{n}<2$ for $n=1,2,3, \ldots$.
 \begin{proof}
-    Solution. Since $\sqrt{2}<2$, it is manifest that if $s_n<2$, then $s_{n+1}<\sqrt{2+2}=2$. Hence it follows by induction that $\sqrt{2}<s_n<2$ for all $n$. In view of this fact,it also follows that $\left(s_n-2\right)\left(s_n+1\right)<0$ for all $n>1$, i.e., $s_n>s_n^2-2=s_{n-1}$. Hence the sequence is an increasing sequence that is bounded above (by 2 ) and so converges. Since the limit $s$ satisfies $s^2-s-2=0$, it follows that the limit is 2.
+    Since $\sqrt{2}<2$, it is manifest that if $s_n<2$, then $s_{n+1}<\sqrt{2+2}=2$. Hence it follows by induction that $\sqrt{2}<s_n<2$ for all $n$. In view of this fact,it also follows that $\left(s_n-2\right)\left(s_n+1\right)<0$ for all $n>1$, i.e., $s_n>s_n^2-2=s_{n-1}$. Hence the sequence is an increasing sequence that is bounded above (by 2 ) and so converges. Since the limit $s$ satisfies $s^2-s-2=0$, it follows that the limit is 2.
 \end{proof}
 
 
 \paragraph{Exercise 3.5} For any two real sequences $\left\{a_{n}\right\},\left\{b_{n}\right\}$, prove that $\limsup _{n \rightarrow \infty}\left(a_{n}+b_{n}\right) \leq \limsup _{n \rightarrow \infty} a_{n}+\limsup _{n \rightarrow \infty} b_{n},$ provided the sum on the right is not of the form $\infty-\infty$.
 \begin{proof}
-    Solution. Since the case when $\limsup _{n \rightarrow \infty} a_n=+\infty$ and $\limsup _{n \rightarrow \infty} b_n=-\infty$ has been excluded from consideration, we note that the inequality is obvious if $\limsup _{n \rightarrow \infty} a_n=+\infty$. Hence we shall assume that $\left\{a_n\right\}$ is bounded above.
+    Since the case when $\limsup _{n \rightarrow \infty} a_n=+\infty$ and $\limsup _{n \rightarrow \infty} b_n=-\infty$ has been excluded from consideration, we note that the inequality is obvious if $\limsup _{n \rightarrow \infty} a_n=+\infty$. Hence we shall assume that $\left\{a_n\right\}$ is bounded above.
 
 Let $\left\{n_k\right\}$ be a subsequence of the positive integers such that $\lim _{k \rightarrow \infty}\left(a_{n_k}+\right.$ $\left.b_{n_k}\right)=\limsup _{n \rightarrow \infty}\left(a_n+b_n\right)$. Then choose a subsequence of the positive integers $\left\{k_m\right\}$ such that
 $$
@@ -276,13 +276,13 @@ Thus we have proved that there exist subsequences $\left\{a_{n_{k_m}}\right\}$ a
 
 \paragraph{Exercise 3.6a} Prove that $\lim_{n \rightarrow \infty} \sum_{i<n} a_i = \infty$, where $a_i = \sqrt{i + 1} -\sqrt{i}$.
 \begin{proof}
-    Solution. (a) Multiplying and dividing $a_n$ by $\sqrt{n+1}+\sqrt{n}$, we find that $a_n=\frac{1}{\sqrt{n+1}+\sqrt{n}}$, which is larger than $\frac{1}{2 \sqrt{n+1}}$. The series $\sum a_n$ therefore diverges by comparison with the $p$ series $\left(p=\frac{1}{2}\right)$.
+    (a) Multiplying and dividing $a_n$ by $\sqrt{n+1}+\sqrt{n}$, we find that $a_n=\frac{1}{\sqrt{n+1}+\sqrt{n}}$, which is larger than $\frac{1}{2 \sqrt{n+1}}$. The series $\sum a_n$ therefore diverges by comparison with the $p$ series $\left(p=\frac{1}{2}\right)$.
 \end{proof}
 
 
 \paragraph{Exercise 3.7} Prove that the convergence of $\Sigma a_{n}$ implies the convergence of $\sum \frac{\sqrt{a_{n}}}{n}$ if $a_n\geq 0$.
 \begin{proof}
-    Solution. Since $\left(\sqrt{a_n}-\frac{1}{n}\right)^2 \geq 0$, it follows that
+    Since $\left(\sqrt{a_n}-\frac{1}{n}\right)^2 \geq 0$, it follows that
 $$
 \frac{\sqrt{a_n}}{n} \leq \frac{1}{2}\left(a_n^2+\frac{1}{n^2}\right) .
 $$
@@ -292,7 +292,7 @@ Now $\Sigma a_n^2$ converges by comparison with $\Sigma a_n$ (since $\Sigma a_n$
 
 \paragraph{Exercise 3.8} If $\Sigma a_{n}$ converges, and if $\left\{b_{n}\right\}$ is monotonic and bounded, prove that $\Sigma a_{n} b_{n}$ converges.
 \begin{proof}
-    Solution. We shall show that the partial sums of this series form a Cauchy sequence, i.e., given $\varepsilon>0$ there exists $N$ such that $\left|\sum_{k=m+1}^n a_k b_k\right|\langle\varepsilon$ if $n\rangle$ $m \geq N$. To do this, let $S_n=\sum_{k=1}^n a_k\left(S_0=0\right)$, so that $a_k=S_k-S_{k-1}$ for $k=1,2, \ldots$ Let $M$ be an uppper bound for both $\left|b_n\right|$ and $\left|S_n\right|$, and let $S=\sum a_n$ and $b=\lim b_n$. Choose $N$ so large that the following three inequalities hold for all $m>N$ and $n>N$ :
+    We shall show that the partial sums of this series form a Cauchy sequence, i.e., given $\varepsilon>0$ there exists $N$ such that $\left|\sum_{k=m+1}^n a_k b_k\right|\langle\varepsilon$ if $n\rangle$ $m \geq N$. To do this, let $S_n=\sum_{k=1}^n a_k\left(S_0=0\right)$, so that $a_k=S_k-S_{k-1}$ for $k=1,2, \ldots$ Let $M$ be an uppper bound for both $\left|b_n\right|$ and $\left|S_n\right|$, and let $S=\sum a_n$ and $b=\lim b_n$. Choose $N$ so large that the following three inequalities hold for all $m>N$ and $n>N$ :
 $$
 \left|b_n S_n-b S\right|<\frac{\varepsilon}{3} ; \quad\left|b_m S_m-b S\right|<\frac{\varepsilon}{3} ; \quad\left|b_m-b_n\right|<\frac{\varepsilon}{3 M} .
 $$
@@ -314,7 +314,7 @@ from which the desired inequality follows.
 
 \paragraph{Exercise 3.13} Prove that the Cauchy product of two absolutely convergent series converges absolutely.
 \begin{proof}
-    Solution. Since both the hypothesis and conclusion refer to absolute convergence, we may assume both series consist of nonnegative terms. We let $S_n=\sum_{k=0}^n a_n, T_n=\sum_{k=0}^n b_n$, and $U_n=\sum_{k=0}^n \sum_{l=0}^k a_l b_{k-l}$. We need to show that $U_n$ remains bounded, given that $S_n$ and $T_n$ are bounded. To do this we make the convention that $a_{-1}=T_{-1}=0$, in order to save ourselves from having to separate off the first and last terms when we sum by parts. We then have
+    Since both the hypothesis and conclusion refer to absolute convergence, we may assume both series consist of nonnegative terms. We let $S_n=\sum_{k=0}^n a_n, T_n=\sum_{k=0}^n b_n$, and $U_n=\sum_{k=0}^n \sum_{l=0}^k a_l b_{k-l}$. We need to show that $U_n$ remains bounded, given that $S_n$ and $T_n$ are bounded. To do this we make the convention that $a_{-1}=T_{-1}=0$, in order to save ourselves from having to separate off the first and last terms when we sum by parts. We then have
 $$
 \begin{aligned}
 U_n &=\sum_{k=0}^n \sum_{l=0}^k a_l b_{k-l} \\
@@ -335,7 +335,7 @@ Thus $U_n$ is bounded, and hence approaches a finite limit.
 
 \paragraph{Exercise 3.20} Suppose $\left\{p_{n}\right\}$ is a Cauchy sequence in a metric space $X$, and some sequence $\left\{p_{n l}\right\}$ converges to a point $p \in X$. Prove that the full sequence $\left\{p_{n}\right\}$ converges to $p$.
 \begin{proof}
-    Solution. Let $\varepsilon>0$. Choose $N_1$ so large that $d\left(p_m, p_n\right)<\frac{\varepsilon}{2}$ if $m>N_1$ and $n>N_1$. Then choose $N \geq N_1$ so large that $d\left(p_{n_k}, p\right)<\frac{\varepsilon}{2}$ if $k>N$. Then if $n>N$, we have
+    Let $\varepsilon>0$. Choose $N_1$ so large that $d\left(p_m, p_n\right)<\frac{\varepsilon}{2}$ if $m>N_1$ and $n>N_1$. Then choose $N \geq N_1$ so large that $d\left(p_{n_k}, p\right)<\frac{\varepsilon}{2}$ if $k>N$. Then if $n>N$, we have
 $$
 d\left(p_n, p\right) \leq d\left(p_n, p_{n_{N+1}}\right)+d\left(p_{n_{N+1}}, p\right)<\varepsilon
 $$
@@ -345,13 +345,13 @@ For the first term on the right is less than $\frac{\varepsilon}{2}$ since $n>N_
 
 \paragraph{Exercise 3.21} If $\left\{E_{n}\right\}$ is a sequence of closed nonempty and bounded sets in a complete metric space $X$, if $E_{n} \supset E_{n+1}$, and if $\lim _{n \rightarrow \infty} \operatorname{diam} E_{n}=0,$ then $\bigcap_{1}^{\infty} E_{n}$ consists of exactly one point.
 \begin{proof}
-    Solution. Choose $x_n \in E_n$. (We use the axiom of choice here.) The sequence $\left\{x_n\right\}$ is a Cauchy sequence, since the diameter of $E_n$ tends to zero as $n$ tends to infinity and $E_n$ contains $E_{n+1}$. Since the metric space $X$ is complete, the sequence $x_n$ converges to a point $x$, which must belong to $E_n$ for all $n$, since $E_n$ is closed and contains $x_m$ for all $m \geq n$. There cannot be a second point $y$ in all of the $E_n$, since for any point $y \neq x$ the diameter of $E_n$ is less $\operatorname{than} d(x, y)$ for large $n$.
+    Choose $x_n \in E_n$. (We use the axiom of choice here.) The sequence $\left\{x_n\right\}$ is a Cauchy sequence, since the diameter of $E_n$ tends to zero as $n$ tends to infinity and $E_n$ contains $E_{n+1}$. Since the metric space $X$ is complete, the sequence $x_n$ converges to a point $x$, which must belong to $E_n$ for all $n$, since $E_n$ is closed and contains $x_m$ for all $m \geq n$. There cannot be a second point $y$ in all of the $E_n$, since for any point $y \neq x$ the diameter of $E_n$ is less $\operatorname{than} d(x, y)$ for large $n$.
 \end{proof}
 
 
 \paragraph{Exercise 3.22} Suppose $X$ is a nonempty complete metric space, and $\left\{G_{n}\right\}$ is a sequence of dense open sets of $X$. Prove Baire's theorem, namely, that $\bigcap_{1}^{\infty} G_{n}$ is not empty.
 \begin{proof}
-    Solution. Let $F_n$ be the complement of $G_n$, so that $F_n$ is closed and contains no open sets. We shall prove that any nonempty open set $U$ contains a point not in any $F_n$, hence in all $G_n$. To this end, we note that $U$ is not contained in $F_1$, so that there is a point $x_1 \in U \backslash F_1$. Since $U \backslash F_1$ is open, there exists $r_1>0$ such that $B_1$, defined as the open ball of radius $r_1$ about $x_1$, is contained in $U \backslash F_1$. Let $E_1$ be the open ball of radius $\frac{r_1}{2}$ about $x_1$, so that the closure of $E_1$ is contained in $B_1$. Now $F_2$ does not contain $E_1$, and so we can find a point $x_2 \in E_1 \backslash F_2$. Since $E_1 \backslash F_2$ is an open set, there exists a positive number $r_2$ such that $B_2$, the open ball of radius $R_2$ about $x_2$, is contained in $E_1 \backslash F_2$, which in turn is contained in $U \backslash\left(F_1 \cup F_2\right)$. We let $E_2$ be the open ball of radius $\frac{r_2}{2}$ about $x_2$, so that $\bar{E}_2 \subseteq B_2$. Proceeding in this way, we construct a sequence of open balls $E_j$, such that $E_j \supseteq \bar{E}_{j+1}$, and the diameter of $E_j$ tends to zero. By the previous exercise, there is a point $x$ belonging to all the sets $\bar{E}_j$, hence to all the sets $U \backslash\left(F_1 \cup F_2 \cup \cdots \cup F_n\right)$. Thus the point $x$ belongs to $U \cap\left(\cap_1^{\infty} G_n\right)$.
+    Let $F_n$ be the complement of $G_n$, so that $F_n$ is closed and contains no open sets. We shall prove that any nonempty open set $U$ contains a point not in any $F_n$, hence in all $G_n$. To this end, we note that $U$ is not contained in $F_1$, so that there is a point $x_1 \in U \backslash F_1$. Since $U \backslash F_1$ is open, there exists $r_1>0$ such that $B_1$, defined as the open ball of radius $r_1$ about $x_1$, is contained in $U \backslash F_1$. Let $E_1$ be the open ball of radius $\frac{r_1}{2}$ about $x_1$, so that the closure of $E_1$ is contained in $B_1$. Now $F_2$ does not contain $E_1$, and so we can find a point $x_2 \in E_1 \backslash F_2$. Since $E_1 \backslash F_2$ is an open set, there exists a positive number $r_2$ such that $B_2$, the open ball of radius $R_2$ about $x_2$, is contained in $E_1 \backslash F_2$, which in turn is contained in $U \backslash\left(F_1 \cup F_2\right)$. We let $E_2$ be the open ball of radius $\frac{r_2}{2}$ about $x_2$, so that $\bar{E}_2 \subseteq B_2$. Proceeding in this way, we construct a sequence of open balls $E_j$, such that $E_j \supseteq \bar{E}_{j+1}$, and the diameter of $E_j$ tends to zero. By the previous exercise, there is a point $x$ belonging to all the sets $\bar{E}_j$, hence to all the sets $U \backslash\left(F_1 \cup F_2 \cup \cdots \cup F_n\right)$. Thus the point $x$ belongs to $U \cap\left(\cap_1^{\infty} G_n\right)$.
 \end{proof}
 
 
@@ -366,19 +366,19 @@ $$
 
 \paragraph{Exercise 4.2a} If $f$ is a continuous mapping of a metric space $X$ into a metric space $Y$, prove that $f(\overline{E}) \subset \overline{f(E)}$ for every set $E \subset X$. ($\overline{E}$ denotes the closure of $E$).
 \begin{proof}
-    Solution. Let $x \in \bar{E}$. We need to show that $f(x) \in \overline{f(E)}$. To this end, let $O$ be any neighborhood of $f(x)$. Since $f$ is continuous, $f^{-1}(O)$ contains (is) a neighborhood of $x$. Since $x \in \bar{E}$, there is a point $u$ of $E$ in $f^{-1}(O)$. Hence $\frac{f(u)}{f(E)} \in O \cap f(E)$. Since $O$ was any neighborhood of $f(x)$, it follows that $f(x) \in \overline{f(E)}$
+    Let $x \in \bar{E}$. We need to show that $f(x) \in \overline{f(E)}$. To this end, let $O$ be any neighborhood of $f(x)$. Since $f$ is continuous, $f^{-1}(O)$ contains (is) a neighborhood of $x$. Since $x \in \bar{E}$, there is a point $u$ of $E$ in $f^{-1}(O)$. Hence $\frac{f(u)}{f(E)} \in O \cap f(E)$. Since $O$ was any neighborhood of $f(x)$, it follows that $f(x) \in \overline{f(E)}$
 \end{proof}
 
 
 \paragraph{Exercise 4.3} Let $f$ be a continuous real function on a metric space $X$. Let $Z(f)$ (the zero set of $f$ ) be the set of all $p \in X$ at which $f(p)=0$. Prove that $Z(f)$ is closed.
 \begin{proof}
-    Solution. $Z(f)=f^{-1}(\{0\})$, which is the inverse image of a closed set. Hence $Z(f)$ is closed.
+    $Z(f)=f^{-1}(\{0\})$, which is the inverse image of a closed set. Hence $Z(f)$ is closed.
 \end{proof}
 
 
 \paragraph{Exercise 4.4a} Let $f$ and $g$ be continuous mappings of a metric space $X$ into a metric space $Y$, and let $E$ be a dense subset of $X$. Prove that $f(E)$ is dense in $f(X)$.
 \begin{proof}
-    Solution. To prove that $f(E)$ is dense in $f(X)$, simply use that $f(X)=f(\bar{E}) \subseteq \overline{f(E)}$.
+    To prove that $f(E)$ is dense in $f(X)$, simply use that $f(X)=f(\bar{E}) \subseteq \overline{f(E)}$.
 \end{proof}
 
 
@@ -411,7 +411,7 @@ Hence the set of $p$ for which $f(p)=g(p)$ is closed. Since by hypothesis it is 
 
 \paragraph{Exercise 4.6} If $f$ is defined on $E$, the graph of $f$ is the set of points $(x, f(x))$, for $x \in E$. In particular, if $E$ is a set of real numbers, and $f$ is real-valued, the graph of $f$ is a subset of the plane. Suppose $E$ is compact, and prove that $f$ is continuous on $E$ if and only if its graph is compact.
 \begin{proof}
-    Solution. Let $Y$ be the co-domain of the function $f$. We invent a new metric space $E \times Y$ as the set of pairs of points $(x, y), x \in E, y \in Y$, with the metric $\rho\left(\left(x_1, y_1\right),\left(x_2, y_2\right)\right)=d_E\left(x_1, x_2\right)+d_Y\left(y_1, y_2\right)$. The function $\varphi(x)=(x, f(x))$ is then a mapping of $E$ into $E \times Y$.
+    Let $Y$ be the co-domain of the function $f$. We invent a new metric space $E \times Y$ as the set of pairs of points $(x, y), x \in E, y \in Y$, with the metric $\rho\left(\left(x_1, y_1\right),\left(x_2, y_2\right)\right)=d_E\left(x_1, x_2\right)+d_Y\left(y_1, y_2\right)$. The function $\varphi(x)=(x, f(x))$ is then a mapping of $E$ into $E \times Y$.
 
 We claim that the mapping $\varphi$ is continuous if $f$ is continuous. Indeed, let $x \in X$ and $\varepsilon>0$ be given. Choose $\eta>0$ so that $d_Y(f(x), f(u))<\frac{\varepsilon}{2}$ if $d_E(x, y)<\eta$. Then let $\delta=\min \left(\eta, \frac{\varepsilon}{2}\right)$. It is easy to see that $\rho(\varphi(x), \varphi(u))<\varepsilon$ if $d_E(x, u)<\delta$. Conversely if $\varphi$ is continuous, it is obvious from the inequality $\rho(\varphi(x), \varphi(u)) \geq d_Y(f(x), f(u))$ that $f$ is continuous.
 
@@ -427,7 +427,7 @@ From these facts we deduce immediately that the graph of a continuous function $
 
 \paragraph{Exercise 4.12} A uniformly continuous function of a uniformly continuous function is uniformly continuous.
 \begin{proof}
-    Solution. Let $f: X \rightarrow Y$ and $g: Y \rightarrow Z$ be uniformly continuous. Then $g \circ f: X \rightarrow Z$ is uniformly continuous, where $g \circ f(x)=g(f(x))$ for all $x \in X$.
+    Let $f: X \rightarrow Y$ and $g: Y \rightarrow Z$ be uniformly continuous. Then $g \circ f: X \rightarrow Z$ is uniformly continuous, where $g \circ f(x)=g(f(x))$ for all $x \in X$.
 To prove this fact, let $\varepsilon>0$ be given. Then, since $g$ is uniformly continuous, there exists $\eta>0$ such that $d_Z(g(u), g(v))<\varepsilon$ if $d_Y(u, v)<\eta$. Since $f$ is uniformly continuous, there exists $\delta>0$ such that $d_Y(f(x), f(y))<\eta$ if $d_X(x, y)<\delta$
 
 It is then obvious that $d_Z(g(f(x)), g(f(y)))<\varepsilon$ if $d_X(x, y)<\delta$, so that $g \circ f$ is uniformly continuous.
@@ -436,19 +436,19 @@ It is then obvious that $d_Z(g(f(x)), g(f(y)))<\varepsilon$ if $d_X(x, y)<\delta
 
 \paragraph{Exercise 4.14} Let $I=[0,1]$ be the closed unit interval. Suppose $f$ is a continuous mapping of $I$ into $I$. Prove that $f(x)=x$ for at least one $x \in I$.
 \begin{proof}
-    Solution. If $f(0)=0$ or $f(1)=1$, we are done. If not, then $0<f(0)$ and $f(1)<1$. Hence the continuous function $g(x)=x-f(x)$ satisfies $g(0)<0<$ $g(1)$. By the intermediate value theorem, there must be a point $x \in(0,1)$ where $g(x)=0$
+    If $f(0)=0$ or $f(1)=1$, we are done. If not, then $0<f(0)$ and $f(1)<1$. Hence the continuous function $g(x)=x-f(x)$ satisfies $g(0)<0<$ $g(1)$. By the intermediate value theorem, there must be a point $x \in(0,1)$ where $g(x)=0$
 \end{proof}
 
 
 \paragraph{Exercise 4.15} Prove that every continuous open mapping of $R^{1}$ into $R^{1}$ is monotonic.
 \begin{proof}
-    Solution. Suppose $f$ is continuous and not monotonic, say there exist points $a<b<c$ with $f(a)<f(b)$, and $f(c)<f(b)$. Then the maximum value of $f$ on the closed interval $[a, c]$ is assumed at a point $u$ in the open interval $(a, c)$. If there is also a point $v$ in the open interval $(a, c)$ where $f$ assumes its minimum value on $[a, c]$, then $f(a, c)=[f(v), f(u)]$. If no such point $v$ exists, then $f(a, c)=(d, f(u)]$, where $d=\min (f(a), f(c))$. In either case, the image of $(a, c)$ is not open.
+    Suppose $f$ is continuous and not monotonic, say there exist points $a<b<c$ with $f(a)<f(b)$, and $f(c)<f(b)$. Then the maximum value of $f$ on the closed interval $[a, c]$ is assumed at a point $u$ in the open interval $(a, c)$. If there is also a point $v$ in the open interval $(a, c)$ where $f$ assumes its minimum value on $[a, c]$, then $f(a, c)=[f(v), f(u)]$. If no such point $v$ exists, then $f(a, c)=(d, f(u)]$, where $d=\min (f(a), f(c))$. In either case, the image of $(a, c)$ is not open.
 \end{proof}
 
 
 \paragraph{Exercise 4.19} Suppose $f$ is a real function with domain $R^{1}$ which has the intermediate value property: if $f(a)<c<f(b)$, then $f(x)=c$ for some $x$ between $a$ and $b$. Suppose also, for every rational $r$, that the set of all $x$ with $f(x)=r$ is closed. Prove that $f$ is continuous.
 \begin{proof}
-    Solution. The contradiction is evidently that $x_0$ is a limit point of the set of $t$ such that $f(t)=r$, yet, $x_0$ does not belong to this set. This contradicts the hypothesis that the set is closed.
+    The contradiction is evidently that $x_0$ is a limit point of the set of $t$ such that $f(t)=r$, yet, $x_0$ does not belong to this set. This contradicts the hypothesis that the set is closed.
 \end{proof}
 
 
@@ -456,7 +456,7 @@ It is then obvious that $d_Z(g(f(x)), g(f(y)))<\varepsilon$ if $d_X(x, y)<\delta
 
 \paragraph{Exercise 4.24} Assume that $f$ is a continuous real function defined in $(a, b)$ such that $f\left(\frac{x+y}{2}\right) \leq \frac{f(x)+f(y)}{2}$ for all $x, y \in(a, b)$. Prove that $f$ is convex.
 \begin{proof}
-    Solution. We shall prove that
+    We shall prove that
 $$
 f(\lambda x+(1-\lambda) y) \leq \lambda f(x)+(1-\lambda) f(y)
 $$
@@ -488,13 +488,13 @@ are continuous functions of $\lambda$. Hence the set on which this inequality ho
 
 \paragraph{Exercise 5.1} Let $f$ be defined for all real $x$, and suppose that $|f(x)-f(y)| \leq (x-y)^{2}$ for all real $x$ and $y$. Prove that $f$ is constant.
 \begin{proof}
-    Solution. Dividing by $x-y$, and letting $x \rightarrow y$, we find that $f^{\prime}(y)=0$ for all $y$. Hence $f$ is constant.
+    Dividing by $x-y$, and letting $x \rightarrow y$, we find that $f^{\prime}(y)=0$ for all $y$. Hence $f$ is constant.
 \end{proof}
 
 
 \paragraph{Exercise 5.2} Suppose $f^{\prime}(x)>0$ in $(a, b)$. Prove that $f$ is strictly increasing in $(a, b)$, and let $g$ be its inverse function. Prove that $g$ is differentiable, and that $g^{\prime}(f(x))=\frac{1}{f^{\prime}(x)} \quad(a<x<b)$.
 \begin{proof}
-   Solution. For any $c, d$ with $a<c<d<b$ there exists a point $p \in(c, d)$ such that $f(d)-f(c)=f^{\prime}(p)(d-c)>0$. Hence $f(c)<f(d)$
+   For any $c, d$ with $a<c<d<b$ there exists a point $p \in(c, d)$ such that $f(d)-f(c)=f^{\prime}(p)(d-c)>0$. Hence $f(c)<f(d)$
 
 We know from Theorem $4.17$ that the inverse function $g$ is continuous. (Its restriction to each closed subinterval $[c, d]$ is continuous, and that is sufficient.) Now observe that if $f(x)=y$ and $f(x+h)=y+k$, we have
 $$
@@ -510,7 +510,7 @@ if $0<|h|<\eta$. Since $h=g(y+k)-g(y)$, there exists $\delta>0$ such that $0<|h|
 
 \paragraph{Exercise 5.3} Suppose $g$ is a real function on $R^{1}$, with bounded derivative (say $\left|g^{\prime}\right| \leq M$ ). Fix $\varepsilon>0$, and define $f(x)=x+\varepsilon g(x)$. Prove that $f$ is one-to-one if $\varepsilon$ is small enough.
 \begin{proof}
-    Solution. If $0<\varepsilon<\frac{1}{M}$, we certainly have
+    If $0<\varepsilon<\frac{1}{M}$, we certainly have
 $$
 f^{\prime}(x) \geq 1-\varepsilon M>0,
 $$
@@ -520,7 +520,7 @@ and this implies that $f(x)$ is one-to-one, by the preceding problem.
 
 \paragraph{Exercise 5.4} If $C_{0}+\frac{C_{1}}{2}+\cdots+\frac{C_{n-1}}{n}+\frac{C_{n}}{n+1}=0,$ where $C_{0}, \ldots, C_{n}$ are real constants, prove that the equation $C_{0}+C_{1} x+\cdots+C_{n-1} x^{n-1}+C_{n} x^{n}=0$ has at least one real root between 0 and 1.
 \begin{proof}
-    Solution. Consider the polynomial
+    Consider the polynomial
 $$
 p(x)=C_0 x+\frac{C_1}{2} x^2+\cdots+\frac{C_{n-1}}{n} x^n+\frac{C_n}{n+1} x^{n+1},
 $$
@@ -534,7 +534,7 @@ It is obvious that $p(0)=0$, and the hypothesis of the problem is that $p(1)=0$.
 
 \paragraph{Exercise 5.5} Suppose $f$ is defined and differentiable for every $x>0$, and $f^{\prime}(x) \rightarrow 0$ as $x \rightarrow+\infty$. Put $g(x)=f(x+1)-f(x)$. Prove that $g(x) \rightarrow 0$ as $x \rightarrow+\infty$.
 \begin{proof}
-    Solution. Let $\varepsilon>0$. Choose $x_0$ such that $\left|f^{\prime}(x)\right|<\varepsilon$ if $x>x_0$. Then for any $x \geq x_0$ there exists $x_1 \in(x, x+1)$ such that
+    Let $\varepsilon>0$. Choose $x_0$ such that $\left|f^{\prime}(x)\right|<\varepsilon$ if $x>x_0$. Then for any $x \geq x_0$ there exists $x_1 \in(x, x+1)$ such that
 $$
 f(x+1)-f(x)=f^{\prime}\left(x_1\right) .
 $$
@@ -549,7 +549,7 @@ $$
 g(x)=\frac{f(x)}{x} \quad(x>0)
 $$
 and prove that $g$ is monotonically increasing.
-Solution. By the mean-value theorem
+By the mean-value theorem
 $$
 f(x)=f(x)-f(0)=f^{\prime}(c) x
 $$
@@ -563,7 +563,7 @@ so that $g$ is also monotonically increasing.
 
 \paragraph{Exercise 5.7} Suppose $f^{\prime}(x), g^{\prime}(x)$ exist, $g^{\prime}(x) \neq 0$, and $f(x)=g(x)=0$. Prove that $\lim _{t \rightarrow x} \frac{f(t)}{g(t)}=\frac{f^{\prime}(x)}{g^{\prime}(x)}.$
 \begin{proof}
-    Solution. Since $f(x)=g(x)=0$, we have
+    Since $f(x)=g(x)=0$, we have
 $$
 \begin{aligned}
 \lim _{t \rightarrow x} \frac{f(t)}{g(t)} &=\lim _{t \rightarrow x} \frac{\frac{f(t)-f(x)}{t-x}}{\frac{g(t)-g(x)}{t-x}} \\
@@ -576,7 +576,7 @@ $$
 
 \paragraph{Exercise 5.15} Suppose $a \in R^{1}, f$ is a twice-differentiable real function on $(a, \infty)$, and $M_{0}, M_{1}, M_{2}$ are the least upper bounds of $|f(x)|,\left|f^{\prime}(x)\right|,\left|f^{\prime \prime}(x)\right|$, respectively, on $(a, \infty)$. Prove that $M_{1}^{2} \leq 4 M_{0} M_{2} .$
 \begin{proof}
-    Solution. The inequality is obvious if $M_0=+\infty$ or $M_2=+\infty$, so we shall assume that $M_0$ and $M_2$ are both finite. We need to show that
+    The inequality is obvious if $M_0=+\infty$ or $M_2=+\infty$, so we shall assume that $M_0$ and $M_2$ are both finite. We need to show that
 $$
 \left|f^{\prime}(x)\right| \leq 2 \sqrt{M_0 M_2}
 $$
@@ -601,7 +601,7 @@ Equality can hold on any $R^n$, as we see by taking $\mathbf{f}(x)=(f(x), 0, \ld
 
 \paragraph{Exercise 5.17} Suppose $f$ is a real, three times differentiable function on $[-1,1]$, such that $f(-1)=0, \quad f(0)=0, \quad f(1)=1, \quad f^{\prime}(0)=0 .$ Prove that $f^{(3)}(x) \geq 3$ for some $x \in(-1,1)$.
 \begin{proof}
-    Solution. Following the hint, we observe that Theorem $5.15$ (Taylor's formula with remainder) implies that
+    Following the hint, we observe that Theorem $5.15$ (Taylor's formula with remainder) implies that
 $$
 \begin{aligned}
 f(1) &=f(0)+f^{\prime}(0)+\frac{1}{2} f^{\prime \prime}(0)+\frac{1}{6} f^{(3)}(s) \\
@@ -618,7 +618,7 @@ which is the desired result. Note that we made no use of the hypothesis $f(0)=0$
 
 \paragraph{Exercise 6.1} Suppose $\alpha$ increases on $[a, b], a \leq x_{0} \leq b, \alpha$ is continuous at $x_{0}, f\left(x_{0}\right)=1$, and $f(x)=0$ if $x \neq x_{0}$. Prove that $f \in \mathcal{R}(\alpha)$ and that $\int f d \alpha=0$.
 \begin{proof}
-    Solution. Let $\varepsilon>0$, and let $\delta$ be such that $\left|\alpha(x)-\alpha\left(x_0\right)\right|<\varepsilon$ if $\left|x-x_0\right|<\delta$. Now consider any partiion $a=t_0<t_1<\cdots<t_n=b$ with $n \geq 2$ such that $\left|t_i-t_{i-1}\right|<\frac{\delta}{2}$. There exists an index $i$ such that $t_{i-1}<x_0<t_{i+1}$ (there may possibly be 2 such indices). We then have, for any choice of $t_0^*, t_1^*, \ldots, t_n^*$,
+    Let $\varepsilon>0$, and let $\delta$ be such that $\left|\alpha(x)-\alpha\left(x_0\right)\right|<\varepsilon$ if $\left|x-x_0\right|<\delta$. Now consider any partiion $a=t_0<t_1<\cdots<t_n=b$ with $n \geq 2$ such that $\left|t_i-t_{i-1}\right|<\frac{\delta}{2}$. There exists an index $i$ such that $t_{i-1}<x_0<t_{i+1}$ (there may possibly be 2 such indices). We then have, for any choice of $t_0^*, t_1^*, \ldots, t_n^*$,
 $$
 \begin{aligned}
 \left|\sum_{j=1}^n f\left(t_j^*\right)\left(\alpha\left(t_j\right)-\alpha\left(t_{j-1}\right)\right)\right| \leq &\left|f\left(t_i^*\right)\right|\left[\alpha\left(t_i\right)-\alpha\left(t_{i-1}\right) \mid+\right.\\
@@ -632,19 +632,19 @@ By definition of the Riemann-Stieltjes integral, this means that $f \in \mathcal
 
 \paragraph{Exercise 6.2} Suppose $f \geq 0, f$ is continuous on $[a, b]$, and $\int_{a}^{b} f(x) d x=0$. Prove that $f(x)=0$ for all $x \in[a, b]$.
 \begin{proof}
-    Solution. Suppose $f\left(x_0\right) \neq 0$ for some $x_0 \in[a, b]$. Since $f(x)$ is continuous on $[a, b]$ and $\frac{f\left(x_0\right)}{2}>0$, there exists $\delta>0$ such that $\left|f(x)-f\left(x_0\right)\right|<\frac{f\left(x_0\right)}{2}$ for all $x \in[a, b]$ such that $\left|x-x_0\right|<\delta$. Let $\eta=\min \left(\delta, \max \left(x_0-a, b-x_0\right)\right)$, so that $\eta>0$. Let $I$ be the interval $\left[x_0-\eta, x_0\right]$ if it is contained in $[a, b]$; otherwise let $I=\left[x_0, x_0+\eta\right]$. Whichever is the case, $I \subseteq[a, b]$ and $f(x)=$
+    Suppose $f\left(x_0\right) \neq 0$ for some $x_0 \in[a, b]$. Since $f(x)$ is continuous on $[a, b]$ and $\frac{f\left(x_0\right)}{2}>0$, there exists $\delta>0$ such that $\left|f(x)-f\left(x_0\right)\right|<\frac{f\left(x_0\right)}{2}$ for all $x \in[a, b]$ such that $\left|x-x_0\right|<\delta$. Let $\eta=\min \left(\delta, \max \left(x_0-a, b-x_0\right)\right)$, so that $\eta>0$. Let $I$ be the interval $\left[x_0-\eta, x_0\right]$ if it is contained in $[a, b]$; otherwise let $I=\left[x_0, x_0+\eta\right]$. Whichever is the case, $I \subseteq[a, b]$ and $f(x)=$
 \end{proof}
 
 
 \paragraph{Exercise 6.4} If $f(x)=0$ for all irrational $x, f(x)=1$ for all rational $x$, prove that $f \notin \mathcal{R}$ on $[a, b]$ for any $a<b$.
 \begin{proof}
-    Solution. Every upper Riemann sum equals $b-a$, and every lower Riemann sum equals 0 . Hence the set of upper sums and the set of lower sums do not have a common bound.
+    Every upper Riemann sum equals $b-a$, and every lower Riemann sum equals 0 . Hence the set of upper sums and the set of lower sums do not have a common bound.
 \end{proof}
 
 
 \paragraph{Exercise 6.6} Let $P$ be the Cantor set. Let $f$ be a bounded real function on $[0,1]$ which is continuous at every point outside $P$. Prove that $f \in \mathcal{R}$ on $[0,1]$.
 \begin{proof}
-    Solution. Let $M=\sup \{|f(x)|: a \leq x \leq b\}$, and let $\varepsilon>0$ be given. Cover $P$ by a finite collection of open intervals $O=\bigcup_{i=1}^k\left(a_i, b_i\right)$ such that $\sum\left(b_i-\right.$ $\left.a_i\right)<\frac{\varepsilon}{4 M}$. Let $\theta=\inf \{|x-y|: x \in P, y \in[a, b] \backslash O\}$. Since $x$ and $y$ range over disjoint compact sets, $\theta$ is a positive number. On the compact set $E=\left\{x: d(x, P) \geq \frac{1}{2} \theta\right\}$ the function $f$ is uniformly continuous. Let $\delta>0$ be such that $|f(x)-f(y)|<\frac{\varepsilon}{2(b-a)}$ if $x, y \in E$ and $|x-y|<\delta$. Then consider any partition $\left\{t_j\right\}$ of $[a, b]$ with $\max \left(t_j-t_{j-1}\right)<\min \left(\delta, \frac{1}{2} \theta\right)$. The difference between the upper and lower Riemann sums for this partition can be expressed as two sums:
+    Let $M=\sup \{|f(x)|: a \leq x \leq b\}$, and let $\varepsilon>0$ be given. Cover $P$ by a finite collection of open intervals $O=\bigcup_{i=1}^k\left(a_i, b_i\right)$ such that $\sum\left(b_i-\right.$ $\left.a_i\right)<\frac{\varepsilon}{4 M}$. Let $\theta=\inf \{|x-y|: x \in P, y \in[a, b] \backslash O\}$. Since $x$ and $y$ range over disjoint compact sets, $\theta$ is a positive number. On the compact set $E=\left\{x: d(x, P) \geq \frac{1}{2} \theta\right\}$ the function $f$ is uniformly continuous. Let $\delta>0$ be such that $|f(x)-f(y)|<\frac{\varepsilon}{2(b-a)}$ if $x, y \in E$ and $|x-y|<\delta$. Then consider any partition $\left\{t_j\right\}$ of $[a, b]$ with $\max \left(t_j-t_{j-1}\right)<\min \left(\delta, \frac{1}{2} \theta\right)$. The difference between the upper and lower Riemann sums for this partition can be expressed as two sums:
 $$
 \sum\left(M_j-m_j\right)\left(t_j-t_{j-1}\right)=\Sigma_1+\Sigma_2,
 $$

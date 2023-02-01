@@ -21,10 +21,10 @@ for x in tqdm(data):
         existing = ""
 
     if not re.search("theorem " + exname, existing): 
-        formal = x["gpt_formal_statement"][1:]
+        formal = x["gpt_formal_statement"]
         if " " in formal: 
-            formal = formal[formal.index(" "):]
-        to_add = f"\n\n{formal.lstrip()}" +  "\nsorry"
+            formal = " ".join(formal.split()[2:])
+        to_add = f"\n\ntheorem {exname} {formal}" +  "\nsorry"
         existing += to_add
 
 

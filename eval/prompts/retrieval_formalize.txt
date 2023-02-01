@@ -1,0 +1,64 @@
+You are an expert Lean user. You are going to be asked to translate a natural language theorem statement into a Lean mathlib declaration. First, I am going to show you four formal statements from the same area of mathematics to refresh your memory of the library. 
+
+Here are the four formal statements: 
+
+theorem nat.arithmetic_function.is_multiplicative.pmul {R : Type*}
+    [comm_semiring R] {f g : nat.arithmetic_function R} (hf : f.is_multiplicative)
+    (hg : g.is_multiplicative) :
+    (f.pmul g).is_multiplicative 
+    
+theorem nat.arithmetic_function.is_multiplicative.mul {R : Type*}
+    [comm_semiring R] {f g : nat.arithmetic_function R} (hf : f.is_multiplicative)
+    (hg : g.is_multiplicative) :
+    (f * g).is_multiplicative 
+
+theorem finprod_mul_distrib {α M : Type*} [comm_monoid M] {f g : α → M}
+    (hf : (function.mul_support f).finite) (hg : (function.mul_support g).finite) :
+    finprod (λ (i : α), f i * g i) = finprod (λ (i : α), f i) * finprod (λ (i : α), g i)
+
+theorem monoid_hom.ext_mnat {M : Type u} [monoid M]
+    ⦃f g : multiplicative ℕ →* M⦄
+    (h : ⇑f (⇑multiplicative.of_add 1) = ⇑g (⇑multiplicative.of_add 1)) :
+    f = g 
+
+The following is the natural language theorem statement: "Two multiplicative functions $f, g:\mathbb{N}\to R$ are equal if and only if $f(p^i)=f(g^i)$ for all primes $p$." Translate the natural language version to a Lean mathlib version: 
+theorem is_multiplicative.eq_iff_eq_on_prime_powers {R : Type*} 
+  [comm_monoid_with_zero R] (f : nat.arithmetic_function R) 
+  (hf : f.is_multiplicative) (g : nat.arithmetic_function R) 
+  (hg : g.is_multiplicative) :
+  f = g ↔ ∀ (p i : ℕ), nat.prime p → f (p ^ i) = g (p ^ i) :=
+  
+You are an expert Lean user. You are going to be asked to translate a natural language theorem statement into a Lean mathlib declaration. First, I am going to show you four formal statements from the same area of mathematics to refresh your memory of the library. 
+
+Here are the four formal statements: 
+
+theorem uniform_continuous.comp {α β γ : Type*} [uniform_space α]
+    [uniform_space β] [uniform_space γ] {g : β → γ} {f : α → β}
+    (hg : uniform_continuous g) (hf : uniform_continuous f) :
+    uniform_continuous (g ∘ f) 
+	
+theorem quotient_map.continuous_lift_prod_left {X₀ X Y Z : Type*}
+    [topological_space X₀] [topological_space X] [topological_space Y]
+    [topological_space Z] [locally_compact_space Y] {f : X₀ → X}
+    (hf : quotient_map f) {g : X × Y → Z}
+    (hg : continuous (λ (p : X₀ × Y), g (f p.fst, p.snd))) :
+    continuous g 
+	
+theorem quotient_map.continuous_lift_prod_right {X₀ X Y Z : Type*}
+    [topological_space X₀] [topological_space X] [topological_space Y]
+    [topological_space Z] [locally_compact_space Y] {f : X₀ → X}
+    (hf : quotient_map f) {g : Y × X → Z}
+    (hg : continuous (λ (p : Y × X₀), g (p.fst, f p.snd))) :
+    continuous g 
+	
+theorem is_locally_constant.comp_continuous {X Y Z : Type*}
+    [topological_space X] [topological_space Y] {g : Y → Z} {f : X → Y}
+    (hg : is_locally_constant g) (hf : continuous f) :
+    is_locally_constant (g ∘ f) 
+
+The following is the natural language theorem statement: "Suppose $X, Y, Z$ are metric spaces, and $Y$ is compact. Let $f$ map $X$ into $Y$, let $g$ be a continuous one-to-one mapping of $Y$ into $Z$, and put $h(x)=g(f(x))$ for $x \in X$. Prove that $f$ is uniformly continuous if $h$ is uniformly continuous." Translate the natural language version to a Lean mathlib version:
+theorem uniform_continuous_of_continuous_injective_uniform_continuous_comp
+  {X Y Z : Type*} [metric_space X] [metric_space Y] [metric_space Z]
+  (hY : compact_space Y) (f : X → Y) (g : Y → Z) (hgc : continuous g)
+  (hgi : function.injective g)
+  (h : uniform_continuous (g ∘ f)) : uniform_continuous f :=

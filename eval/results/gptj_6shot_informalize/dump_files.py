@@ -7,7 +7,7 @@ data = sorted(data, key = lambda x: x["id"])
 
 
 lines_lst = ["\\paragraph{" + x["id"].replace("|", ".").replace("_", ".") + "} "+\
-        x["codex_informal_statement"].replace("\\\\", "\\") for x in data]
+        x["gptj_nl_statement"].replace("\\\\", "\\") for x in data]
 
 text = "\n\n".join(lines_lst)
 

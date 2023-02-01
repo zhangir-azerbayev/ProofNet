@@ -2,6 +2,7 @@ import os
 import re 
 import json
 import ndjson 
+from functools import lru_cache
 
 formal_dict = {}
 informal_dict = {}
@@ -22,19 +23,43 @@ informal_dir = "../benchmark/informal"
 for name in os.listdir(informal_dir): 
     if name.endswith(".tex"): 
         with open(os.path.join(informal_dir, name)) as f: 
-            informal_str = f.read()
+            informal_list = list(f.readlines())
+
+        i = 0  
+        while i < len(informal_list): 
+            line = informal_list[i]
+            if re.match(r"\\paragraph\{.*?\} .*", line): 
+                informal = line
+                eyed = name.replace(".tex", "") + "|" + informal[informal.index("{")+1:informal.index("}")].lower().replace(" ", "_").replace(".", "_")
+                nl = informal[informal.index("} ")+2:]
+            
+                i += 1 
+
+                if re.match(r"\\begin\{proof\}", informal_list[i]):
+                    rexp = re.compile(r"\\begin\{proof\}.*?\\end\{proof\}", re.DOTALL)
+                    nl_proof = re.match(rexp, "\n".join(informal_list[i:])).group(0)
+                else: 
+                    nl_proof = ""
+
+                informal_dict[eyed] = {"nl_statement": nl, "nl_proof": nl_proof}
+            i += 1
 
 
-        informal_matches = re.findall(r"\\paragraph\{.*?\} .*", informal_str)
+@lru_cache(maxsize=None)
+def header_of_author(source_name): 
+    with open("../benchmark/formal/" + source_name + ".lean") as f: 
+        text = f.read()
 
-        for informal in informal_matches: 
-            eyed = name.replace(".tex", "") + "|" + informal[informal.index("{")+1:informal.index("}")].lower().replace(" ", "_").replace(".", "_")
-            nl = informal[informal.index("} ")+2:]
-            informal_dict[eyed] = nl
+    rexp = re.compile("^.*?theorem", re.DOTALL)
+    header = re.match(rexp, text).group(0)[:-7]
 
+    return header
 
-out_file = "model_input.jsonl"
-if os.path.isfile(out_file): 
+def header_of_id(eyed): 
+    return header_of_author(eyed[:eyed.index("|")])
+
+out_file = "model_input_new1.jsonl"
+if False: #os.path.isfile(out_file): 
     with open(out_file) as f: 
         old_data = ndjson.load(f)
 
@@ -42,7 +67,7 @@ if os.path.isfile(out_file):
     for eyed in formal_dict.keys(): 
         if eyed in informal_dict.keys() and eyed not in old_data_ids: 
             old_data.append({"id": eyed, "formal_statement": formal_dict[eyed], 
-                "nl_statement": informal_dict[eyed]})
+                "src_header": header_of_id(eyed), **informal_dict[eyed]})
     
     with open(out_file, "w") as f: 
         ndjson.dump(old_data, f)
@@ -52,7 +77,7 @@ else:
     for eyed in formal_dict.keys(): 
         if eyed in informal_dict.keys():
             data.append({"id": eyed, "formal_statement": formal_dict[eyed], 
-                "nl_statement": informal_dict[eyed]})
+                "src_header": header_of_id(eyed), **informal_dict[eyed]})
         with open(out_file, "w") as f: 
-            ndjson.dump(data, f)
+            f.write(json.dumps(data, indent=4))
 

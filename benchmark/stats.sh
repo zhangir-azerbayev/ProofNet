@@ -1,6 +1,7 @@
 for f in informal/*tex; do
     n=`grep 'Exercise ' $f | wc -l`
-    echo $f: $n
+    n_proofs=`grep 'begin{proof}' $f | wc -l`
+    echo "$f: $n statements, $n_proofs proof"
 done
 echo
 for f in formal/*lean; do
@@ -9,7 +10,9 @@ for f in formal/*lean; do
 done
 echo
 N_INFORMAL=`grep -r 'Exercise ' informal/*tex | wc -l`
+N_PROOFS=`grep -r 'begin{proof}' informal/*tex | wc -l`
 N_FORMAL=`grep -r exercise formal/*lean | wc -l`
 echo "Total number of informal exercices: $N_INFORMAL"
+echo "Total number of informal proofs: $N_PROOFS"
 echo "Total number of formalized exercices: $N_FORMAL"
 

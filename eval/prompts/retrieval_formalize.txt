@@ -1,4 +1,4 @@
-You are an expert Lean user. You are going to be asked to translate a natural language theorem statement into a Lean mathlib declaration. First, I am going to show you four formal statements from the same area of mathematics to refresh your memory of the library. 
+You are an expert Lean user. You are going to be asked to translate a natural language theorem statement into a Lean mathlib theorem. To refresh your memory of mathlib, I am first going to show you four formal statements from the same area of mathematics as the natural language.
 
 Here are the four formal statements: 
 
@@ -28,7 +28,7 @@ theorem is_multiplicative.eq_iff_eq_on_prime_powers {R : Type*}
   (hg : g.is_multiplicative) :
   f = g ↔ ∀ (p i : ℕ), nat.prime p → f (p ^ i) = g (p ^ i) :=
   
-You are an expert Lean user. You are going to be asked to translate a natural language theorem statement into a Lean mathlib declaration. First, I am going to show you four formal statements from the same area of mathematics to refresh your memory of the library. 
+You are an expert Lean user. You are going to be asked to translate a natural language theorem statement into a Lean mathlib theorem. To refresh your memory of mathlib, I am first going to show you four formal statements from the same area of mathematics as the natural language.
 
 Here are the four formal statements: 
 

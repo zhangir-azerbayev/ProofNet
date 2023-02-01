@@ -1,7 +1,8 @@
-import sys
+import argparse
 import os
 import yaml
 import ndjson 
+from pathlib import Path
 from tqdm import tqdm 
 
 from dataset import NlFormalDataset, data_collator
@@ -11,13 +12,25 @@ import torch.nn
 from torch.optim import AdamW 
 
 import transformers 
-from transformers import GPTNeoForCausalLM, GPT2Tokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers import TrainingArguments, Trainer
 from transformers import get_cosine_schedule_with_warmup
 from transformers.trainer_pt_utils import get_parameter_names 
 
 def main(): 
-    config_path = sys.argv[1] 
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--ds", type=str)
+    parser.add_argument("--config", type=str) 
+    parser.add_argument("--local_rank") # never actually used 
+    args = parser.parse_args()
+
+    config_path = args.config 
+
+    if args.ds: 
+        ds_path = args.ds
+    else: 
+        ds_path = None 
+
     with open(config_path) as f: 
         cfg = yaml.safe_load(f)
 
@@ -36,10 +49,11 @@ def main():
     model_name = cfg['model_name']
     max_length = cfg['max_length']
     accum_steps = cfg['accum_steps']
+    os.environ["CUDA_VISIBLE_DEVICES"] = cfg['devices']
 
     save_dir = os.path.join("runs/", experiment_name)
 
-    os.mkdir(save_dir)
+    Path(save_dir).mkdir(exist_ok=True)
 
     with open(train_path) as f: 
         train_data = ndjson.load(f)
@@ -48,15 +62,16 @@ def main():
         eval_data = ndjson.load(f)
 
     # Tokenizers and data 
-    tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-    tokenizer.add_special_tokens({'pad_token': '<|pad|>', 
-        'sep_token': '[SEP]'})
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    if not tokenizer.eos_token:
+        tokenizer.add_special_tokens({"eos_token": "<|endoftext|>"})
+    tokenizer.pad_token=tokenizer.eos_token
 
     train_set = NlFormalDataset(train_data, tokenizer, max_length)
     eval_set = NlFormalDataset(eval_data, tokenizer, max_length)
 
     # Models 
-    model = GPTNeoForCausalLM.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(model_name)
     model.resize_token_embeddings(len(tokenizer))
 
     # Initialize optimizer and scheduler
@@ -94,10 +109,10 @@ def main():
             eval_steps = eval_steps,
             max_grad_norm=gradient_clipping, 
             gradient_accumulation_steps = accum_steps,
+            deepspeed=ds_path, 
+            fp16=True, 
             )
 
-    devices = os.environ["CUDA_VISIBLE_DEVICES"]
-    cfg["devices"] = devices
 
     with open(os.path.join(save_dir, "config.yaml"), "w") as f: 
         yaml.dump(cfg, f)

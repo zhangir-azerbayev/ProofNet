@@ -2,28 +2,30 @@ import sys
 import os
 
 import transformers 
-from transformers import GPTNeoForCausalLM, GPT2Tokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-MODEL_PATH = "runs/gptneo1B_train/checkpoint-5000"
-MODEL_NAME = "EleutherAI/gpt-neo-1.3B"
+MODEL_PATH = "runs/proofGPT-1.3B/checkpoint-15000"
+MODEL_NAME = "hoskinson-center/proofGPT-v0.1"
 
 def main(): 
-    tokenizer = GPT2Tokenizer.from_pretrained(MODEL_NAME)
-    tokenizer.add_special_tokens({'pad_token': '<|pad|>', 
-        'sep_token': '[SEP]'})
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    tokenizer.pad_token=tokenizer.eos_token
 
-    model = GPTNeoForCausalLM.from_pretrained(MODEL_PATH).to("cuda")
+    model = AutoModelForCausalLM.from_pretrained(MODEL_PATH)
     model.eval()
 
+    device = input("enter device index: ")
+    device = f"cuda:{device}"
+    model.to(device)
 
     while True: 
         text = input("\nEnter a theorem statement:\n").strip()
 
-        text += "[SEP]"
+        text += "<SEP>"
 
-        tokens = tokenizer(text, return_tensors="pt").to("cuda")
+        tokens = tokenizer(text, return_tensors="pt").to(device)
 
-        output = model.generate(**tokens, do_sample=False, max_new_tokens=150, pad_token_id=tokenizer.pad_token_id)
+        output = model.generate(input_ids=tokens["input_ids"], attention_mask=tokens["attention_mask"], do_sample=False, max_new_tokens=150)
 
         decoded_texts = tokenizer.batch_decode(output, skip_special_tokens=False)[0]
 

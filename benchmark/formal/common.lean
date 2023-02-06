@@ -43,7 +43,7 @@ import analysis.normed_space.pi_Lp
 import combinatorics.simple_graph.basic
 import data.complex.basic
 import data.complex.exponential
-import data.complex.is_R_or_C
+import data.is_R_or_C.basic 
 import data.finset.basic
 import data.finset.lattice
 import data.finset.sort
@@ -100,7 +100,6 @@ import linear_algebra.finite_dimensional
 import logic.basic
 import number_theory.arithmetic_function
 import number_theory.divisors
-import order.bounds
 import order.filter.basic
 import order.well_founded_set
 import set_theory.lists

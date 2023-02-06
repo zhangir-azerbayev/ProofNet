@@ -77,21 +77,19 @@ begin
   exact xlez.trans zley,
 end
 
-theorem exercise_1_5
-  (A minus_A : set ℝ) (hA : A.nonempty) (hA_bdd_below : bdd_below A)
-  (hminus_A : minus_A = {x | -x ∈ A}) :
+theorem exercise_1_5 (A minus_A : set ℝ) (hA : A.nonempty) 
+  (hA_bdd_below : bdd_below A) (hminus_A : minus_A = {x | -x ∈ A}) :
   Inf A = Sup minus_A :=
 sorry
 
-theorem exercise_1_8
-  : ¬ ∃ (r : ℂ → ℂ → Prop), is_linear_order ℂ r :=
-sorry
+theorem exercise_1_8 : ¬ ∃ (r : ℂ → ℂ → Prop), is_linear_order ℂ r := 
+  sorry
 
 section
 open complex
 
-theorem exercise_1_11a
-  (z : ℂ) : ∃ (r : ℝ) (w : ℂ), abs w = 1 ∧ z = r * w :=
+theorem exercise_1_11a (z : ℂ) : 
+  ∃ (r : ℝ) (w : ℂ), abs w = 1 ∧ z = r * w :=
 begin
   by_cases h : z = 0,
   {
@@ -114,14 +112,12 @@ begin
   },
 end
 
-theorem exercise_1_12
-  (n : ℕ) (f : ℕ → ℂ)
-  : abs (∑ i in finset.range n, f i) ≤ ∑ i in finset.range n, abs (f i) :=
+theorem exercise_1_12 (n : ℕ) (f : ℕ → ℂ) : 
+  abs (∑ i in finset.range n, f i) ≤ ∑ i in finset.range n, abs (f i) :=
 sorry 
 
-theorem exercise_1_13
-  (x y : ℂ)
-  : |(abs x) - (abs y)| ≤ abs (x - y) :=
+theorem exercise_1_13 (x y : ℂ) : 
+  |(abs x) - (abs y)| ≤ abs (x - y) :=
 sorry
 
 theorem exercise_1_14
@@ -637,7 +633,7 @@ begin
   },
   have h₆ : set.Ioo (x - 1) 0 ⊆ set.Iio 0 := set.Ioo_subset_Iio_self,
   have h₇ : set.Ioo (x - 1) 0 ∩ E = set.Ioo (x - 1) 0 := by {
-  rw hE, simp, exact set.subset_union_of_subset_left h₆ (set.Ioi 0),
+  rw hE, simp,
   },
   rw h₇,
   have h₈ : (0 : ℝ) ∈ X := by {rw h₅ at h₃, exact h₃,},
@@ -668,7 +664,7 @@ begin
   },
   have h₆ : set.Ioo 0 (x + 1) ⊆ set.Ioi 0 := set.Ioo_subset_Ioi_self,
   have h₇ : set.Ioo 0 (x + 1) ∩ E = set.Ioo 0 (x + 1) := by {
-  rw hE, simp, exact set.subset_union_of_subset_right h₆ (set.Iio 0),
+  rw hE, simp,
   },
   rw h₇,
   have h₈ : (1 : ℝ) ∈ X := by {rw h₅ at h₃, exact h₃,},

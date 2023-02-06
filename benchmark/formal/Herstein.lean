@@ -76,7 +76,7 @@ sorry
 
 theorem exercise_2_5_37 (G : Type*) [group G] [fintype G]
   (hG : card G = 6) (hG' : is_empty (comm_group G)) :
-  G ≅ equiv.perm (fin 3) :=
+  G ≃* equiv.perm (fin 3) :=
 sorry
 
 theorem exercise_2_5_43 (G : Type*) [group G] [fintype G]

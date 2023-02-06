@@ -3,7 +3,7 @@ import .common
 open set real filter function ring_hom
 open_locale big_operators
 open_locale filter
-open_locale topological_space
+open_locale topology 
 noncomputable theory 
 
 theorem exercise_2_12a (f : ℕ → ℕ) (p : ℕ → ℝ) (a : ℝ)

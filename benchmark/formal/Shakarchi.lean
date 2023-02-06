@@ -3,7 +3,7 @@ import .common
 open complex filter function interval_integral
 open_locale big_operators
 open_locale filter
-open_locale topological_space
+open_locale topology
 
 theorem exercise_1_13a {f : ℂ → ℂ} (Ω : set ℂ) (a b : Ω) (h : is_open Ω)
   (hf : differentiable_on ℂ f Ω) (hc : ∃ (c : ℝ), ∀ z ∈ Ω, (f z).re = c) :

@@ -3,7 +3,8 @@ import .common
 open real
 open topological_space
 open filter
-open_locale topological_space
+open_locale real 
+open_locale topology
 open_locale big_operators
 open_locale complex_conjugate
 open_locale filter
@@ -132,17 +133,17 @@ theorem exercise_1_16a
   (d r : ℝ)
   (x y z : euclidean_space ℝ (fin n)) -- R^n
   (h₁ : n ≥ 3)
-  (h₂ : ∥x - y∥ = d)
+  (h₂ : ‖x - y‖ = d)
   (h₃ : d > 0)
   (h₄ : r > 0)
   (h₅ : 2 * r > d)
-  : set.infinite {z : euclidean_space ℝ (fin n) | ∥z - x∥ = r ∧ ∥z - y∥ = r} :=
+  : set.infinite {z : euclidean_space ℝ (fin n) | ‖z - x‖ = r ∧ ‖z - y‖ = r} :=
 sorry
 
 theorem exercise_1_17
   (n : ℕ)
   (x y : euclidean_space ℝ (fin n)) -- R^n
-  : ∥x + y∥^2 + ∥x - y∥^2 = 2*∥x∥^2 + 2*∥y∥^2 :=
+  : ‖x + y‖^2 + ‖x - y‖^2 = 2*‖x‖^2 + 2*‖y‖^2 :=
 sorry
 
 theorem exercise_1_18a
@@ -169,8 +170,8 @@ theorem exercise_1_19
   (r : ℝ)
   (h₁ : r > 0)
   (h₂ : 3 • c = 4 • b - a)
-  (h₃ : 3 * r = 2 * ∥x - b∥)
-  : ∥x - a∥ = 2 * ∥x - b∥ ↔ ∥x - c∥ = r :=
+  (h₃ : 3 * r = 2 * ‖x - b‖)
+  : ‖x - a‖ = 2 * ‖x - b‖ ↔ ‖x - c‖ = r :=
 sorry
 
 theorem exercise_2_19a {X : Type*} [metric_space X]
@@ -354,7 +355,6 @@ begin
   by_cases h : x = 0,
   {
   rw h, simp,
-  exact tendsto_const_nhds,
   },
   {
   intros X hX,

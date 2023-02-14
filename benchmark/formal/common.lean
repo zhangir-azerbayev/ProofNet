@@ -105,6 +105,9 @@ import order.well_founded_set
 import set_theory.lists
 
 --analysis 
+import analysis.calculus.fderiv
+import analysis.calculus.cont_diff
+import analysis.calculus.iterated_deriv
 import dynamics.ergodic.measure_preserving
 import measure_theory.integral.interval_integral
 

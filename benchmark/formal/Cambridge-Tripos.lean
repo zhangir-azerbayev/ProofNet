@@ -39,5 +39,3 @@ theorem exercise_2021_IA_1_I_3E_b (f : ℝ → ℝ)
   (hx2 : ∀ n, x (n+1) = x n + f(x n)) :
   tendsto x at_top at_top :=
 sorry 
-
-#check fintype.card

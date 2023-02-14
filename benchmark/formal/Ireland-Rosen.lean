@@ -52,8 +52,26 @@ theorem exercise_3_14 {p q n : ℕ} (hp0 : p.prime ∧ p > 2)
 sorry 
 
 theorem exercise_4_4 {p t: ℕ} (hp0 : p.prime) (hp1 : p = 4*t + 1) 
-  (a : zmod p): 
+  (a : zmod p) : 
   is_primitive_root a p ↔ is_primitive_root (-a) p :=
+sorry 
+
+theorem exercise_4_5 {p t : ℕ} (hp0 : p.prime) (hp1 : p = 4*t + 3)
+  (a : zmod p) :
+  is_primitive_root a p ↔ ((-a) ^ ((p-1)/2) = 1 ∧ ∀ (k : ℕ), k < (p-1)/2 → (-a)^k ≠ 1) :=
+sorry 
+
+theorem exercise_4_6 {p n : ℕ} (hp : p.prime) (hpn : p = 2^n + 1) : 
+  is_primitive_root 3 p :=
+sorry 
+
+theorem exercise_4_8 {p a : ℕ} (hp : odd p) : 
+  is_primitive_root a p ↔ (∀ q ∣ (p-1), q.prime → ¬ a^(p-1) ≡ 1 [MOD p]) :=
+sorry 
+
+theorem exercise_4_11 {p : ℕ} (hp : p.prime) (k s: ℕ) 
+  (s := ∑ (n : fin p), (n : ℕ) ^ k) : 
+  ((¬ p - 1 ∣ k) → s ≡ 0 [MOD p]) ∧ (p - 1 ∣ k → s ≡ 0 [MOD p]) :=
 sorry 
 
 theorem exercise_5_13 {p x: ℤ} (hp : prime p) 
@@ -69,10 +87,10 @@ theorem exercise_5_37 {p q : ℕ} [fact(p.prime)] [fact(q.prime)] {a : ℤ}
   legendre_sym p a = legendre_sym q a :=
 sorry 
 
-theorem exercise_18_1 : ¬ ∃ x y : ℤ, 165*x^2 - 21*y^2 = 19 := 
+theorem exercise_12_12 : is_algebraic ℚ (sin (real.pi/12)) :=
 sorry 
 
-theorem exercise_12_12 : is_algebraic ℚ (sin (real.pi/12)) :=
+theorem exercise_18_1 : ¬ ∃ x y : ℤ, 165*x^2 - 21*y^2 = 19 := 
 sorry 
 
 theorem exercise_18_4 {n : ℕ} (hn : ∃ x y z w : ℤ, 

@@ -1,0 +1,148 @@
+\documentclass{article}
+
+\title{\textbf{
+Exercises from \\
+\textit{Linear Algebra Done Right} \\
+by Sheldon Axler
+}}
+
+\date{}
+
+\usepackage{amsmath, amsthm}
+\usepackage{amssymb}
+
+
+\theoremstyle{definition}
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}[lem]{Corollary}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{remark}[lem]{Remark}
+\newtheorem{defn}[lem]{Definition}
+
+\newtheorem*{prop*}{Proposition}
+\newtheorem*{thm*}{Theorem}
+\newtheorem*{defn*}{Definition}
+\newtheorem*{lem*}{Lemma}
+
+
+\begin{document}
+\maketitle
+
+
+\paragraph{Exercise 1.2} Show that $\frac{-1 + \sqrt{3}i}{2}$ is a cube root of 1 (meaning that its cube equals 1).
+\begin{proof}
+$$
+\left(\frac{-1+\sqrt{3} i}{2}\right)^2=\frac{-1-\sqrt{3} i}{2},
+$$
+hence
+$$
+\left(\frac{-1+\sqrt{3} i}{2}\right)^3=\frac{-1-\sqrt{3} i}{2} \cdot \frac{-1+\sqrt{3} i}{2}=1
+$$
+This means $\frac{-1+\sqrt{3} i}{2}$ is a cube root of 1.
+\end{proof}
+
+
+
+\paragraph{Exercise 1.3} Prove that $-(-v) = v$ for every $v \in V$.
+\begin{proof}
+    By definition, we have
+$$
+(-v)+(-(-v))=0 \quad \text { and } \quad v+(-v)=0 .
+$$
+This implies both $v$ and $-(-v)$ are additive inverses of $-v$, by the uniqueness of additive inverse, it follows that $-(-v)=v$.
+\end{proof}
+
+
+
+\paragraph{Exercise 1.4} Prove that if $a \in \mathbf{F}$, $v \in V$, and $av = 0$, then $a = 0$ or $v = 0$.
+
+
+\paragraph{Exercise 1.6} Give an example of a nonempty subset $U$ of $\mathbf{R}^2$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \in U$ whenever $u \in U$), but $U$ is not a subspace of $\mathbf{R}^2$.
+
+
+\paragraph{Exercise 1.7} Give an example of a nonempty subset $U$ of $\mathbf{R}^2$ such that $U$ is closed under scalar multiplication, but $U$ is not a subspace of $\mathbf{R}^2$.
+
+
+\paragraph{Exercise 1.8} Prove that the intersection of any collection of subspaces of $V$ is a subspace of $V$.
+
+
+\paragraph{Exercise 1.9} Prove that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces is contained in the other.
+
+
+\paragraph{Exercise 3.1} Show that every linear map from a one-dimensional vector space to itself is multiplication by some scalar. More precisely, prove that if $\operatorname{dim} V=1$ and $T \in \mathcal{L}(V, V)$, then there exists $a \in \mathbf{F}$ such that $T v=a v$ for all $v \in V$.
+
+
+\paragraph{Exercise 3.8} Suppose that $V$ is finite dimensional and that $T \in \mathcal{L}(V, W)$. Prove that there exists a subspace $U$ of $V$ such that $U \cap \operatorname{null} T=\{0\}$ and range $T=\{T u: u \in U\}$.
+
+
+\paragraph{Exercise 3.10} Prove that there does not exist a linear map from $\mathbf{F}^{5}$ to $\mathbf{F}^{2}$ whose null space equals $\left\{\left(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}\right) \in \mathbf{F}^{5}: x_{1}=3 x_{2} \text { and } x_{3}=x_{4}=x_{5}\right\} .$
+
+
+\paragraph{Exercise 3.11} Prove that if there exists a linear map on $V$ whose null space and range are both finite dimensional, then $V$ is finite dimensional.
+
+
+\paragraph{Exercise 4.4} Suppose $p \in \mathcal{P}(\mathbf{C})$ has degree $m$. Prove that $p$ has $m$ distinct roots if and only if $p$ and its derivative $p^{\prime}$ have no roots in common.
+
+
+\paragraph{Exercise 5.1} Suppose $T \in \mathcal{L}(V)$. Prove that if $U_{1}, \ldots, U_{m}$ are subspaces of $V$ invariant under $T$, then $U_{1}+\cdots+U_{m}$ is invariant under $T$.
+
+
+\paragraph{Exercise 5.4} Suppose that $S, T \in \mathcal{L}(V)$ are such that $S T=T S$. Prove that $\operatorname{null} (T-\lambda I)$ is invariant under $S$ for every $\lambda \in \mathbf{F}$.
+
+
+\paragraph{Exercise 5.11} Suppose $S, T \in \mathcal{L}(V)$. Prove that $S T$ and $T S$ have the same eigenvalues.
+
+
+\paragraph{Exercise 5.12} Suppose $T \in \mathcal{L}(V)$ is such that every vector in $V$ is an eigenvector of $T$. Prove that $T$ is a scalar multiple of the identity operator.
+
+
+\paragraph{Exercise 5.13} Suppose $T \in \mathcal{L}(V)$ is such that every subspace of $V$ with dimension $\operatorname{dim} V-1$ is invariant under $T$. Prove that $T$ is a scalar multiple of the identity operator.
+
+
+\paragraph{Exercise 5.20} Suppose that $T \in \mathcal{L}(V)$ has $\operatorname{dim} V$ distinct eigenvalues and that $S \in \mathcal{L}(V)$ has the same eigenvectors as $T$ (not necessarily with the same eigenvalues). Prove that $S T=T S$.
+
+
+\paragraph{Exercise 5.24} Suppose $V$ is a real vector space and $T \in \mathcal{L}(V)$ has no eigenvalues. Prove that every subspace of $V$ invariant under $T$ has even dimension.
+
+
+\paragraph{Exercise 6.2} Suppose $u, v \in V$. Prove that $\langle u, v\rangle=0$ if and only if $\|u\| \leq\|u+a v\|$ for all $a \in \mathbf{F}$.
+
+
+\paragraph{Exercise 6.3} Prove that $\left(\sum_{j=1}^{n} a_{j} b_{j}\right)^{2} \leq\left(\sum_{j=1}^{n} j a_{j}{ }^{2}\right)\left(\sum_{j=1}^{n} \frac{b_{j}{ }^{2}}{j}\right)$ for all real numbers $a_{1}, \ldots, a_{n}$ and $b_{1}, \ldots, b_{n}$.
+
+
+\paragraph{Exercise 6.7} Prove that if $V$ is a complex inner-product space, then $\langle u, v\rangle=\frac{\|u+v\|^{2}-\|u-v\|^{2}+\|u+i v\|^{2} i-\|u-i v\|^{2} i}{4}$ for all $u, v \in V$.
+
+
+\paragraph{Exercise 6.13} Suppose $\left(e_{1}, \ldots, e_{m}\right)$ is an or thonormal list of vectors in $V$. Let $v \in V$. Prove that $\|v\|^{2}=\left|\left\langle v, e_{1}\right\rangle\right|^{2}+\cdots+\left|\left\langle v, e_{m}\right\rangle\right|^{2}$ if and only if $v \in \operatorname{span}\left(e_{1}, \ldots, e_{m}\right)$.
+
+
+\paragraph{Exercise 6.16} Suppose $U$ is a subspace of $V$. Prove that $U^{\perp}=\{0\}$ if and only if $U=V$
+
+
+\paragraph{Exercise 6.20} Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$. Prove that $U$ and $U^{\perp}$ are both invariant under $T$ if and only if $P_{U} T=T P_{U}$.
+
+
+\paragraph{Exercise 6.29} Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$. Prove that $U$ is invariant under $T$ if and only if $U^{\perp}$ is invariant under $T^{*}$.
+
+
+\paragraph{Exercise 7.5} Show that if $\operatorname{dim} V \geq 2$, then the set of normal operators on $V$ is not a subspace of $\mathcal{L}(V)$.
+
+
+\paragraph{Exercise 7.6} Prove that if $T \in \mathcal{L}(V)$ is normal, then $\operatorname{range} T=\operatorname{range} T^{*}.$
+
+
+\paragraph{Exercise 7.9} Prove that a normal operator on a complex inner-product space is self-adjoint if and only if all its eigenvalues are real.
+
+
+\paragraph{Exercise 7.10} Suppose $V$ is a complex inner-product space and $T \in \mathcal{L}(V)$ is a normal operator such that $T^{9}=T^{8}$. Prove that $T$ is self-adjoint and $T^{2}=T$.
+
+
+\paragraph{Exercise 7.11} Suppose $V$ is a complex inner-product space. Prove that every normal operator on $V$ has a square root. (An operator $S \in \mathcal{L}(V)$ is called a square root of $T \in \mathcal{L}(V)$ if $S^{2}=T$.)
+
+
+\paragraph{Exercise 7.14} Suppose $T \in \mathcal{L}(V)$ is self-adjoint, $\lambda \in \mathbf{F}$, and $\epsilon>0$. Prove that if there exists $v \in V$ such that $\|v\|=1$ and $\|T v-\lambda v\|<\epsilon,$ then $T$ has an eigenvalue $\lambda^{\prime}$ such that $\left|\lambda-\lambda^{\prime}\right|<\epsilon$.
+
+
+\end{document}

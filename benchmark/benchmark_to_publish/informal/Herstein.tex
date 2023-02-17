@@ -355,99 +355,798 @@ So, we have now a group $G$ of order 9. Suppose that $G$ is cyclic, then $G$ is 
 
 
 \paragraph{Exercise 2.5.44} Prove that a group of order $p^2$, $p$ a prime, has a normal subgroup of order $p$.
+\begin{proof}
+    We use the result from problem 40 which is as follows: Suppose $G$ is a group, $H$ is a subgroup and $|G|=n$ and $n \nmid\left(i_G(H)\right) !$. Then there exists a normal subgroup $K \neq \{ e \}$ and $K \subseteq H$.
+
+So, we have now a group $G$ of order $p^2$. Suppose that the group is cyclic, then it is abelian and any subgroup of order $p$ is normal. Now let us suppose that $G$ is not cyclic, then there exists an element $a$ of order $p$, and $A=\langle a\rangle$. Now $i_G(A)=p$, so $p^2 \nmid p$ ! , hence by the above result there is a normal subgroup $K$, non-trivial and $K \subseteq A$. But $|A|=p$, a prime order subgroup, hence has no non-trivial subgroup, so $K=A$. so $A$ is normal subgroup.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.5.52} Let $G$ be a finite group and $\varphi$ an automorphism of $G$ such that $\varphi(x) = x^{-1}$ for more than three-fourths of the elements of $G$. Prove that $\varphi(y) = y^{-1}$ for all $y \in G$, and so $G$ is abelian.
+\begin{proof}
+Let us start with considering $b$ to be an arbitrary element in $A$. 
+
+1. Show that $\left|A \cap\left(b^{-1} A\right)\right|>\frac{|G|}{2}$, where
+$$
+b^{-1} A=\left\{b^{-1} a \mid a \in A\right\}
+$$
+First notice that if we consider a map $f: A \rightarrow b^{-1} A$ defined by $f(a)=b^{-1} a$, for all $a \in A$, then $f$ is a 1-1 map and so $\left|b^{-1} A\right| \geq|A|>\frac{3}{4}|G|$. Now using inclusion-exclusion principle we have
+$$
+\left|A \cap\left(b^{-1} A\right)\right|=|A|+\left|b^{-1} A\right|-\left|A \cup\left(b^{-1} A\right)\right|>\frac{3}{4}|G|+\frac{3}{4}|G|-|G|=\frac{1}{2}|G|
+$$
+2. Argue that $A \cap\left(b^{-1} A\right) \subseteq C(b)$, where $C(b)$ is the centralizer of $b$ in $G$.
+
+Suppose $x \in A \cap\left(b^{-1} A\right)$, that means, $x \in A$ and $x \in b^{-1} A$. Thus there exist an element $a \in A$ such that $x=$ $b^{-1} a$, which gives us $x b=a \in A$. Now notice that $x, b \in A$ and $x b \in A$, therefore we get
+$$
+\phi(x b)=(x b)^{-1} \Longrightarrow \phi(x) \phi(b)=(x b)^{-1} \Longrightarrow x^{-1} b^{-1}=b^{-1} x^{-1} \Longrightarrow x b=b x
+$$
+Therefore, we get $x b=b x$, for any $x \in A \cap\left(b^{-1} A\right)$, that means, $x \in C(b)$.
+
+3. Argue that $C(b)=G$.
+We know that centralizer of an element in a group $G$ is a subgroup (See Page 53). Therefore $C(b)$ is a subgroup of $G$. From statements $\mathbf{1}$ and $\mathbf{2}$, we have
+$$
+|C(b)| \geq\left|A \cap\left(b^{-1} A\right)\right|>\frac{|G|}{2}
+$$
+We need to use the following remark to argue $C(b)=G$ from the above step.
+Remark. Let $G$ be a finite group and $H$ be a subgroup with more then $|G| / 2$ elements then $H=G$.
+
+Proof of Remark. Suppose $|H|=p$ Then by Lagrange Theorem, there exist an $n \in \mathbb{N}$, such that $|G|=n p$, as $|H|$ divide $|G|$. Now by hypothesis $p>\frac{G]}{2}$ gives us,
+$$
+p>\frac{|G|}{2} \Longrightarrow n p>\frac{n|G|}{2} \Longrightarrow n<2 \Longrightarrow n=1
+$$
+Therefore we get $H=G$.
+
+Now notice that $C(b)$ is a subgroup of $G$ with $C(b)$ having more than $|G| / 2$ elements. Therefore, $C(b)=G$.
+
+4. Show that $A \in Z(G)$.
+
+We know that $x \in Z(G)$ if and only if $C(a)=G$. Now notice that, for any $b \in A$ we have $C(b)=G$. Therefore, every element of $A$ is in the center of $G$, that means, $A \subseteq Z(G)$.
+
+5. 5how that $Z(G)=G$.
+
+As it is given that $|A|>\frac{3|G|}{4}$ and $A \leq|Z(G)|$, therefore we get
+$$
+|Z(G)|>\frac{3}{4}|G|>\frac{1}{2}|G| .
+$$
+As $Z(G)$ is a subgroup of $G$, so by the above Remark we have $Z(G)=G$. Hence $G$ is abelian.
+
+6. Finally show that $A=G$.
+
+First notice that $A$ is a subgroup of $G$. To show this let $p, q \in A$. Then we have
+$$
+\phi(p q)=\phi(p) \phi(q)=p^{-1} q^{-1}=(q p)^{-1}=(p q)^{-1}, \quad \text { As } G \text { is abelian. }
+$$
+Therefore, $p q \in A$ and so we have $A$ is a subgroup of $G$. Again by applying the above remark. we get $A=G$. Therefore we have
+$$
+\phi(y)=y^{-1}, \quad \text { for all } y \in G
+$$
+
+\end{proof}
+
 
 
 \paragraph{Exercise 2.6.15} If $G$ is an abelian group and if $G$ has an element of order $m$ and one of order $n$, where $m$ and $n$ are relatively prime, prove that $G$ has an element of order $mn$.
+\begin{proof}
+Let $G$ be an abelian group, and let $a$ and $b$ be elements in $G$ of order $m$ and $n$, respectively, where $m$ and $n$ are relatively prime. We will show that the product $ab$ has order $mn$ in $G$, which will prove that $G$ has an element of order $mn$.
 
+To show that $ab$ has order $mn$, let $k$ be the order of $ab$ in $G$. We have $a^m = e$, $b^n = e$, and $(ab)^k = e$, where $e$ denotes the identity element of $G$. Since $G$ is abelian, we have
+$$(ab)^{mn} = a^{mn}b^{mn} = e \cdot e = e.$$
+Thus, $k$ is a divisor of $mn$.
+
+Now, observe that $a^k = b^{-k}$. Since $m$ and $n$ are relatively prime, there exist integers $x$ and $y$ such that $mx + ny = 1$. Taking $kx$ on both sides of the equation, we get $a^{kx} = b^{-kx}$, or equivalently, $(a^k)^x = (b^k)^{-x}$. It follows that $a^{kx} = (a^m)^{xny} = e$, and similarly, $b^{ky} = (b^n)^{mxk} = e$. Therefore, $m$ divides $ky$ and $n$ divides $kx$. Since $m$ and $n$ are relatively prime, it follows that $mn$ divides $k$. Hence, $k = mn$, and $ab$ has order $mn$ in $G$. This completes the proof.
+\end{proof}
 
 \paragraph{Exercise 2.7.7} If $\varphi$ is a homomorphism of $G$ onto $G'$ and $N \triangleleft G$, show that $\varphi(N) \triangleleft G'$.
+\begin{proof}
+We first claim that $\varphi(N)$ is a subgroup of $G'$. To see this, note that since $N$ is a subgroup of $G$, the identity element $e_G$ of $G$ belongs to $N$. Therefore, the element $\varphi(e_G) \in \varphi(N)$, so $\varphi(N)$ is a non-empty subset of $G'$.
 
+Now, let $a', b' \in \varphi(N)$. Then there exist elements $a, b \in N$ such that $\varphi(a) = a'$ and $\varphi(b) = b'$. Since $N$ is a subgroup of $G$, we have $a, b \in N$, so $ab^{-1} \in N$. Thus, we have
+$$\varphi(ab^{-1}) = \varphi(a) \varphi(b^{-1}) = a'b'^{-1} \in \varphi(N),$$
+which shows that $a', b' \in \varphi(N)$ implies $a'b'^{-1} \in \varphi(N)$. Therefore, $\varphi(N)$ is a subgroup of $G'$.
+
+Next, we will show that $\varphi(N)$ is a normal subgroup of $G'$. Let $\varphi(N) = N'$, a subgroup of $G'$. Let $x' \in G'$ and $h' \in N'$. Since $\varphi$ is onto, there exist elements $x \in G$ and $h \in N$ such that $\varphi(x) = x'$ and $\varphi(h) = h'$.
+
+Since $N$ is a normal subgroup of $G$, we have $xhx^{-1} \in N$. Thus,
+$$\varphi(xhx^{-1}) = \varphi(x)\varphi(h)\varphi(x^{-1}) = x'h'x'^{-1} \in \varphi(N),$$
+which shows that $x' \in G'$ and $h' \in N'$ implies $x'h'x'^{-1} \in \varphi(N)$. Therefore, $\varphi(N)$ is a normal subgroup of $G'$. This completes the proof.
+\end{proof}
 
 \paragraph{Exercise 2.8.12} Prove that any two nonabelian groups of order 21 are isomorphic.
+\begin{proof}
+    By Cauchy's theorem we have that if $G$ is a group of order 21 then it has an element $a$ of order 3 and an element $b$ of order 7. By exercise 2.5.41 we have that the subgroup generated by $b$ is normal, so there is some $i=0,1,2,3,4,5,6$ such that $a b a^{-1}=b^i$. We know $i \neq$ 0 since that implies $a b=a$ and so that $b=e$, a contradiction, and we know $i \neq 1$ since then $a b=b a$ and this would imply $G$ is abelian, which we are assuming is not the case.
+Now, $a$ has order 3 so we must have $b=a^3 b a^{-3}=b^{i^3}$ mod 7 , and so $i$ is restricted by the modular equation $i^3 \equiv 1 \bmod 7$
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline$x$ & $x^3 \bmod 7$ \\
+\hline 2 & 1 \\
+\hline 3 & 6 \\
+\hline 4 & 1 \\
+\hline 5 & 6 \\
+\hline 6 & 6 \\
+\hline
+\end{tabular}
+\end{center}
+Therefore the only options are $i=2$ and $i=4$. Now suppose $G$ is such that $a b a^{-1}=b^2$ and let $G^{\prime}$ be another group of order 21 with an element $c$ of order 3 and an element $d$ of order 7 such that $c d c^{-1}=d^4$. We now prove that $G$ and $G^{\prime}$ are isomorphic. Define
+$$
+\begin{aligned}
+\phi: G & \rightarrow G^{\prime} \\
+a & \mapsto c^{-1} \\
+b & \mapsto d
+\end{aligned}
+$$
+since $a$ and $c^{-1}$ have the same order and $b$ and $d$ have the same order this is a well defined function. Since
+$$
+\begin{aligned}
+\phi(a) \phi(b) \phi(a)^{-1} & =c^{-1} d c \\
+& =\left(c d^{-1} c^{-1}\right)^{-1} \\
+& =\left(d^{-4}\right)^{-1} \\
+& =d^4 \\
+& =\left(d^2\right)^2 \\
+& =\phi(b)^2
+\end{aligned}
+$$
+$\phi$ is actually a homomorphism. For any $c^i d^j \in G^{\prime}$ we have $\phi\left(a^{-i} b^j\right)=c^i d^j$ so $\phi$ is onto and $\phi\left(a^i b^j\right)=c^{-i} d^j=e$ only if $i=j=0$, so $\phi$ is 1-to-l. Therefore $G$ and $G^{\prime}$ are isomorphic and so up to isomorphism there is only one nonabelian group of order 21 .
+\end{proof}
 
 
 \paragraph{Exercise 2.8.15} Prove that if $p > q$ are two primes such that $q \mid p - 1$, then any two nonabelian groups of order $pq$ are isomorphic.
+\begin{proof}
+    For a nonabelian group of order $p q$, the structure of the group $G$ is set by determining the relation $a b a^{-1}=b^{k^{\frac{p-1}{q}}}$ for some generator $k$ of the cyclic group. Here we are using the fact that $k^{\frac{p-1}{q}}$ is a generator for the unique subgroup of order $q$ in $U_p$ (a cyclic group of order $m$ has a unique subgroup of order $d$ for each divisor $d$ of $m$ ). The other possible generators of this subgroup are $k^{\frac{l(p-1)}{q}}$ for each $1 \leq l \leq q-1$, so these give potentially new group structures. Let $G^{\prime}$ be a group with an element $c$ of order $q$, an element $d$ of order $p$ with structure defined by the relation $c d c^{-1}=d^{k^{\frac{l(p-1)}{q}}}$. We may then define
+$$
+\begin{aligned}
+\phi: G^{\prime} & \rightarrow G \\
+c & \mapsto a^l \\
+d & \mapsto b
+\end{aligned}
+$$
+since $c$ and $a^l$ have the same order and $b$ and $d$ have the same order this is a well defined function.
+Since
+$$
+\begin{aligned}
+\phi(c) \phi(d) \phi(c)^{-1} & =a^l b a^{-l} \\
+& =b^{\left(k^{\frac{p-1}{q}}\right)^l} \\
+& =b^{k^{\frac{l(p-1)}{q}}} \\
+& =\phi(d)^{k^{\frac{l(p-1)}{q}}}
+\end{aligned}
+$$
+$\phi\left(c^i d^j\right)=a^{l i} b^j=e$ only if $i=j=0$, so $\phi$ is 1-to-l. Therefore $G$ and $G^{\prime}$ are isomorphic and so up to isomorphism there is only one nonabelian group of order $p q$.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.9.2} If $G_1$ and $G_2$ are cyclic groups of orders $m$ and $n$, respectively, prove that $G_1 \times G_2$ is cyclic if and only if $m$ and $n$ are relatively prime.
+\begin{proof}
+    The order of $G \times H$ is $n$. $m$. Thus, $G \times H$ is cyclic iff it has an element with order n. $m$. Suppose $\operatorname{gcd}(n . m)=1$. This implies that $g^m$ has order $n$, and analogously $h^n$ has order $m$. That is, $g \times h$ has order $n$. $m$, and therefore $G \times H$ is cyclic.
+
+Suppose now that $\operatorname{gcd}(n . m)>1$. Let $g^k$ be an element of $G$ and $h^j$ be an element of $H$. Since the lowest common multiple of $n$ and $m$ is lower than the product $n . m$, that is, $\operatorname{lcm}(n, m)<n$. $m$, and since $\left(g^k\right)^{l c m(n, m)}=e_G,\left(h^j\right)^{l c m(n, m)}=e_H$, we have $\left(g^k \times h^j\right)^{l c m(n, m)}=e_{G \times H}$. It follows that every element of $G \times H$ has order lower than $n . m$, and therefore $G \times H$ is not cyclic.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.10.1} Let $A$ be a normal subgroup of a group $G$, and suppose that $b \in G$ is an element of prime order $p$, and that $b \not\in A$. Show that $A \cap (b) = (e)$.
+\begin{proof}
+If $b \in G$ has order $p$, then $(b)$ is a cyclic group of order $p$. Since $A$ is a subgroup of $G$, we have $A \cap (b)$ is a subgroup of $G$. Also, $A \cap (b) \subseteq (b)$. So $A \cap (b)$ is a subgroup of $(b)$. Since $(b)$ is a cyclic group of order $p$, the only subgroups of $(b)$ are $(e)$ and $(b)$ itself.
+
+Therefore, either $A \cap (b) = (e)$ or $A \cap (b) = (b)$. If $A \cap (b) = (e)$, then we are done. Otherwise, if $A \cap (b) = (b)$, then $A \subseteq (b)$. Since $A$ is a subgroup of $G$ and $A \subseteq (b)$, it follows that $A$ is a subgroup of $(b)$.
+
+Since the only subgroups of $(b)$ are $(e)$ and $(b)$ itself, we have either $A = (e)$ or $A = (b)$. If $A = (e)$, then $A \cap (b) = (e)$ and we are done. But if $A = (b)$, then $b \in A$ as $b \in (b)$, which contradicts our hypothesis that $b \notin A$. So $A \neq (b)$.
+
+Hence $A \cap (b) \neq (b)$. Therefore, $A \cap (b) = (e)$. This completes our proof.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.11.6} If $P$ is a $p$-Sylow subgroup of $G$ and $P \triangleleft G$, prove that $P$ is the only $p$-Sylow subgroup of $G$.
+\begin{proof}
+    let $G$ be a group and $P$ a sylow-p subgroup. Given $P$ is normal. By sylow second theorem the sylow-p subgroups are conjugate. Let $K$ be any other sylow-p subgroup. Then there exists $g \in G$ such that $K=g P g^{-1}$. But since $P$ is normal $K=g P g^{-1}=P$. Hence the sylow-p subgroup is unique.
+\end{proof}
 
 
 \paragraph{Exercise 2.11.7} If $P \triangleleft G$, $P$ a $p$-Sylow subgroup of $G$, prove that $\varphi(P) = P$ for every automorphism $\varphi$ of $G$.
+\begin{proof}
+    Let $\phi$ be an automorphism of $G$. Let $P$ be a normal sylow p-subgroup. $\phi(P)$ is also a sylow-p subgroup. But since $P$ is normal, it is unique. Hence $\phi(P)=P$.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.11.22} Show that any subgroup of order $p^{n-1}$ in a group $G$ of order $p^n$ is normal in $G$.
+\begin{proof}
+Proof: First we prove the following lemma.
+
+\textbf{Lemma:} If $G$ is a finite $p$-group with $|G|>1$, then $Z(G)$, the center of $G$, has more than one element; that is, if $|G|=p^k$ with $k\geq 1$, then $|Z(G)|>1$.
+
+\textit{Proof of the lemma:} Consider the class equation
+$$
+|G|=|Z(G)|+\sum_{a \notin Z(G)}[G: C(a)],
+$$
+where $C(a)$ denotes the centralizer of $a$ in $G$. If $G=Z(G)$, then the lemma is immediate. Suppose $Z(G)$ is a proper subset of $G$ and consider an element $a\in G$ such that $a\notin Z(G)$. Then $C(a)$ is a proper subgroup of $G$. Since $C(a)$ is a subgroup of a $p$-group, $[G:C(a)]$ is divisible by $p$ for all $a\notin Z(G)$. This implies that $p$ divides $|G|=|Z(G)|+\sum_{a\notin Z(G)} [G:C(a)]$.
+
+Since $p$ also divides $|G|$, it follows that $p$ divides $|Z(G)|$. Hence, $|Z(G)|>1$. $\Box$
+
+This proves our \textbf{lemma}.
+
+We will prove the result by induction on $n$.
+If $n=1$, the $G$ is a cyclic group of prime order and hence every subgroup of $G$ is normal in $G$. Thus, the result is true for $n=1$.
+Suppose the result is true for all groups of order $p^m$, where $1 \leq m<n$.
+Let $H$ be a subgroup of order $p^{n-1}$.
+Consider $N(H)=\{g \in H: g H=H g\}$.
+If $H \neq N(H)$, then $|N(H)|>p^{n-1}$. Thus, $|N(H)|=p^n$ and $N(H)=G$.
+In this case $H$ is normal in $G$.
+Let $H=N(H)$. Then $Z(G)$, the center of $G$, is a subset of $H$ and $Z(G) \neq$ $\{e\}$.
+By Cauchy's theorem and the above Claim, there exists $a \in Z(G)$ such that $o(a)=p$.
+Let $K=\langle a\rangle$, a cyclic group generated by $a$.
+Then $K$ is a normal subgroup of $G$ of order $p$. Now, $|H / K|=p^{n-2}$ and $|G / K|=p^{n-1}$.
+Thus, by induction hypothesis, $H / K$ is a normal subgroup of $G / K$.
+\end{proof}
+
 
 
 \paragraph{Exercise 3.2.21} If $\sigma, \tau$ are two permutations that disturb no common element and $\sigma \tau = e$, prove that $\sigma = \tau = e$.
+\begin{proof}
+    Note that $\sigma \tau=e$ can equivalentnly be phrased as $\tau$ being the inverse of $\sigma$. Our statement is then equivalent to the statement that an inverse of a nonidentity permutation disturbs at least one same element as that permutation. To prove this, let $\sigma$ be a nonidentity permutation, then let $\left(i_1 \cdots i_n\right)$ be a cycle in $\sigma$. Then we have that
+$$
+\sigma\left(i_1\right)=i_2, \sigma\left(i_2\right)=i_2, \ldots, \sigma\left(i_{n-1}\right)=i_n, \sigma\left(i_n\right)=i_1,
+$$
+but then also
+$$
+i_1=\tau\left(i_2\right), i_2=\tau\left(i_3\right), \ldots, i_{n-1}=\tau\left(i_n\right), i_n=\tau\left(i_1\right),
+$$
+i.e. its inverse disturbs $i_1, \ldots, i_n$.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.1.19} Show that there is an infinite number of solutions to $x^2 = -1$ in the quaternions.
+\begin{proof}
+Let $x=a i+b j+c k$ then
+$$
+x^2=(a i+b j+c k)(a i+b j+c k)=-a^2-b^2-c^2=-1
+$$
+This gives $a^2+b^2+c^2=1$ which has infinitely many solutions for $-1<a, b, c<1$.
+\end{proof}
 
 
 \paragraph{Exercise 4.1.34} Let $T$ be the group of $2\times 2$ matrices $A$ with entries in the field $\mathbb{Z}_2$ such that $\det A$ is not equal to 0. Prove that $T$ is isomorphic to $S_3$, the symmetric group of degree 3.
 
-
 \paragraph{Exercise 4.2.5} Let $R$ be a ring in which $x^3 = x$ for every $x \in R$. Prove that $R$ is commutative.
-
+\begin{proof}
+To begin with
+$$
+2 x=(2 x)^3=8 x^3=8 x .
+$$
+Therefore $6 x=0 \quad \forall x$.
+Also
+$$
+(x+y)=(x+y)^3=x^3+x^2 y+x y x+y x^2+x y^2+y x y+y^2 x+y^3
+$$
+and
+$$
+(x-y)=(x-y)^3=x^3-x^2 y-x y x-y x^2+x y^2+y x y+y^2 x-y^3
+$$
+Subtracting we get
+$$
+2\left(x^2 y+x y x+y x^2\right)=0
+$$
+Multiply the last relation by $x$ on the left and right to get
+$$
+2\left(x y+x^2 y x+x y x^2\right)=0 \quad 2\left(x^2 y x+x y x^2+y x\right)=0 .
+$$
+Subtracting the last two relations we have
+$$
+2(x y-y x)=0 .
+$$
+We then show that $3\left(x+x^2\right)=0 \forall x$. You get this from
+$$
+x+x^2=\left(x+x^2\right)^3=x^3+3 x^4+3 x^5+x^6=4\left(x+x^2\right) .
+$$
+In particular
+$$
+3\left(x+y+(x+y)^2\right)=3\left(x+x^2+y+y^2+x y+y x\right)=0
+$$
+we end-up with $3(x y+y x)=0$. But since $6 x y=0$, we have $3(x y-y x)=0$. Then subtract $2(x y-y x)=0$ to get $x y-y x=0$.
+\end{proof}
 
 \paragraph{Exercise 4.2.6} If $a^2 = 0$ in $R$, show that $ax + xa$ commutes with $a$.
-
+\begin{proof}
+We need to show that
+$$
+a(a x+x a)=(a x+x a) a \text { for } a, x \in R .
+$$
+Now,
+$$
+\begin{gathered}
+a(a x+x a)=a(a x)+a(x a) \\
+=a^2 x+a x a \\
+=0+a x a=a x a .
+\end{gathered}
+$$
+Again,
+$$
+\begin{gathered}
+(a x+x a) a=(a x) a+(x a) a \\
+=a x a+x a^2 \\
+=a x a+0=a x a .
+\end{gathered}
+$$
+It follows that,
+$$
+a(a x+x a)=(a x+x a) a, \text { for } x, a \in R .
+$$
+This shows that $a x+x a$ commutes with $a$. This completes the proof.
+\end{proof}
 
 \paragraph{Exercise 4.2.9} Let $p$ be an odd prime and let $1 + \frac{1}{2} + ... + \frac{1}{p - 1} = \frac{a}{b}$, where $a, b$ are integers. Show that $p \mid a$.
+\begin{proof}
+    First we prove for prime $p=3$ and then for all prime $p>3$.
+Let us take $p=3$. Then the sum
+$$
+\frac{1}{1}+\frac{1}{2}+\ldots+\frac{1}{(p-1)}
+$$
+becomes
+$$
+1+\frac{1}{3-1}=1+\frac{1}{2}=\frac{3}{2} .
+$$
+Therefore in this case $\quad \frac{a}{b}=\frac{3}{2} \quad$ implies $3 \mid a$, i.e. $p \mid a$.
+Now for odd prime $p>3$.
+Let us consider $f(x)=(x-1)(x-2) \ldots(x-(p-1))$.
+Now, by Fermat, we know that the coefficients of $f(x)$ other than the $x^{p-1}$ and $x^0$ are divisible by $p$.
+So if,
+$$
+\begin{array}{r}
+f(x)=x^{p-1}+\sum_{i=0}^{p-2} a_i x^i \\
+\text { and } p>3 .
+\end{array}
+$$
+Then $p \mid a_2$, and
+$$
+f(p) \equiv a_1 p+a_0 \quad\left(\bmod p^3\right)
+$$
+But we see that
+$$
+f(x)=(-1)^{p-1} f(p-x) \text { for any } x,
+$$
+so if $p$ is odd,
+$$
+f(p)=f(0)=a_0,
+$$
+So it follows that:
+$$
+0=f(p)-a_0 \equiv a_1 p \quad\left(\bmod p^3\right)
+$$
+Therefore,
+$$
+0 \equiv a_1 \quad\left(\bmod p^2\right) .
+$$
+Hence,
+$$
+0 \equiv a_1 \quad(\bmod p) .
+$$
+Now our sum is just $\frac{a_1}{(p-1) !}=\frac{a}{b}$.
+It follows that $p$ divides $a$. This completes the proof.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.3.1} If $R$ is a commutative ring and $a \in R$, let $L(a) = \{x \in R \mid xa = 0\}$. Prove that $L(a)$ is an ideal of $R$.
+\begin{proof}
+    First, note that if $x \in L(a)$ and $y \in L(a)$ then $x a=0$ and $y a=0$, so that
+$$
+\begin{aligned}
+x a-y a & =0 \\
+(x-y) a & =0,
+\end{aligned}
+$$
+i.e. $L(a)$ is an additive subgroup of $R$. (We have used the criterion that $H$ is a subgroup of $G$ if for any $h_1, h_2 \in H$ we have that $h_1 h_2^{-1} \in H$. 
+
+Now we prove the conclusion. Let $r \in R$ and $b \in L(a)$, then $b a=0$, and so $x b a=0$ which by associativity of multiplication in $R$ is equivalent to
+$$
+(x b) a=0,
+$$
+so that $x b \in L(a)$. Since $R$ is commutative, (1) implies that $(bx)a=0$, so that $b x \in L(a)$, which concludes the proof that $L(a)$ is an ideal.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.3.25} Let $R$ be the ring of $2 \times 2$ matrices over the real numbers; suppose that $I$ is an ideal of $R$. Show that $I = (0)$ or $I = R$.
+\begin{proof}
+    Suppose that $I$ is a nontrivial ideal of $R$, and let
+$$
+A=\left(\begin{array}{ll}
+a & b \\
+c & d
+\end{array}\right)
+$$
+where not all of $a, b, c d$ are zero. Suppose, without loss of generality -- our steps would be completely analogous, modulo some different placement of 1 s in our matrices, if we assumed some other element to be nonzero -- that $a \neq 0$. Then we have that
+$$
+\left(\begin{array}{ll}
+1 & 0 \\
+0 & 0
+\end{array}\right)\left(\begin{array}{ll}
+a & b \\
+c & d
+\end{array}\right)=\left(\begin{array}{ll}
+a & b \\
+0 & 0
+\end{array}\right) \in I
+$$
+and so
+$$
+\left(\begin{array}{ll}
+a & b \\
+0 & 0
+\end{array}\right)\left(\begin{array}{ll}
+1 & 0 \\
+0 & 0
+\end{array}\right)=\left(\begin{array}{ll}
+a & 0 \\
+0 & 0
+\end{array}\right) \in I
+$$
+so that
+$$
+\left(\begin{array}{ll}
+x & 0 \\
+0 & 0
+\end{array}\right) \in I
+$$
+for any real $x$. Now, also for any real $x$,
+$$
+\left(\begin{array}{ll}
+x & 0 \\
+0 & 0
+\end{array}\right)\left(\begin{array}{ll}
+0 & 1 \\
+0 & 0
+\end{array}\right)=\left(\begin{array}{ll}
+0 & x \\
+0 & 0
+\end{array}\right) \in I .
+$$
+Likewise
+$$
+\left(\begin{array}{ll}
+0 & 0 \\
+1 & 0
+\end{array}\right)\left(\begin{array}{ll}
+0 & x \\
+0 & 0
+\end{array}\right)=\left(\begin{array}{ll}
+0 & 0 \\
+0 & x
+\end{array}\right) \in I
+$$
+and
+$$
+\left(\begin{array}{ll}
+0 & 0 \\
+0 & x
+\end{array}\right)\left(\begin{array}{ll}
+0 & 0 \\
+1 & 0
+\end{array}\right)=\left(\begin{array}{ll}
+0 & 0 \\
+x & 0
+\end{array}\right)
+$$
+Thus, as
+$$
+\left(\begin{array}{ll}
+a & b \\
+c & d
+\end{array}\right)=\left(\begin{array}{ll}
+a & 0 \\
+0 & 0
+\end{array}\right)+\left(\begin{array}{ll}
+0 & b \\
+0 & 0
+\end{array}\right)+\left(\begin{array}{ll}
+0 & 0 \\
+c & 0
+\end{array}\right)+\left(\begin{array}{ll}
+0 & 0 \\
+0 & d
+\end{array}\right)
+$$
+and since all the terms on the right side are in $I$ and $I$ is an additive group, it follows that
+$$
+\left(\begin{array}{ll}
+a & b \\
+c & d
+\end{array}\right)
+$$
+for arbitrary $a, b, c, d$ is in $I$, i.e. $I=R$
+Note that the intuition for picking these matrices is that, if we denote by $E_{i j}$ the matrix with 1 at position $(i, j)$ and 0 elsewhere, then
+$$
+E_{i j}\left(\begin{array}{ll}
+a_{1,1} & a_{1,2} \\
+a_{2,1} & a_{2,2}
+\end{array}\right) E_{n m}=a_{j, n} E_{i m}
+$$
+\end{proof}
+
 
 
 \paragraph{Exercise 4.4.9} Show that $(p - 1)/2$ of the numbers $1, 2, \ldots, p - 1$ are quadratic residues and $(p - 1)/2$ are quadratic nonresidues $\mod p$.
+\begin{proof}
+    To find all the quadratic residues $\bmod p$ among the integers $1,2, \ldots, p-1$, we compute the least positive residues modulo $p$ of the squares of the integers $1,2, \ldots, p-1\}$.
+
+Since there are $p-1$ squares to consider, and since each congruence $x^2 \equiv a (\bmod p)$ has either zero or two solutions, there must be exactly $\frac{(p-1)}{2}$ quadratic residues mod $p$ among the integers $1,2, \ldots, p-1$.
+The remaining
+$$
+(p-1)-\frac{(p-1)}{2}=\frac{(p-1)}{2}
+$$
+positive integers less than $p-1$ are quadratic non-residues of $\bmod p$.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.5.16} Let $F = \mathbb{Z}_p$ be the field of integers $\mod p$, where $p$ is a prime, and let $q(x) \in F[x]$ be irreducible of degree $n$. Show that $F[x]/(q(x))$ is a field having at exactly $p^n$ elements.
+\begin{proof}
+    In the previous problem we have shown that any for any $p(x) \in F[x]$, we have that
+$$
+p(x)+(q(x))=a_{n-1} x^{n-1}+\cdots+a_1 x+a_0+(q(x))
+$$
+for some $a_{n-1}, \ldots, a_0 \in F$, and that there are $p^n$ choices for these numbers, so that $F[x] /(q(x)) \leq p^n$. In order to show that equality holds, we have to show that each of these choices induces a different element of $F[x] /(q(x))$; in other words, that each different polynomial of degree $n-1$ or lower belongs to a different coset of $(q(x))$ in $F[x]$.
+
+Suppose now, then, that
+$$
+a_{n-1} x^{n-1}+\cdots+a_1 x+a_0+(q(x))=b_{n-1} x^{n-1}+\cdots+b_1 x+b_0+(q(x))
+$$
+which is equivalent with $\left(a_{n-1}-b_{n-1}\right)^{n-1}+\cdots\left(a_1-b_1\right) x+\left(a_0-b_0\right) \in(q(x))$, which is in turn equivalent with there being a $w(x) \in F[x]$ such that
+$$
+q(x) w(x)=\left(a_{n-1}-b_{n-1}\right)^{n-1}+\cdots\left(a_1-b_1\right) x+\left(a_0-b_0\right) .
+$$
+Degree of the right hand side is strictly smaller than $n$, while the degree of the left hand side is greater or equal to $n$ except if $w(x)=0$, so that if equality is hold we must have that $w(x)=0$, but then since polynomials are equal iff all of their coefficient are equal we get that $a_{n-1}-b_{n-1}=$ $0, \ldots, a_1-b_1=0, a_0-b_0=0$, i.e.
+$$
+a_{n-1}=b_{n-1}, \ldots, a_1=b_1, a_0=b_0
+$$
+which is what we needed to prove.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.5.23} Let $F = \mathbb{Z}_7$ and let $p(x) = x^3 - 2$ and $q(x) = x^3 + 2$ be in $F[x]$. Show that $p(x)$ and $q(x)$ are irreducible in $F[x]$ and that the fields $F[x]/(p(x))$ and $F[x]/(q(x))$ are isomorphic.
+\begin{proof}
+    We have that $p(x)$ and $q(x)$ are irreducible if they have no roots in $\mathbb{Z}_7$, which can easily be checked. E.g. for $p(x)$ we have that $p(0)=5, p(1)=6, p(2)=6, p(3)=4, p(4)=6$, $p(5)=4, p(6)=4$, and similarly for $q(x)$.
 
+We have that every element of $F[x] /(p(x))$ is equal to $a x^2+b x+c+(p(x))$, and likewise for $F[x] /(q(x))$. We consider a map $\tau$ : $F[x] /(p(x)) \rightarrow F[x] /(q(x))$ given by
+$$
+\tau\left(a x^2+b x+c+(p(x))\right)=a x^2-b x+c+(q(x)) .
+$$
+This map is obviously onto, and since $|F[x] /(p(x))|=|F[x] /(q(x))|=7^3$ by Problem 16, it is also one-to-one. We claim that it is a homomorphism. Additivity of $\tau$ is immediate by the linearity of addition of polynomial coefficient, so we just have to check the multiplicativity; if $n=a x^2+b x+$ $c+(p(x))$ and $m=d x^2+e x+f+(p(x))$ then
+$$
+\begin{aligned}
+\tau(n m) & =\tau\left(a d x^4+(a e+b d) x^3+(a f+b e+c d) x^2+(b f+c e) x+c f+(p(x))\right) \\
+& =\tau\left(2 a d x+2(a e+b d)+(a f+b e+c d) x^2+(b f+c e) x+c f+(p(x))\right) \\
+& =\tau\left((a f+b e+c d) x^2+(b f+c e+2 a d) x+(c f+2 a e+2 b d)+(p(x))\right) \\
+& =(a f+b e+c d) x^2-(b f+c e+2 a d) x+c f+2 a e+2 b d+(q(x)) \\
+& =a d x^4-(a e+b d) x^3+(a f+b e+c d) x^2-(b f+c e) x+c f+(q(x)) \\
+& =\left(a x^2-b x+c+(q(x))\right)\left(d x^2-e x+f+(q(x))\right) \\
+& =\tau(n) \tau(m) .
+\end{aligned}
+$$
+where in the second equality we used that $x^3+p(x)=2+p(x)$ and in the fifth we used that $x^3+$ $q(x)=-2+q(x)$
+\end{proof}
 
 \paragraph{Exercise 4.5.25} If $p$ is a prime, show that $q(x) = 1 + x + x^2 + \cdots x^{p - 1}$ is irreducible in $Q[x]$.
+\begin{proof}
+    Lemma: Let $F$ be a field and $f(x) \in F[x]$. If $c \in F$ and $f(x+c)$ is irreducible in $F[x]$, then $f(x)$ is irreducible in $F[x]$.
+Proof of the Lemma: Suppose that $f(x)$ is reducible, i.e., there exist non-constant $g(x), h(x) \in F[x]$ so that
+$$
+f(x)=g(x) h(x) .
+$$
+In particular, then we have
+$$
+f(x+c)=g(x+c) h(x+c) .
+$$
+Note that $g(x+c)$ and $h(x+c)$ have the same degree at $g(x)$ and $h(x)$ respectively; in particular, they are non-constant polynomials. So our assumption is wrong.
+Hence, $f(x)$ is irreducible in $F[x]$. This proves our Lemma.
+
+Now recall the identity
+$$
+\frac{x^p-1}{x-1}=x^{p-1}+x^{p-2}+\ldots \ldots+x^2+x+1 .
+$$
+We prove that $f(x+1)$ is $\$$ |textbffirreducible in $\mathbb{Q}[x]$ and then apply the Lemma to conclude that $f(x)$ is irreducible in $\mathbb{Q}[x] .3 \$$ Note that
+$$
+\begin{aligned}
+& f(x+1)=\frac{(x+1)^p-1}{x} \\
+& =\frac{x^p+p x^{p-1}+\ldots+p x}{x} \\
+& =x^{p-1}+p x^{p-2}+\ldots .+p .
+\end{aligned}
+$$
+Using that the binomial coefficients occurring above are all divisible by $p$, we have that $f(x+1)$ is irreducible $\mathbb{Q}[x]$ by Eisenstein's criterion applied with prime $p$. 
+
+Then by the lemma $f(x)$ is irreducible $\mathbb{Q}[x]$. This completes the proof.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.6.2} Prove that $f(x) = x^3 + 3x + 2$ is irreducible in $Q[x]$.
+\begin{proof}    
+Let us assume that $f(x)$ is reducible over $\mathbb{Q}[x]$.
+Then there exists a rational root of $f(x)$.
+Let $p / q$ be a rational root of $f(x)$, where $\operatorname{gcd}(p, q)=1$.
+Then $f(p / q)=0$.
+Now,
+$$
+\begin{aligned}
+& f(p / q)=(p / q)^3+3(p / q)+2 \\
+\Longrightarrow & (p / q)^3+3(p / q)+2=0 \\
+\Longrightarrow & p^3+3 p q^2=-2 q^3 \\
+\Longrightarrow & p\left(p^2+3 q^2\right)=-q^3
+\end{aligned}
+$$
+It follows that, $p$ divides $q$ which is a contradiction to the fact that $\operatorname{gcd}(p, q)=1$.
+This implies that $f(x)$ has no rational root.
+Now we know that, a polynomial of degree two or three over a field $F$ is reducible if and only if it has a root in $F$.
+Now $f(x)$ is a 3 degree polynomial having no root in $\mathbb{Q}$.
+So, $f(x)$ is irreducible in $\mathbb{Q}[x]$.
+This completes the proof.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.6.3} Show that there is an infinite number of integers a such that $f(x) = x^7 + 15x^2 - 30x + a$ is irreducible in $Q[x]$.
-
+\begin{proof}
+    Via Eisenstein's criterion and observation that 5 divides 15 and $-30$, it is sufficient to find infinitely many $a$ such that 5 divides $a$, but $5^2=25$ doesn't divide $a$. For example $5 \cdot 2^k$ for $k=0,1, \ldots$ is one such infinite sequence.
+\end{proof}
 
 \paragraph{Exercise 5.1.8} If $F$ is a field of characteristic $p \neq 0$, show that $(a + b)^m = a^m + b^m$, where $m = p^n$, for all $a, b \in F$ and any positive integer $n$.
+\begin{proof}
+    Since $F$ is of characteristic $p$ and we have considered arbitrary two elements $a, b$ in $F$ we have
+$$
+\begin{aligned}
+& p a=p b=0 \\
+& \Longrightarrow p^n a=p^n b=0 \\
+& \Longrightarrow m a=m b=0 \text {. } \\
+&
+\end{aligned}
+$$
+Now we know from Binomial Theorem that
+$$
+(a+b)^m=\sum_{i=0}^m\left(\begin{array}{c}
+m \\
+i
+\end{array}\right) a^i b^{m-i}
+$$
+Here
+$$
+\left(\begin{array}{c}
+m \\
+i
+\end{array}\right)=\frac{m !}{i !(m-i) !} .
+$$
+Now we know that for any integer $n$ and any integer $k$ satisfying $1 \leq k<n, n$ always divides $\left(\begin{array}{l}n \\ k\end{array}\right)$. So in our case for $i$ in the range $1 \leq i<m, m$ divides $\left(\begin{array}{c}m \\ i\end{array}\right)$. It follows that $p$ divides $\left(\begin{array}{c}m \\ i\end{array}\right)$, for $i$ satisfying $1 \leq i<m$, since $m=p^n$ for any integer $n$. Therefore other than the terms $a^m$ and $b^m$ in the expansion $\sum_{i=0}^m\left(\begin{array}{c}m \\ i\end{array}\right) a^i b^{m-i}$ will vanish due to char $p$ nature of $F$.
+Hence we have
+$$
+\sum_{i=0}^m\left(\begin{array}{c}
+m \\
+i
+\end{array}\right) a^i b^{m-i}=a^m+b^m
+$$
+This follows that, for all $a, b \in F$
+$$
+(a+b)^m=a^m+b^m .
+$$
+This completes the proof.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.2.20} Let $V$ be a vector space over an infinite field $F$. Show that $V$ cannot be the set-theoretic union of a finite number of proper subspaces of $V$.
+\begin{proof}
+    Assume that $V$ can be written as the set-theoretic union of $n$ proper subspaces $U_1, U_2, \ldots, U_n$. Without loss of generality, we may assume that no $U_i$ is contained in the union of other subspaces.
 
+Let $u \in U_i$ but $u \notin \bigcup_{j \neq i} U_j$ and $v \notin U_i$. Then, we have $(v + Fu) \cap U_i = \varnothing$, and $(v + Fu) \cap U_j$ for $j \neq i$ contains at most one vector, since otherwise $U_j$ would contain $u$.
+
+Therefore, we have $|v + Fu| \leq |F| \leq n-1$. However, since $n$ is a finite natural number, this contradicts the fact that the field $F$ is finite.
+
+Thus, our assumption that $V$ can be written as the set-theoretic union of proper subspaces is wrong, and the claim is proven.
+\end{proof}
 
 \paragraph{Exercise 5.3.7} If $a \in K$ is such that $a^2$ is algebraic over the subfield $F$ of $K$, show that a is algebraic over $F$.
+\begin{proof}
+    Since $a^2$ is algebraic over $F$, there exist a non-zero polynomial $f(x)$ in $F[x]$ such that $f\left(a^2\right)=0$. Consider a new polynomial $g(x)$ defined as $g(x)=f\left(x^2\right)$. Clearly $g(x) \in F[x]$ and $g(a)=f\left(a^2\right)= 0$.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.3.10} Prove that $\cos 1^{\circ}$  is algebraic over $\mathbb{Q}$.
+\begin{proof}
+    Since $\left(\cos \left(1^{\circ}\right)+i \sin \left(1^{\circ}\right)\right)^{360}=1$, the number $\cos \left(1^{\circ}\right)+i \sin \left(1^{\circ}\right)$ is algebraic. And the real part and the imaginary part of an algebraic number are always algebraic numbers.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.4.3} If $a \in C$ is such that $p(a) = 0$, where $p(x) = x^5 + \sqrt{2}x^3 + \sqrt{5}x^2 + \sqrt{7}x + \sqrt{11}$, show that $a$ is algebraic over $\mathbb{Q}$ of degree at most 80.
+\begin{proof}
+    Given $a \in \mathbb{C}$ such that $p(a)=0$, where
+$$
+p(x)=x^5+\sqrt{2} x^3+\sqrt{5} x^2+\sqrt{7} x+\sqrt{11}
+$$
+Here, we note that $p(x) \in \mathbb{Q}(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11})$ and
+$$
+\begin{aligned}
+    {[Q(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11}): \mathbb{Q}] } & =[Q(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11}): Q(\sqrt{2}, \sqrt{5}, \sqrt{7})] \cdot[\mathbb{Q}(\sqrt{2}, \sqrt{5}, \sqrt{7}): \mathbb{Q}(\sqrt{2}, \sqrt{5})] \\
+& \cdot[\mathbb{Q}(\sqrt{2}, \sqrt{5}): \mathbb{Q}(\sqrt{2})] \cdot[\mathbb{Q}(\sqrt{2}): \mathbb{Q}] \\
+& =2 \cdot 2 \cdot 2 \cdot 2 \\
+& =16
+\end{aligned}
+$$
+Here, we note that $p(x)$ is of degree 5 over $\mathbb{Q}(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11})$. If $a$ is root of $p(x)$, then
+$$
+[Q(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11}, a): \mathbb{Q}]=[Q(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11}): Q(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11})] \cdot 15
+$$
+and $[Q(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11}): Q(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11})] \leq 5$. We get equality if $p(x)$ is irreducible over $Q(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11})$. This gives
+$$
+[Q(\sqrt{2}, \sqrt{5}, \sqrt{7}, \sqrt{11}, a): \mathbb{Q}] \leq 16 \cdot 5=80
+$$
+\end{proof}
+
 
 
 \paragraph{Exercise 5.5.2} Prove that $x^3 - 3x - 1$ is irreducible over $\mathbb{Q}$.
+\begin{proof}
+Let $p(x)=x^3-3 x-1$. Then
+$$
+p(x+1)=(x+1)^3-3(x+1)-1=x^3+3 x^2-3
+$$
+We have $3|3,3| 0$ but $3 \nmid 1$ and $3^2 \nmid 3$. Thus the polynomial is irreducible over $\mathbb{Q}$ by 3 -Eisenstein criterion.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.6.14} If $F$ is of characteristic $p \neq 0$, show that all the roots of $x^m - x$, where $m = p^n$, are distinct.
+\begin{proof}
+    Let us consider $f(x)=x^m-x$. Then $f \in F[x]$.
+Claim: $f(x)$ has a multiple root in some extension of $F$ if and only if $f(x)$ is not relatively prime to its formal derivative, $f^{\prime}(x)$. 
+
+Proof of the Claim: Let us assume that $f(x)$ has a multiple root in some extension of $F$. Let $y$ be a multiple root of $f(x)$. Then over a splitting field, we have
+$$
+f(x)=(x-y)^n g(x), \text { for some integer } n \geq 2 .
+$$
+Here $g(x)$ is a polynomial such that $g(y) \neq 0$. Now taking derivative of $f$ we get
+$$
+f^{\prime}(x)=n \cdot(x-y)^{n-1} g(x)+(x-y)^n g^{\prime}(x)
+$$
+here $g^{\prime}(x)$ implies derivative of $g$ with respect to $x$. Since we have $n \geq 2$, this implies $(n-1) \geq 1$. Hence, (1) shows that $f^{\prime}(x)$ has $y$ as a root. Therefore, $f(x)$ is not relatively prime to $f^{\prime}(x)$. We now prove the other direction.
+Conversely, let us assume that $f(x)$ is not relatively prime to $f^{\prime}(x)$. Let $y$ is a root of both $f(x)$ and $f^{\prime}(x)$. Since $y$ is a root of $f(x)$, we can write
+$$
+f(x)=(x-y) \cdot g(x)
+$$
+for some polynomial $g(x)$. then taking derivative of $f(x)$ we have
+$$
+f^{\prime}(x)=g(x)+(x-y) \cdot g^{\prime}(x)
+$$
+where $g^{\prime}(x)$ is the derivative of $g(x)$ with respect to $x$. Since $y$ is a root of $f^{\prime}(x)$ also we have
+$$
+f^{\prime}(y)=0
+$$
+Then we have
+$$
+\begin{aligned}
+& f^{\prime}(y)=g(y)+(y-y) \cdot g^{\prime}(y) \\
+\Longrightarrow & f^{\prime}(y)=g(y) \\
+\Longrightarrow & g(y)=0 .
+\end{aligned}
+$$
+This implies $y$ is a root of $g(x)$ also. Therefore we have
+$$
+g(x)=(x-y) \cdot h(x)
+$$
+for some polynomial $h(x)$. Now form (2) we have
+$$
+f(x)=(x-y)^2 \cdot h(x) .
+$$
+This follows that $y$ is a multiple root of $f(x)$. Therefore, $f(x)$ has a multiple root in some extension of the field $F$. This completes the proof of the Claim.
+
+In our case, $f(x)=x^m-x$, where $m=p^n$. Now we calculate the derivative of $f$. That is
+$$
+f^{\prime}(x)=m x^{m-1}-1=-1(\bmod p) .
+$$
+By the above condition it follows that, $f^{\prime}$ has no root same as $f$, that is, $f(x)$ and $f^{\prime}(x)$ are relatively prime. Hence, $f(x)$ has no multiple root in $F$. Since $f(x)=x^m-x$ is a polynomial of degree $m$, it follows that $f(x)$ has $m$ distinct roots in $F$, where $m=p^n$. This completes the proof.
+\end{proof}
 
 
 

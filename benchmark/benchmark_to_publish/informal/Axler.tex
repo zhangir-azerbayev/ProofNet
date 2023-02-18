@@ -56,93 +56,595 @@ This implies both $v$ and $-(-v)$ are additive inverses of $-v$, by the uniquene
 
 
 \paragraph{Exercise 1.4} Prove that if $a \in \mathbf{F}$, $v \in V$, and $av = 0$, then $a = 0$ or $v = 0$.
+\begin{proof}
+    If $a=0$, then we immediately have our result. So suppose $a \neq 0$. Then, because $a$ is some nonzero real or complex number, it has a multiplicative inverse $\frac{1}{a}$. Now suppose that $v$ is some vector such that
+$$
+a v=0
+$$
+Multiply by $\frac{1}{a}$ on both sides of this equation to get
+$$
+\begin{aligned}
+\frac{1}{a}(a v) & =\frac{1}{a} 0 & & \\
+\frac{1}{a}(a v) & =0 & & \\
+\left(\frac{1}{a} \cdot a\right) v & =0 & & \text { (associativity) } \\
+1 v & =0 & & \text { (definition of } 1/a) \\
+v & =0 & & \text { (multiplicative identity) }
+\end{aligned}
+$$
+Hence either $a=0$ or, if $a \neq 0$, then $v=0$.
+\end{proof}
+
 
 
 \paragraph{Exercise 1.6} Give an example of a nonempty subset $U$ of $\mathbf{R}^2$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u \in U$ whenever $u \in U$), but $U$ is not a subspace of $\mathbf{R}^2$.
+\begin{proof}
+    \[U=\mathbb{Z}^2=\left\{(x, y) \in \mathbf{R}^2: x, y \text { are integers }\right\}\]
+$U=\mathbb{Z}^2$ satisfies the desired properties. To come up with this, note by assumption, $U$ must be closed under addition and subtraction, so in particular, it must contain 0 . We need to find a set which fails scalar multiplication. A discrete set like $\mathbb{Z}^2$ does this.
+\end{proof}
+
 
 
 \paragraph{Exercise 1.7} Give an example of a nonempty subset $U$ of $\mathbf{R}^2$ such that $U$ is closed under scalar multiplication, but $U$ is not a subspace of $\mathbf{R}^2$.
+\begin{proof}
+$$
+U=\left\{(x, y) \in \mathbf{R}^2:|x|=|y|\right\}
+$$
+For $(x, y) \in U$ and $\lambda \in \mathbb{R}$, it follows $\lambda(x, y)=$ $(\lambda x, \lambda y)$, so $|\lambda x|=|\lambda||x|=|\lambda||y|=|\lambda y|$. Therefore, $\lambda(x, y) \in U$.
+
+On the other hand, consider $a=(1,-1), b=$ $(1,1) \in U$. Then, $a+b=(1,-1)+(1,1)=$ $(2,0) \notin U$. So, $U$ is not a subspace of $\mathbb{R}^2$.
+\end{proof}
+
 
 
 \paragraph{Exercise 1.8} Prove that the intersection of any collection of subspaces of $V$ is a subspace of $V$.
+\begin{proof}
+Let $V_1, V_2, \ldots, V_n$ be subspaces of the vector space $V$ over the field $F$. We must show that their intersection $V_1 \cap V_2 \cap \ldots \cap V_n$ is also a subspace of $V$.
+
+To begin, we observe that the additive identity $0$ of $V$ is in $V_1 \cap V_2 \cap \ldots \cap V_n$. This is because $0$ is in each subspace $V_i$, as they are subspaces and hence contain the additive identity.
+
+Next, we show that the intersection of subspaces is closed under addition. Let $u$ and $v$ be vectors in $V_1 \cap V_2 \cap \ldots \cap V_n$. By definition, $u$ and $v$ belong to each of the subspaces $V_i$. Since each $V_i$ is a subspace and therefore closed under addition, it follows that $u+v$ belongs to each $V_i$. Thus, $u+v$ belongs to the intersection $V_1 \cap V_2 \cap \ldots \cap V_n$.
+
+Finally, we show that the intersection of subspaces is closed under scalar multiplication. Let $a$ be a scalar in $F$ and let $v$ be a vector in $V_1 \cap V_2 \cap \ldots \cap V_n$. Since $v$ belongs to each $V_i$, we have $av$ belongs to each $V_i$ as well, as $V_i$ are subspaces and hence closed under scalar multiplication. Therefore, $av$ belongs to the intersection $V_1 \cap V_2 \cap \ldots \cap V_n$.
+
+Thus, we have shown that $V_1 \cap V_2 \cap \ldots \cap V_n$ is a subspace of $V$.
+\end{proof}
+
 
 
 \paragraph{Exercise 1.9} Prove that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces is contained in the other.
+\begin{proof}
+    To prove this one way, suppose for purposes of contradiction that for $U_1$ and $U_2$, which are subspaces of $V$, that $U_1 \cup U_2$ is a subspace and neither is completely contained within the other. In other words, $U_1 \nsubseteq U_2$ and $U_2 \nsubseteq U_1$. We will show that you can pick a vector $v \in U_1$ and a vector $u \in U_2$ such that $v+u \notin U_1 \cup U_2$, proving that if $U_1 \cup U_2$ is a subspace, one must be completely contained inside the other.
+
+If $U_1 \nsubseteq U_2$, we can pick a $v \in U_1$ such that $v \notin U_2$. Since $v$ is in the subspace $U_1$, then $(-v)$ must also be, by definition. Similarly, if $U_2 \nsubseteq U_1$, then we can pick a $u \in U_2$ such that $u \notin U_1$. Since $u$ is in the subspace $U_2$, then $(-u)$ must also be, by definition.
+
+If $v+u \in U_1 \cup U_2$, then $v+u$ must be in $U_1$ or $U_2$. But, $v+u \in U_1 \Rightarrow v+u+(-v) \in U_1 \Rightarrow u \in U_1$
+Similarly,
+$$
+v+u \in U_2 \Rightarrow v+u+(-u) \in U_2 \Rightarrow v \in U_2
+$$
+This is clearly a contradiction, as each element was defined to not be in these subspaces. Thus our initial assumption must have been wrong, and $U_1 \subseteq U_2$ or $U_2 \subseteq U_1$
+To prove the other way, Let $U_1 \subseteq U_2$ (WLOG). $U_1 \subseteq U_2 \Rightarrow U_1 \cup U_2=U_2$. Since $U_2$ is a subspace, $U_1 \cup U_2$ is as well. QED.
+\end{proof}
+
 
 
 \paragraph{Exercise 3.1} Show that every linear map from a one-dimensional vector space to itself is multiplication by some scalar. More precisely, prove that if $\operatorname{dim} V=1$ and $T \in \mathcal{L}(V, V)$, then there exists $a \in \mathbf{F}$ such that $T v=a v$ for all $v \in V$.
+\begin{proof}
+    If $\operatorname{dim} V=1$, then in fact, $V=\mathbf{F}$ and it is spanned by $1 \in \mathbf{F}$.
+Let $T$ be a linear map from $V$ to itself. Let $T(1)=\lambda \in V(=\mathbf{F})$.
+Step 2
+2 of 3
+Every $v \in V$ is a scalar. Therefore,
+$$
+\begin{aligned}
+T(v) & =T(v \cdot 1) \\
+& =v T(1) \ldots .(\text { By the linearity of } T) \\
+& =v \lambda
+\end{aligned}
+$$
+Hence, $T v=\lambda v$ for every $v \in V$.
+\end{proof}
+
 
 
 \paragraph{Exercise 3.8} Suppose that $V$ is finite dimensional and that $T \in \mathcal{L}(V, W)$. Prove that there exists a subspace $U$ of $V$ such that $U \cap \operatorname{null} T=\{0\}$ and range $T=\{T u: u \in U\}$.
+\begin{proof}
+    The point here is to note that every subspace of a vector space has a complementary subspace.
+In this example, $U$ will precisely turn out to be the complementary subspace of null $T$. That is, $V=U \oplus \operatorname{null} T$
+How should we characterize $U$ ? This can be achieved by extending a basis $B_1=\left\{v_1, v_2, \ldots, v_m\right\}$ of null $T$ to a basis of $V$. Let $B_2=\left\{u_1, u_2, \ldots, u_n\right\}$ be such that $B=B_1 \cup B_2$ is a basis of $V$.
+
+Define $U=\operatorname{span}\left(B_2\right)$. Now, since $B_1$ and $B_2$ are complementary subsets of the basis $B$ of $V$, their spans will turn out to be complementary subspaces of $V$. Let's prove that $V=U \oplus$ null $T$.
+
+Let $v \in V$. Then, $v$ can be expressed as a linear combination of the vectors in $B$.
+Let $v=a_1 u_1+\cdots+a_n u_n+c_1 v_1+\cdots+c_m v_m$. However, since $\left\{u_1, u_2, \ldots, u_n\right\}$ is a basis of $U, a_1 u_1+$ $\cdots+a_n u_n=u \in U$ and since $\left\{v_1, v_2, \ldots, v_m\right\}$ is a basis of null $T, c_1 v_1+\cdots+c_m v_m=w \in$ null $T$.
+Hence, $v=u+w \in U+\operatorname{null} T$. This shows that
+$$
+V=U+\operatorname{null} T
+$$
+Now, let $v \in U \cap \operatorname{null} T$.
+Since $v \in U, u$ can be expressed as a linear combination of basis vectors of $U$. Let
+$$
+v=a_1 u_1+\cdots+a_n u_n
+$$
+Similarly, since $v \in \operatorname{null} T$, it can also be expressed as a tinear combination of the basis vectors of null $T$. Let
+$$
+v=c_1 v_1+\cdots+c_m v_m
+$$
+The left hand sides of the above two equations are equal. Therefore, we can equate the right hand sides.
+$$
+\begin{aligned}
+& a_1 u_1+\cdots+a_n u_n=v=c_1 v_1+\cdots+c_m v_m \\
+& a_1 u_1+\cdots+a_n u_n-c_1 v_1-\cdots-c_m v_m=0
+\end{aligned}
+$$
+We have found a linear combination of $u_i^{\prime}$ 's and $v_i$ 's which is equal to zero. However, they are basis vectors of $V$. Hence, all the multipliers $c_i$ 's and $a_i$ 's must be zero implying that $v=0$.
+Therefore, if $v \in U \cap$ null $T$, then $v=0$. this means that
+$$
+U \cap \operatorname{null} T=\{0\}
+$$
+The above shows that $U$ satisfies the first of the required conditions.
+Now let $w \in$ range $T$. Then, there exists $v \in V$ such that $T v=w$. This allows us to write $v=u+w$ where $u \in U$ and $w \in$ null $T$. This implies
+$$
+\begin{aligned}
+w & =T v \\
+& =T(u+w) \\
+& =T u+T w \\
+& =T u+0 \quad \quad(\text { since } w \in \operatorname{null} T) \\
+& =T u
+\end{aligned}
+$$
+This shows that if $w \in$ range $T$ then $w=T u$ for some $u \in U$. Therefore, range $T \subseteq\{T u \mid u \in U\}$.
+Since $U$ is a subspace of $V$, it follows that $T u \in$ range $T$ for all $u \in U$. Thus, $\{T u \mid u \in U\} \subseteq$ range $T$.
+Therefore, range $T=\{T u \mid u \in U\}$.
+This shows that $U$ satisfies the second required condition as well.
+\end{proof}
+
 
 
 \paragraph{Exercise 3.10} Prove that there does not exist a linear map from $\mathbf{F}^{5}$ to $\mathbf{F}^{2}$ whose null space equals $\left\{\left(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}\right) \in \mathbf{F}^{5}: x_{1}=3 x_{2} \text { and } x_{3}=x_{4}=x_{5}\right\} .$
+\begin{proof}
+    Suppose that there exists a linear map $T: \mathbf{F}^5 \rightarrow \mathbf{F}^2$.
+By virtue of the above theorem, what would be a possible dimension of its null space?
+In this context, $V=\mathbf{F}^5$. Thus, $\operatorname{dim} V=5$.
+Since range $T \subseteq \mathbf{F}^2$, dim range $T \leq 2$. Therefore,
+$$
+\begin{aligned}
+\operatorname{dim} \text { null } T & =\operatorname{dim} \mathbf{F}^5-\operatorname{dim} \text { null } T \\
+& \geq 5-2 \\
+& =3
+\end{aligned}
+$$
+That is, $ \operatorname{dim}\operatorname{null} T$ must at least be 3. 
+
+Now, let's find out a bit more about the given space.
+$$
+\begin{aligned}
+U & =\left\{\left(x_1, x_2, x_3, x_4, x_5\right) \mid x_1=3 x_2, x_3=x_4=x_5\right\} \\
+& =\left\{\left(3 x_2, x_2, x_3, x_3, x_3\right) \mid x_2, x_3 \in \mathbf{F}\right\} \\
+& =\left\{x_2(3,1,0,0,0)+x_3(0,0,1,1,1) \mid x_2, x_3 \in \mathbf{F}\right\}
+\end{aligned}
+$$
+This shows that $U=\operatorname{span}\{(3,1,0,0,0),(0,0,1,1,1)\}$. That $U$ is generated by two vectors implies that the dimension of $U$ can be at most $2$.
+
+This along with the conclusion of the previous step proves that $U$ can never be the null space of any linear map $T: \mathbf{F}^5 \rightarrow \mathbf{F}^2$
+\end{proof}
+
 
 
 \paragraph{Exercise 3.11} Prove that if there exists a linear map on $V$ whose null space and range are both finite dimensional, then $V$ is finite dimensional.
+\begin{proof}
+    Suppose $V$ is vector space and $T$ is a linear map defined on $V$. If the range and the null space of $T$ are both finite dimensional, then the right hand side of the equation quoted above is a finite number.
+Hence, the left hand side also must be a finite number. In other words, $V$ must be finite dimensional.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.4} Suppose $p \in \mathcal{P}(\mathbf{C})$ has degree $m$. Prove that $p$ has $m$ distinct roots if and only if $p$ and its derivative $p^{\prime}$ have no roots in common.
+\begin{proof}
+    First, let $p$ have $m$ distinct roots. Since $p$ has the degree of $m$, then this could imply that $p$ can be actually written in the form of $p(z)=c\left(z-\lambda_1\right) \ldots\left(z-\lambda_m\right)$, which you have $\lambda_1, \ldots, \lambda_m$ being distinct.
+To prove that both $p$ and $p^{\prime}$ have no roots in commons, we must now show that $p^{\prime}\left(\lambda_j\right) \neq 0$ for every $j$. So, to do so, just fix $j$. The previous expression for $p$ shows that we can now write $p$ in the form of $p(z)=\left(z-\lambda_j\right) q(z)$, which $q$ is a polynomial such that $q\left(\lambda_j\right) \neq 0$.
+
+When you differentiate both sides of the previous equation, then you would then have $p^{\prime}(z)=(z-$ $\left.\lambda_j\right) q^{\prime}(z)+q(z)$
+
+Therefore: $\left.=p^{\prime}\left(\lambda_j\right)=q \lambda_j\right)$
+Equals: $p^{\prime}\left(\lambda_j\right) \neq 0$
+
+Now, to prove the other direction, we would now prove the contrapositive, which means that we will be proving that if $p$ has actually less than $m$ distinct roots, then both $p$ and $p^{\prime}$ have at least one root in common.
+
+Now, for some root of $\lambda$ of $p$, we can write $p$ is in the form of $\left.p(z)=(z-\lambda)^n q(z)\right)$, which is where both $n \geq 2$ and $q$ is a polynomial. When differentiating both sides of the previous equations, we would then have $p^{\prime}(z)=(z-\lambda)^n q^{\prime}(z)+n(z-\lambda)^{n-1} q(z)$.
+Therefore, $p^{\prime}(\lambda)=0$, which would make $\lambda$ is a common root of both $p$ and $p^{\prime}$.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.1} Suppose $T \in \mathcal{L}(V)$. Prove that if $U_{1}, \ldots, U_{m}$ are subspaces of $V$ invariant under $T$, then $U_{1}+\cdots+U_{m}$ is invariant under $T$.
+\begin{proof}
+    First off, assume that $U_1, \ldots, U_m$ are subspaces of $V$ invariant under $T$. Now, consider a vector $u \in$ $U_1+\ldots+U_m$. There does exist $u_1 \in U_1, \ldots, u_m \in U_m$ such that $u=u_1+\ldots+u_m$.
+
+Once you apply $T$ towards both sides of the previous equation, we would then get $T u=T u_1+\ldots+$ $T u_m$.
+
+Since each $U_j$ is invariant under $T$, then we would have $T u_1 \in U_1+\ldots+T u_m$. This would then make the equation shows that $T u \in U_1+\ldots+T u_m$, which does imply that $U_1+. .+U_m$ is invariant under $T$
+\end{proof}
+
 
 
 \paragraph{Exercise 5.4} Suppose that $S, T \in \mathcal{L}(V)$ are such that $S T=T S$. Prove that $\operatorname{null} (T-\lambda I)$ is invariant under $S$ for every $\lambda \in \mathbf{F}$.
+\begin{proof}
+    First off, fix $\lambda \in F$. Secondly, let $v \in \operatorname{null}(T-\lambda I)$. If so, then $(T-\lambda I)(S v)=T S v-\lambda S v=$ $S T v-\lambda S v=S(T v-\lambda v)=0$. Therefore, $S v \in \operatorname{null}(T-\lambda I)$ since $n u l l(T-\lambda I)$ is actually invariant under $S$.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.11} Suppose $S, T \in \mathcal{L}(V)$. Prove that $S T$ and $T S$ have the same eigenvalues.
+\begin{proof}
+    To start, let $\lambda \in F$ be an eigenvalue of $S T$. Now, we would want $\lambda$ to be an eigenvalue of $T S$. Since $\lambda$, by itself, is an eigenvalue of $S T$, then there has to be a nonzero vector $v \in V$ such that $(S T) v=\lambda v$.
+Now, With a given reference that $(S T) v=\lambda v$, you will then have the following: $(T S)(T v)=$ $T(S T v)=T(\lambda v)=\lambda T v$
+If $T v \neq 0$, then the listed equation above shows that $\lambda$ is an eigenvalue of $T S$.
+If $T v=0$, then $\lambda=0$, since $S(T v)=\lambda T v$. This also means that $T$ isn't invertible, which would imply that $T S$ isn't invertible, which can also be implied that $\lambda$, which equals 0 , is an eigenvalue of $T S$.
+Step 3
+3 of 3
+Now, regardless of whether $T v=0$ or not, we would have shown that $\lambda$ is an eigenvalue of $T S$. Since $\lambda$ (was) an arbitrary eigenvalue of $S T$, we have shown that every single eigenvalue of $S T$ is an eigenvalue of $T S$. When you do reverse the roles of both $S$ and $T$, then we can conclude that that every single eigenvalue of $T S$ is also an eigenvalue of $S T$. Therefore, both $S T$ and $T S$ have the exact same eigenvalues.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.12} Suppose $T \in \mathcal{L}(V)$ is such that every vector in $V$ is an eigenvector of $T$. Prove that $T$ is a scalar multiple of the identity operator.
+\begin{proof}
+    For every single $v \in V$, there does exist $a_v \in F$ such that $T v=a_v v$. Since $T 0=0$, then we have to make $a_0$ be the any number in F. However, for every single $v \in V\{0\}$, then the value of $a_V$ is uniquely determined by the previous equation of $T v=a_v v$.
+
+Now, to show that $T$ is a scalar multiple of the identity, then me must show that $a_v$ is independent of $v$ for $v \in V\{0\}$. We would now want to show that $a_v=a_w$.
+
+First, just make the case of where $(v, w)$ is linearly dependent. Then, there does exist $b \in F$ such that $w=b v$. Now, you would have the following: $a_W w=T w=T(b v)=b T v=b\left(a_v v\right)=a_v w$. This is showing that $a_v=a_w$.
+Finally, make the consideration to make $(v, w)$ be linearly independent. Now, we would have the following: $\left.a_{(} v+w\right)(v+w)=T(v+w)=T v+T w=a_v v+a_w w$.
+
+That previous equation implies the following: $\left.\left.\left(a_{(} v+w\right)-a_v\right) v+\left(a_{(} v+w\right)-a_w\right) w=0$. Since $(v, w)$ is linearly independent, this would imply that both $\left.a_{(} v+w\right)=a_v$ and $\left.a_{(} v+w\right)=a_w$. Therefore, $a_v=a_w$.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.13} Suppose $T \in \mathcal{L}(V)$ is such that every subspace of $V$ with dimension $\operatorname{dim} V-1$ is invariant under $T$. Prove that $T$ is a scalar multiple of the identity operator.
+\begin{proof}
+    First off, let $T$ isn't a scalar multiple of the identity operator. So, there does exists that $v \in V$ such that $u$ isn't an eigenvector of $T$. Therefore, $(u, T u)$ is linearly independent.
+
+Next, you should extend $(u, T u)$ to a basis of $\left(u, T u, v_1, \ldots, v_n\right)$ of $V$. So, let $U=\operatorname{span}\left(u, v_1, \ldots, v_n\right)$. Then, $U$ is a subspace of $V$ and $\operatorname{dim} U=\operatorname{dim} V-1$. However, $U$ isn't invariant under $T$ since both $u \in U$ and $T u \in U$. This given contradiction to our hypothesis about $T$ actually shows us that our guess that $T$ is not a scalar multiple of the identity must have been false.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.20} Suppose that $T \in \mathcal{L}(V)$ has $\operatorname{dim} V$ distinct eigenvalues and that $S \in \mathcal{L}(V)$ has the same eigenvectors as $T$ (not necessarily with the same eigenvalues). Prove that $S T=T S$.
+\begin{proof}
+    First off, let $n=\operatorname{dim} V$. so, there is a basis of $\left(v_1, \ldots, v_j\right)$ of $V$ that consist of eigenvectors of $T$. Now, let $\lambda_1, \ldots, \lambda_n$ be the corresponding eigenvalues, then we would have $T v_j=\lambda_1 v_j$ for every single $j$.
+
+Now, for every $v_j$ is also an eigenvector of S, so $S v_j=a_j v_j$ for some $a_j \in F$. For each $j$, we would then have $(S T) v_j=S\left(T v_j\right)=\lambda_j S v_j=a_j \lambda_j v_j$ and $(T S) v_j=T\left(S v_j\right)=a_j T v_j=a_j \lambda_j v_j$. Since both operators, which are $S T$ and $T S$, agree on a basis, then both are equal.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.24} Suppose $V$ is a real vector space and $T \in \mathcal{L}(V)$ has no eigenvalues. Prove that every subspace of $V$ invariant under $T$ has even dimension.
+\begin{proof}
+    First off, let us assume that $U$ is a subspace of $V$ that is invariant under $T$. Therefore, $\left.T\right|_U \in \mathcal{L}(U)$. If $\operatorname{dim}$ $U$ were odd, then $\left.T\right|_U$ would have an eigenvalue $\lambda \in \mathbb{R}$, so there would exist a nonzero vector $u \in U$ such that
+$$
+\left.T\right|_U u=\lambda u .
+$$
+So, this would imply that $T_u=\lambda u$, which would imply that $\lambda$ is an eigenvalue of $T$. But $T$ has no eigenvalues, so $\operatorname{dim} U$ must be even.
+\end{proof}
+
 
 
 \paragraph{Exercise 6.2} Suppose $u, v \in V$. Prove that $\langle u, v\rangle=0$ if and only if $\|u\| \leq\|u+a v\|$ for all $a \in \mathbf{F}$.
+\begin{proof}
+    First off, let us suppose that $(u, v)=0$.
+Now, let $a \in \mathbb{F}$. Next, $u, a v$ are orthogonal.
+The Pythagorean theorem thus implies that
+$$
+\begin{aligned}
+\|u+a v\|^2 & =\|u\|^2+\|a v\|^2 \\
+& \geq\|u\|^2
+\end{aligned}
+$$
+So, by taking the square roots, this will now give us $\|u\| \leq\|u+a v\|$.
+Now, to prove the implication in the other direction, we must now let $\|u\| \leq$ $\|u+a v\|$ for all $a \in \mathbb{F}$. Squaring this inequality, we get both:
+$$
+\begin{gathered}
+\|u\|^2 a n d \leq\|u+a v\|^2 \\
+=(u+a v, u+a v) \\
+=(u, u)+(u, a v)+(a v, u)+(a v, a v) \\
+=\|u\|^2+\bar{a}(u, v)+a \overline{(u, v)}+|a|^2\|v\|^2 \\
+\|u\|^2+2 \Re \bar{a}(u, v)+|a|^2\|v\|^2
+\end{gathered}
+$$
+for all $a \in \mathbb{F}$.
+Therefore,
+$$
+-2 \Re \bar{a}(u, v) \leq|a|^2\|v\|^2
+$$
+for all $a \in \mathbb{F}$. In particular, we can let $a$ equal $-t(u, v)$ for $t>0$. Substituting this value for $a$ into the inequality above gives
+$$
+2 t|(u, v)|^2 \leq t^2|(u, v)|^2\|v\|^2
+$$
+for all $t>0$.
+Step 4
+4 of 4
+Divide both sides of the inequality above by $t$, getting
+$$
+2|(u, v)|^2 \leq t \mid(u, v)^2\|v\|^2
+$$
+for all $t>0$. If $v=0$, then $(u, v)=0$, as desired. If $v \neq 0$, set $t$ equal to $1 /\|v\|^2$ in the inequality above, getting
+$$
+2|(u, v)|^2 \leq|(u, v)|^2,
+$$
+which implies that $(u, v)=0$.
+\end{proof}
 
 
 \paragraph{Exercise 6.3} Prove that $\left(\sum_{j=1}^{n} a_{j} b_{j}\right)^{2} \leq\left(\sum_{j=1}^{n} j a_{j}{ }^{2}\right)\left(\sum_{j=1}^{n} \frac{b_{j}{ }^{2}}{j}\right)$ for all real numbers $a_{1}, \ldots, a_{n}$ and $b_{1}, \ldots, b_{n}$.
+\begin{proof}
+    Let $a_1, a_2, \ldots, a_n, b_1, b_2, \ldots, b_n \in R$.
+We have that
+$$
+\left(\sum_{j=1}^n a_j b_j\right)^2
+$$
+is equal to the
+$$
+\left(\sum_{j=1}^n a_j b_j \frac{\sqrt{j}}{\sqrt{j}}\right)^2=\left(\sum_{j=1}^n\left(\sqrt{j} a_j\right)\left(b_j \frac{1}{\sqrt{j}}\right)\right)^2
+$$
+This can be observed as an inner product, and using the Cauchy-Schwarz Inequality, we get
+$$
+\begin{aligned}
+&\left(\sum_{j=1}^n a_j b_j\right)^2=\left(\sum_{j=1}^n\left(\sqrt{j} a_j\right)\left(b_j \frac{1}{\sqrt{j}}\right)\right)^2 \\
+&=\left\langle\left(a, \sqrt{2} a_2, \ldots, \sqrt{n} a_n\right),\left(b_1, \frac{b_2}{\sqrt{2}}, \ldots, \frac{b_n}{\sqrt{n}}\right)\right\rangle \\
+& \leq\left\|\left(a, \sqrt{2} a_2, \ldots, \sqrt{n} a_n\right)\right\|^2\left\|\left(b_1, \frac{b_2}{\sqrt{2}}, \ldots, \frac{b_n}{\sqrt{n}}\right)\right\|^2 \\
+&=\left(\sum_{j=1}^n j a_j^2\right)\left(\sum_{j=1}^n \frac{b_j^2}{j}\right) \\
+& \text { Hence, }\left(\sum_{j=1}^n a_j b_j\right)^2=\left(\sum_{j=1}^n j a_j^2\right)\left(\sum_{j=1}^n \frac{b_j^2}{j}\right) .
+\end{aligned}
+$$
+\end{proof}
+
 
 
 \paragraph{Exercise 6.7} Prove that if $V$ is a complex inner-product space, then $\langle u, v\rangle=\frac{\|u+v\|^{2}-\|u-v\|^{2}+\|u+i v\|^{2} i-\|u-i v\|^{2} i}{4}$ for all $u, v \in V$.
+\begin{proof}
+Let $V$ be an inner-product space and $u, v\in V$. Then 
+$$
+\begin{aligned}
+\|u+v\|^2 & =\langle u+v, v+v\rangle \\
+& =\|u\|^2+\langle u, v\rangle+\langle v, u\rangle+\|v\|^2 \\
+-\|u-v\|^2 & =-\langle u-v, u-v\rangle \\
+& =-\|u\|^2+\langle u, v\rangle+\langle v, u\rangle-\|v\|^2 \\
+i\|u+i v\|^2 & =i\langle u+i v, u+i v\rangle \\
+& =i\|u\|^2+\langle u, v\rangle-\langle v, u\rangle+i\|v\|^2 \\
+-i\|u-i v\|^2 & =-i\langle u-i v, u-i v\rangle \\
+& =-i\|u\|^2+\langle u, v\rangle-\langle v, u\rangle-i\|v\|^2 .
+\end{aligned}
+$$
+Thus $\left(\|u+v\|^2\right)-\|u-v\|^2+\left(i\|u+i v\|^2\right)-i\|u-i v\|^2=4\langle u, v\rangle.$
+\end{proof}
+
 
 
 \paragraph{Exercise 6.13} Suppose $\left(e_{1}, \ldots, e_{m}\right)$ is an or thonormal list of vectors in $V$. Let $v \in V$. Prove that $\|v\|^{2}=\left|\left\langle v, e_{1}\right\rangle\right|^{2}+\cdots+\left|\left\langle v, e_{m}\right\rangle\right|^{2}$ if and only if $v \in \operatorname{span}\left(e_{1}, \ldots, e_{m}\right)$.
+\begin{proof}
+If $v \in \operatorname{span}\left(e_1, \ldots, e_m\right)$, it means that
+$$
+v=\alpha_1 e_1+\ldots+\alpha_m e_m .
+$$
+for some scalars $\alpha_i$. We know that $\alpha_k=\left\langle v, e_k\right\rangle, \forall k \in\{1, \ldots, m\}$. Therefore,
+$$
+\begin{aligned}
+\|v\|^2 & =\langle v, v\rangle \\
+& =\left\langle\alpha_1 e_1+\ldots+\alpha_m e_m, \alpha_1 e_1+\ldots+\alpha_m e_m\right\rangle \\
+& =\left|\alpha_1\right|^2\left\langle e_1, e_1\right\rangle+\ldots+\left|\alpha_m\right|^2\left\langle e_m, e_m\right\rangle \\
+& =\left|\alpha_1\right|^2+\ldots+\left|\alpha_m\right|^2 \\
+& =\left|\left\langle v, e_1\right\rangle\right|^2+\ldots+\left|\left\langle v, e_m\right\rangle\right|^2 .
+\end{aligned}
+$$
+$\Rightarrow$ Assume that $v \notin \operatorname{span}\left(e_1, \ldots, e_m\right)$. Then, we must have
+$$
+v=v_{m+1}+\frac{\left\langle v, v_0\right\rangle}{\left\|v_0\right\|^2} v_0,
+$$
+where $v_0=\alpha_1 e_1+\ldots+\alpha_m e_m, \alpha_k=\left\langle v, e_k\right\rangle, \forall k \in\{1, \ldots, m\}$, and $v_{m+1}=v-$ $\frac{\left\langle v, v_0\right\rangle}{\left\|v_0\right\|^2} v_0 \neq 0$.
+
+We have $\left\langle v_0, v_{m+1}\right\rangle=0$ (from which we get $\left\langle v, v_0\right\rangle=\left\langle v_0, v_0\right\rangle$ and $\left\langle v, v_{m+1}\right\rangle=$ $\left.\left\langle v_{m+1}, v_{m+1}\right\rangle\right)$. Now,
+$$
+\begin{aligned}
+\|v\|^2 & =\langle v, v\rangle \\
+& =\left\langle v, v_{m+1}+\frac{\left\langle v, v_0\right\rangle}{\left\|v_0\right\|^2} v_0\right\rangle \\
+& =\left\langle v, v_{m+1}\right\rangle+\left\langle v, \frac{\left\langle v, v_0\right\rangle}{\left\|v_0\right\|^2} v_0\right\rangle \\
+& =\left\langle v_{m+1}, v_{m+1}\right\rangle+\frac{\left\langle v_0, v_0\right\rangle}{\left\|v_0\right\|^2}\left\langle v_0, v_0\right\rangle \\
+& =\left\|v_{m+1}\right\|^2+\left\|v_0\right\|^2 \\
+& >\left\|v_0\right\|^2 \\
+& =\left|\alpha_1\right|^2+\ldots+\left|\alpha_m\right|^2 \\
+& =\left|\left\langle v, e_1\right\rangle\right|^2+\ldots+\left|\left\langle v, e_m\right\rangle\right|^2 .
+\end{aligned}
+$$
+By contrapositive, if $\left\|v_1\right\|^2=\left|\left\langle v, e_1\right\rangle\right|^2+\ldots+\left|\left\langle v, e_m\right\rangle\right|^2$, then $v \in \operatorname{span}\left(e_1, \ldots, e_m\right)$.
+\end{proof}
+
 
 
 \paragraph{Exercise 6.16} Suppose $U$ is a subspace of $V$. Prove that $U^{\perp}=\{0\}$ if and only if $U=V$
+\begin{proof}
+    $V=U \bigoplus U^{\perp}$, therefore $U^\perp = \{0\}$ iff $U=V$. 
+\end{proof}
+
 
 
 \paragraph{Exercise 6.20} Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$. Prove that $U$ and $U^{\perp}$ are both invariant under $T$ if and only if $P_{U} T=T P_{U}$.
+\begin{proof}
+    First off, let us suppose that $U$ and $U^{\perp}$ are both invariant under $T$. By the previous exercise, this implies that
+$$
+P_U T P_U=T P_U
+$$
+and
+$$
+P_{U^{\perp}} T P_{U^{\perp}}=T P_{U^{\perp}} .
+$$
+But $P_{U^{\perp}}=I-P_U$, so the last equation becomes
+$$
+\left(I-P_U\right) T\left(I-P_U\right)=T\left(I-P_U\right) .
+$$
+Expanding both sides oth the equation above and rearranging terms, we get
+$$
+P_U T P_U=P_U T .
+$$
+Combining this with the first equation, which is listed above, then we get $P_U T=T P_U$.
+
+Now, to prove the implication in the other direction, let us suppose (now) that
+$$
+P_U T=T P_U .
+$$
+Then
+$$
+\begin{aligned}
+& P_U T P_U=\left(P_U T\right) P_U \\
+&=\left(T P_U\right) P_U \\
+&= T P_U^2 \\
+&= T P_U
+\end{aligned}
+$$
+which implies that $U$ is invariant under $T$.
+Also,
+$$
+\begin{aligned}
+P_{U^{\perp}} T P_{U^{\perp}} & =\left(\left(I-P_U\right) T\right) P_{U^{\perp}} \\
+= & \left(T-P_U T\right) P_{U^{\perp}} \\
+= & \left(T-T P_U\right) P_{U^{\perp}} \\
+=T & \left(1-P_U\right) P_{U^{\perp}} \\
+= & T P_{U^{\perp}}^2 \\
+= & T P_{U^{\perp}}
+\end{aligned}
+$$
+which implies that $U^{\perp}$ is invariant under $T$.
+\end{proof}
+
 
 
 \paragraph{Exercise 6.29} Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$. Prove that $U$ is invariant under $T$ if and only if $U^{\perp}$ is invariant under $T^{*}$.
+\begin{proof}
+    First off, let $U$ be invariant under $T$. Now, to prove that $U^{\perp}$ is invariant under $T^*$, just make $v \in U^{\perp}$. Now, we would need to show that $T^* v \in U^{\perp}$.
+
+However, $\left\langle u, T^* v\right\rangle=\langle T u, v\rangle=0$ for every single $u \in U$ since if you have have $u \in U$, then $T u \in U$ since $T u$ is orthogonal to $v$, which is an element of $U^{\perp}$. Therefore, $T^* v \in U^{\perp}$ since $U^{\perp}$ is invariant under $T^*$.
+
+Next, to prove that the same thing, but in the other direction, then assume that $U^{\perp}$ is invariant under $T^*$. Then, by using the very first direction, we should know that $\left(U^{\perp}\right)^{\perp}$ is also invariant, but to $\left(T^*\right)^*$.
+
+So, since $\left(U^{\perp}\right)^{\perp}=U$ and that $\left(T^*\right)^*=T$, then we can conclude that $U$ is invariant under $T$, which completes this given proof.
+\end{proof}
+
 
 
 \paragraph{Exercise 7.5} Show that if $\operatorname{dim} V \geq 2$, then the set of normal operators on $V$ is not a subspace of $\mathcal{L}(V)$.
+\begin{proof}
+    First off, suppose that $\operatorname{dim} V \geq 2$. Next let $\left(e_1, \ldots, e_n\right)$ be an orthonormal basis of $V$. Now, define $S, T \in L(V)$ by both $S\left(a_1 e_1+\ldots+a_n e_n\right)=a_2 e_1-a_1 e_2$ and $T\left(a_1 e_1+\ldots+\right.$ $\left.a_n e_n\right)=a_2 e_1+a_1 e_2$. So, just by now doing a simple calculation verifies that $S^*\left(a_1 e_1+\right.$ $\left.\ldots+a_n e_n\right)=-a_2 e_1+a_1 e_2$
+
+Now, based on this formula, another calculation would show that $S S^*=S^* S$. Another simple calculation would that that $T$ is self-adjoint. Therefore, both $S$ and $T$ are normal. However, $S+T$ is given by the formula of $(S+T)\left(a_1 e_1+\ldots+a_n e_n\right)=2 a_2 e_1$. In this case, a simple calculator verifies that $(S+T)^*\left(a_1 e_1+\ldots+a_n e_n\right)=2 a_1 e_2$.
+
+Therefore, there is a final simple calculation that shows that $(S+T)(S+T)^* \neq(S+$ $T)^*(S+T)$. So, in other words, $S+T$ isn't normal. Thereofre, the set of normal operators on $V$ isn't closed under addition and hence isn't a subspace of $L(V)$.
+\end{proof}
+
 
 
 \paragraph{Exercise 7.6} Prove that if $T \in \mathcal{L}(V)$ is normal, then $\operatorname{range} T=\operatorname{range} T^{*}.$
+\begin{proof}
+    Let $T \in \mathcal{L}(V)$ to be a normal operator.
+Suppose $u \in \operatorname{null} T$. Then, by $7.20$,
+$$
+0=\|T u\|=\left\|T^* u\right\|,
+$$
+which implies that $u \in \operatorname{null} T^*$.
+Hence
+$$
+\operatorname{null} T=\operatorname{null} T^*
+$$
+because $\left(T^*\right)^*=T$ and the same argument can be repeated.
+Now we have
+$$
+\begin{aligned}
+\text { range } T & =\left(\text { null } T^*\right)^{\perp} \\
+& =(\text { null } T)^{\perp} \\
+& =\operatorname{range} T^*,
+\end{aligned}
+$$
+where the first and last equality follow from items (d) and (b) of 7.7.
+Hence, range $T=$ range $T^*$.
+\end{proof}
+
 
 
 \paragraph{Exercise 7.9} Prove that a normal operator on a complex inner-product space is self-adjoint if and only if all its eigenvalues are real.
+\begin{proof}
+    First off, suppose $V$ is a complex inner product space and $T \in L(V)$ is normal. If $T$ is self-adjoint, then all its eigenvalues are real. So, conversely, let all of the eigenvalues of $T$ be real. By the complex spectral theorem, there's an orthonormal basis $\left(e_1, \ldots, e_n\right)$ of $V$ consisting of eigenvectors of $T$. Thus, there exists real numbers $\lambda_1, \ldots, \lambda_n$ such that $T e_j=\lambda_j e_j$ for $j=$ $1, \ldots, n$.
+The matrix of $T$ with respect to the basis of $\left(e_1, \ldots, e_n\right)$ is the diagonal matrix with $\lambda_1, \ldots, \lambda_n$ on the diagonal. So, the matrix equals its conjugate transpose. Therefore, $T=T^*$. In other words, $T$ s self-adjoint.
+\end{proof}
+
 
 
 \paragraph{Exercise 7.10} Suppose $V$ is a complex inner-product space and $T \in \mathcal{L}(V)$ is a normal operator such that $T^{9}=T^{8}$. Prove that $T$ is self-adjoint and $T^{2}=T$.
+\begin{proof}
+    Based on the complex spectral theorem, there is an orthonormal basis of $\left(e_1, \ldots, e_n\right)$ of $V$ consisting of eigenvectors of $T$. Now, let $\lambda_1, \ldots, \lambda_n$ be the corresponding eigenvalues. Therefore,
+$$
+T e_1=\lambda_j e_j
+$$
+for $j=1 \ldots n$.
+
+Next, by applying $T$ repeatedly to both sides of the equation above, we get $T^9 e_j=\left(\lambda_j\right)^9 e_j$ and rei =8ej. Thus $T^8 e_j=\left(\lambda_j\right)^8 e_j$, which implies that $\lambda_j$ equals 0 or 1 . In particular, all the eigenvalues of $T$ are real. This would then imply that $T$ is self-adjoint.
+
+Now, by applying $T$ to both sides of the equation above, we get
+$$
+\begin{aligned}
+T^2 e_j & =\left(\lambda_j\right)^2 e_j \\
+& =\lambda_j e_j \\
+& =T e_j
+\end{aligned}
+$$
+which is where the second equality holds because $\lambda_j$ equals 0 or 1 . Because $T^2$ and $T$ agree on a basis, they must be equal.
+\end{proof}
+
 
 
 \paragraph{Exercise 7.11} Suppose $V$ is a complex inner-product space. Prove that every normal operator on $V$ has a square root. (An operator $S \in \mathcal{L}(V)$ is called a square root of $T \in \mathcal{L}(V)$ if $S^{2}=T$.)
+\begin{proof}
+    Let $V$ be a complex inner product space.
+It is known that an operator $S \in \mathcal{L}(V)$ is called a square root of $T \in \mathcal{L}(V)$ if
+$$
+S^2=T
+$$
+Now, suppose that $T$ is a normal operator on $V$.
+By the Complex Spectral Theorem, there is $e_1, \ldots, e_n$ an orthonormal basis of $V$ consisting of eigenvalues of $T$ and let $\lambda_1, \ldots, \lambda_n$ denote their corresponding eigenvalues.
+Define $S$ by
+$$
+S e_j=\sqrt{\lambda_j} e_j,
+$$
+for each $j=1, \ldots, n$.
+Obviously, $S^2 e_j=\lambda_j e_j=T e_j$.
+Hence, $S^2=T$ so there exist a square root of $T$.
+\end{proof}
+
 
 
 \paragraph{Exercise 7.14} Suppose $T \in \mathcal{L}(V)$ is self-adjoint, $\lambda \in \mathbf{F}$, and $\epsilon>0$. Prove that if there exists $v \in V$ such that $\|v\|=1$ and $\|T v-\lambda v\|<\epsilon,$ then $T$ has an eigenvalue $\lambda^{\prime}$ such that $\left|\lambda-\lambda^{\prime}\right|<\epsilon$.
+\begin{proof}
+    Let $T \in \mathcal{L}(V)$ be a self-adjoint, and let $\lambda \in \mathbf{F}$ and $\epsilon>0$.
+By the Spectral Theorem, there is $e_1, \ldots, e_n$ an orthonormal basis of $V$ consisting of eigenvectors of $T$ and let $\lambda_1, \ldots, \lambda_n$ denote their corresponding eigenvalues.
+Choose an eigenvalue $\lambda^{\prime}$ of $T$ such that $\left|\lambda^{\prime}-\lambda\right|^2$ is minimized.
+There are $a_1, \ldots, a_n \in \mathbb{F}$ such that
+$$
+v=a_1 e_1+\cdots+a_n e_n .
+$$
+Thus, we have
+$$
+\begin{aligned}
+\epsilon^2 & >|| T v-\left.\lambda v\right|^2 \\
+& =\left|\left\langle T v-\lambda v, e_1\right\rangle\right|^2+\cdots+\left|\left\langle T v-\lambda v, e_n\right\rangle\right|^2 \\
+& =\left|\lambda_1 a_1-\lambda a_1\right|^2+\cdots+\left|\lambda_n a_n-\lambda a_n\right|^2 \\
+& =\left|a_1\right|^2\left|\lambda_1-\lambda\right|^2+\cdots+\left|a_n\right|^2\left|\lambda_n-\lambda\right|^2 \\
+& \geq\left|a_1\right|^2\left|\lambda^{\prime}-\lambda\right|^2+\cdots+\left|a_n\right|^2\left|\lambda^{\prime}-\lambda\right|^2 \\
+& =\left|\lambda^{\prime}-\lambda\right|^2
+\end{aligned}
+$$
+where the second and fifth lines follow from $6.30$ (the fifth because $\|v\|=1$ ). Now, we taking the square root.
+Hence, $T$ has an eigenvalue $\lambda^{\prime}$ such that $\left|\lambda^{\prime}-\lambda\right|<\epsilon$
+\end{proof}
+
 
 
 \end{document}

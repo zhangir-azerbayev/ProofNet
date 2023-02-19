@@ -10,47 +10,329 @@ Exercises from \\
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 
 \begin{document}
 \maketitle
 
 
 \paragraph{Exercise 2020.b5} For $j \in\{1,2,3,4\}$, let $z_{j}$ be a complex number with $\left|z_{j}\right|=1$ and $z_{j} \neq 1$. Prove that $3-z_{1}-z_{2}-z_{3}-z_{4}+z_{1} z_{2} z_{3} z_{4} \neq 0 .$
+\begin{proof}
+    It will suffice to show that for any $z_1, z_2, z_3, z_4 \in \mathbb{C}$ of modulus 1 such that $|3-z_1-z_2-z_3-z_4| = |z_1z_2z_3z_4|$, at least one of $z_1, z_2, z_3$ is equal to 1.
+
+To this end, let $z_1=e^{\alpha i}, z_2=e^{\beta i}, z_3=e^{\gamma i}$ and 
+\[
+f(\alpha, \beta, \gamma)=|3-z_1-z_2-z_3|^2-|1-z_1z_2z_3|^2.
+\]
+ A routine calculation shows that 
+\begin{align*}
+f(\alpha, \beta, \gamma)&=
+10 - 6\cos(\alpha) - 6\cos(\beta) - 6\cos(\gamma) \\
+&\quad + 2\cos(\alpha + \beta + \gamma) + 2\cos(\alpha - \beta) \\
+&\quad + 2\cos(\beta - \gamma) + 2\cos(\gamma - \alpha).
+\end{align*}
+Since the function $f$ is continuously differentiable, and periodic in each variable, $f$ has a maximum and a minimum and it attains these values only at points where $\nabla f=(0,0,0)$.  A routine calculation now shows that 
+\begin{align*}
+\frac{\partial f}{\partial \alpha} + \frac{\partial f}{\partial \beta} + \frac{\partial f}{\partial \gamma} &=
+6(\sin(\alpha) +\sin(\beta)+\sin(\gamma)-  \sin(\alpha + \beta + \gamma)) \\
+&=
+24\sin\left(\frac{\alpha+\beta}{2}\right) \sin\left(\frac{\beta+\gamma}{2}\right)
+\sin\left(\frac{\gamma+\alpha}{2}\right).
+\end{align*}
+Hence every critical point of $f$ must satisfy one of $z_1z_2=1$, $z_2z_3=1$, or $z_3z_1=1$. By symmetry, let us assume that $z_1z_2=1$. Then 
+\[
+f = |3-2\mathrm{Re}(z_1)-z_3|^2-|1-z_3|^2;
+\]
+since $3-2\mathrm{Re}(z_1)\ge 1$, $f$ is nonnegative and can be zero only if the real part of $z_1$, and hence also $z_1$ itself, is equal to $1$. 
+\end{proof}
+
 
 
 \paragraph{Exercise 2018.a5} Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be an infinitely differentiable function satisfying $f(0)=0, f(1)=1$, and $f(x) \geq 0$ for all $x \in$ $\mathbb{R}$. Show that there exist a positive integer $n$ and a real number $x$ such that $f^{(n)}(x)<0$.
+\begin{proof}
+    Call a function $f\colon \mathbb{R} \to \mathbb{R}$ \textit{ultraconvex} if $f$ is infinitely differentiable and $f^{(n)}(x) \geq 0$ for all $n \geq 0$ and all $x \in \mathbb{R}$, where $f^{(0)}(x) = f(x)$;
+note that if $f$ is ultraconvex, then so is $f'$.
+Define the set
+\[
+S = \{ f :\thinspace \mathbb{R} \to \mathbb{R} \,|\,f \text{ ultraconvex and } f(0)=0\}.
+\]
+For $f \in S$, we must have $f(x) = 0$ for all $x < 0$: if $f(x_0) > 0$ for some $x_0 < 0$, then
+by the mean value theorem there exists $x \in (0,x_0)$ for which $f'(x) = \frac{f(x_0)}{x_0} < 0$.
+In particular, $f'(0) = 0$, so $f' \in S$ also.
+
+We show by induction that for all $n \geq 0$,
+\[
+f(x) \leq \frac{f^{(n)}(1)}{n!} x^n \qquad (f \in S, x \in [0,1]).
+\]
+We induct with base case $n=0$, which holds because any $f \in S$ is nondecreasing. Given the claim for $n=m$,
+we apply the induction hypothesis to $f' \in S$ to see that
+\[
+f'(t) \leq \frac{f^{(n+1)}(1)}{n!} t^n \qquad (t \in [0,1]),
+\]
+then integrate both sides from $0$ to $x$ to conclude.
+
+Now for $f \in S$, we have $0 \leq f(1) \leq \frac{f^{(n)}(1)}{n!}$ for all $n \geq 0$. 
+On the other hand, by Taylor's theorem with remainder,
+\[
+f(x) \geq \sum_{k=0}^n \frac{f^{(k)}(1)}{k!}(x-1)^k \qquad (x \geq 1).
+\]
+Applying this with $x=2$, we obtain $f(2) \geq \sum_{k=0}^n \frac{f^{(k)}(1)}{k!}$ for all $n$;
+this implies that $\lim_{n\to\infty}  \frac{f^{(n)}(1)}{n!} = 0$.
+Since $f(1) \leq \frac{f^{(n)}(1)}{n!}$, we must have $f(1) = 0$.
+
+For $f \in S$, we proved earlier that $f(x) = 0$ for all $x\leq 0$, as well as for $x=1$. Since
+the function $g(x) = f(cx)$ is also ultraconvex for $c>0$, we also have $f(x) = 0$ for all $x>0$;
+hence $f$ is identically zero.
+
+To sum up, if $f\colon \mathbb{R} \to \mathbb{R}$ is infinitely differentiable, $f(0)=0$, and $f(1) = 1$,
+then $f$ cannot be ultraconvex. This implies the desired result.
+\end{proof}
 
 
 \paragraph{Exercise 2018.b2} Let $n$ be a positive integer, and let $f_{n}(z)=n+(n-1) z+$ $(n-2) z^{2}+\cdots+z^{n-1}$. Prove that $f_{n}$ has no roots in the closed unit disk $\{z \in \mathbb{C}:|z| \leq 1\}$.
+\begin{proof}
+    Note first that $f_n(1) > 0$, so $1$ is not a root of $f_n$.
+Next, note that
+\[
+(z-1)f_n(z) = z^n + \cdots + z - n;
+\]
+however, for $\left| z \right| \leq 1$, we have 
+$\left| z^n + \cdots + z \right| \leq n$ by the triangle inequality;
+equality can only occur if $z,\dots,z^n$ have norm 1 and the same argument, which only happens for $z=1$.
+Thus there can be no root of $f_n$ with $|z| \leq 1$.
+\end{proof}
+
 
 
 \paragraph{Exercise 2018.b4} Given a real number $a$, we define a sequence by $x_{0}=1$, $x_{1}=x_{2}=a$, and $x_{n+1}=2 x_{n} x_{n-1}-x_{n-2}$ for $n \geq 2$. Prove that if $x_{n}=0$ for some $n$, then the sequence is periodic.
+\begin{proof}
+    We first rule out the case $|a|>1$. In this case, we prove that $|x_{n+1}| \geq |x_n|$ for all $n$, meaning that we cannot have $x_n = 0$. We proceed by induction; the claim is true for $n=0,1$ by hypothesis. To prove the claim for  $n \geq 2$, write
+\begin{align*}
+|x_{n+1}| &= |2x_nx_{n-1}-x_{n-2}| \\
+&\geq 2|x_n||x_{n-1}|-|x_{n-2}| \\
+&\geq |x_n|(2|x_{n-1}|-1) \geq |x_n|,
+\end{align*} 
+where the last step follows from $|x_{n-1}| \geq |x_{n-2}| \geq \cdots \geq |x_0| = 1$.
+
+We may thus assume hereafter that $|a|\leq 1$. We can then write $a = \cos b$ for some $b \in [0,\pi]$. 
+Let $\{F_n\}$ be the Fibonacci sequence, defined as usual by $F_1=F_2=1$ and $F_{n+1}=F_n+F_{n-1}$. We show by induction that
+\[
+x_n = \cos(F_n b) \qquad (n \geq 0).
+\]
+Indeed, this is true for $n=0,1,2$; given that it is true for $n \leq m$, then
+\begin{align*}
+2x_mx_{m-1}&=2\cos(F_mb)\cos(F_{m-1}b) \\
+&= \cos((F_m-F_{m-1})b)+\cos((F_m+F_{m-1})b) \\
+&= \cos(F_{m-2}b)+\cos(F_{m+1}b)
+\end{align*}
+and so 
+$x_{m+1} = 2x_mx_{m-1}-x_{m-2} = \cos(F_{m+1}b)$. This completes the induction.
+
+
+Since $x_n = \cos(F_n b)$, if $x_n=0$ for some $n$ then $F_n b = \frac{k}{2} \pi$ for some odd integer $k$. In particular, we can write $b = \frac{c}{d}(2\pi)$ where $c = k$ and $d = 4F_n$ are integers.
+
+
+Let $x_n$ denote the pair $(F_n,F_{n+1})$, where each entry in this pair is viewed as an element of $\mathbb{Z}/d\mathbb{Z}$. Since there are only finitely many possibilities for $x_n$, there must be some $n_2>n_1$ such that $x_{n_1}=x_{n_2}$. Now $x_n$ uniquely determines both $x_{n+1}$ and $x_{n-1}$, and it follows that the sequence $\{x_n\}$ is periodic: for $\ell = n_2-n_1$, $x_{n+\ell} = x_n$ for all $n \geq 0$. In particular, $F_{n+\ell} \equiv F_n \pmod{d}$ for all $n$. But then $\frac{F_{n+\ell}c}{d}-\frac{F_n c}{d}$ is an integer, and so
+\begin{align*}
+x_{n+\ell} &= \cos\left(\frac{F_{n+\ell}c}{d}(2\pi)\right)\\
+& = \cos\left(\frac{F_n c}{d}(2\pi)\right) = x_n
+\end{align*}
+for all $n$. Thus the sequence $\{x_n\}$ is periodic, as desired.
+\end{proof}
+
 
 
 \paragraph{Exercise 2017.b3} Suppose that $f(x)=\sum_{i=0}^{\infty} c_{i} x^{i}$ is a power series for which each coefficient $c_{i}$ is 0 or 1 . Show that if $f(2 / 3)=3 / 2$, then $f(1 / 2)$ must be irrational.
+\begin{proof}
+    Suppose by way of contradiction that $f(1/2)$ is rational. Then $\sum_{i=0}^{\infty} c_i 2^{-i}$ is the binary expansion of a rational number, and hence must be eventually periodic; that is, there exist some integers $m,n$ such that
+$c_i = c_{m+i}$ for all $i \geq n$. We may then write
+\[
+f(x) = \sum_{i=0}^{n-1} c_i x^i + \frac{x^n}{1-x^m} \sum_{i=0}^{m-1} c_{n+i} x^i.
+\]
+Evaluating at $x = 2/3$, we may equate $f(2/3) = 3/2$ with 
+\[
+\frac{1}{3^{n-1}} \sum_{i=0}^{n-1} c_i 2^i 3^{n-i-1} + \frac{2^n 3^m}{3^{n+m-1}(3^m-2^m)} \sum_{i=0}^{m-1} c_{n+i} 2^i 3^{m-1-i};
+\]
+since all terms on the right-hand side have odd denominator, the same must be true of the sum, a contradiction.
+\end{proof}
+
 
 
 \paragraph{Exercise 2014.a5} Let
 $P_n(x)=1+2 x+3 x^2+\cdots+n x^{n-1} .$ Prove that the polynomials $P_j(x)$ and $P_k(x)$ are relatively prime for all positive integers $j$ and $k$ with $j \neq k$.
+\begin{proof}
+    Suppose to the contrary that there exist positive integers $i \neq j$ and a complex number $z$ such that $P_i(z) = P_j(z) = 0$. Note that $z$ cannot be a nonnegative real number or else $P_i(z), P_j(z) > 0$; we may put $w = z^{-1} \neq 0,1$. For $n \in \{i+1,j+1\}$ we compute that
+\[
+w^n = n w - n + 1,
+\qquad \overline{w}^n =  n \overline{w} - n + 1;
+\]
+note crucially that these equations also hold for $n \in \{0,1\}$.
+Therefore, the function $f: [0, +\infty) \to \mathbb{R}$ given by
+\[
+f(t) = \left| w \right|^{2t} - t^2 \left| w \right|^2 + 2t(t-1)\mathrm{Re}(w) - (t-1)^2
+\]
+satisfies $f(t) = 0$ for $t \in \{0,1,i+1,j+1\}$. On the other hand, for all $t \geq 0$ we have
+\[
+f'''(t) = (2 \log \left| w \right|)^3 \left| w \right|^{2t} > 0,
+\]
+so by Rolle's theorem, the equation $f^{(3-k)}(t) = 0$ has at most $k$ distinct solutions for $k=0,1,2,3$. This yields the desired contradiction.
+\end{proof}
+
 
 
 \paragraph{Exercise 2010.a4} Prove that for each positive integer $n$, the number $10^{10^{10^n}}+10^{10^n}+10^n-1$ is not prime.
+\begin{proof}
+    Put
+\[
+N = 10^{10^{10^n}} + 10^{10^n} + 10^n - 1.
+\]
+Write $n = 2^m k$ with $m$ a nonnegative integer and $k$ a positive odd integer.
+For any nonnegative integer $j$,
+\[
+10^{2^m j} \equiv (-1)^j \pmod{10^{2^m} + 1}.
+\]
+Since $10^n \geq n \geq 2^m \geq m+1$, $10^n$ is divisible by $2^n$ and hence by $2^{m+1}$,
+and similarly $10^{10^n}$ is divisible by $2^{10^n}$ and hence by $2^{m+1}$. It follows that
+\[
+N \equiv 1 + 1 + (-1) + (-1) \equiv 0 \pmod{10^{2^m} + 1}.
+\]
+Since $N \geq 10^{10^n} > 10^n + 1 \geq 10^{2^m} + 1$, it follows that $N$ is composite.
+\end{proof}
+
 
 
 \paragraph{Exercise 2001.a5} Prove that there are unique positive integers $a, n$ such that $a^{n+1}-(a+1)^n=2001$.
+\begin{proof}
+    Suppose $a^{n+1} - (a+1)^n = 2001$.
+Notice that $a^{n+1} + [(a+1)^n - 1]$ is a multiple of $a$; thus
+$a$ divides $2002 = 2 \times 7 \times 11 \times 13$.
+
+Since $2001$ is divisible by 3, we must have $a \equiv 1 \pmod{3}$,
+otherwise one of $a^{n+1}$ and $(a+1)^n$ is a multiple of 3 and the
+other is not, so their difference cannot be divisible by 3. Now
+$a^{n+1} \equiv 1 \pmod{3}$, so we must have $(a+1)^n \equiv 1
+\pmod{3}$, which forces $n$ to be even, and in particular at least 2.
+
+If $a$ is even, then $a^{n+1} - (a+1)^n \equiv -(a+1)^n \pmod{4}$.
+Since $n$ is even, $-(a+1)^n \equiv -1 \pmod{4}$. Since $2001 \equiv 1
+\pmod{4}$, this is impossible. Thus $a$ is odd, and so must divide
+$1001 = 7 \times 11 \times 13$. Moreover, $a^{n+1} - (a+1)^n \equiv a
+\pmod{4}$, so $a \equiv 1 \pmod{4}$.
+
+Of the divisors of $7 \times 11 \times 13$, those congruent to 1 mod 3
+are precisely those not divisible by 11 (since 7 and 13 are both
+congruent to 1 mod 3). Thus $a$ divides $7 \times 13$. Now
+$a \equiv 1 \pmod{4}$ is only possible if $a$ divides $13$.
+
+We cannot have $a=1$, since $1 - 2^n \neq 2001$ for any $n$. Thus
+the only possibility is $a = 13$. One easily checks that $a=13, n=2$ is a
+solution; all that remains is to check that no other $n$ works. In fact,
+if $n > 2$, then $13^{n+1} \equiv 2001 \equiv 1 \pmod{8}$.
+But $13^{n+1} \equiv 13 \pmod{8}$ since $n$ is even, contradiction.
+Thus $a=13, n=2$ is the unique solution.
+
+Note: once one has that $n$ is even, one can use that $2002
+=a^{n+1} + 1 - (a+1)^n$ is divisible by $a+1$ to rule out cases.
+\end{proof}
+
 
 
 \paragraph{Exercise 2000.a2} Prove that there exist infinitely many integers $n$ such that $n, n+1, n+2$ are each the sum of the squares of two integers. 
+\begin{proof}
+    It is well-known that the equation $x^2-2y^2=1$ has infinitely
+many solutions (the so-called ``Pell'' equation).  Thus setting
+$n=2y^2$ (so that $n=y^2+y^2$, $n+1=x^2+0^2$, $n+2=x^2+1^2$)
+yields infinitely many $n$ with the desired property.
+\end{proof}
+
 
 
 \paragraph{Exercise 1999.b4} Let $f$ be a real function with a continuous third derivative such that $f(x), f^{\prime}(x), f^{\prime \prime}(x), f^{\prime \prime \prime}(x)$ are positive for all $x$. Suppose that $f^{\prime \prime \prime}(x) \leq f(x)$ for all $x$. Show that $f^{\prime}(x)<2 f(x)$ for all $x$.
+\begin{proof}    
+\setcounter{equation}{0}
+We make repeated use of the following fact: if $f$ is a differentiable function on all of
+$\mathbb{R}$, $\lim_{x \to -\infty} f(x) \geq 0$, and $f'(x) > 0$ for all $x \in \mathbb{R}$, then
+$f(x) > 0$ for all $x \in \mathbb{R}$. (Proof: if $f(y) < 0$ for some $x$, then $f(x)< f(y)$ for all
+$x<y$ since $f'>0$, but then $\lim_{x \to -\infty} f(x) \leq f(y) < 0$.)
+
+From the inequality $f'''(x) \leq f(x)$ we obtain
+\[
+f'' f'''(x) \leq f''(x) f(x) < f''(x) f(x) + f'(x)^2
+\]
+since $f'(x)$ is positive. Applying the fact to the difference between the right and left sides,
+we get
+\begin{equation}
+\frac{1}{2} (f''(x))^2 < f(x) f'(x).
+\end{equation}
+
+On the other hand, since $f(x)$ and $f'''(x)$ are both positive for all $x$,
+we have
+\[
+2f'(x) f''(x) < 2f'(x)f''(x) + 2f(x) f'''(x).
+\]
+Applying the fact to the difference between the sides yields
+\begin{equation}
+f'(x)^2 \leq 2f(x) f''(x).
+\end{equation}
+Combining (1) and (2), we obtain
+\begin{align*}
+\frac{1}{2} \left( \frac{f'(x)^2}{2f(x)} \right)^2
+&< \frac{1}{2} (f''(x))^2 \\
+&< f(x) f'(x),
+\end{align*}
+or $(f'(x))^3 < 8 f(x)^3$. We conclude $f'(x) < 2f(x)$, as desired.
+\end{proof}
+
 
 
 \paragraph{Exercise 1998.a3} Let $f$ be a real function on the real line with continuous third derivative. Prove that there exists a point $a$ such that
 $f(a) \cdot f^{\prime}(a) \cdot f^{\prime \prime}(a) \cdot f^{\prime \prime \prime}(a) \geq 0$. 
+\begin{proof}
+    If at least one of $f(a)$, $f'(a)$, $f''(a)$, or $f'''(a)$ vanishes
+at some point $a$, then we are done.  Hence we may assume each of
+$f(x)$, $f'(x)$, $f''(x)$, and $f'''(x)$ is either strictly positive
+or strictly negative on the real line.  By replacing $f(x)$ by $-f(x)$
+if necessary, we may assume $f''(x)>0$; by replacing $f(x)$
+by $f(-x)$ if necessary, we may assume $f'''(x)>0$.  (Notice that these
+substitutions do not change the sign of $f(x) f'(x) f''(x) f'''(x)$.)
+Now $f''(x)>0$ implies that $f'(x)$ is increasing, and $f'''(x)>0$
+implies that $f'(x)$ is convex, so that $f'(x+a)>f'(x)+a f''(x)$
+for all $x$ and $a$.  By
+letting $a$ increase in the latter inequality, we see that $f'(x+a)$
+must be positive for sufficiently large $a$; it follows that
+$f'(x)>0$
+for all $x$.  Similarly, $f'(x)>0$ and $f''(x)>0$ imply
+that $f(x)>0$ for all $x$.  Therefore $f(x) f'(x) f''(x) f'''(x)>0$ for
+all $x$, and we are done.
+\end{proof}
+
 
 
 \paragraph{Exercise 1998.b6} Prove that, for any integers $a, b, c$, there exists a positive integer $n$ such that $\sqrt{n^3+a n^2+b n+c}$ is not an integer.
+\begin{proof}
+    We prove more generally that for any polynomial $P(z)$ with integer
+coefficients which is not a perfect square, there exists a positive
+integer $n$ such that $P(n)$ is not a perfect square. Of course it
+suffices to assume $P(z)$ has no repeated factors, which is to say $P(z)$
+and its derivative $P'(z)$ are relatively prime.
+
+In particular, if we carry out the Euclidean algorithm on $P(z)$ and $P'(z)$
+without dividing, we get an integer $D$ (the discriminant of $P$) such that
+the greatest common divisor of $P(n)$ and $P'(n)$ divides $D$ for any $n$.
+Now there exist infinitely many primes $p$ such that $p$ divides $P(n)$ for
+some $n$: if there were only finitely many, say, $p_1, \dots, p_k$, then
+for any $n$ divisible by $m = P(0) p_1 p_2 \cdots p_k$, we have $P(n)
+\equiv P(0) \pmod{m}$, that is, $P(n)/P(0)$ is not divisible by $p_1,
+\dots, p_k$, so must be $\pm 1$, but then $P$ takes some value infinitely
+many times, contradiction. In particular, we can choose some such $p$ not
+dividing $D$, and choose $n$ such that $p$ divides $P(n)$. Then $P(n+kp)
+\equiv P(n) + kp P'(n) (\mathrm{mod}\,p)$
+(write out the Taylor series of the left side);
+in particular, since $p$ does not divide $P'(n)$, we can find some $k$
+such that $P(n+kp)$ is divisible by $p$ but not by $p^2$, and so
+is not a perfect square.
+\end{proof}
+
 
 
 

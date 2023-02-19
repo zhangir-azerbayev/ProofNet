@@ -10,6 +10,7 @@ by Elias M. Stein and Rami Shakarchi
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 
 \begin{document}
 \maketitle
@@ -122,21 +123,52 @@ We now argue in a similar manner as before, except now we don't have the annoyin
 
 
 \paragraph{Exercise 1.19a} Prove that the power series $\sum nz^n$ does not converge on any point of the unit circle.
+\begin{proof}
+    For $z \in S:=\{z \in \mathbb{C}:|z|=1\}$ it also holds $z^n \in S$ for all $n \in \mathbb{N}$ (since in this case $\left.\left|z^n\right|=|z|^n=1^n=1\right)$
+Thus, the sequence $\left(a_n\right)_{n \in \mathbb{N}}$ with $a_n=n z^n$ does not converge to zero which is necessary for the corresponding sum $\sum_{n \in \mathbb{N}} a_n$ to be convergent. Hence this sum does not converge.
+\end{proof}
+
 
 
 \paragraph{Exercise 1.19b} Prove that the power series $\sum zn/n^2$ converges at every point of the unit circle.
+\begin{proof}
+    Since $\left|z^n / n^2\right|=1 / n^2$ for all $|z|=1$, then $\sum z^n / n^2$ converges at every point in the unit circle as $\sum 1 / n^2$ does ( $p$-series $p=2$.)
+\end{proof}
+
 
 
 \paragraph{Exercise 1.19c} Prove that the power series $\sum zn/n$ converges at every point of the unit circle except $z = 1$.
+\begin{proof}
+    If $z=1$ then $\sum z^n / n=\sum 1 / n$ is divergent (harmonic series). If $|z|=1$ and $z \neq 1$, write $z=e^{2 \pi i t}$ with $t \in(0,1)$ and apply Dirichlet's test: if $\left\{a_n\right\}$ is a sequence of real numbers and $\left\{b_n\right\}$ a sequence of complex numbers satisfying
+- $a_{n+1} \leq a_n$
+- $\lim _{n \rightarrow \infty} a_n=0$
+- $\left|\sum_{n=1}^N b_n\right| \leq M$ for every positive integer $N$ and some $M>0$,
+then $\sum a_n b_n$ converges. Let $a_n=1 / n$, so $a_n$ satisfies $a_{n+1} \leq a_n$ and $\lim _{n \rightarrow \infty} a_n=0$. Let $b_n=e^{2 \pi i n t}$, then
+$$
+\left|\sum_{n=1}^N b_n\right|=\left|\sum_{n=1}^N e^{2 \pi i n t}\right|=\left|\frac{e^{2 \pi i t}-e^{2 \pi i(N+1) t}}{1-e^{2 \pi i t}}\right| \leq \frac{2}{\left|1-e^{2 \pi i t}\right|}=M \text { for all } N
+$$
+Thus $\sum a_n b_n=\sum z^n / n$ converges for every point in the unit circle except $z=1$.
+\end{proof}
+
 
 
 \paragraph{Exercise 1.22} Let $\mathbb{N} = {1, 2, 3, \ldots}$ denote the set of positive integers. A subset $S \subset \mathbb{N}$ is said to be in arithmetic progression if $S = {a, a + d, a + 2d, a + 3d, \ldots}$ where $a, d \in \mathbb{N}$. Here $d$ is called the step of $S$.  Show that $\mathbb{N}$ cannot be partitioned into a finite number of subsets that are in arithmetic progression with distinct steps (except for the trivial case $a = d = 1$).
 
 
 \paragraph{Exercise 1.26} Suppose $f$ is continuous in a region $\Omega$. Prove that any two primitives of $f$ (if they exist) differ by a constant.
+\begin{proof}
+    Suppose $F_1$ adn $F_2$ are primitives of $F$. Then $(F_1-F_2)^\prime = f - f = 0$, therefore $F_1$ and $F_2$ differ by a constant. 
+\end{proof}
+
 
 
 \paragraph{Exercise 2.2} Show that $\int_{0}^{\infty} \frac{\sin x}{x} d x=\frac{\pi}{2}$.
+\begin{proof}
+    We have $\int_0^{\infty} \frac{\sin x}{x} d x=\frac{1}{2 * i} \int_0^{\infty} \frac{e^{i * x}-e^{-i * x}}{x} d x=\frac{1}{2 * i}\left(\int_0^{\infty} \frac{e^{i * x}-1}{x} d x-\int_0^{\infty} \frac{e^{-i * x}-1}{x} d x=\right.$ $\frac{1}{2 * i} \int_{-\infty}^{\infty} \frac{e^{i * x}-1}{x} d x$. Now integrate along the big and small semicircles $C_0$ and $C_1$ shown below. For $C_0$ : we have that $\int_{C_0} \frac{1}{x} d x=\pi * i$ and $\left|\int_{C_0} \frac{e^{i * x}}{x} d x\right| \leq$ $2 *\left|\int_{C_{00}} \frac{e^{i * x}}{x} d x\right|+\left|\int_{C_{01}} \frac{e^{i * x}}{x} d x\right|$ where $C_{00}$ and $C_{01}$ are shown below $\left(C_{01}\right.$ contains the part of $C_0$ that has points with imaginary parts more than $a$ and $C_{00}$ is one of the other 2 components). We have $\left|\int_{C_{00}} \frac{e^{i * x}}{x} d x\right| \leq$ $\sup _{x \in C_{00}}\left(e^{i * x}\right) / R * \int_{C_{00}}|d x| \leq e^{-a} * \pi$ and $\left|\int_{C_{01}} \frac{e^{i * x}}{x} d x\right| \leq\left|\int_{C_{01}} \frac{1}{x} d x\right| \leq$ $\frac{1}{R} * C * a$ for some constant $C$ (the constant $C$ exists because the length of the curve approaches $a$ as $a / R \rightarrow 0)$. Thus, the integral of $e^{i * x} / x$ over $C_0$ is bounded by $A * e^{-a}+B * a / R$ for some constants $A$ and $B$. Pick $R$ large and $a=\sqrt{R}$ and note that the above tends to 0 . About the integral over $C_1$ : We have $e^{i * x}-1=1+O(x)$ for $x \rightarrow 0$ (this is again from $\sin (x) / x \rightarrow 1$ ),
+4
+so $\left|\int_{C_1} \frac{e^{i * x}-1}{x} d x\right| \leq O(1) *\left|\int_{C_1} d x\right| \rightarrow 0$ as $x \rightarrow 0$. Thus, we only care about the integral over $C_{00}$ which is $-\pi * i$. Using Cauchy's theorem we get that our integral equals $\frac{1}{2 * i}(-(\pi * i))=\pi / 2$.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.9} Let $\Omega$ be a bounded open subset of $\mathbb{C}$, and $\varphi: \Omega \rightarrow \Omega$ a holomorphic function. Prove that if there exists a point $z_{0} \in \Omega$ such that $\varphi\left(z_{0}\right)=z_{0} \quad \text { and } \quad \varphi^{\prime}\left(z_{0}\right)=1$ then $\varphi$ is linear.
@@ -146,21 +178,81 @@ We now argue in a similar manner as before, except now we don't have the annoyin
 
 
 \paragraph{Exercise 3.3} Show that $ \int_{-\infty}^{\infty} \frac{\cos x}{x^2 + a^2} dx = \pi \frac{e^{-a}}{a}$ for $a > 0$.
+\begin{proof}
+    $\cos x=\frac{e^{i x}+e^{-i x}}{2}$. changing $x \rightarrow-x$ we see that we can just integrate $e^{i x} /\left(x^2+a^2\right)$ and we'll get the same answer. Again, we use the same semicircle and part of the real line. The only pole is $x=i a$, it has order 1 and the residue at it is $\lim _{x \rightarrow i a} \frac{e^{i x}}{x^2+a^2}(x-i a)=\frac{e^{-a}}{2 i a}$, which multiplied by $2 \pi i$ gives the answer.
+\end{proof}
+
 
 
 \paragraph{Exercise 3.4} Show that $ \int_{-\infty}^{\infty} \frac{x \sin x}{x^2 + a^2} dx = \pi e^{-a}$ for $a > 0$.
+\begin{proof}
+$$
+x /\left(x^2+a^2\right)=x / 2 i a(1 /(x-i a)-1 /(x+i a))=1 / 2 i a(i a /(x-i a)+i a /(x+
+$$
+$i a))=(1 /(x-i a)+1 /(x+i a)) / 2$. So we care about $\sin (x)(1 /(x-i a)+$ $1 /(x+i a)) / 2$. Its residue at $x=i a$ is $\sin (i a) / 2=\left(e^{-a}-e^a\right) / 4 i$.?
+\end{proof}
+
 
 
 \paragraph{Exercise 3.9} Show that $\int_0^1 \log(\sin \pi x) dx = - \log 2$.
+\begin{proof}
+Consider
+$$
+\begin{gathered}
+f(z)=\log \left(1-e^{2 \pi z i}\right)=\log \left(e^{\pi z i}\left(e^{-\pi z i}-e^{\pi z i}\right)\right)=\log (-2 i)+\pi z i+\log \\
+(\sin (\pi z))
+\end{gathered}
+$$
+Then we have
+$$
+\begin{aligned}
+\int_0^1 f(z) d z & =\log (-2 i)+\frac{i \pi}{2}+\int_0^1 \log (\sin (\pi z)) d z \\
+& =\int_0^1 \log (\sin (\pi z)) d z+\log (-2 i)+\log (i) \\
+& =\log (2)+\int_0^1 \log (\sin (\pi z)) d z
+\end{aligned}
+$$
+Now it suffices to show that $\int_0^1 f(z) d z=0$. Consider the contour $C(\epsilon, R)$ (which is the contour given in your question) given by the following.
+1. $C_1(\epsilon, R)$ : The vertical line along the imaginary axis from $i R$ to $i \epsilon$.
+2. $C_2(\epsilon)$ : The quarter turn of radius $\epsilon$ about 0 .
+3. $C_3(\epsilon)$ : Along the real axis from $(\epsilon, 1-\epsilon)$.
+4. $C_4(\epsilon)$ : The quarter turn of radius $\epsilon$ about 1 .
+5. $C_5(\epsilon, R)$ : The vertical line from $1+i \epsilon$ to $1+i R$.
+6. $C_6(R)$ : The horizontal line from $1+i R$ to $i R$.
+$f(z)$ is analytic inside the contour $C$ and hence $\oint_C f(z)=0$. This gives us
+$$
+\begin{aligned}
+\int_{C_1(\epsilon, R)} f d z+\int_{C_2(\epsilon)} f d z+\int_{C_3(\epsilon)} f d z+\int_{C_4(\epsilon)} f d z+\int_{C_5(\epsilon, R)} f d z+\int_{C_6(R)} f d z \\
+=0
+\end{aligned}
+$$
+Now the integral along 1 cancels with the integral along 5 due to symmetry. Integrals along 2 and 4 scale as $\epsilon \log (\epsilon)$. Integral along 6 goes to 0 as $R \rightarrow \infty$. This gives us
+$$
+\lim _{\epsilon \rightarrow 0} \int_{C_3(\epsilon)} f d z=0
+$$
+which is what we need.
+\end{proof}
+
 
 
 \paragraph{Exercise 3.14} Prove that all entire functions that are also injective take the form $f(z) = az + b$, $a, b \in \mathbb{C}$ and $a \neq 0$.
+\begin{proof}
+Look at $f(1 / z)$. If it has an essential singularity at 0 , then pick any $z_0 \neq 0$. Now we know that the range of $f$ is dense as $z \rightarrow 0$. We also know that the image of $f$ in some small ball around $z_0$ contains a ball around $f\left(z_0\right)$. But this means that the image of $f$ around this ball intersects the image of $f$ in any arbitrarily small ball around 0 (because of the denseness). Thus, $f$ cannot be injective. So the singularity at 0 is not essential, so $f(1 / z)$ is some polynomial of $1 / z$, so $f$ is some polynomial of $z$. If its degree is more than 1 it is not injective (fundamental theorem of algebra), so the degree of $f$ is 1 .
+\end{proof}
+
 
 
 \paragraph{Exercise 3.22} Show that there is no holomorphic function $f$ in the unit disc $D$ that extends continuously to $\partial D$ such that $f(z) = 1/z$ for $z \in \partial D$.
+\begin{proof}
+    Consider $g(r)=\int_{|z|=r} f(z) d z$. Cauchy theorem implies that $g(r)=0$ for all $r<1$. Now since $\left.f\right|_{\partial D}=1 / z$ we have $\lim _{r \rightarrow 1} \int_{|z|=r} f(z) d z=\int_{|z|=1} \frac{1}{z} d z=\frac{2}{\pi i} \neq 0$. Contradiction.
+\end{proof}
+
 
 
 \paragraph{Exercise 5.1} Prove that if $f$ is holomorphic in the unit disc, bounded and not identically zero, and $z_{1}, z_{2}, \ldots, z_{n}, \ldots$ are its zeros $\left(\left|z_{k}\right|<1\right)$, then $\sum_{n}\left(1-\left|z_{n}\right|\right)<\infty$.
+\begin{proof}
+    Fix $\mathrm{N}$ and let $D(0, R)$ contains the first $\mathrm{N}$ zeroes of f. Let $S_N=\sum_{k=1}^N\left(1-\left|z_k\right|\right)=$ $\sum_{k=1}^N \int_{\left|z_k\right|}^1 1 d r$. Let $\eta_k$ be the characteristic function of the interval $\left.\| z_k \mid, 1\right]$. We have $S_N=\sum_{k=1}^N \int_0^1 \eta(r) d r=\int_0^1\left(\sum_{k=1}^N \eta_k(r)\right) d r \leq \int_0^1 n(r) d r$, where $n(r)$ is the number of zeroes of $f$ at the disk $D(0, r)$. For $r \leq 1$ we have $n(r) \leq \frac{n(r)}{r}$. This means that $S_N \leq \int_0^1 n(r) \frac{d r}{r}$. If $f(0)=0$ then we have $f(z)=z^m g(z)$ for some integer $\mathrm{m}$ and some holomorphic $g$ with $g(0) \neq 0$. The other zeroes of $\mathrm{f}$ are precisely the zeroes of $g$. Thus we have reduced the problem to $f(0) \neq 0$. By the Corollary of the Jensen's equality we get $S_N \leq \int_0^1 n(r) \frac{d r}{r}=\frac{1}{2 \pi} \int_0^{2 \pi} \log \left|f\left(R e^{i \pi}\right)\right| d \phi-\log |f(0)|<M$ since $f$ is bounded. The partial sums of the series are boundend and therefore the series converges.
+\end{proof}
+
 
 
 \end{document}

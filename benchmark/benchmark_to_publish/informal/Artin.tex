@@ -63,12 +63,47 @@ Now, there is one element that has no pairing: the unit $e$ (since indeed $e=e^{
 
 
 \paragraph{Exercise 3.5.6} Let $V$ be a vector space which is spanned by a countably infinite set. Prove that every linearly independent subset of $V$ is finite or countably infinite.
+\begin{proof}
+    Let $A$ be the countable generating set, and let $U$ be an uncountable linearly independent set. It can be extended to a basis $B$ of the whole space. Now consider the subset $C$ of elements of $B$ that appear in the $B$-decompositions of elements of $A$.
+Since only finitely many elements are involved in the decomposition of each element of $A$, the set $C$ is countable. But $C$ also clearly generates the vector space $V$. This contradicts the fact that it is a proper subset of the basis $B$ (since $B$ is uncountable).
+\end{proof}
+
 
 
 \paragraph{Exercise 3.7.2} Let $V$ be a vector space over an infinite field $F$. Prove that $V$ is not the union of finitely many proper subspaces.
+\begin{proof}
+    If $V$ is the set-theoretic union of $n$ proper subspaces $W_i$ ( $1 \leq i \leq n$ ), then $|F| \leq n-1$.
+Proof. We may suppose no $W_i$ is contained in the union of the other subspaces. Let $u \in W_i, \quad u \notin \bigcup_{j \neq i} W_j$ and $v \notin W_i$.
+Then $(v+F u) \cap W_i=\varnothing$ and $(v+F u) \cap W_j(j \neq i)$ contains at most one vector since otherwise $W_j$ would contain $u$. Hence
+$$
+|v+F u|=|F| \leq n-1 .
+$$
+Corollary: Avoidance lemma for vector spaces.
+Let $E$ be a vector space over an infinite field. If a subspace is contained in a finite union of subspaces, it is contained in one of them.
+\end{proof}
+
 
 
 \paragraph{Exercise 6.1.14} Let $Z$ be the center of a group $G$. Prove that if $G / Z$ is a cyclic group, then $G$ is abelian and hence $G=Z$.
+\begin{proof}
+    We have that $G / Z(G)$ is cyclic, and so there is an element $x \in G$ such that $G / Z(G)=\langle x Z(G)\rangle$, where $x Z(G)$ is the coset with representative $x$. Now let $g \in G$
+We know that $g Z(G)=(x Z(G))^m$ for some $m$, and by definition $(x Z(G))^m=x^m Z(G)$.
+Now, in general, if $H \leq G$, we have by definition too that $a H=b H$ if and only if $b^{-1} a \in H$.
+In our case, we have that $g Z(G)=x^m Z(G)$, and this happens if and only if $\left(x^m\right)^{-1} g \in Z(G)$.
+Then, there's a $z \in Z(G)$ such that $\left(x^m\right)^{-1} g=z$, and so $g=x^m z$.
+
+$g, h \in G$ implies that $g=x^{a_1} z_1$ and $h=x^{a_2} z_2$, so
+$$
+\begin{aligned}
+g h & =\left(x^{a_1} z_1\right)\left(x^{a_2} z_2\right) \\
+& =x^{a_1} x^{a_2} z_1 z_2 \\
+& =x^{a_1+a_2} z_2 z_1 \\
+& =\ldots=\left(x^{a_2} z_2\right)\left(x^{a_1} z_1\right)=h g .
+\end{aligned}
+$$
+Therefore, $G$ is abelian.
+\end{proof}
+
 
 
 \paragraph{Exercise 6.4.2} Prove that no group of order $p q$, where $p$ and $q$ are prime, is simple.
@@ -119,12 +154,72 @@ $$
 
 
 \paragraph{Exercise 10.2.4} Prove that in the ring $\mathbb{Z}[x],(2) \cap(x)=(2 x)$.
+\begin{proof}
+    Let $f(x) \in(2 x)$. Then there exists some polynomial $g(x) \in \mathbb{Z}$ such that
+$$
+f(x)=2 x g(x)
+$$
+But this means that $f(x) \in(2)$ (because $x g(x)$ is a polynomial), and $f(x) \in$ $(x)$ (because $2 g(x)$ is a polynomial). Thus, $f(x) \in(2) \cap(x)$, and
+$$
+(2 x) \subseteq(2) \cap(x)
+$$
+On the other hand, let $p(x) \in(2) \cap(x)$. Since $p(x) \in(2)$, there exists some polynomial $h(x) \in \mathbb{Z}[x]$ such that
+$$
+p(x)=2 h(x)
+$$
+Furthermore, $p(x) \in(x)$, so
+$$
+p(x)=x h_2(x)
+$$
+So, $2 h(x)=x h_2(x)$, for some $h_2(x) \in \mathbb{Z}[x]$. This means that $h(0)=0$, so $x$ divides $h(x)$; that is,
+$$
+h(x)=x q(x)
+$$
+for some $q(x) \in \mathbb{Z}[x]$, and
+$$
+p(x)=2 x q(x)
+$$
+Thus, $p(x) \in(2 x)$, and
+$$
+\text { (2) } \cap(x) \subseteq(2 x)
+$$
+Finally,
+(2) $\cap(x)=(2 x)$,
+as required.
+\end{proof}
+
 
 
 \paragraph{Exercise 10.6.7} Prove that every nonzero ideal in the ring of Gauss integers contains a nonzero integer.
+\begin{proof}
+    Let $I$ be some nonzero ideal. Then there exists some $z \in \mathbb{Z}[i], z \neq 0$ such that $z \in I$. We know that $z=a+b i$, for some $a, b \in \mathbb{Z}$. We consider three cases:
+1. If $b=0$, then $z=a$, so $z \in \mathbb{Z} \cap I$, and $z \neq 0$, so the statement of the exercise holds.
+2. If $a=0$, then $z=i b$. Since $z \neq 0$, we conclude that $b \neq 0$. Since $I$ is an ideal in $\mathbb{Z}[i]$, and $i \in \mathbb{Z}[i]$, we conclude that $i z \in I$. Furthermore, $i z=-b \in \mathbb{Z}$. Thus, $i z$ is a nonzero integer which is in $I$.
+3. Let $a \neq 0$ and $b \neq 0$. Since $I$ is an ideal and $z \in I$, we conclude that $z^2 \in I$; that is,
+$$
+(a+b i)^2=a^2-b^2+2 a b i \in I
+$$
+Furthermore, since $-2 a \in \mathbb{Z}[i]$, and $z \in I$ and $I$ is an ideal, $-2 a z \in I$; that is,
+$$
+-2 a z=-2 a(a+b i)=-2 a^2-2 a b i \in I
+$$
+Since $I$ is closed under addition,
+$$
+\left(a^2-b^2+2 a b i\right)+\left(-2 a^2-2 a b i\right) \in I \Longrightarrow-a^2-b^2 \in I
+$$
+Notice that $-a^2-b^2 \neq 0$ since $a^2>0$ and $b^2>0$, so $-a^2-b^2<0$. Furthermore, it is an integer. Thus, we have found a nonzero integer in $I$.
+\end{proof}
+
 
 
 \paragraph{Exercise 10.4.6} Let $I, J$ be ideals in a ring $R$. Prove that the residue of any element of $I \cap J$ in $R / I J$ is nilpotent.
+\begin{proof}
+    If $x$ is in $I \cap J, x \in I$ and $x \in J . R / I J=\{r+a b: a \in I, b \in J, r \in R\}$. Then $x \in I \cap J \Rightarrow x \in I$ and $x \in J$, and so $x^2 \in I J$. Thus
+$$
+[x]^2=\left[x^2\right]=[0] \text { in } R / I J
+$$
+\end{proof}
+
 
 
 \paragraph{Exercise 10.4.7a} Let $I, J$ be ideals of a ring $R$ such that $I+J=R$. Prove that $I J=I \cap J$.
@@ -153,7 +248,6 @@ $$
 
 \paragraph{Exercise 11.4.6a} Prove that $x^2+x+1$ is irreducible in the field $\mathbb{F}_2$.
 
-
 \paragraph{Exercise 11.4.6b} Prove that $x^2+1$ is irreducible in $\mathbb{F}_7$
 
 
@@ -173,7 +267,23 @@ $$
 
 
 \paragraph{Exercise 13.6.10} Let $K$ be a finite field. Prove that the product of the nonzero elements of $K$ is $-1$.
-
-
-
+\begin{proof}
+    Since we are working with a finite field with $q$ elements, anyone of them is a root of the following polynomial
+$$
+x^q-x=0 .
+$$
+In particular if we rule out the 0 element, any $a_i \neq 0$ is a root of
+$$
+x^{q-1}-1=0 .
+$$
+This polynomial splits completely in $\mathbb{F}_q$ so we find
+$$
+\left(x-a_1\right) \cdots\left(x-a_{q-1}\right)=0
+$$
+in particular
+$$
+x^{q-1}-1=\left(x-a_1\right) \cdots\left(x-a_{q-1}\right)
+$$
+Thus $a_1 \cdots a_{q-1}=-1$.
+\end{proof}
 \end{document}

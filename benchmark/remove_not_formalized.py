@@ -9,7 +9,7 @@ with open(lean, 'r') as f:
     lean = f.read().splitlines()
 
 with open(tex, 'r') as f:
-    tex = f.read().splitlines()
+    tex = f.read().replace("\\end{document}", "").split("\\paragraph{")
 
 formal = [l.split('exercise_')[1].split(' ')[0]
                 for l in lean if 'theorem exercise' in l]
@@ -17,9 +17,9 @@ formal = [l.split('exercise_')[1].split(' ')[0]
 formal = ['Exercise ' + f.replace('_', '.') for f in formal]
 
 for l in tex:
-    if not 'paragraph{Exercise ' in l:
+    if "\\documentclass{" in l: 
         print(l)
-    else:
-        e = l.split('{')[1].split('}')[0]
-        if e in formal:
-            print(l)
+    elif any([x in l for x in formal]):
+        print("\\paragraph{" + l)
+
+print("\\end{document}")

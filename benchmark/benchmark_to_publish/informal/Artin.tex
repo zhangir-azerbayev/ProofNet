@@ -223,6 +223,12 @@ $$
 
 
 \paragraph{Exercise 10.4.7a} Let $I, J$ be ideals of a ring $R$ such that $I+J=R$. Prove that $I J=I \cap J$.
+\begin{proof}
+    We have seen that $IJ \subset I \cap J$, so it remains to show that $I \cap J \subset IJ$.  Since $I+J = (1)$, there are elements $i \in I$ and $j \in J$ such that $i+j = 1$.  Let $k \in I \cap J$, and multiply $i+j=1$ through by $k$ to get $ki+kj = k$.  Write this more suggestively as
+\[ k = ik+kj. \]
+The first term is in $IJ$ because $k \in J$, and the second term is in $IJ$ because $k \in I$, so $k \in IJ$ as desired.
+\end{proof}
+
 
 
 \paragraph{Exercise 10.5.16} Let $F$ be a field. Prove that the rings $F[x] /\left(x^2\right)$ and $F[x] /\left(x^2-1\right)$ are isomorphic if and only if $F$ has characteristic $2 .$
@@ -244,6 +250,10 @@ $$
 
 
 \paragraph{Exercise 11.4.1b} Prove that $x^3 + 6x + 12$ is irreducible in $\mathbb{Q}$.
+\begin{proof}
+    Apply Eisenstein's criterion with $p=3$. 
+\end{proof}
+
 
 
 \paragraph{Exercise 11.4.6a} Prove that $x^2+x+1$ is irreducible in the field $\mathbb{F}_2$.
@@ -255,12 +265,24 @@ $$
 
 
 \paragraph{Exercise 11.4.8} Let $p$ be a prime integer. Prove that the polynomial $x^n-p$ is irreducible in $\mathbb{Q}[x]$.
+\begin{proof}
+   Straightforward application of Eisenstein's criterion with $p$.  
+\end{proof}
+
 
 
 \paragraph{Exercise 11.12.3} Prove that if $x^2 \equiv-5$ (modulo $p$) has a solution, then there is an integer point on one of the two ellipses $x^2+5 y^2=p$ or $2 x^2+2 x y+3 y^2=p$.
 
 
 \paragraph{Exercise 11.13.3} Prove that there are infinitely many primes congruent to $-1$ (modulo $4$).
+\begin{proof}
+    First we show a lemma: if $a \equiv 3(\bmod 4)$ then there exists a prime $p$ such that $p \mid a$ and $p \equiv 3(\bmod 4)$.
+
+    Clearly, all primes dividing $a$ are odd. Suppose all of them would be $\equiv 1(\bmod 4)$. Then their product would also be $a \equiv 1(\bmod 4)$, which is a contradiction.
+
+To prove the main claim, suppose that $p_1, \ldots, p_n$ would be all such primes. (In particular, we have $p_1=3$.) Consider $a=4 p_2 \cdots p_n+3$. (Or you can take $a=4 p_2 \cdots p_n-1$.) Show that $p_i \nmid a$ for $i=1, \ldots, n$. (The case $3 \nmid a$ is solved differently than the other primes - this is the reason for omitting $p_1$ in the definition of $a$.) Then use the above lemma to get a contradiction.
+\end{proof}
+
 
 
 \paragraph{Exercise 13.4.10} Prove that if a prime integer $p$ has the form $2^r+1$, then it actually has the form $2^{2^k}+1$.

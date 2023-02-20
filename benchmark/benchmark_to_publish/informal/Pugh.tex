@@ -18,6 +18,10 @@ by Charles Pugh
 
 
 \paragraph{Exercise 2.12a} Let $(p_n)$ be a sequence and $f:\mathbb{N}\to\mathbb{N}$. The sequence $(q_k)_{k\in\mathbb{N}}$ with $q_k=p_{f(k)}$ is called a rearrangement of $(p_n)$. Show that if $f$ is an injection, the limit of a sequence is unaffected by rearrangement.
+\begin{proof}
+    Let $\varepsilon>0$. Since $p_n \rightarrow L$, we have that, for all $n$ except $n \leq N$, $d\left(p_n, L\right)<\epsilon$. Let $S=\{n \mid f(n) \leq N\}$, let $n_0$ be the largest $n \in S$, we know there is such a largest $n$ because $f(n)$ is injective. Now we have that $\forall n>n_0 f(n)>N$ which implies that $p_{f(n)} \rightarrow L$, as required.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.12b} Let $(p_n)$ be a sequence and $f:\mathbb{N}\to\mathbb{N}$. The sequence $(q_k)_{k\in\mathbb{N}}$ with $q_k=p_{f(k)}$ is called a rearrangement of $(p_n)$. Show that if $f$ is a surjection, the limit of a sequence is unaffected by rearrangement.
@@ -33,6 +37,10 @@ Assume now that $U$ is open. Assume by contradiction there exists $p \in U$ and 
 
 
 \paragraph{Exercise 2.29} Let $\mathcal{T}$ be the collection of open subsets of a metric space $\mathrm{M}$, and $\mathcal{K}$ the collection of closed subsets. Show that there is a bijection from $\mathcal{T}$ onto $\mathcal{K}$.
+\begin{proof}
+   The bijection given by $x\mapsto X^C$ suffices.  
+\end{proof}
+
 
 
 \paragraph{Exercise 2.32a} Show that every subset of $\mathbb{N}$ is clopen.
@@ -96,6 +104,15 @@ We saw in class that the distance function $d: M \times M \rightarrow \mathbb{R}
 
 
 \paragraph{Exercise 2.57} Show that if $S$ is connected, it is not true in general that its interior is connected.
+\begin{proof}
+    Consider $X=\mathbb{R}^2$ and
+$$
+A=([-2,0] \times[-2,0]) \cup([0,2] \times[0,2])
+$$
+which is connected, while $\operatorname{int}(A)$ is not connected.
+To see this consider the continuous function $f: \mathbb{R}^2 \rightarrow \mathbb{R}$ is defined by $f(x, y)=x+y$. Let $U=f^{-1}(0,+\infty)$ which is open in $\mathbb{R}^2$ and so $U \cap \operatorname{int}(A)$ is open in $\operatorname{int}(A)$. Also, since $(0,0) \notin \operatorname{int}(A)$, so for all $(x, y) \in \operatorname{int}(A), f(x, y) \neq 0$ and $U \cap \operatorname{int}(A)=f^{-1}[0,+\infty) \cap \operatorname{int}(A)$ is closed in $\operatorname{int}(A)$. Furthermore, $(1,1)=f^{-1}(2) \in U \cap \operatorname{int}(A)$ shows that $U \cap \operatorname{int}(A) \neq \emptyset$ while $(-1,-1) \in \operatorname{int}(A)$ and $(-1,-1) \notin U$ shows that $U \cap \operatorname{int}(A) \neq \operatorname{int}(A)$.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.79} Prove that if $M$ is nonempty compact, locally path-connected and connected then it is path-connected.
@@ -105,6 +122,26 @@ We saw in class that the distance function $d: M \times M \rightarrow \mathbb{R}
 
 
 \paragraph{Exercise 2.92} Give a direct proof that the nested decreasing intersection of nonempty covering compact sets is nonempty.
+\begin{proof}
+    Let
+$$
+A_1 \supset A_2 \supset \cdots \supset A_n \supset \cdots
+$$
+be a nested decreasing sequence of compacts. Suppose that $\bigcap A_n=\emptyset$. Take $U_n=A_n^c$, then
+$$
+\bigcup U_n=\bigcup A_n^c=\left(\bigcap A_n\right)^c=A_1 .
+$$
+Here, I'm thinking of $A_1$ as the main metric space. Since $\left\{U_n\right\}$ is an open covering of $A_1$, we can extract a finite subcovering, that is,
+$$
+A_{\alpha_1}^c \cup A_{\alpha_2}^c \cup \cdots \cup A_{\alpha_m}^c \supset A_1
+$$
+or
+$$
+\left(A_1 \backslash A_{\alpha_1}\right) \cup\left(A_1 \backslash A_{\alpha_2}\right) \cup \cdots \cup\left(A_1 \backslash A_{\alpha_m}\right) \supset A_1 .
+$$
+But, this is true only if $A_{\alpha_i}=\emptyset$ for some $i$, a contradiction.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.109} A metric on $M$ is an ultrametric if for all $x, y, z \in M$, $d(x, z) \leq \max \{d(x, y), d(y, z)\} .$ Show that a metric space with an ultrametric is totally disconnected.
@@ -131,19 +168,6 @@ so $f$ is differentiable in $\mathbb{R}$ and $f^{\prime}=0$. This implies that $
 
 
 \paragraph{Exercise 3.11a} Let $f \colon (a, b) \rightarrow \mathbb{R}$ be given.  If $f''(x)$ exists, prove that \[\lim_{h \rightarrow 0} \frac{f(x - h) - 2f(x) + f(x + h)}{h^2} = f''(x).\]
-
-
-\paragraph{Exercise 3.17c-i} Show that the bump function $\beta(x)=e^{2} e(1-x) \cdot e(x+1)$ is smooth.
-
-
-\paragraph{Exercise 3.17c-ii} Show that the bump function $\beta(x)=e^{2} e(1-x) \cdot e(x+1)$ is identically 0 outside the interval $(-1, 1)$.
-
-
-\paragraph{Exercise 3.18} Let $L$ be any closed set in $\mathbb{R}$. Prove that there is a smooth function $f \colon \mathbb{R} \rightarrow [0, 1]$ such that $f(x) = 0$ if and only if $x \in L$.
-
-
-\paragraph{Exercise 3.43a} Let $\psi(x) = x \sin 1/x$ for $0 < x \leq 1$ and $\psi(0) = 0$.  If $f \colon [-1, 1] \rightarrow \mathbb{R}$ is Riemann integrable, prove that $f \circ \psi$ is Riemann integrable.
-
 
 \paragraph{Exercise 3.63a} Prove that $\sum 1/k(\log(k))^p$ converges when $p > 1$.
 \begin{proof}
@@ -176,6 +200,29 @@ converges if and only if $c>1$.
 
 
 \paragraph{Exercise 4.15a} A continuous, strictly increasing function $\mu \colon (0, \infty) \rightarrow (0, \infty)$ is a modulus of continuity if $\mu(s) \rightarrow 0$ as $s \rightarrow 0$. A function $f \colon [a, b] \rightarrow \mathbb{R}$ has modulus of continuity $\mu$ if $|f(s) - f(t)| \leq \mu(|s - t|)$ for all $s, t \in [a, b]$. Prove that a function is uniformly continuous if and only if it has a modulus of continuity.
+\begin{proof}
+    Suppose there exists a modulus of continuity $w$ for $f$, then fix $\varepsilon>0$, since $\lim _{s \rightarrow 0} w(s)=0$, there exists $\delta>0$ such that for any $|s|<\delta$, we have $w(s)<\varepsilon$, then we have for any $x, z \in X$ such that $d_X(x, z)<\delta$, we have $d_Y(f(x), f(z)) \leq w\left(d_X(x, z)\right)<\varepsilon$, which means $f$ is uniformly continuous.
+
+Suppose $f:\left(X, d_X\right) \rightarrow\left(Y, d_Y\right)$ is uniformly continuous.
+Let $\delta_1>0$ be such that $d_X(a, b)<\delta_1$ implies $d_Y(f(a), f(b))<1$.
+Define $w:[0, \infty) \rightarrow[0, \infty]$ by
+$$
+w(s)= \begin{cases}\left.\sup \left\{d_Y(f(a), f(b))\right\} \mid d_X(a, b) \leq s\right\} & \text { if } s \leq \delta_1 \\ \infty & \text { if } s>\delta_1\end{cases}
+$$
+We'll show that $w$ is a modulus of continuity for $f \ldots$
+By definition of $w$, it's immediate that $w(0)=0$ and it's clear that
+$$
+d_Y(f(a), f(b)) \leq w\left(d_X(a, b)\right)
+$$
+for all $a, b \in X$.
+It remains to show $\lim _{s \rightarrow 0^{+}} w(s)=0$.
+It's easily seen that $w$ is nonnegative and non-decreasing, hence $\lim _{s \rightarrow 0^{+}}=L$ for some $L \geq 0$, where $L=\inf w((0, \infty))$
+Let $\epsilon>0$.
+By uniform continuity of $f$, there exists $\delta>0$ such that $d_X(a, b)<\delta$ implies $d_Y(f(a), f(b))<\epsilon$, hence by definition of $w$, we get $w(\delta) \leq \epsilon$.
+Thus $L \leq \epsilon$ for all $\epsilon>0$, hence $L=0$.
+This completes the proof.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.19} If $M$ is compact and $A$ is dense in $M$, prove that for each $\delta > 0$ there is a finite subset $\{a_1, \ldots , a_k\} \subset A$ which is $\delta$-dense in $M$ in the sense that each $x \in M$ lies within distance $\delta$ of at least one of the points $a_1,\ldots, a_k$.
@@ -184,10 +231,8 @@ converges if and only if $c>1$.
 \paragraph{Exercise 5.2} Let $L$ be the vector space of continuous linear transformations from a normed space $V$ to a normed space $W$. Show that the operator norm makes $L$ a normed space.
 
 
-\paragraph{Exercise 5.20} Assume that $U$ is a connected open subset of $\mathbb{R}^n$ and $f \colon U \rightarrow \mathbb{R}^m$ is differentiable everywhere on $U$. If $(Df)_p = 0$ for all $p \in U$, show that $f$ is constant.
 
 
-\paragraph{Exercise 5.22} If $Y$ is a metric space and $f \colon [a, b] \times Y \rightarrow \mathbb{R}$ is continuous, show that $F(y) = \int^b_a f(x,y) dx$ is continuous.
 
 
 \end{document}

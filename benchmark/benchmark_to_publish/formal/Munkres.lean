@@ -54,32 +54,6 @@ theorem exercise_13_4b2 (X I : Type*) (T : I → set (set X)) (h : ∀ i, is_top
   ∀ T'', is_topology X T'' → (∀ i, T'' ⊆ T i) → T' ⊆ T'' :=
 sorry
 
---inductive X4c | a | b | c
-
----- Find the unique smallest topology containing {∅, X, {a}, {a, b}}.
---noncomputable theorem exercise_13_4c1 :
---  { T // is_topology X4c T ∧ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ⊆ T ∧
---  ∀ T', is_topology X4c T' → {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ⊆ T' → T ⊆ T' } :=
---sorry
---
---noncomputable theorem exercise_13_4c2 :
---  { T // is_topology X4c T ∧ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ⊆ T ∧
---  ∀ T', is_topology X4c T' → {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ⊆ T' → T ⊆ T' } :=
---sorry
---
----- Find the unique largest topology contained in {∅, X, {a}, {a, b}}.
---noncomputable theorem exercise_13_4c3 :
---  { T // is_topology X4c T ∧ T ⊆ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} ∧
---  ∀ T', is_topology X4c T' → T' ⊆ {∅, univ, {X4c.a}, {X4c.a, X4c.b}} → T' ⊆ T } :=
---sorry
---
---noncomputable theorem exercise_13_4c4 :
---  { T // is_topology X4c T ∧ T ⊆ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} ∧
---  ∀ T', is_topology X4c T' → T' ⊆ {∅, univ, {X4c.a}, {X4c.b, X4c.c}} → T' ⊆ T } :=
---sorry
-
---open topological_space
-
 theorem exercise_13_5a {X : Type*}
   [topological_space X] (A : set (set X)) (hA : is_topological_basis A) :
   generate_from A = generate_from (sInter {T | is_topology X T ∧ A ⊆ T}) :=
@@ -113,11 +87,9 @@ theorem exercise_13_8b :
   (lower_limit_topology ℝ).is_open :=
 sorry
 
-noncomputable
 theorem exercise_16_1 {X : Type*} [topological_space X]
   (Y : set X)
-  (A : set Y)
-  :
+  (A : set Y) :
   ∀ U : set A, is_open U ↔ is_open (subtype.val '' U) :=
 sorry
 
@@ -326,7 +298,7 @@ sorry
 
 theorem exercise_29_4 [topological_space (ℕ → I)] :
   ¬ locally_compact_space (ℕ → I) :=
-sorry -- TODO check
+sorry 
 
 theorem exercise_29_10 {X : Type*}
   [topological_space X] [t2_space X] (x : X)

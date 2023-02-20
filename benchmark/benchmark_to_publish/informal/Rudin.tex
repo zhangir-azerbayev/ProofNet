@@ -204,11 +204,19 @@ and the second of which reduces to this equation divided by 3 . Hence these equa
 
 
 \paragraph{Exercise 2.24} Let $X$ be a metric space in which every infinite subset has a limit point. Prove that $X$ is separable.
+\begin{proof}
+    We observe that if the process of constructing $x_j$ did not terminate, the result would be an infinite set of points $x_j, j=1,2, \ldots$, such that $d\left(x_i, x_j\right) \geq \delta$ for $i \neq j$. It would then follow that for any $x \in X$, the open ball $B_{\frac{\delta}{2}}(x)$ contains at most one point of the infinite set, hence that no point could be a limit point of this set, contrary to hypothesis. Hence $X$ is totally bounded, i.e., for each $\delta>0$ there is a finite set $x_1, \ldots, x_{N\delta}$such that $X=\bigcup_{j / 1}^{N\delta} B_\delta\left(x_j\right)$
+
+Let $x_{n_1}, \ldots, x_{n N_n}$ be such that $X=\bigcup_{j / 1}^{N_n} B_{\frac{1}{n}}\left(x_{n j}\right), n=1,2, \ldots$ We claim that $\left\{x_{n j}: 1 \leq j \leq N_n ; n=1,2, \ldots\right\}$ is a countable dense subset of $X$. Indeed
+25
+if $x \in X$ and $\delta>0$, then $x \in B_{\frac{1}{n}}\left(x_{n j}\right)$ for some $x_{n j}$ for some $n>\frac{1}{\delta}$, and hence $d\left(x, x_{n j}\right)<\delta$. By definition, this means that $\left\{x_{n j}\right\}$ is dense in $X$.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.25} Prove that every compact metric space $K$ has a countable base.
 \begin{proof}
-    It is easier simply to refer to the previous problem. The hint shows that $K$ can be covered by a finite union of neighborhoods of radius $1 / n$, and the previous problem shows that this implies that $K$ is separable.
+    $K$ can be covered by a finite union of neighborhoods of radius $1 / n$, and this shows that this implies that $K$ is separable.
 
 It is not entirely obvious that a metric space with a countable base is separable. To prove this, let $\left\{V_n\right\}_{n=1}^{\infty}$ be a countable base, and let $x_n \in V_n$. The points $V_n$ must be dense in $X$. For if $G$ is any non-empty open set, then $G$ contains $V_n$ for some $n$, and hence $x_n \in G$. (Thus for a metric space, having a countable base and being separable are equivalent.)
 \end{proof}
@@ -445,9 +453,38 @@ Hence the set of $p$ for which $f(p)=g(p)$ is closed. Since by hypothesis it is 
 
 
 \paragraph{Exercise 4.5a} If $f$ is a real continuous function defined on a closed set $E \subset \mathbb{R}$, prove that there exist continuous real functions $g$ on $\mathbb{R}$ such that $g(x)=f(x)$ for all $x \in E$.
+\begin{proof}
+Following the hint, let the complement of $E$ consist of a countable collection of finite open intervals $\left(a_k, b_k\right)$ together with possibly one or both of the the semi-infinite intervals $(b,+\infty)$ and $(-\infty, a)$. The function $f(x)$ is already defined at $a_k$ and $b_k$, as well as at $a$ and $b$ (if these last two points exist). Define $g(x)$ to be $f(b)$ for $x>b$ and $f(a)$ for $x<a$ if $a$ and $b$ exist. On the interval $\left(a_k, b_k\right)$ let
+$$
+g(x)=f\left(a_k\right)+\frac{x-a_k}{b_k-a_k}\left(f\left(b_k\right)-f\left(a_k\right)\right) .
+$$
+Of course we let $g(x)=f(x)$ for $x \in E$. It is now fairly clear that $g(x)$ is continuous. A rigorous proof proceeds as follows. Let $\varepsilon>0$. To choose $\delta>0$ such that $|x-u|<\delta$ implies $|g(x)-g(u)|<\varepsilon$, we consider three cases.
+i. If $x>b$, let $\delta=x-b$. Then if $|x-u|<\delta$, it follows that $u>b$ also, so that $g(u)=f(b)=g(x)$, and $|g(u)-g(x)|=0<\varepsilon$. Similarly if $x<a$, let $\delta=a-x$
+ii. If $a_k<x<b_k$ and $f\left(a_k\right)=f\left(b_k\right)$, let $\delta=\min \left(x-a_k, b_k-x\right)$. Since $|x-u|<\delta$ implies $a_k<u<b_k$, so that $g(u)=f\left(a_k\right)=f\left(b_k\right)=g(x)$, we again have $|g(x)-g(u)|=0<\varepsilon$. If $a_k<x<b_k$ and $f\left(a_k\right) \neq f\left(b_k\right)$, let $\delta=\min \left(x-a_k, b_k-x, \frac{\left(b_k-a_k\right) \varepsilon}{\left|f\left(b_k\right)-f\left(a_k\right)\right|}\right)$. Then if $|x-u|<\delta$, we again have $a_k<u<b_k$ and so
+$$
+|g(x)-g(u)|=\frac{|x-u|}{b_k-a_k}\left|f\left(b_k\right)-f\left(a_k\right)\right|<\varepsilon .
+$$
+iii. If $x \in E$, let $\delta_1$ be such that $|f(u)-f(x)|<\varepsilon$ if $u \in E$ and $|x-u|<\delta_1$. (Subcase a). If there are points $x_1 \in E \cap\left(x-\delta_1, x\right)$ and $x_2 \in E \cap\left(x, x+\delta_1\right)$, let $\delta=\min \left(x-x_1, x_2-x\right)$. If $|u-x|<\delta$ and $u \in E$, then $|f(u)-f(x)|<\varepsilon$ by definition of $\delta_1$. if $u \notin E$, then, since $x_1, x$, and $x_2$ are all in $E$, it follows that $u \in\left(a_k, b_k\right)$, where $a_k \in E, b_k \in E$, and $\left|a_k-x\right|<\delta$ and $\left|b_k-x\right|<\delta$, so that $\left|f\left(a_k\right)-f(x)\right|<\varepsilon$ and $\left|f\left(b_k\right)-f(x)\right|<\varepsilon$. If $f\left(a_k\right)=f\left(b_k\right)$, then $f(u)=f\left(a_k\right)$ also, and we have $|f(u)-f(x)|<\varepsilon$. If $f\left(a_k\right) \neq f\left(b_k\right)$, then
+$$
+\begin{aligned}
+|f(u)-f(x)| & =\left|f\left(a_k\right)-f(x)+\frac{u-a_k}{b_k-a_k}\left(f\left(b_k\right)-f\left(a_k\right)\right)\right| \\
+& =\left|\frac{b_k-u}{b_k-a_k}\left(f\left(a_k\right)-f(x)\right)+\frac{u-a_k}{b_k-a_k}\left(f\left(b_k\right)-f(x)\right)\right| \\
+& <\frac{b_k-u}{b_k-a_k} \varepsilon+\frac{u-a_k}{b_k-a_k} \varepsilon \\
+& =\varepsilon
+\end{aligned}
+$$
+(Subcase b). Suppose $x_2$ does not exist, i.e., either $x=a_k$ or $x=a_k$ and $b_k>a_k+\delta_1$. Let us consider the second of these cases and show how to get $|f(u)-f(x)|<\varepsilon$ for $x<u<x+\delta$. If $f\left(a_k\right)=f\left(b_k\right)$, let $\delta=\delta_1$. If $u>x$ we have $a_k<u<b_k$ and $f(u)=f\left(a_k\right)=f(x)$. If $f\left(a_k\right) \neq f\left(b_k\right)$, let $\delta=$ $\min \left(\delta_1, \frac{\left(b_k-a_k\right) \varepsilon}{\left|f\left(b_k\right)-f\left(a_k\right)\right|}\right)$. Then, just as in Subcase a, we have $|f(u)-f(x)|<\varepsilon$.
+The case when $x=b_k$ for some $k$ and $a_k<x-\delta_1$ is handled in exactly the same way.
+\end{proof}
+
+
 
 
 \paragraph{Exercise 4.5b} Show that there exist a set $E \subset \mathbb{R}$ and a real continuous function $f$ defined on $E$, such that there does not exist a continuous real function $g$ on $\mathbb{R}$ such that $g(x)=f(x)$ for all $x \in E$.
+\begin{proof}
+    Let $E:=(0,1)$, and define $f(x):=1 / x$ for all $x \in E$. If $f$ has a continuous extension $g$ to $\mathbb{R}$, then $g$ is continuous on $[-1,1]$, and therefore bounded by the intermediate value theorem. However, $f$ is not bounded in any neighborhood of $x=0$, so therefore $g$ is not bounded either, a contradiction.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.6} If $f$ is defined on $E$, the graph of $f$ is the set of points $(x, f(x))$, for $x \in E$. In particular, if $E$ is a set of real numbers, and $f$ is real-valued, the graph of $f$ is a subset of the plane. Suppose $E$ is compact, and prove that $f$ is continuous on $E$ if and only if its graph is compact.
@@ -462,12 +499,24 @@ From these facts we deduce immediately that the graph of a continuous function $
 
 
 \paragraph{Exercise 4.8a} Let $f$ be a real uniformly continuous function on the bounded set $E$ in $R^{1}$. Prove that $f$ is bounded on $E$.
+\begin{proof}
+    Let $a=\inf E$ and $b=\sup E$, and let $\delta>0$ be such that $|f(x)-f(y)|<1$ if $x, y \in E$ and $|x-y|<\delta$. Now choose a positive integer $N$ larger than $(b-a) / \delta$, and consider the $N$ intervals $I_k=\left[a+\frac{k-1}{b-a}, a+\frac{k}{b-a}\right], k=1,2, \ldots, N$. For each $k$ such that $I_k \cap E \neq \varnothing$ let $x_k \in E \cap I_k$. Then let $M=1+\max \left\{\left|f\left(x_k\right)\right|\right\}$. If $x \in E$, we have $\left|x-x_k\right|<\delta$ for some $k$, and hence $|f(x)|<M$.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.8b} Let $E$ be a bounded set in $R^{1}$. Prove that there exists a real function $f$ such that $f$ is uniformly continuous and is not bounded on $E$.
+\begin{proof}
+    The function $f(x)=x$ is uniformly continuous on the entire line, but not bounded.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.11a} Suppose $f$ is a uniformly continuous mapping of a metric space $X$ into a metric space $Y$ and prove that $\left\{f\left(x_{n}\right)\right\}$ is a Cauchy sequence in $Y$ for every Cauchy sequence $\{x_n\}$ in $X$.
+\begin{proof}
+    Suppose $\left\{x_n\right\}$ is a Cauchy sequence in $X$. Let $\varepsilon>0$ be given. Let $\delta>0$ be such that $d_Y(f(x), f(u))<\varepsilon$ if $d_X(x, u)<\delta$. Then choose $N$ so that $d_X\left(x_n, x_m\right)<\delta$ if $n, m>N$. Obviously $d_Y\left(f\left(x_n\right), f\left(x_m\right)\right)<\varepsilon$ if $m, n>N$, showing that $\left\{f\left(x_n\right)\right\}$ is a Cauchy sequence.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.12} A uniformly continuous function of a uniformly continuous function is uniformly continuous.
@@ -502,6 +551,18 @@ It is then obvious that $d_Z(g(f(x)), g(f(y)))<\varepsilon$ if $d_X(x, y)<\delta
 
 
 \paragraph{Exercise 4.21a} Suppose $K$ and $F$ are disjoint sets in a metric space $X, K$ is compact, $F$ is closed. Prove that there exists $\delta>0$ such that $d(p, q)>\delta$ if $p \in K, q \in F$.
+\begin{proof}
+Following the hint, we observe that $\rho_F(x)$ must attain its minimum value on $K$, i.e., there is some point $r \in K$ such that
+$$
+\rho_F(r)=\min _{q \in K} \rho_F(q) .
+$$
+Since $F$ is closed and $r \notin F$, it follows from Exercise $4.20$ that $\rho_F(r)>0$. Let $\delta$ be any positive number smaller than $\rho_F(r)$. Then for any $p \in F, q \in K$, we have
+$$
+d(p, q) \geq \rho_F(q) \geq \rho_F(r)>\delta .
+$$
+This proves the positive assertion.
+\end{proof}
+
 
 
 \paragraph{Exercise 4.24} Assume that $f$ is a continuous real function defined in $(a, b)$ such that $f\left(\frac{x+y}{2}\right) \leq \frac{f(x)+f(y)}{2}$ for all $x, y \in(a, b)$. Prove that $f$ is convex.

@@ -43,11 +43,6 @@ theorem exercise_2_3_17 {G : Type*} [has_mul G] [group G] (a x : G) :
   (λ g : G, x⁻¹*g*x) '' (set.centralizer {a}) :=
 sorry
 
-theorem exercise_2_3_19 {G : Type*} [group G] {M : subgroup G}
-  (hM : ∀ (x : G), (λ g : G, x⁻¹*g*x) '' M ⊂ M) :
-  ∀ x : G, (λ g : G, x⁻¹*g*x) '' M = M :=
-sorry
-
 theorem exercise_2_3_16 {G : Type*} [group G]
   (hG : ∀ H : subgroup G, H = ⊤ ∨ H = ⊥) :
   is_cyclic G ∧ ∃ (p : ℕ) (fin : fintype G), nat.prime p ∧ @card G fin = p :=

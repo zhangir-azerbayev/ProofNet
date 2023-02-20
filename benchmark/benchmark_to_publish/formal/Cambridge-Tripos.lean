@@ -9,6 +9,9 @@ theorem exercise_2022_IA_1_II_9D_a (g : ℝ → ℝ)
   ∃ x : ℕ → ℝ, (∀ n : ℕ, x n > 0) ∧ (tendsto x at_top at_top) ∧ 
   tendsto (λ n : ℕ, g ((x n) + T) - g (x n)) at_top (𝓝 0) := sorry  
 
+theorem exercise_2022_IA_4_I_1E_a : ∀ N : ℕ, ∃ n ≥ N, (3*n+1).prime ∧ (3*n+1) ≥ N :=
+sorry 
+
 theorem exercise_2022_IA_4_I_2D_a : irrational (2^(1/3) + 3^(1/3)) :=
   sorry      
 
@@ -26,7 +29,7 @@ theorem exercise_2022_IB_3_II_11G_b (f : (fin 2 → ℝ) → (fin 2 → ℝ))
   ∃ x : fin 2 → ℝ, f x = x :=
 sorry    
 
-theorem exercise_IIB_3_I_1G_i (G : Type*) [group G] (H : subgroup G)
+theorem exercise_2021_IIB_3_I_1G_i (G : Type*) [group G] (H : subgroup G)
   (hH : H ≠ ⊤) :
   ∃ (K : subgroup G) (hK : K.normal) (finK : fintype (G ⧸ K )), 
   (((@fintype.card (G ⧸ K) finK) ∣ (nat.factorial H.index)) ∧ 

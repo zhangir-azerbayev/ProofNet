@@ -24,18 +24,75 @@ by Charles Pugh
 
 
 \paragraph{Exercise 2.26} Prove that a set $U \subset M$ is open if and only if none of its points are limits of its complement.
+\begin{proof}
+    Assume that none of the points of $U$ are limits of its complement, and let us prove that $U$ is open. Assume by contradiction that $U$ is not open, so there exists $p \in M$ so that $\forall r>0$ there exists $q \in M$ with $d(p, q)<r$ but $q \notin U$. Applying this to $r=1 / n$ we obtain $q_n \in U^c$ such that $d\left(q_n, p\right)<1 / n$. But then $q_n \rightarrow p$ and $p$ is a limit of a sequence of points in $U^c$, a contradiction.
+
+Assume now that $U$ is open. Assume by contradiction there exists $p \in U$ and $p_n \in U^c$ such that $p_n \rightarrow p$. Since $U$ is open, there exists $r>0$ such that $d(p, x)<r$ for $x \in M$ implies $x \in U$. But since $p_n \rightarrow p$, there exists $n_0 \in \mathbb{N}$ such that $n \geq n_0$ implies $d\left(p_n, p\right)<r$, therefore $p_n \in U$ for $n \geq n_0$, a contradiction since $p_n \in U^c$.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.29} Let $\mathcal{T}$ be the collection of open subsets of a metric space $\mathrm{M}$, and $\mathcal{K}$ the collection of closed subsets. Show that there is a bijection from $\mathcal{T}$ onto $\mathcal{K}$.
 
 
 \paragraph{Exercise 2.32a} Show that every subset of $\mathbb{N}$ is clopen.
+\begin{proof}
+    32. The one-point set $\{n\} \subset \mathbb{N}$ is open, since it contains all $m \in \mathbb{N}$ that satisfy $d(m, n)<\frac{1}{2}$. Every subset of $\mathbb{N}$ is a union of one-point sets, hence is open. Then every set it closed, since its complement is necessarily open.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.41} Let $\|\cdot\|$ be any norm on $\mathbb{R}^{m}$ and let $B=\left\{x \in \mathbb{R}^{m}:\|x\| \leq 1\right\}$. Prove that $B$ is compact.
+\begin{proof}
+    Let us call $\|\cdot\|_E$ the Euclidean norm in $\mathbb{R}^m$. We start by claiming that there exist constants $C_1, C_2>0$ such that
+$$
+C_1\|x\|_E \leq\|x\| \leq C_2\|x\|_E, \forall x \in \mathbb{R}^m .
+$$
+Assuming (1) to be true, let us finish the problem. First let us show that $B$ is bounded w.r.t. $d_E$, which is how we call the Euclidean distance in $\mathbb{R}^m$. Indeed, given $x \in B,\|x\|_E \leq \frac{1}{C_1}\|x\| \leq \frac{1}{C_1}$. Hence $B \subset\left\{x \in \mathbb{R}^m: d_E(x, 0)<\frac{1}{C_1}+1\right\}$, which means $B$ is bounded w.r.t $d_E$.
+Now let us show that $B$ is closed w.r.t. $d_E$. Let $x_n \rightarrow x$ w.r.t. $d_E$, where $x_n \in B$. Notice that this implies that $x_n \rightarrow x$ w.r.t. $d(x, y)=\|x-y\|$, the distance coming from $\|\cdot\|$, since by (1) we have
+$$
+d\left(x_n, x\right)=\left\|x_n-x\right\| \leq C_2\left\|x_n-x\right\|_E \rightarrow 0 .
+$$
+Also, notice that
+$$
+\|x\| \leq\left\|x_n-x\right\|+\left\|x_n\right\| \leq\left\|x_n-x\right\|+1,
+$$
+hence passing to the limit we obtain that $\|x\| \leq 1$, therefore $x \in B$ and so $B$ is closed w.r.t. $d_E$. Since $B$ is closed and bounded w.r.t. $d_E$, it must be compact. Now we claim that the identity function, $i d:\left(\mathbb{R}^m, d_E\right) \rightarrow\left(\mathbb{R}^m, d\right)$ where $\left(\mathbb{R}^m, d_E\right)$ means we are using the distance $d_E$ in $\mathbb{R}^m$ and $\left(\mathbb{R}^m, d\right)$ means we are using the distance $d$ in $\mathbb{R}^m$, is a homeomorphism. This follows by (1), since $i d$ is always a bijection, and it is continuous and its inverse is continuous by (1) (if $x_n \rightarrow x$ w.r.t. $d_E$, then $x_n \rightarrow x$ w.r.t. $d$ and vice-versa, by (1)). By a result we saw in class, since $B$ is compact in $\left(\mathbb{R}^m, d_E\right)$ and $i d$ is a homeomorphism, then $i d(B)=B$ is compact w.r.t. $d$.
+
+We are left with proving (1). Notice that it suffices to prove that $C_1 \leq\|x\| \leq$ $C_2, \forall x \in \mathbb{R}^m$ with $\|x\|_E=1$. Indeed, if this is true, given $x \in \mathbb{R}^m$, either $\|x\|_E=0$ (which implies $x=0$ and (1) holds in this case), or $x /\|x\|_E=y$ is such that $\|y\|_E=1$, so $C_1 \leq\|y\| \leq C_2$, which implies $C_1\|x\|_E \leq\|x\| \leq C_2\|x\|_E$.
+We want to show now that $\|\cdot\|$ is continuous w.r.t. $d_E$, that is, given $\varepsilon>0$ and $x \in \mathbb{R}^m$, there exists $\delta>0$ such that if $d_E(x, y)<\delta$, then $\|\mid x\|-\|y\| \|<\varepsilon$.
+
+By the triangle inequality, $\|x\|-\|y\| \leq\|x-y\|$, and $\|y\|-\|x\| \leq\|x-y\|$, therefore
+$$
+|\|x||-\| y|\|\leq\| x-y \| .
+$$
+Writing now $x=\sum_{i=1}^m a_i e_i, y=\sum_{i=1}^m b_i e_i$, where $e_i=(0, \ldots, 1,0, \ldots, 0)$ (with 1 in the i-th component), we obtain by the triangle inequality,
+$$
+\begin{aligned}
+\|x-y\| & =\left\|\sum_{i=1}^m\left(a_i-b_i\right) e_i\right\| \leq \sum_{i=1}^m\left|a_i-b_i\left\|\left|\left\|e_i\right\| \leq \max _{i=1, \ldots, m}\left\|e_i\right\| \sum_{i=1}^m\right| a_i-b_i \mid\right.\right. \\
+& =\max _{i=1, \ldots, m}\left\|e_i\right\| d_{s u m}(x, y) \leq \max _{i=1, \ldots, m}\left\|e_i\right\| m d_{\max }(x, y) \\
+& \leq \max _{i=1, \ldots, m}\left\|e_i\right\| m d_E(x, y) .
+\end{aligned}
+$$
+Let $\delta=\frac{\varepsilon}{m \max _{i=1, \ldots, m}\left\|e_i\right\|}$. Then if $d_E(x, y)<\delta,\|x\|-\|y\|||<\varepsilon$.
+Since $\|\cdot\|$ is continuous w.r.t. $d_E$ and $K=\left\{x \in \mathbb{R}^m:\|x\|_E=1\right\}$ is compact w.r.t. $d_E$, then the function $\|\cdot\|$ achieves a maximum and a minimum value on $K$. Call $C_1=\min _{x \in K}\|x\|, C_2=\max _{x \in K}\|x\|$. Then
+$$
+C_1 \leq\|x\| \leq C_2, \forall x \in \mathbb{R}^m \text { such that }\|x\|_E=1,
+$$
+which is what we needed.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.46} Assume that $A, B$ are compact, disjoint, nonempty subsets of $M$. Prove that there are $a_0 \in A$ and $b_0 \in B$ such that for all $a \in A$ and $b \in B$ we have $d(a_0, b_0) \leq d(a, b)$.
+\begin{proof}
+Let $A$ and $B$ be compact, disjoint and non-empty subsets of $M$. We want to show that there exist $a_0 \in A, b_0 \in B$ such that for all $a \in A, b \in B$,
+$$
+d\left(a_0, b_0\right) \leq d(a, b) .
+$$
+We saw in class that the distance function $d: M \times M \rightarrow \mathbb{R}$ is continuous. We also saw in class that any continuous, real-valued function assumes maximum and minimum values on a compact set. Since $A$ and $B$ are compact, $A \times B$ is (non-empty) compact in $M \times M$. Therefore there exists $\left(a_0, b_0\right) \in A \times B$ such that $d\left(a_0, b_0\right) \leq d(a, b), \forall(a, b) \in A \times B$.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.57} Show that if $S$ is connected, it is not true in general that its interior is connected.
@@ -60,6 +117,14 @@ by Charles Pugh
 
 
 \paragraph{Exercise 3.1} Assume that $f \colon \mathbb{R} \rightarrow \mathbb{R}$ satisfies $|f(t)-f(x)| \leq|t-x|^{2}$ for all $t, x$. Prove that $f$ is constant.
+\begin{proof}
+    We have $|f(t)-f(x)| \leq|t-x|^2, \forall t, x \in \mathbb{R}$. Fix $x \in \mathbb{R}$ and let $t \neq x$. Then
+$$
+\left|\frac{f(t)-f(x)}{t-x}\right| \leq|t-x| \text {, hence } \lim _{t \rightarrow x}\left|\frac{f(t)-f(x)}{t-x}\right|=0 \text {, }
+$$
+so $f$ is differentiable in $\mathbb{R}$ and $f^{\prime}=0$. This implies that $f$ is constant, as seen in class.
+\end{proof}
+
 
 
 \paragraph{Exercise 3.4} Prove that $\sqrt{n+1}-\sqrt{n} \rightarrow 0$ as $n \rightarrow \infty$.
@@ -81,9 +146,33 @@ by Charles Pugh
 
 
 \paragraph{Exercise 3.63a} Prove that $\sum 1/k(\log(k))^p$ converges when $p > 1$.
+\begin{proof}
+    Using the integral test, for a set $a$, we see
+$$
+\lim _{b \rightarrow \infty} \int_a^b \frac{1}{x \log (x)^c} d x=\lim _{b \rightarrow \infty}\left(\frac{\log (b)^{1-c}}{1-c}-\frac{\log (a)^{1-c}}{1-c}\right)
+$$
+which goes to infinity if $c \leq 1$ and converges if $c>1$. Thus,
+$$
+\sum_{n=2}^{\infty} \frac{1}{n \log (n)^c}
+$$
+converges if and only if $c>1$. 
+\end{proof}
+
 
 
 \paragraph{Exercise 3.63b} Prove that $\sum 1/k(\log(k))^p$ diverges when $p \leq 1$.
+\begin{proof} 
+    Using the integral test, for a set $a$, we see
+$$
+\lim _{b \rightarrow \infty} \int_a^b \frac{1}{x \log (x)^c} d x=\lim _{b \rightarrow \infty}\left(\frac{\log (b)^{1-c}}{1-c}-\frac{\log (a)^{1-c}}{1-c}\right)
+$$
+which goes to infinity if $c \leq 1$ and converges if $c>1$. Thus,
+$$
+\sum_{n=2}^{\infty} \frac{1}{n \log (n)^c}
+$$
+converges if and only if $c>1$. 
+\end{proof}
+
 
 
 \paragraph{Exercise 4.15a} A continuous, strictly increasing function $\mu \colon (0, \infty) \rightarrow (0, \infty)$ is a modulus of continuity if $\mu(s) \rightarrow 0$ as $s \rightarrow 0$. A function $f \colon [a, b] \rightarrow \mathbb{R}$ has modulus of continuity $\mu$ if $|f(s) - f(t)| \leq \mu(|s - t|)$ for all $s, t \in [a, b]$. Prove that a function is uniformly continuous if and only if it has a modulus of continuity.

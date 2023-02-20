@@ -245,6 +245,17 @@ so that $|x|=n \leq|G|$
 
 
 \paragraph{Exercise 1.3.8} Prove that if $\Omega=\{1,2,3, \ldots\}$ then $S_{\Omega}$ is an infinite group
+\begin{proof}
+    Recall that the codomain of an injective function must be at least as large (in cardinality) as the domain of the function. With that in mind, define the function
+$$
+\begin{gathered}
+f: \mathbb{N} \rightarrow S_{\mathbb{N}} \\
+f(n)=(1 n)
+\end{gathered}
+$$
+where $(1 n)$ is the cycle decomposition of an element of $S_{\mathbb{N}}$ (specifically it's the function given by $g(1)=n, g(2)=2, g(3)=3, \ldots)$. The function $f$ maps every natural number to a distinct one of these functions. Hence $f$ is injective. Hence $\infty=|\mathbb{N}| \leq\left|S_{\mathbb{N}}\right|$.
+\end{proof}
+
 
 
 \paragraph{Exercise 1.6.4} Prove that the multiplicative groups $\mathbb{R}-\{0\}$ and $\mathbb{C}-\{0\}$ are not isomorphic.
@@ -382,6 +393,15 @@ Hence $A / B$ is abelian.
 
 
 \paragraph{Exercise 3.1.22b} Prove that the intersection of an arbitrary nonempty collection of normal subgroups of a group is a normal subgroup (do not assume the collection is countable).
+\begin{proof}
+Let $\left\{H_i \mid i \in I\right\}$ be an arbitrary collection of normal subgroups of $G$ and consider the intersection
+$$
+\bigcap_{i \in I} H_i
+$$
+Take an element $a$ in the intersection and an arbitrary element $g \in G$. Then $g a g^{-1} \in H_i$ because $H_i$ is normal for any $i \in H$
+By the definition of the intersection, this shows that $g a g^{-1} \in \bigcap_{i \in I} H_i$ and therefore it is a normal subgroup.
+\end{proof}
+
 
 
 \paragraph{Exercise 3.2.8} Prove that if $H$ and $K$ are finite subgroups of $G$ whose orders are relatively prime then $H \cap K=1$.

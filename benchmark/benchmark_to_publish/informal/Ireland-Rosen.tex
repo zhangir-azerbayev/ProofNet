@@ -185,35 +185,6 @@ $p \mid n^{q-1} - 1, q \mid n^{q-1} - 1$, and $p\wedge q = 1$, so $pq \mid n^{q-
 $$n^{q-1} \equiv 1 \pmod{pq}.$$
 \end{proof}
 
-
-
-\paragraph{Exercise 3.18} Let $N$ be the number of solutions to $f(x) \equiv 0(n)$ and $N_{i}$ be the number of solutions to $f(x) \equiv 0\left(p_{i}^{a_{i}}\right)$. Prove that $N=N_{1} N_{2} \cdots N_{i}$.
-\begin{proof}    
-Note $[x]_n$ the class of $x$ modulo $n$. Let $S$ the set of solutions in $\mathbb{Z}/n\mathbb{Z}$ of $f(\overline{x}) = 0$, and $S_i$ the set of solutions in $\mathbb{Z}/p^{a_i}\mathbb{Z}$ of $f(\overline{x}) = 0$.
-
-(We designate with the same letter the polynomial $f$ in $\mathbb{Z}[x]$ or its reduction in $\mathbb{Z}/n\mathbb{Z}[x]$.)
-
-Let
-$$\varphi :
-\left\{
-\begin{array}{ccc}
-  S&  \to  & S_1\times S_2\times \cdots\times S_t  \\
-  {[}x{]}_n& \mapsto   & ({[}x{]}_{p_1^{a_1}}, {[}x{]}_{p_2^{a_2}},\ldots, {[}x{]}_{p_t^{a_t}})    
-\end{array}
-\right.
-$$
-
-$\bullet$ $\varphi$ is well defined : if $x \equiv x' \pmod n$, then $x \equiv x' \pmod {p_i^{a_i}},\ i=1,2,\cdots,t$, so $({[}x{]}_{p_1^{a_1}}, {[}x{]}_{p_2^{a_2}},\ldots, {[}x{]}_{p_t^{a_t}}) =({[}x'{]}_{p_1^{a_1}}, {[}x'{]}_{p_2^{a_2}},\ldots, {[}x'{]}_{p_t^{a_t}})$.  Moreover, we proved in Ex 3.17 that $[x]_n \in S \Rightarrow [x]_{p_i^{a_i}} \in S_i$.
-
-$\bullet$ $\varphi$ is injective : if $({[}x{]}_{p_1^{a_1}}, {[}x{]}_{p_2^{a_2}},\ldots, {[}x{]}_{p_t^{a_t}}) =({[}x'{]}_{p_1^{a_1}}, {[}x'{]}_{p_2^{a_2}},\ldots, {[}x'{]}_{p_t^{a_t}})$, then $p_i^{a_i} \mid x'-x,\ i=1,2,\ldots,t$, so $n \mid x'-x$ and $[x]_n = [x']_n$.
-
-$\bullet$ $\varphi$ is surjective : if $y=({[}x_1{]}_{p_1^{a_1}}, {[}x_2{]}_{p_2^{a_2}},\ldots, {[}x_t{]}_{p_t^{a_t}})$ is any element of $S_1\times S_2\times \cdots\times S_t$, there exists from Chinese remainder theorem $x \in \mathbb{Z}$ such that $x\equiv x_i \pmod {p_i^{a_i}}$. Then $\varphi([x]_n) = y$ (see Ex. 3.17).
-
-In conclusion, a $\varphi$ is bijective,  $N = \vert S \vert = \vert S_1\times S_2\times \cdots\times S_t \vert= N_1N_2\cdots N_t$.
-\end{proof}
-
-
-
 \paragraph{Exercise 4.4} Consider a prime $p$ of the form $4 t+1$. Show that $a$ is a primitive root modulo $p$ iff $-a$ is a primitive root modulo $p$.
 \begin{proof}
     Suppose that $a$ is a primitive root modulo $p$. As $p-1$ is even, $(-a)^{p-1}=a^{p-1} \equiv 1$ $(\bmod p)$

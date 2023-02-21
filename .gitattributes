@@ -10,3 +10,4 @@ train_backtranslation/make_data/docgen_export_with_nl/docgen_export_with_nl.json
 eval/retrieval_database/ filter=lfs diff=lfs merge=lfs -text
 eval/retrieval_database/docgen_export_with_formal_statement.jsonl filter=lfs diff=lfs merge=lfs -text
 eval/retrieval_database/np_embeddings.npy filter=lfs diff=lfs merge=lfs -text
+train_backtranslation/make_data/docgen_export_raw/docgen_export_full.json filter=lfs diff=lfs merge=lfs -text

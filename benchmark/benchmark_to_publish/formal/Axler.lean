@@ -37,7 +37,7 @@ sorry
 
 theorem exercise_1_9 {F V : Type*} [add_comm_group V] [field F]
   [module F V] (U W : submodule F V):
-  ∃ U' : submodule F V, U'.carrier = ↑U ∩ ↑W ↔ U ≤ W ∨ W ≤ U :=
+  ∃ U' : submodule F V, (U'.carrier = ↑U ∩ ↑W ↔ (U ≤ W ∨ W ≤ U)) :=
 sorry
 
 theorem exercise_3_1 {F V : Type*}  
@@ -157,6 +157,6 @@ sorry
 theorem exercise_7_14 {𝕜 V : Type*} [is_R_or_C 𝕜]
   [inner_product_space 𝕜 V] [finite_dimensional 𝕜 V]
   {T : End 𝕜 V} (hT : is_self_adjoint T)
-  {l : 𝕜} {ε : ℝ} (he : ε > 0) : ∃ v : V, ∥v∥ = 1 ∧ ∥T v - l • v∥ < ε →
-  ∃ l' : T.eigenvalues, ∥l - l'∥ < ε :=
+  {l : 𝕜} {ε : ℝ} (he : ε > 0) : ∃ v : V, ‖v‖= 1 ∧ (‖T v - l • v‖ < ε →
+  (∃ l' : T.eigenvalues, ‖l - l'‖ < ε)) :=
 sorry

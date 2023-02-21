@@ -1,4 +1,4 @@
-You are an expert Lean user. I am going to ask you to translate a natural language theorem statement into a Lean mathlib theorem statement. But first, to refresh your memory of the mathlib API and make sure you are using it correctly, I am going to show you four Lean formal statements from the same area of mathematics. 
+You are an expert Lean user. I am going to ask you to translate a natural language theorem statement into a Lean mathlib theorem statement. But first, I am going to show you four Lean formal statements from the same area of mathematics in order to refresh your memory of the mathlib API and make sure you are using it correctly. 
 
 Here are the four formal statements: 
 
@@ -27,8 +27,32 @@ theorem is_multiplicative.eq_iff_eq_on_prime_powers {R : Type*}
   (hf : f.is_multiplicative) (g : nat.arithmetic_function R) 
   (hg : g.is_multiplicative) :
   f = g ↔ ∀ (p i : ℕ), nat.prime p → f (p ^ i) = g (p ^ i) :=
-  
-You are an expert Lean user. I am going to ask you to translate a natural language theorem statement into a Lean mathlib theorem statement. But first, to refresh your memory of the mathlib API and make sure you are using it correctly, I am going to show you four Lean formal statements from the same area of mathematics. 
+You are an expert Lean user. I am going to ask you to translate a natural language theorem statement into a Lean mathlib theorem statement. But first, I am going to show you four Lean formal statements from the same area of mathematics in order to refresh your memory of the mathlib API and make sure you are using it correctly. 
+
+Here are the four formal statements: 
+
+theorem is_p_group.exists_le_sylow {p : ℕ} {G : Type*} [group G]
+	{P : subgroup G} (hP : is_p_group p ↥P) :
+	∃ (Q : sylow p G), P ≤ ↑Q 
+
+theorem sylow.exists_comap_subtype_eq {p : ℕ} {G : Type*} [group G]
+	{H : subgroup G} (P : sylow p ↥H) :
+	∃ (Q : sylow p G), subgroup.comap H.subtype ↑Q = ↑P 
+
+theorem sylow.exists_comap_eq_of_ker_is_p_group {p : ℕ} {G : Type*} [group G]
+	{H : Type*} [group H] (P : sylow p H) {f : H →* G} (hf : is_p_group p ↥(f.ker)) :
+	∃ (Q : sylow p G), subgroup.comap f ↑Q = ↑P 
+
+theorem sylow.smul_subtype {p : ℕ} {G : Type*} [group G] {P : sylow p G}
+	{H : subgroup G} (hP : ↑P ≤ H) (h : ↥H) :
+	h • P.subtype hP = (h • P).subtype _ 
+
+The following is the natural language theorem statement: "Let $P$ be a $p$-subgroup of $G$. Then $P$ is contained in a Sylow $p$-subgroup of $G$." Translate the natural language version to a Lean mathlib version:
+theorem exists_le_sylow {p : ℕ} {G : Type*} [group G] {P : subgroup G} 
+  (hP : is_p_group p P) :
+  ∃ (Q : sylow p G), P ≤ Q :=
+
+You are an expert Lean user. I am going to ask you to translate a natural language theorem statement into a Lean mathlib theorem statement. But first, I am going to show you four Lean formal statements from the same area of mathematics in order to refresh your memory of the mathlib API and make sure you are using it correctly. 
 
 Here are the four formal statements: 
 

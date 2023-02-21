@@ -23,10 +23,6 @@ by Charles Pugh
 \end{proof}
 
 
-
-\paragraph{Exercise 2.12b} Let $(p_n)$ be a sequence and $f:\mathbb{N}\to\mathbb{N}$. The sequence $(q_k)_{k\in\mathbb{N}}$ with $q_k=p_{f(k)}$ is called a rearrangement of $(p_n)$. Show that if $f$ is a surjection, the limit of a sequence is unaffected by rearrangement.
-
-
 \paragraph{Exercise 2.26} Prove that a set $U \subset M$ is open if and only if none of its points are limits of its complement.
 \begin{proof}
     Assume that none of the points of $U$ are limits of its complement, and let us prove that $U$ is open. Assume by contradiction that $U$ is not open, so there exists $p \in M$ so that $\forall r>0$ there exists $q \in M$ with $d(p, q)<r$ but $q \notin U$. Applying this to $r=1 / n$ we obtain $q_n \in U^c$ such that $d\left(q_n, p\right)<1 / n$. But then $q_n \rightarrow p$ and $p$ is a limit of a sequence of points in $U^c$, a contradiction.
@@ -114,13 +110,6 @@ To see this consider the continuous function $f: \mathbb{R}^2 \rightarrow \mathb
 \end{proof}
 
 
-
-\paragraph{Exercise 2.79} Prove that if $M$ is nonempty compact, locally path-connected and connected then it is path-connected.
-
-
-\paragraph{Exercise 2.85} Suppose that $M$ is compact and that $\mathcal{U}$ is an open covering of $M$ which is redundant in the sense that each $p \in M$ is contained in at least two members of $\mathcal{U}$. Show that $\mathcal{U}$ reduces to a finite subcovering with the same property.
-
-
 \paragraph{Exercise 2.92} Give a direct proof that the nested decreasing intersection of nonempty covering compact sets is nonempty.
 \begin{proof}
     Let
@@ -142,15 +131,24 @@ $$
 But, this is true only if $A_{\alpha_i}=\emptyset$ for some $i$, a contradiction.
 \end{proof}
 
-
-
-\paragraph{Exercise 2.109} A metric on $M$ is an ultrametric if for all $x, y, z \in M$, $d(x, z) \leq \max \{d(x, y), d(y, z)\} .$ Show that a metric space with an ultrametric is totally disconnected.
-
-
 \paragraph{Exercise 2.126} Suppose that $E$ is an uncountable subset of $\mathbb{R}$. Prove that there exists a point $p \in \mathbb{R}$ at which $E$ condenses.
+\begin{proof}
+    I think this is the proof by contrapositive that you were getting at.
+Suppose that $E$ has no limit points at all. Pick an arbitrary point $x \in E$. Then $x$ cannot be a limit point, so there must be some $\delta>0$ such that the ball of radius $\delta$ around $x$ contains no other points of $E$ :
+$$
+B_\delta(x) \cap E=\{x\}
+$$
+Call this "point 1 ". For the next point, take the closest element to $x$ and on its left; that is, choose the point
+$$
+\max [E \cap(-\infty, x)]
+$$
+if it exists (that is important - if not, skip to the next step). Note that by the argument above, this supremum, should it exist, cannot equal $x$ and is therefore a new point in $E$.
 
+Call this "point 2 ". Now take the first point to the right of $x$ for "point 3 ". Take the first point to the left of point 2 for "point 4 ". And so on, ad infinitum.
 
-\paragraph{Exercise 2.137} Let $P$ be a closed perfect subset of a separable complete metric space $M$. Prove that each point of $P$ is a condensation point of $P$.
+This gives a countable list of unique points; we must show that it exhausts the entire set $E$. Suppose not. Suppose there is some element $a<x$ which is never included in the list (picking $a$ on the negative side of $x$ is arbitrary, and the same argument would work for the second case). Then the element closest and to the right of $a$ in $E$ (which exists, by the no-limit-points argument at the beginning) is also not in the list; if it was, $a$ would have been in one of the next two spots. And same with that point (call it $a_1$ ); there is a closest $a_2>a_1 \in E$ such that $a_2$ is not in the list. Repeating, we generate an infinite monotone-increasing sequence $\left\{a_i\right\}$ of elements in $E$ and not in the list, which is clearly bounded above by $x$. By the Monotone
+Convergence Theorem this sequence has a limit. But that means the sequence $\left\{a_i\right\} \subset E$ converges to a limit, and hence $E$ has a limit point, contradicting the assumption. Therefore our list exhausts $E$, and we have enumerated all its elements.
+\end{proof}
 
 
 \paragraph{Exercise 3.1} Assume that $f \colon \mathbb{R} \rightarrow \mathbb{R}$ satisfies $|f(t)-f(x)| \leq|t-x|^{2}$ for all $t, x$. Prove that $f$ is constant.
@@ -165,9 +163,12 @@ so $f$ is differentiable in $\mathbb{R}$ and $f^{\prime}=0$. This implies that $
 
 
 \paragraph{Exercise 3.4} Prove that $\sqrt{n+1}-\sqrt{n} \rightarrow 0$ as $n \rightarrow \infty$.
+\begin{proof}
+    $$
+\sqrt{n+1}-\sqrt{n}=\frac{(\sqrt{n+1}-\sqrt{n})(\sqrt{n+1}+\sqrt{n})}{\sqrt{n+1}+\sqrt{n}}=\frac{1}{\sqrt{n+1}+\sqrt{n}}<\frac{1}{2 \sqrt{n}}
+$$
+\end{proof}
 
-
-\paragraph{Exercise 3.11a} Let $f \colon (a, b) \rightarrow \mathbb{R}$ be given.  If $f''(x)$ exists, prove that \[\lim_{h \rightarrow 0} \frac{f(x - h) - 2f(x) + f(x + h)}{h^2} = f''(x).\]
 
 \paragraph{Exercise 3.63a} Prove that $\sum 1/k(\log(k))^p$ converges when $p > 1$.
 \begin{proof}
@@ -222,17 +223,4 @@ By uniform continuity of $f$, there exists $\delta>0$ such that $d_X(a, b)<\delt
 Thus $L \leq \epsilon$ for all $\epsilon>0$, hence $L=0$.
 This completes the proof.
 \end{proof}
-
-
-
-\paragraph{Exercise 4.19} If $M$ is compact and $A$ is dense in $M$, prove that for each $\delta > 0$ there is a finite subset $\{a_1, \ldots , a_k\} \subset A$ which is $\delta$-dense in $M$ in the sense that each $x \in M$ lies within distance $\delta$ of at least one of the points $a_1,\ldots, a_k$.
-
-
-\paragraph{Exercise 5.2} Let $L$ be the vector space of continuous linear transformations from a normed space $V$ to a normed space $W$. Show that the operator norm makes $L$ a normed space.
-
-
-
-
-
-
 \end{document}

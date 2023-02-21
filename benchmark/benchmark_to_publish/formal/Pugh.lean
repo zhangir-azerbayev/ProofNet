@@ -11,11 +11,6 @@ theorem exercise_2_12a (f : ℕ → ℕ) (p : ℕ → ℝ) (a : ℝ)
   tendsto (λ n, p (f n)) at_top (𝓝 a) :=
 sorry
 
-theorem exercise_2_12b (f : ℕ → ℕ) (p : ℕ → ℝ) (a : ℝ)
-  (hf : surjective f) (hp : tendsto p at_top (𝓝 a)) :
-  tendsto (λ n, p (f n)) at_top (𝓝 a) :=
-sorry
-
 theorem exercise_2_26 {M : Type*} [topological_space M]
   (U : set M) : is_open U ↔ ∀ x ∈ U, ¬ cluster_pt x (𝓟 Uᶜ) :=
 sorry
@@ -45,19 +40,6 @@ theorem exercise_2_57 {X : Type*} [topological_space X]
   : ∃ (S : set X), is_connected S ∧ ¬ is_connected (interior S) :=
 sorry
 
-theorem exercise_2_79
-  {M : Type*} [topological_space M] [compact_space M]
-  [loc_path_connected_space M] (hM : nonempty M)
-  (hM : connected_space M) : path_connected_space M :=
-sorry
-
-theorem exercise_2_85
-  (M : Type*) [topological_space M] [compact_space M]
-  (U : set (set M)) (hU : ∀ p, ∃ (U₁ U₂ ∈ U), p ∈ U₁ ∧ p ∈ U₂ ∧ U₁ ≠ U₂) :
-  ∃ (V : set (set M)), set.finite V ∧
-  ∀ p, ∃ (V₁ V₂ ∈ V), p ∈ V₁ ∧ p ∈ V₂ ∧ V₁ ≠ V₂ :=
-sorry
-
 theorem exercise_2_92 {α : Type*} [topological_space α]
   {s : ℕ → set α}
   (hs : ∀ i, is_compact (s i))
@@ -66,24 +48,11 @@ theorem exercise_2_92 {α : Type*} [topological_space α]
   (⋂ i, s i).nonempty :=
 sorry
 
-theorem exercise_2_109
-  {M : Type*} [metric_space M]
-  (h : ∀ x y z : M, dist x z = max (dist x y) (dist y z)) :
-  totally_disconnected_space M :=
-sorry
-
 theorem exercise_2_126 {E : set ℝ}
   (hE : ¬ set.countable E) : ∃ (p : ℝ), cluster_pt p (𝓟 E) :=
 sorry
 
 open topological_space
-
-theorem exercise_2_137
-  {M : Type*} [metric_space M] [separable_space M] [complete_space M]
-  {P : set M} (hP : is_closed P)
-  (hP' : is_closed P ∧ P = {x | cluster_pt x (𝓟 P)}) :
-  ∀ x ∈ P, ∀ n ∈ (𝓝 x), ¬ set.countable n :=
-sorry
 
 theorem exercise_3_1 {f : ℝ → ℝ}
   (hf : ∀ x y, |f x - f y| ≤ |x - y| ^ 2) :
@@ -92,14 +61,6 @@ sorry
 
 theorem exercise_3_4 (n : ℕ) :
   tendsto (λ n, (sqrt (n + 1) - sqrt n)) at_top (𝓝 0) :=
-sorry
-
-theorem exercise_3_11a
-  {f : ℝ → ℝ} {a b x : ℝ}
-  (h1 : differentiable_within_at ℝ f (set.Ioo a b) x)
-  (h2 : differentiable_within_at ℝ (deriv f) (set.Ioo a b) x) :
-  ∃ l, tendsto (λ h, (f (x - h) - 2 * f x + f (x + h)) / h ^ 2) (𝓝 0) (𝓝 l)
-  ∧ deriv (deriv f) x = l :=
 sorry
 
 theorem exercise_3_63a (p : ℝ) (f : ℕ → ℝ) (hp : p > 1)
@@ -119,14 +80,4 @@ theorem exercise_4_15a {α : Type*}
   ↔
   ∃ (μ : ℝ → ℝ), ∀ (x : ℝ), (0 : ℝ) ≤ μ x ∧ tendsto μ (𝓝 0) (𝓝 0) ∧
   (∀ (s t : ℝ) (f : ℝ → ℝ), f ∈ F → |(f s) - (f t)| ≤ μ (|s - t|)) :=
-sorry
-
-theorem exercise_4_19 {M : Type*} [metric_space M]
-  [compact_space M] (A : set M) (hA : dense A) (δ : ℝ) (hδ : δ > 0) :
-  ∃ (A_fin : set M), A_fin ⊂ A ∧ set.finite A_fin ∧ ∀ (x : M), ∃ i ∈ A_fin, dist x i < δ :=
-sorry
-
-theorem exercise_5_2 {V : Type*} [normed_add_comm_group V]
-  [normed_space ℂ V] {W : Type*} [normed_add_comm_group W] [normed_space ℂ W] :
-  normed_space ℂ (continuous_linear_map (id ℂ) V W) :=
 sorry

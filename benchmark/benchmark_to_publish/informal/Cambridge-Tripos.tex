@@ -9,11 +9,11 @@ Exercises from \\
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 
 \begin{document}
 \maketitle
 
-\paragraph{Exercise 2022.IA.1-II-9D-a} Let $a_{n}$ be a sequence of real numbers. Show that if $a_{n}$ converges, the sequence $\frac{1}{n} \sum_{k=1}^{n} a_{k}$ also converges and $\lim _{n \rightarrow \infty} \frac{1}{n} \sum_{k=1}^{n} a_{k}=\lim _{n \rightarrow \infty} a_{n}$.
 
 \paragraph{Exercise 2022.IA.4-I-1E-a} Show that there are infinitely many primes of the form $3 n+2$ with $n \in \mathbb{N}$.
 \begin{proof}
@@ -23,14 +23,21 @@ Now, how to construct such an $n$ ? Suppose the finite list is $\left\{p_1, p_2,
 
 
 \paragraph{Exercise 2022.IA.4-I-2D-a} Prove that $\sqrt[3]{2}+\sqrt[3]{3}$ is irrational.
+\begin{proof}
+    Suppose $\frac{a}{b} = \sqrt[3]{2}+\sqrt[3]{3}$ for $a,b\in\mathbb{Z}$. Cubing both sides, we get $a^3/b^3 = 2 + 3 \sqrt[3]{12} + 3\sqrt[3]{18}+3$. Therefore we have $\frac{c}{d} = \sqrt[3]{12} + \sqrt[3]{18}$ for some rational $c/d\in\mathbb{Q}$. Cubing both sides we get $c^3/d^3 = 81000\sqrt{3}$, which is a contradiction.
+\end{proof}
+
 
 \paragraph{Exercise 2022.IB.3-II-13G-a-i} Let $U \subset \mathbb{C}$ be a (non-empty) connected open set and let $f_n$ be a sequence of holomorphic functions defined on $U$. Suppose that $f_n$ converges uniformly to a function $f$ on every compact subset of $U$. Show that $f$ is holomorphic in $U$.
-
-\paragraph{Exercise 2022.IB.3-II-11G-b} Let $f: \mathbb{R}^{2} \rightarrow \mathbb{R}^{2}$ be the map given by $f(x, y)=\left(\frac{\cos x+\cos y-1}{2}, \cos x-\cos y\right)$. Prove that $f$ has a fixed point.
-
-
-\paragraph{Exercise 2021.IIB.3-I-1G-i} Let $G$ be a finite group, and let $H$ be a proper subgroup of $G$ of index $n$. Show that there is a normal subgroup $K$ of $G$ such that $|G / K|$ divides $n$ ! and $|G / K| \geqslant n$
-
-\paragraph{Exercise 2018.IA.1-I-3E-b} Let $f: \mathbb{R} \rightarrow(0, \infty)$ be a decreasing function. Let $x_{1}=1$ and $x_{n+1}=x_{n}+f\left(x_{n}\right)$. Prove that $x_{n} \rightarrow \infty$ as $n \rightarrow \infty$.
+\begin{proof}
+    Let $\Delta \subset D$ be a closed triangle. Since each $f_n$ is holomorphic, by Cauchy's theorem, you have $\int_{\partial \Delta} f_n(z) d z=0$ for all $n$.
+$\partial \Delta$ is a compact subset of $D$, so you know that $f_n \rightarrow f$ uniformly on $\partial \Delta$.
+So you get, for all $n$,
+$$
+\left|\int_{\partial \Delta} f(z) d z\right|=\left|\int_{\partial \Delta}\left(f(z)-f_n(z)\right) d z\right| \leq \operatorname{length}(\partial \Delta)
+$$
+By letting $n \rightarrow \infty$, you find that $\int_{\partial \Delta} f(z) d z=0$.
+By Morera's theorem, $f$ is holomorphic.
+\end{proof}
 
 \end{document}

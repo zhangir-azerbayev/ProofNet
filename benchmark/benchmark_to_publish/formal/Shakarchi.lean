@@ -35,11 +35,6 @@ theorem exercise_1_19c (z : ℂ) (hz : abs z = 1) (hz2 : z ≠ 1) (s : ℕ → �
     ∃ z, tendsto s at_top (𝓝 z) :=
 sorry
 
-theorem exercise_1_22 (n : ℕ) (S : fin n → set ℕ) (f : fin n → ℕ × ℕ)
-  (h : ∀ i, S i = set.range (λ j, (f i).fst + j * (f i).snd)) :
-    ¬ (⋃ i, S i) = (set.univ : set ℕ) :=
-sorry
-
 theorem exercise_1_26
   (f F₁ F₂ : ℂ → ℂ) (Ω : set ℂ) (h1 : is_open Ω) (h2 : is_connected Ω)
   (hF₁ : differentiable_on ℂ F₁ Ω) (hF₂ : differentiable_on ℂ F₂ Ω)
@@ -67,12 +62,12 @@ sorry
 
 theorem exercise_3_3 (a : ℝ) (ha : 0 < a) :
     tendsto (λ y, ∫ x in -y..y, real.cos x / (x ^ 2 + a ^ 2))
-      at_top (𝓝 (real.pi * (real.exp (-a) / a))) :=
+    at_top (𝓝 (real.pi * (real.exp (-a) / a))) :=
 sorry
 
 theorem exercise_3_4 (a : ℝ) (ha : 0 < a) :
     tendsto (λ y, ∫ x in -y..y, x * real.sin x / (x ^ 2 + a ^ 2))
-      at_top (𝓝 (real.pi * (real.exp (-a)))) :=
+    at_top (𝓝 (real.pi * (real.exp (-a)))) :=
 sorry
 
 theorem exercise_3_9 : ∫ x in 0..1, real.log (real.sin (real.pi * x)) = - real.log 2 :=

@@ -65,16 +65,6 @@ theorem exercise_6_8_1 {G : Type*} [group G]
   (a b : G) : closure ({a, b} : set G) = closure {b*a*b^2, b*a*b^3} :=
 sorry
 
--- How to talk about free groups in the right way?
-theorem exercise_6_8_4 {α : Type*} [group α] [free_group α] (x y z : α):
-  closure ({x,y,z} : set α) :=
-sorry
-
-theorem exercise_6_8_6 {G : Type*} [group G] (N : subgroup G)
-  [N.normal] (hG : is_cyclic G) (hGN : is_cyclic (G ⧸ N)) :
-  ∃ (g h : G), closure ({g,h} : set G) = ⊤ :=
-sorry
-
 theorem exercise_10_1_13 {R : Type*} [ring R] {x : R}
   (hx : is_nilpotent x) : is_unit (1 + x) :=
 sorry
@@ -97,17 +87,6 @@ theorem exercise_10_4_7a {R : Type*} [comm_ring R] [no_zero_divisors R]
   (I J : ideal R) (hIJ : I + J = ⊤) : I * J = I ⊓ J :=
 sorry
 
-theorem exercise_10_5_16 {F : Type*} [fintype F] [field F] :
-  is_empty ((polynomial F) ⧸ ideal.span ({X^2} : set (polynomial F)) ≃
-  (polynomial F) ⧸ ideal.span ({X^2 - 1} : set (polynomial F))) ↔
-  ring_char F ≠ 2 :=
-sorry
-
-theorem exercise_10_7_6 {F : Type*} [fintype F] [field F]
-  (hF : card F = 5) :
-  field $ (polynomial F) ⧸ ideal.span ({X^2 + X + 1} : set (polynomial F)) :=
-sorry
-
 theorem exercise_10_7_10 {R : Type*} [ring R]
   (M : ideal R) (hM : ∀ (x : R), x ∉ M → is_unit x) :
   is_maximal M ∧ ∀ (N : ideal R), is_maximal N → N = M :=
@@ -115,13 +94,6 @@ sorry
 
 theorem exercise_11_2_13 (a b : ℤ) :
   (of_int a : gaussian_int) ∣ of_int b → a ∣ b :=
-sorry
-
-theorem exercise_11_3_1 {F : Type*} [field F] (a b : F) (ha : a ≠ 0) (p : polynomial F) :
-  irreducible p ↔ irreducible (∑ n in p.support, p.coeff n • (a • X + b • 1)^n : polynomial F) :=
-sorry
-
-theorem exercise_11_3_4 : irreducible (X^3 + 6*X + 12 : polynomial ℚ) :=
 sorry
 
 theorem exercise_11_4_1b {F : Type*} [field F] [fintype F] (hF : card F = 2) :
@@ -141,11 +113,6 @@ sorry
 
 theorem exercise_11_4_8 {p : ℕ} (hp : prime p) (n : ℕ) :
   irreducible (X ^ n - p : polynomial ℚ) :=
-sorry
-
-theorem exercise_11_12_3 (p : ℕ) (hp : nat.prime p) {a : zmod p} 
-    (ha : a^2 = -5) :
-    ∃ (x y : ℤ), x ^ 2 + 5 * y ^ 2 = p ∨ 2 * x ^ 2 + 2 * x * y + 3 * y ^ 2 = p :=
 sorry
 
 theorem exercise_11_13_3 (N : ℕ):

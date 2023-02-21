@@ -90,9 +90,6 @@ sorry
 theorem exercise_12_12 : is_algebraic ℚ (sin (real.pi/12)) :=
 sorry 
 
-theorem exercise_18_1 : ¬ ∃ x y : ℤ, 165*x^2 - 21*y^2 = 19 := 
-sorry 
-
 theorem exercise_18_4 {n : ℕ} (hn : ∃ x y z w : ℤ, 
   x^3 + y^3 = n ∧ z^3 + w^3 = n ∧ x ≠ z ∧ x ≠ w ∧ y ≠ z ∧ y ≠ w) : 
   n ≥ 1729 :=

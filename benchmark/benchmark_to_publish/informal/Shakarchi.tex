@@ -151,10 +151,6 @@ Thus $\sum a_n b_n=\sum z^n / n$ converges for every point in the unit circle ex
 \end{proof}
 
 
-
-\paragraph{Exercise 1.22} Let $\mathbb{N} = {1, 2, 3, \ldots}$ denote the set of positive integers. A subset $S \subset \mathbb{N}$ is said to be in arithmetic progression if $S = {a, a + d, a + 2d, a + 3d, \ldots}$ where $a, d \in \mathbb{N}$. Here $d$ is called the step of $S$.  Show that $\mathbb{N}$ cannot be partitioned into a finite number of subsets that are in arithmetic progression with distinct steps (except for the trivial case $a = d = 1$).
-
-
 \paragraph{Exercise 1.26} Suppose $f$ is continuous in a region $\Omega$. Prove that any two primitives of $f$ (if they exist) differ by a constant.
 \begin{proof}
     Suppose $F_1$ adn $F_2$ are primitives of $F$. Then $(F_1-F_2)^\prime = f - f = 0$, therefore $F_1$ and $F_2$ differ by a constant. 
@@ -172,9 +168,38 @@ so $\left|\int_{C_1} \frac{e^{i * x}-1}{x} d x\right| \leq O(1) *\left|\int_{C_1
 
 
 \paragraph{Exercise 2.9} Let $\Omega$ be a bounded open subset of $\mathbb{C}$, and $\varphi: \Omega \rightarrow \Omega$ a holomorphic function. Prove that if there exists a point $z_{0} \in \Omega$ such that $\varphi\left(z_{0}\right)=z_{0} \quad \text { and } \quad \varphi^{\prime}\left(z_{0}\right)=1$ then $\varphi$ is linear.
+\begin{proof}
+    When $\Omega$ is connected, if $\varphi$ is not linear, then there exists $n \geq 2$ and $a_n \neq 0$, such that
+$$
+\varphi(z)=z+a_n\left(z-z_0\right)^n+O\left(\left(z-z_0\right)^{n+1}\right) .
+$$
+As you have noticed, by induction, it follows that for every $k \geq 1$,
+$$
+\varphi^k(z)=z+k a_n\left(z-z_0\right)^n+O\left(\left(z-z_0\right)^{n+1}\right) .
+$$
+Let $r>0$ be such that when $\left|z-z_0\right| \leq r$, then $z \in \Omega$. Then by (1),
+$$
+k a_n=\frac{1}{2 \pi i} \int_{\left|z-z_0\right|=r} \frac{\varphi^k(z)}{\left(z-z_0\right)^{n+1}} d z .
+$$
+Since $\varphi^k(\Omega) \subset \Omega$ and since $\Omega$ is bounded, there exists $M>0$, independent of $k$, such that $\left|\varphi^k\right| \leq M$ on $\Omega$. Then by (2),
+$$
+k\left|a_n\right| \leq M r^{-n} .
+$$
+Since $k$ is arbitrary, $a_n=0$, a contradiction.
+\end{proof}
+
 
 
 \paragraph{Exercise 2.13} Suppose $f$ is an analytic function defined everywhere in $\mathbb{C}$ and such that for each $z_0 \in \mathbb{C}$ at least one coefficient in the expansion $f(z) = \sum_{n=0}^\infty c_n(z - z_0)^n$ is equal to 0. Prove that $f$ is a polynomial.
+\begin{proof}
+Say that at least one of the coefficients of the Taylor series vanishes is the same as saying that for every $a \in \mathbb{C}$ there is $m \in \mathbb{N}$ such that $f^{(m)}(a)=0$.
+Consider $A_n:=\left\{z \in \mathbb{C}: f^{(n)}(z)=0\right\}$ for each $n \in \mathbb{N}$. Note that:
+$f$ is polynomial iff $A_n$ is not countable for some $n \in \mathbb{N}$.
+Indeed, if $f$ is polynomial of degree $n$, then $f^{(n+1)}(z)=0$ for all $z \in \mathbb{C}$, then $A_{n+1}=\mathbb{C}$, so, $A_{n+1}$ is not countable. Conversely, if there is $n \in \mathbb{C}$ such that $A_n$ is not countable, then $A_n$ has a limit point, then by Identity principle we have $f^{(n)}(z)=0$ for all $z \in \mathbb{C}$, so, $f$ is a polynomial of degree at most $n-1$.
+
+Therefore, tt suffices to show that there is $n \in \mathbb{N}$ such that $A_n$ is not countable. Indeed, consider $\bigcup_{n \in \mathbb{N}} A_n$, by hypothesis for each $a \in \mathbb{C}$ there is $m \in \mathbb{N}$ such that $f^{(m)}(a)=0$, then $\mathbb{C} \subseteq \bigcup_{n \in \mathbb{N}} A_n$. Therefore, $\bigcup_{n \in \mathbb{N}} A_n$ is not countable, then there is $n \in \mathbb{N}$ such that $A_n$ is not countable.
+\end{proof}
+ 
 
 
 \paragraph{Exercise 3.3} Show that $ \int_{-\infty}^{\infty} \frac{\cos x}{x^2 + a^2} dx = \pi \frac{e^{-a}}{a}$ for $a > 0$.

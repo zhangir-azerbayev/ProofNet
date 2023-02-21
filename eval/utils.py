@@ -1,8 +1,9 @@
 import os
 import ndjson
 import openai 
+import re
 from ratelimit import limits, sleep_and_retry
-from nltk.translate.bleu_score import sentence_bleu
+from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 
 TEX_PREAMBLE = """\documentclass{article}
 
@@ -30,7 +31,7 @@ def natural_sorted(l):
     """ 
     convert = lambda text: int(text) if text.isdigit() else text 
     alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
-    return sorted(l, key = alphanum_key)
+    return sorted(l, key = lambda x: alphanum_key(x["id"]))
 
 def batch_loader(seq, size):
     """
@@ -55,14 +56,15 @@ def call_api(prompt, stop, max_tokens=150,):
     )
 
 def calc_bleu(data, candidate_key, reference_key): 
-    bleus = [sentence_bleu([x[candidate_key]].split(), x[reference_key].split()) for x in data]
+    bleus = [sentence_bleu([x[reference_key].split()], x[candidate_key].split(),
+        smoothing_function=SmoothingFunction().method4) for x in data]
     return sum(bleus)/len(bleus)
 
 def make_readable(save_dir, save_file, ref_key): 
     if ref_key=="nl_statement": 
-        _dump_tex(save_dir, ref_key)
+        _dump_tex(save_dir, save_file)
     elif ref_key=="formal_statement": 
-        _dump_lean(save_dir, ref_key)
+        _dump_lean(save_dir, save_file)
     else: 
         raise AssertionError("Unrecognized ref key")
 
@@ -71,11 +73,11 @@ def _dump_tex(save_dir, save_file):
     with open(os.path.join(save_dir, save_file)) as f: 
         data = ndjson.load(f)
 
-    data = natural_sorted(data, key = lambda x: x["id"])
+    data = natural_sorted(data)
 
 
     lines_lst = ["\\paragraph{" + x["id"].replace("|", ".").replace("_", ".") + "} "+\
-            x["codex_informal_statement"].replace("\\\\", "\\") for x in data]
+            x["gpt_nl_statement"].replace("\\\\", "\\") for x in data]
 
     text = TEX_PREAMBLE + "\n\n".join(lines_lst) + TEX_POSTAMBLE
 
@@ -86,13 +88,13 @@ def _dump_lean(save_dir, save_file):
     with open(os.path.join(save_dir, save_file)) as f: 
         data = ndjson.load(f)
 
-    data = natural_sorted(data, key = lambda x: x["id"])
+    data = natural_sorted(data)
     
     author = None
     for x in data: 
         eyed = x["id"]
-        new_author = x[:x.index("|")]
-        exname = x[x.index("|")+1:]
+        new_author = eyed[:eyed.index("|")]
+        exname = eyed[eyed.index("|")+1:]
 
         if author!=new_author:
             author = new_author
@@ -102,5 +104,7 @@ def _dump_lean(save_dir, save_file):
             with open(os.path.join(save_dir, author + ".lean"), "w") as f: 
                 f.write(src)
 
+        formal = x["gpt_formal_statement"][1:]
+
         with open(os.path.join(save_dir, author+".lean"), "a") as f: 
-            f.write(f"\n\ntheorem {exname} " + x["gpt_formal_statement"])
+            f.write(f"\n\ntheorem {exname}" + formal[formal.index(" "):]  + ":=\nsorry")

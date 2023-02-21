@@ -6,7 +6,9 @@ import yaml
 import ndjson
 import pathlib
 
-from .utils import *
+from utils import *
+
+from datasets import load_dataset
 
 
 def main():
@@ -22,7 +24,6 @@ def main():
     save_dir = cfg["save_dir"]
     save_file = cfg["save_file"]
     few_shot_prompt_path = cfg["few_shot_prompt_path"]
-    data_path = cfg["data_path"]
     STOP = cfg["stop"]
     max_tokens = cfg["max_tokens"]
     split = cfg["split"]
@@ -35,13 +36,15 @@ def main():
         FEW_SHOT_PROMPT = f.read()
 
     data = load_dataset("hoskinson-center/proofnet")[split]
+    data = [x for x in data]
 
     dataloader = batch_loader(data, BATCH_SIZE)
     
     # generation loop
-    for batch in tqdm(dataloader): 
+    for batch in tqdm(dataloader[:1]): 
         prompts = [FEW_SHOT_PROMPT + BEFORE_EXAMPLE + x[IN_KEY] + AFTER_EXAMPLE for x in batch]
 
+        print("calling api...")
         outs = call_api(prompts, stop=STOP, max_tokens=max_tokens)
 
         finish_reasons = [x["finish_reason"] 
@@ -53,6 +56,8 @@ def main():
         text_outs = [x["text"] for x in outs["choices"]]
 
         for text_out, step, prompt in zip(text_outs, batch, prompts):
+            print("TEXT" + "#"*20)
+            print(prompt + text_out)
             step[OUT_KEY] = text_out
             step["prompt"] = prompt
 
@@ -67,7 +72,7 @@ def main():
     bleu = calc_bleu(data, OUT_KEY, ref_key)
 
     with open(os.path.join(save_dir, "metrics.json"), "w") as f: 
-        json.dump(f, {"bleu": bleu})
+        json.dump({"bleu": bleu}, f)
 
     make_readable(save_dir, save_file, ref_key)
 

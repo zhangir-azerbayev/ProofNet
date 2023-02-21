@@ -7,7 +7,6 @@ ref_key: "formal_statement"
 save_dir: "results/codex_12shot_formalize"
 save_file: "out.jsonl"
 few_shot_prompt_path: "prompts/12shot_formalize.txt"
-data_path: "model_input.jsonl"
 stop: ":="
 max_tokens: 275
 split: "test"

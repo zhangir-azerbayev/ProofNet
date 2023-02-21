@@ -4,7 +4,7 @@ after_example: "\nTranslate the Lean mathlib version to a natural language versi
 in_key: "formal_statement"
 out_key: "gpt_nl_statement"
 ref_key: "nl_statement"
-save_dir: "results/codex_12shot_informalize"
+save_dir: "results/toy_codex_12shot_informalize"
 save_file: "out.jsonl"
 few_shot_prompt_path: "prompts/12shot_informalize.txt"
 data_path: "model_input.jsonl"

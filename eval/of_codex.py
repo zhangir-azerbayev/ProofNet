@@ -52,8 +52,9 @@ def main():
 
         text_outs = [x["text"] for x in outs["choices"]]
 
-        for text_out, step in zip(text_outs, batch):
+        for text_out, step, prompt in zip(text_outs, batch, prompts):
             step[OUT_KEY] = text_out
+            step["prompt"] = prompt
 
             with open(os.path.join(save_dir, save_file), "a+") as f: 
                 record = json.dumps(step)

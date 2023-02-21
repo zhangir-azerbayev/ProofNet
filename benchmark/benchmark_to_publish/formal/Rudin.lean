@@ -1,6 +1,6 @@
 import .common
 
-open real
+open real complex
 open topological_space
 open filter
 open_locale real 
@@ -29,30 +29,8 @@ begin
   apply irrational.mul_rat g h,
 end
 
-theorem exercise_1_2
-: ¬ ∃ (x : ℚ), ( x ^ 2 = 12 ) :=
-begin
-  simp, intros x h,
-  have h₁: (12 : ℚ) ≠ 0 := by norm_num,
-  have h₂: (x.denom ^ 2 : ℚ) ≠ 0 := by { simp , intro e, have := x.pos, linarith},
-  have h₃: (12 : ℚ) = 3 * 4 := by norm_num,
-  have h₄ : (factorization (3 : ℚ)) 3 = 1 := by sorry,
-  have h₅ : (factorization (4 : ℚ)) 3 = 0 := by sorry,
-  have h₆: (12 : ℚ) * (x.denom ^ 2) = x.num ^ 2 := by {rw [←h, ←mul_pow], simp},
-  have h₇ : factorization ((12 : ℚ) * (x.denom ^ 2)) 3 = factorization ((x.num : ℚ) ^ 2) 3 := by rw h₆,
-  have h₈ : 2 ∣ factorization ((x.num : ℚ) ^ 2) 3 := by {rw factorization_pow, sorry},
-  have h₉ : ¬ 2 ∣ factorization ((12 : ℚ) * x.denom ^ 2) 3 :=
-  begin
-  rw factorization_mul h₁ h₂,
-  rw factorization_pow,
-  rw h₃,
-  rw factorization_mul (by norm_num : (3 : ℚ) ≠ 0) (by norm_num : (4 : ℚ) ≠ 0),
-  simp [h₄, h₅],
-  sorry, 
-  end,
-  have h₀ : 2 ∣ factorization ((12 : ℚ) * (x.denom ^ 2)) 3 := by {rw h₇, exact h₈},
-  exact absurd h₀ h₉,
-end
+theorem exercise_1_2 : ¬ ∃ (x : ℚ), ( x ^ 2 = 12 ) :=
+sorry 
 
 theorem exercise_1_4
 (α : Type*) [partial_order α]
@@ -85,8 +63,6 @@ sorry
 
 theorem exercise_1_8 : ¬ ∃ (r : ℂ → ℂ → Prop), is_linear_order ℂ r := 
   sorry
-
-open complex
 
 theorem exercise_1_11a (z : ℂ) : 
   ∃ (r : ℝ) (w : ℂ), abs w = 1 ∧ z = r * w :=

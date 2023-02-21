@@ -1,6 +1,7 @@
 import .common 
 
-open complex filter function interval_integral
+open complex filter function interval_integral metric
+
 open_locale big_operators
 open_locale filter
 open_locale topology
@@ -77,8 +78,6 @@ theorem exercise_3_14 {f : ℂ → ℂ} (hf : differentiable ℂ f)
     (hf_inj : function.injective f) :
     ∃ (a b : ℂ), f = (λ z, a * z + b) ∧ a ≠ 0 :=
 sorry
-
-open metric
 
 theorem exercise_3_22 (D : set ℂ) (hD : D = ball 0 1) (f : ℂ → ℂ)
     (hf : differentiable_on ℂ f D) (hfc : continuous_on f (closure D)) :

@@ -10,7 +10,7 @@ import torch
 
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-device = "cuda:6"
+device = "cuda"
 
 
 def batch_loader(seq, size):
@@ -42,7 +42,7 @@ def call_gpt(prompts, model, tokenizer, max_tokens):
 
     trunced_bodies = [y[len(x):] for x, y in zip(prompts, untrunced_bodies)]
 
-    print("formalizaiton: \n", trunced_bodies[0])
+    print("formalization: \n", trunced_bodies[0])
 
     return trunced_bodies
 
@@ -56,17 +56,20 @@ def main():
     OUT_KEY = cfg["out_key"]
     save_dir = cfg["save_dir"]
     save_file = cfg["save_file"]
-    pathlib.Path(save_dir).mkdir(parents=True, exist_ok=True) 
     data_path = cfg["data_path"]
     max_tokens = cfg["max_tokens"]
-    model_name = cfg["model"]
-    tokenizer_name = cfg["tokenizer"]
+    model_path = cfg["model"]
+    hfmodel = cfg["hfmodel"]
+    ref_key = cfg["ref_key"]
+
+    if os.path.isdir(save_dir): 
+        raise AssertionError("directory already exists")
+    pathlib.Path(save_dir).mkdir(parents=True) 
+    
 
     # set up language model
     print("loading tokenizer...")
-    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
-    if not tokenizer.eos_token:
-        tokenizer.add_special_tokens({"eos_token": "<|endoftext|>"})
+    tokenizer = AutoTokenizer.from_pretrained(hfmodel)
     tokenizer.pad_token_id=tokenizer.eos_token_id
 
     torch.cuda.empty_cache()
@@ -74,7 +77,7 @@ def main():
 
     print("loading model...")
     model = AutoModelForCausalLM.from_pretrained(
-            model_name 
+            model_path 
             ).to(device)
     print("done loading model")
 
@@ -98,6 +101,17 @@ def main():
             with open(os.path.join(save_dir, save_file), "a+") as f: 
                 record = json.dumps(step)
                 f.write(record+"\n")
+
+    # calculates bleu score and saves to metrics.json
+    with open(os.path.join(save_dir, save_file)) as f: 
+        data = ndjson.load(f)
+
+    bleu = calc_bleu(data, OUT_KEY, ref_key)
+
+    with open(os.path.join(save_dir, "metrics.json"), "w") as f: 
+        json.dump(f, {"bleu": bleu})
+
+    make_readable(save_dir, save_file, ref_key)
 
 if __name__=="__main__": 
     main()

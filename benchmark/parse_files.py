@@ -97,14 +97,14 @@ def main():
                 }
             )
     
-    valid = [data[i] for i in range(0, len(data), 2)]
-    test = [data[i] for i in range(1, len(data), 2)]
+    valid = [data[i] for i in range(1, len(data), 2)]
+    test = [data[i] for i in range(0, len(data), 2)]
 
     with open(TEST_SAVE_PATH, "w") as f: 
         ndjson.dump(test, f)
 
     with open(VALID_SAVE_PATH, "w") as f: 
-        ndjson.dump(test, f)
+        ndjson.dump(valid, f)
 
 if __name__=="__main__": 
     main()

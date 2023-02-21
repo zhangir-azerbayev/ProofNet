@@ -4,8 +4,6 @@ import json
 import ndjson
 from functools import cache
 
-from datasets import upload_file
-
 FORMAL_DIR = "benchmark_to_publish/formal"
 INFORMAL_DIR = "benchmark_to_publish/informal"
 TEST_SAVE_PATH = "test.jsonl"
@@ -70,7 +68,7 @@ def get_informal_dict(informal_dir=INFORMAL_DIR):
 
 @cache
 def header_of_author(source_name):
-    with open("../benchmark/formal/" + source_name + ".lean") as f:
+    with open(os.path.join(FORMAL_DIR, source_name + ".lean")) as f:
         text = f.read()
 
     rexp = re.compile("^.*?theorem", re.DOTALL)
@@ -103,7 +101,10 @@ def main():
     test = [data[i] for i in range(1, len(data), 2)]
 
     with open(TEST_SAVE_PATH, "w") as f: 
-        ndjson.dump(f, test)
+        ndjson.dump(test, f)
 
     with open(VALID_SAVE_PATH, "w") as f: 
-        ndjson.dump(f, valid)
+        ndjson.dump(test, f)
+
+if __name__=="__main__": 
+    main()

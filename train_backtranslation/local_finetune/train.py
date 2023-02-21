@@ -19,17 +19,10 @@ from transformers.trainer_pt_utils import get_parameter_names
 
 def main(): 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ds", type=str)
     parser.add_argument("--config", type=str) 
-    parser.add_argument("--local_rank") # never actually used 
     args = parser.parse_args()
 
     config_path = args.config 
-
-    if args.ds: 
-        ds_path = args.ds
-    else: 
-        ds_path = None 
 
     with open(config_path) as f: 
         cfg = yaml.safe_load(f)
@@ -49,11 +42,10 @@ def main():
     model_name = cfg['model_name']
     max_length = cfg['max_length']
     accum_steps = cfg['accum_steps']
-    os.environ["CUDA_VISIBLE_DEVICES"] = cfg['devices']
 
     save_dir = os.path.join("runs/", experiment_name)
 
-    Path(save_dir).mkdir(exist_ok=True)
+    Path(save_dir).mkdir(exist_ok=True, parents=True)
 
     with open(train_path) as f: 
         train_data = ndjson.load(f)
@@ -109,7 +101,6 @@ def main():
             eval_steps = eval_steps,
             max_grad_norm=gradient_clipping, 
             gradient_accumulation_steps = accum_steps,
-            deepspeed=ds_path, 
             fp16=True, 
             )
 

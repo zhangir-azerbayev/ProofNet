@@ -13,4 +13,3 @@ batch_size: 12
 accum_steps: 2
 model_name: "hoskinson-center/proofGPT-v0.1"
 max_length: 400
-devices: "0"

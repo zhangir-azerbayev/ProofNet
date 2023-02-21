@@ -99,7 +99,7 @@ def _dump_lean(save_dir, save_file):
         if author!=new_author:
             author = new_author
 
-            src = "import .common\n" + x["src_header"] + "\n\n"
+            src = x["src_header"] + "\n\n"
 
             with open(os.path.join(save_dir, author + ".lean"), "w") as f: 
                 f.write(src)
@@ -107,4 +107,8 @@ def _dump_lean(save_dir, save_file):
         formal = x["gpt_formal_statement"][1:]
 
         with open(os.path.join(save_dir, author+".lean"), "a") as f: 
-            f.write(f"\n\ntheorem {exname}" + formal[formal.index(" "):]  + ":=\nsorry")
+            try: 
+                f.write(f"\n\ntheorem {exname}" + formal[formal.index(" "):]  + ":=\nsorry")
+            except ValueError: 
+                f.write(f"\n\ntheorem {exname}" + formal  + ":=\nsorry")
+

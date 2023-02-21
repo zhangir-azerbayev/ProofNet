@@ -13,4 +13,3 @@ batch_size: 12
 accum_steps: 2
 model_name: "EleutherAI/pythia-1.4b"
 max_length: 400
-devices: "0"

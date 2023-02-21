@@ -8,9 +8,10 @@ import pathlib
 
 import torch
 
-from transformers import AutoTokenizer, GPTJForCausalLM, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from datasets import load_dataset
 
-from .utils import *
+from utils import *
 
 device = "cuda"
 
@@ -36,7 +37,7 @@ def call_gptj(prompts, model, tokenizer, stop):
 
     outputs = model.generate(**encoded_texts, 
             max_new_tokens=400, 
-            pad_token_id = 50270,
+            pad_token_id = tokenizer.eos_token_id,
             ).cpu()
  
     untrunced_bodies = [tokenizer.decode(x, skip_special_tokens=True)
@@ -64,7 +65,6 @@ def main():
     save_dir = cfg["save_dir"]
     save_file = cfg["save_file"]
     few_shot_prompt_path = cfg["few_shot_prompt_path"]
-    data_path = cfg["data_path"]
     STOP = cfg["stop"]
     max_tokens = cfg["max_tokens"]
     split = cfg["split"]
@@ -88,24 +88,28 @@ def main():
     torch.cuda.set_per_process_memory_fraction(1.0)
 
     print("loading model...")
-    model = GPTJForCausalLM.from_pretrained(
+    model = AutoModelForCausalLM.from_pretrained(
             hfmodel, 
             ).to(device)
     print("done loading model")
 
     data = load_dataset("hoskinson-center/proofnet")[split]
+    data = [x for x in data]
 
     dataloader = batch_loader(data, BATCH_SIZE)
 
     # generation loop
-    for batch in tqdm(dataloader): 
+    for batch in tqdm(dataloader[:10]): 
         prompts = [FEW_SHOT_PROMPT + BEFORE_EXAMPLE + x[IN_KEY] + AFTER_EXAMPLE for x in batch]
 
         outs = call_gptj(prompts, model, tokenizer, stop=STOP)
 
         text_outs = outs
 
-        for text_out, step, promp in zip(text_outs, batch, prompts):
+        for text_out, step, prompt in zip(text_outs, batch, prompts):
+            print("TEXT" + "#"*40)
+            print(prompt + text_out)
+
             step[OUT_KEY] = text_out
             step['prompt'] = prompt
 
@@ -120,7 +124,7 @@ def main():
     bleu = calc_bleu(data, OUT_KEY, ref_key)
 
     with open(os.path.join(save_dir, "metrics.json"), "w") as f: 
-        json.dump(f, {"bleu": bleu})
+        json.dump({"bleu": bleu}, f)
 
     make_readable(save_dir, save_file, ref_key)
 

@@ -1,0 +1,16 @@
+experiment_name: pythia-1.4B-backtranslation
+train_path: ../make_data/finetune_splits/docgen_export_train.jsonl
+eval_path: ../make_data/finetune_splits/docgen_export_valid.jsonl
+lr: 5.0e-5 
+warmup_steps: 2_000
+weight_decay: 0.01
+gradient_clipping: 1.0
+train_steps: 20_000
+logging_steps: 500
+eval_steps: 1_000
+save_steps: 5_000
+batch_size: 12
+accum_steps: 2
+model_name: "EleutherAI/pythia-1.4b"
+max_length: 400
+devices: "0"

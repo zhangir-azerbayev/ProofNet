@@ -1,6 +1,6 @@
-experiment_name: proofGPT-1.3B
-train_path: ../docgen_export/docgen_export_train.jsonl
-eval_path: ../docgen_export/docgen_export_valid.jsonl
+experiment_name: proofGPT-1.3B-backtranslation
+train_path: ../make_data/finetune_splits/docgen_export_train.jsonl
+eval_path: ../make_data/finetune_splits/docgen_export_valid.jsonl
 lr: 5.0e-5 
 warmup_steps: 2_000
 weight_decay: 0.01
@@ -13,4 +13,4 @@ batch_size: 12
 accum_steps: 2
 model_name: "hoskinson-center/proofGPT-v0.1"
 max_length: 400
-devices: "1"
+devices: "0"

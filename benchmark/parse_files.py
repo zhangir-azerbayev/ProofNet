@@ -60,7 +60,7 @@ def get_informal_dict(informal_dir=INFORMAL_DIR):
                     else:
                         nl_proof = ""
 
-                    informal_dict[eyed] = {"nl_statement": nl, "nl_proof": nl_proof}
+                    informal_dict[eyed] = {"nl_statement": nl.strip(), "nl_proof": nl_proof.strip()}
                 i += 1
 
     return informal_dict

@@ -1,0 +1,14 @@
+hfmodel: "hoskinson-center/proofGPT-v0.1-6.7B"
+batch_size: 1
+before_example: "\nNatural language version: \""
+after_example: "\" Translate the natural language version to a Lean mathlib version:\ntheorem"
+in_key: "nl_statement"
+out_key: "gpt_formal_statement"
+ref_key: "formal_statement"
+save_dir: "results/toy_proofgpt_6shot_formalize"
+save_file: "out.jsonl"
+few_shot_prompt_path: "prompts/6shot_formalize.txt"
+stop: ":="
+max_tokens: 400
+split: "test"
+

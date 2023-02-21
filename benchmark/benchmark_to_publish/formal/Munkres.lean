@@ -1,6 +1,6 @@
 import .common 
 
-open set topological_space 
+open set topological_space filter 
 open_locale classical topology filter 
 noncomputable theory 
 
@@ -134,8 +134,6 @@ theorem exercise_18_13
   (g_con : continuous g) :
   ∀ (g' : closure A → Y), continuous g' →  (∀ (x : closure A), g x = g' x) :=
 sorry
-
-open filter 
 
 theorem exercise_19_6a
   {n : ℕ}

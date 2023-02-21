@@ -528,14 +528,6 @@ It is then obvious that $d_Z(g(f(x)), g(f(y)))<\varepsilon$ if $d_X(x, y)<\delta
 \end{proof}
 
 
-
-\paragraph{Exercise 4.14} Let $I=[0,1]$ be the closed unit interval. Suppose $f$ is a continuous mapping of $I$ into $I$. Prove that $f(x)=x$ for at least one $x \in I$.
-\begin{proof}
-    If $f(0)=0$ or $f(1)=1$, we are done. If not, then $0<f(0)$ and $f(1)<1$. Hence the continuous function $g(x)=x-f(x)$ satisfies $g(0)<0<$ $g(1)$. By the intermediate value theorem, there must be a point $x \in(0,1)$ where $g(x)=0$
-\end{proof}
-
-
-
 \paragraph{Exercise 4.15} Prove that every continuous open mapping of $R^{1}$ into $R^{1}$ is monotonic.
 \begin{proof}
     Suppose $f$ is continuous and not monotonic, say there exist points $a<b<c$ with $f(a)<f(b)$, and $f(c)<f(b)$. Then the maximum value of $f$ on the closed interval $[a, c]$ is assumed at a point $u$ in the open interval $(a, c)$. If there is also a point $v$ in the open interval $(a, c)$ where $f$ assumes its minimum value on $[a, c]$, then $f(a, c)=[f(v), f(u)]$. If no such point $v$ exists, then $f(a, c)=(d, f(u)]$, where $d=\min (f(a), f(c))$. In either case, the image of $(a, c)$ is not open.

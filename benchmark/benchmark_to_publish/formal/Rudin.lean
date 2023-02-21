@@ -86,7 +86,6 @@ sorry
 theorem exercise_1_8 : ¬ ∃ (r : ℂ → ℂ → Prop), is_linear_order ℂ r := 
   sorry
 
-section
 open complex
 
 theorem exercise_1_11a (z : ℂ) : 
@@ -125,8 +124,6 @@ theorem exercise_1_14
   (z : ℂ) (h : abs z = 1)
   : (abs (1 + z)) ^ 2 + (abs (1 - z)) ^ 2 = 4 :=
 sorry
-
-end
 
 theorem exercise_1_16a
   (n : ℕ)
@@ -810,13 +807,6 @@ theorem exercise_4_12
   {f : α → β} {g : β → γ}
   (hf : uniform_continuous f) (hg : uniform_continuous g) :
   uniform_continuous (g ∘ f) :=
-sorry
-
-abbreviation I : set ℝ := set.Icc 0 1
-
-theorem exercise_4_14 [topological_space I]
-  [linear_order I] (f : I → I) (hf : continuous f) :
-  ∃ (x : I), f x = x :=
 sorry
 
 theorem exercise_4_15 {f : ℝ → ℝ}

@@ -1,6 +1,7 @@
 import .common
 
-open set real filter function ring_hom
+open set real filter function ring_hom topological_space
+
 open_locale big_operators
 open_locale filter
 open_locale topology 
@@ -51,8 +52,6 @@ sorry
 theorem exercise_2_126 {E : set ℝ}
   (hE : ¬ set.countable E) : ∃ (p : ℝ), cluster_pt p (𝓟 E) :=
 sorry
-
-open topological_space
 
 theorem exercise_3_1 {f : ℝ → ℝ}
   (hf : ∀ x y, |f x - f y| ≤ |x - y| ^ 2) :

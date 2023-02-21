@@ -54,7 +54,7 @@ def parse_single_arg(arg):
 
 
 print("loading docgen export...")
-with open("docgen_export_full.json") as f:
+with open("docgen_export_raw/docgen_export_full.json") as f:
     db = json.load(f)
 
 log = []
@@ -76,5 +76,5 @@ for x in tqdm(db["decls"]):
             "formal_statement": statement,
         })
 
-with open("docgen_export_full_parsed.jsonl", "w") as f:
+with open("docgen_export_parsed/docgen_export_full_parsed.jsonl", "w") as f:
     ndjson.dump(log, f)

@@ -33,15 +33,14 @@ def main():
     BATCH_SIZE = 20
     BEFORE_THEOREM = "\nLean mathlib version:\n"
     AFTER_THEOREM = "\nTranslate the Lean mathlib version to a natural language version:\n\""
-
+    
+    # Run with save_path = "docgen_export_with_nl/docgen_export_with_nl.jsonl"
     save_path = sys.argv[1]
-    #if os.path.isfile(save_path): 
-        #raise OSError("save_path already exists")
 
     with open("few_shot_prompt.txt") as f: 
         FEW_SHOT_PROMPT = f.read()
 
-    with open("docgen_export_full_parsed.jsonl") as f:
+    with open("docgen_export_parsed/docgen_export_full_parsed.jsonl") as f:
         data = ndjson.load(f)
 
     dataloader = batch_loader(data, BATCH_SIZE)

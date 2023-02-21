@@ -9,6 +9,7 @@ import pathlib
 import torch
 
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from datasets import load_dataset
 
 device = "cuda"
 
@@ -56,11 +57,11 @@ def main():
     OUT_KEY = cfg["out_key"]
     save_dir = cfg["save_dir"]
     save_file = cfg["save_file"]
-    data_path = cfg["data_path"]
     max_tokens = cfg["max_tokens"]
     model_path = cfg["model"]
     hfmodel = cfg["hfmodel"]
     ref_key = cfg["ref_key"]
+    split = cfg["split"]
 
     if os.path.isdir(save_dir): 
         raise AssertionError("directory already exists")
@@ -81,22 +82,22 @@ def main():
             ).to(device)
     print("done loading model")
 
-    print(f"data_path: ")
-
-    with open(data_path) as f:
-        data = ndjson.load(f)
+    data = load_model("hoskinson-center/proofnet")
+    data = [x for x in data]
 
     dataloader = batch_loader(data, BATCH_SIZE)
 
-    for batch in tqdm(dataloader): 
+    for batch in tqdm(dataloader[:10]): 
         prompts = [x[IN_KEY].strip() + "<SEP>" for x in batch]
 
         outs = call_gpt(prompts, model, tokenizer, max_tokens)
 
         text_outs = outs
 
-        for text_out, step in zip(text_outs, batch):
+        for text_out, step, prompt in zip(text_outs, batch, prompts):
+            print(text_out + prompt)
             step[OUT_KEY] = text_out
+            step["prompt"] = prompt
 
             with open(os.path.join(save_dir, save_file), "a+") as f: 
                 record = json.dumps(step)
@@ -109,7 +110,7 @@ def main():
     bleu = calc_bleu(data, OUT_KEY, ref_key)
 
     with open(os.path.join(save_dir, "metrics.json"), "w") as f: 
-        json.dump(f, {"bleu": bleu})
+        json.dump({"bleu": bleu}, f)
 
     make_readable(save_dir, save_file, ref_key)
 

@@ -24,7 +24,7 @@ def batch_loader(seq, size):
     return [seq[pos : pos + size] for pos in range(0, len(seq), size)]
 
 
-def call_gptj(prompts, model, tokenizer, stop):
+def call_gpt(prompts, model, tokenizer, stop):
     """
     Return a list of strings
     """
@@ -102,7 +102,7 @@ def main():
     for batch in tqdm(dataloader[:10]): 
         prompts = [FEW_SHOT_PROMPT + BEFORE_EXAMPLE + x[IN_KEY] + AFTER_EXAMPLE for x in batch]
 
-        outs = call_gptj(prompts, model, tokenizer, stop=STOP)
+        outs = call_gpt(prompts, model, tokenizer, stop=STOP)
 
         text_outs = outs
 

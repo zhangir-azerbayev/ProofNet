@@ -8,22 +8,17 @@ import pathlib
 import numpy as np
 import faiss
 
-from .utils import *
+from utils import *
 
-BEFORE = \
-"""\n\nYou are an expert Lean user. I am going to ask you to translate a natural language theorem statement into a Lean mathlib theorem statement. But first, I am going to show you four Lean formal statements from the same area of mathematics in order to refresh your memory of the mathlib API and make sure you are using it correctly.
 
-Here are the four formal statements:\n\n"""
+BEFORE = """\nYou are an expert Lean user. I am going to ask you to translate a natural language theorem statement into a Lean mathlib theorem statement. But first, I am going to show you four Lean formal statements from the same area of mathematics in order to refresh your memory of the mathlib API and make sure you are using it correctly.\n\nHere are the four formal statements:\n\n"""
 
-MIDDLE = \
-"""\n\nThe following is the natural language theorem statement: \""""
+MIDDLE = """\n\nThe following is the natural language theorem statement: \""""
 
-AFTER = \
-"""\" Translate the natural language version to a Lean mathlib version:"""
-
-Here are the four formal statements: 
+AFTER = """\" Translate the natural language version to a Lean mathlib version:\ntheorem"""
 
 def create_vector_db(docs_path, vecs_path): 
+    D = 1536
     print(f"loading docs from {docs_path}")
     with open(docs_path) as f:
         docs = ndjson.load(f)
@@ -33,9 +28,9 @@ def create_vector_db(docs_path, vecs_path):
 
     # sanity checks
     assert D == embeddings.shape[1]
-    assert embeddings.shape[0] == len(self.docs)
+    assert embeddings.shape[0] == len(docs)
 
-    print(f"Found {len(self.docs)} mathlib declarations")
+    print(f"Found {len(docs)} mathlib declarations")
 
     print("creating fast kNN database...")
     database = faiss.IndexFlatL2(D)
@@ -46,6 +41,8 @@ def create_vector_db(docs_path, vecs_path):
 def main():
     """
     This script *must* be run after `of_codex.py`, it uses its outputs. 
+    
+    keys are hardcoded because of dependence on `codex_out_path`
     """
     with open(sys.argv[1]) as f: 
         cfg = yaml.safe_load(f)
@@ -60,6 +57,9 @@ def main():
     STOP = cfg["stop"]
     max_tokens = cfg["max_tokens"]
     split = cfg["split"]
+
+    if not os.path.isfile(codex_out_path):
+        raise AssertionError("cant find codex out")
 
     if os.path.isdir(save_dir):
         raise AssertionError("Save file already exists")
@@ -85,12 +85,17 @@ def main():
             [np.array(x["embedding"]).astype("float32") for x in responses["data"]]
         )
 
-        _, idxs_np = database.search(queries, K)  
+        _, idxs_np = database.search(queries, 4)  
 
-        demonstrations = ["\n\n".join([y.item() for y in x]) for x in idxs_np]
+        print("idxs_np")
+        print(idxs_np)
+
+        demonstrations = ["\n\n".join([docs[y.item()]["formal_statement"] for y in x]) for x in idxs_np]
 
         prompts = [FEW_SHOT_PROMPT + BEFORE + d + MIDDLE + y["nl_statement"] + AFTER 
                 for d, y in zip(demonstrations, batch)]
+
+        # [print("PROMPT" + "#"*40 + "\n" + x) for x in prompts]
 
         outs = call_api(prompts, stop=STOP, max_tokens=max_tokens)
 
@@ -103,6 +108,9 @@ def main():
         text_outs = [x["text"] for x in outs["choices"]]
 
         for text_out, step, prompt in zip(text_outs, batch, prompts):
+            print("TEXT" + "#"*40)
+            print(prompt + text_out)
+            
             step["gpt_original_formal_statement"] = step["gpt_formal_statement"]
             step["gpt_formal_statement"] = text_out
 
@@ -120,9 +128,9 @@ def main():
     bleu = calc_bleu(data, "gpt_formal_statement", "formal_statement")
 
     with open(os.path.join(save_dir, "metrics.json"), "w") as f: 
-        json.dump(f, {"bleu": bleu})
+        json.dump({"bleu": bleu}, f)
 
-    make_readable(save_dir, save_file, ref_key)
+    make_readable(save_dir, save_file, "formal_statement")
 
 
 if __name__=="__main__": 

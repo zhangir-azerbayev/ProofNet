@@ -3,5 +3,5 @@ dataset: "hoskinson-center/proof-pile"
 subset: "arxiv"
 device: "cuda"
 batch_size: 1
-out_file: "results/pythia-6.7b.txt"
+out_file: "results/pythia-6.7b_arxiv.txt"
 

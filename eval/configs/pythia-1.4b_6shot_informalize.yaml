@@ -1,14 +1,13 @@
-hfmodel: "EleutherAI/pythia-6.9b"
+hfmodel: "EleutherAI/pythia-1.4b"
 batch_size: 1
 before_example: "\nLean mathlib version:\n"
 after_example: "\nTranslate the Lean mathlib version to a natural language version: \""
 in_key: "formal_statement"
 out_key: "gpt_nl_statement"
 ref_key: "nl_statement"
-save_dir: "results/toy_pythia_6shot_informalize"
+save_dir: "results/pythia-1.4b_6shot_informalize"
 save_file: "out.jsonl"
 few_shot_prompt_path: "prompts/6shot_informalize.txt"
 stop: "\""
 max_tokens: 275
 split: "test"
-

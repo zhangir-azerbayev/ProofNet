@@ -8,3 +8,4 @@ save_dir: "results/toy_pythia_backtranslate"
 save_file: "out.jsonl"
 max_tokens: 350
 split: "test"
+stop: ":="

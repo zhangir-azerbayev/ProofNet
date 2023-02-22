@@ -8,4 +8,4 @@ save_dir: "results/toy_proofgpt_backtranslate"
 save_file: "out.jsonl"
 max_tokens: 350
 split: "test"
-
+stop: ":="

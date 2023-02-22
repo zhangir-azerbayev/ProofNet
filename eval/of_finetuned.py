@@ -1,5 +1,5 @@
 import sys 
-import os
+import os 
 from tqdm import tqdm
 import json
 import yaml
@@ -10,19 +10,11 @@ import torch
 
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from datasets import load_dataset
+from utils import *
 
 device = "cuda"
 
-
-def batch_loader(seq, size):
-    """
-    Iterator that takes in a list `seq` and returns
-    chunks of size `size`
-    """
-    return [seq[pos : pos + size] for pos in range(0, len(seq), size)]
-
-
-def call_gpt(prompts, model, tokenizer, max_tokens):
+def call_gpt(prompts, model, tokenizer, max_tokens, stop):
     """
     Return a list of strings
     """
@@ -32,7 +24,6 @@ def call_gpt(prompts, model, tokenizer, max_tokens):
             truncation=True, 
             ).to(device)
 
-    encoded_texts.pop("token_type_ids")
 
     outputs = model.generate(**encoded_texts, 
             max_new_tokens=max_tokens, 
@@ -41,9 +32,7 @@ def call_gpt(prompts, model, tokenizer, max_tokens):
     untrunced_bodies = [tokenizer.decode(x, skip_special_tokens=True)
             for x in outputs]
 
-    trunced_bodies = [y[len(x):] for x, y in zip(prompts, untrunced_bodies)]
-
-    print("formalization: \n", trunced_bodies[0])
+    trunced_bodies = [y[len(x):y.index(stop)] for x, y in zip(prompts, untrunced_bodies)]
 
     return trunced_bodies
 
@@ -61,6 +50,7 @@ def main():
     model_path = cfg["model"]
     hfmodel = cfg["hfmodel"]
     ref_key = cfg["ref_key"]
+    STOP = cfg["stop"]
     split = cfg["split"]
 
     if os.path.isdir(save_dir): 
@@ -82,20 +72,20 @@ def main():
             ).to(device)
     print("done loading model")
 
-    data = load_model("hoskinson-center/proofnet")
+    data = load_dataset("hoskinson-center/proofnet")["test"]
     data = [x for x in data]
 
     dataloader = batch_loader(data, BATCH_SIZE)
 
     for batch in tqdm(dataloader[:10]): 
-        prompts = [x[IN_KEY].strip() + "<SEP>" for x in batch]
+        prompts = [x[IN_KEY].strip() + '<SEP>theorem' for x in batch]
 
-        outs = call_gpt(prompts, model, tokenizer, max_tokens)
+        outs = call_gpt(prompts, model, tokenizer, max_tokens, STOP)
 
         text_outs = outs
 
         for text_out, step, prompt in zip(text_outs, batch, prompts):
-            print(text_out + prompt)
+            print(prompt + text_out)
             step[OUT_KEY] = text_out
             step["prompt"] = prompt
 

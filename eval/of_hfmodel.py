@@ -99,7 +99,7 @@ def main():
     dataloader = batch_loader(data, BATCH_SIZE)
 
     # generation loop
-    for batch in tqdm(dataloader[:10]): 
+    for batch in tqdm(dataloader): 
         prompts = [FEW_SHOT_PROMPT + BEFORE_EXAMPLE + x[IN_KEY] + AFTER_EXAMPLE for x in batch]
 
         outs = call_gpt(prompts, model, tokenizer, stop=STOP)

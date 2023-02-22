@@ -77,7 +77,7 @@ def main():
 
     dataloader = batch_loader(data, BATCH_SIZE)
 
-    for batch in tqdm(dataloader[:10]): 
+    for batch in tqdm(dataloader): 
         prompts = [x[IN_KEY].strip() + '<SEP>theorem' for x in batch]
 
         outs = call_gpt(prompts, model, tokenizer, max_tokens, STOP)

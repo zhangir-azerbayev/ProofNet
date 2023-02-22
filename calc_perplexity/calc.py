@@ -110,7 +110,7 @@ def main():
 
     results_string = f"ppl: {ppl}\nnlls:" + "\n".join([str(x) for x in nlls])
     with open(out_file, "w") as f: 
-        f.write(out_file)
+        f.write(results_string)
 
 
 if __name__ == "__main__":

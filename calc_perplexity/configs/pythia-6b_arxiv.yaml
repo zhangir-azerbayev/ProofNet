@@ -1,0 +1,7 @@
+model: "EleutherAI/pythia-6.7b"
+dataset: "hoskinson-center/proof-pile"
+subset: "arxiv"
+device: "cuda"
+batch_size: 1
+out_file: "results/pythia-6.7b.txt"
+

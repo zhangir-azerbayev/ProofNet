@@ -1,0 +1,5 @@
+model: "EleutherAI/pythia-70m-deduped"
+subset: "arxiv"
+stride: "2048"
+device: "cpu"
+

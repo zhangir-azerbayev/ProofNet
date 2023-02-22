@@ -2,6 +2,6 @@ model: "hoskinson-center/proofGPT-v0.1-6.7b"
 dataset: "hoskinson-center/proof-pile"
 subset: "all"
 device: "cuda"
-batch_size: 5
+batch_size: 1
 out_file: "results/proofgpt-6.7b_all.txt"
 

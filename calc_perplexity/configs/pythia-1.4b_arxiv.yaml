@@ -1,7 +1,7 @@
-model: "hoskinson-center/proofGPT-v0.1"
+model: "EleutherAI/pythia-1.4b"
 dataset: "hoskinson-center/proof-pile"
 subset: "arxiv"
 device: "cuda"
 batch_size: 2
-out_file: "results/proofgpt-1.3b_arxiv.txt"
+out_file: "results/pythia-1.4b_arxiv.txt"
 

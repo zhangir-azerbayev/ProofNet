@@ -44,17 +44,20 @@ def main():
     else:  
         test = load_dataset(dataset, split="test")
 
-    print(test)
-
     print("filtering dataset (if necessary)...")
     if subset == "arxiv":
         test = test.filter(filter_arxiv)
     
+    if dataset == "hoskinson-center/proof-pile":
+        test = test.shuffle(seed=42).select(list(range(1000))) # compute resources :(
+ 
     print("tokenizing dataset...")
     test = test.map(
         lambda batch: {"input_ids": tokenizer(batch["text"])["input_ids"]},
         batched=True,
     )
+
+    print(test)
 
     pbar = tqdm(total=len(test))
     dataloader = iter(test)

@@ -1,0 +1,7 @@
+model: "EleutherAI/gpt-j-6B"
+dataset: "hoskinson-center/proof-pile"
+subset: "all"
+device: "cuda"
+batch_size: 1
+out_file: "results/gptj_all.txt"
+

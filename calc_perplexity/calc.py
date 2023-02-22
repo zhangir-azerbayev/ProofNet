@@ -5,34 +5,54 @@ import torch
 from tqdm import tqdm
 import json
 import pathlib
+import os
 import yaml
 
+
+def filter_arxiv(x):
+    meta = json.loads(x["meta"])
+    if "config" in meta:
+        return meta["config"] == "arxiv"
+    else:
+        return False
+
+
 def main():
-    with open(sys.argv[1]) as f: 
+    with open(sys.argv[1]) as f:
         cfg = yaml.safe_load(f)
 
     device = cfg["device"]
     model_id = cfg["model"]
-    stride = cfg["stride"]
     subset = cfg["subset"]
 
+    print("loading model")
     model = AutoModelForCausalLM.from_pretrained(model_id).to(device)
     tokenizer = AutoTokenizer.from_pretrained(model_id)
 
+    print("loading dataset...")
+    print("LOADING DATASET...")
     test = load_dataset("hoskinson-center/proof-pile", split="test")
 
-    for x in test: 
-        print(x)
-        sys.exit()
+    print(test)
 
-    if subset=="all": 
-        texts = test["text"]
-    elif subset=="arxiv": 
-        texts = test.filter(lambda x: x["meta"])
-    encodings = tokenizer("\n\n".join(texts), return_tensors="pt")
+    print("filtering dataset (if necessary)...")
+    if subset == "arxiv":
+        test = test.filter(filter_arxiv)
+    
+    print("tokenizing dataset...")
+    test = test.map(
+        lambda batch: {"input_ids": tokenizer(batch["text"])["input_ids"]},
+        batched=True,
+    )
+    
+    double_newline = tokenizer("\n\n")["input_ids"]
+    
+    print("making long sequence")
+    tokens = [token for seq in tqdm(test["input_ids"]) for token in seq + double_newline]
 
     max_length = model.config.n_positions
     seq_len = encodings.input_ids.size(1)
+    stride = seq_len
 
     nlls = []
     arxiv_nlls = []
@@ -40,7 +60,11 @@ def main():
     for begin_loc in tqdm(range(0, seq_len, stride)):
         end_loc = min(begin_loc + max_length, seq_len)
         trg_len = end_loc - prev_end_loc  # may be different from stride on last loop
-        input_ids = encodings.input_ids[:, begin_loc:end_loc].to(device)
+        current_tokens = tokens[begin_loc:end_loc]
+        input_ids = torch.tensor([current_tokens]).to("device")
+        print(input_ids.shape)
+        sys.exit()
+
         target_ids = input_ids.clone()
         target_ids[:, :-trg_len] = -100
 
@@ -60,6 +84,8 @@ def main():
             break
 
     ppl = torch.exp(torch.stack(nlls).sum() / end_loc)
+    print("ppl: ", ppl)
 
-if __name__=="__main__": 
+
+if __name__ == "__main__":
     main()

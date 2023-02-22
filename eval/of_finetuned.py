@@ -31,8 +31,11 @@ def call_gpt(prompts, model, tokenizer, max_tokens, stop):
  
     untrunced_bodies = [tokenizer.decode(x, skip_special_tokens=True)
             for x in outputs]
-
-    trunced_bodies = [y[len(x):y.index(stop)] for x, y in zip(prompts, untrunced_bodies)]
+    
+    try: 
+        trunced_bodies = [y[len(x):y.index(stop)] for x, y in zip(prompts, untrunced_bodies)]
+    except ValueError:
+        trunced_bodies = [y[len(x):] for x, y in zip(prompts, untrunced_bodies)]
 
     return trunced_bodies
 

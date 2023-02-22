@@ -4,6 +4,7 @@ import openai
 import re
 from ratelimit import limits, sleep_and_retry
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
+import backoff
 
 TEX_PREAMBLE = """\documentclass{article}
 
@@ -43,8 +44,7 @@ def batch_loader(seq, size):
 
 # calls=3, period=60 is max for reliability with batch_size=20
 # might want to throttle it to keep lean chat up
-@sleep_and_retry
-@limits(calls=2, period=60)
+@backoff.on_exception(backoff.expo, openai.error.RateLimitError)
 def call_api(prompt, stop, max_tokens=150,):
     return openai.Completion.create(
         engine="code-davinci-002",

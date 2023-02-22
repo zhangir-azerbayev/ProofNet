@@ -1,4 +1,0 @@
-model: "EleutherAI/pythia-70m-deduped"
-subset: "arxiv"
-device: "cuda:1"
-

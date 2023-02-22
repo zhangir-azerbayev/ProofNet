@@ -7,6 +7,7 @@ import json
 import pathlib
 import os
 import yaml
+from itertools import islice
 
 
 def filter_arxiv(x):
@@ -23,7 +24,13 @@ def main():
 
     device = cfg["device"]
     model_id = cfg["model"]
+    dataset = cfg["dataset"]
     subset = cfg["subset"]
+    batch_size = cfg["batch_size"]
+    out_file = cfg["out_file"]
+
+    if os.path.isfile(out_file): 
+        raise AssertionError("outfile already a file")
 
     print("loading model")
     model = AutoModelForCausalLM.from_pretrained(model_id).to(device)
@@ -31,7 +38,11 @@ def main():
 
     print("loading dataset...")
     print("LOADING DATASET...")
-    test = load_dataset("hoskinson-center/proof-pile", split="test")
+    
+    if dataset=="wikitext": 
+        test = load_dataset("wikitext", "wikitext-2-raw-v1", split="test")
+    else:  
+        test = load_dataset(dataset, split="test")
 
     print(test)
 
@@ -44,47 +55,59 @@ def main():
         lambda batch: {"input_ids": tokenizer(batch["text"])["input_ids"]},
         batched=True,
     )
+
+    pbar = tqdm(total=len(test))
+    dataloader = iter(test)
     
     double_newline = tokenizer("\n\n")["input_ids"]
     
-    print("making long sequence")
-    tokens = [token for seq in tqdm(test["input_ids"]) for token in seq + double_newline]
-
-    max_length = model.config.n_positions
-    seq_len = encodings.input_ids.size(1)
-    stride = seq_len
+    seq_len = model.config.max_position_embeddings
 
     nlls = []
-    arxiv_nlls = []
-    prev_end_loc = 0
-    for begin_loc in tqdm(range(0, seq_len, stride)):
-        end_loc = min(begin_loc + max_length, seq_len)
-        trg_len = end_loc - prev_end_loc  # may be different from stride on last loop
-        current_tokens = tokens[begin_loc:end_loc]
-        input_ids = torch.tensor([current_tokens]).to("device")
-        print(input_ids.shape)
-        sys.exit()
+    buff = []
+    i = 0 
+    do_more = True
+    while do_more: 
+        while len(buff) < batch_size * seq_len: 
+            try: 
+                buff += double_newline + next(dataloader)["input_ids"]
+                pbar.update(1)
+            except StopIteration:
+                break
 
+        if len(buff) >= batch_size*seq_len: 
+            input_ids = torch.tensor(buff[:batch_size*seq_len]).view(batch_size, seq_len)
+            buff = buff[batch_size*seq_len:]
+        else: 
+            do_more = False
+            reduced_batch_size = len(buff)//seq_len
+            if reduced_batch_size==0: 
+                continue
+            else:
+                input_ids = torch.tensor(buff[:reduced_batch_size*seq_len]).view(
+                        reduced_batch_size, seq_len
+                        )
+        
+        input_ids = input_ids.to(device)
         target_ids = input_ids.clone()
-        target_ids[:, :-trg_len] = -100
 
         with torch.no_grad():
             outputs = model(input_ids, labels=target_ids)
 
-            # loss is calculated using CrossEntropyLoss which averages over input tokens.
-            # Multiply it with trg_len to get the summation instead of average.
-            # We will take average over all the tokens to get the true average
-            # in the last step of this example.
-            neg_log_likelihood = outputs.loss * trg_len
+            nll = outputs.loss
 
-        nlls.append(neg_log_likelihood)
+        print(f"batch {i} nll: {nll}")
+        i += 1
+        nlls.append(nll)
 
-        prev_end_loc = end_loc
-        if end_loc == seq_len:
-            break
+    pbar.close()
 
-    ppl = torch.exp(torch.stack(nlls).sum() / end_loc)
+    ppl = torch.exp(torch.tensor(nlls).mean())
     print("ppl: ", ppl)
+
+    results_string = f"ppl: {ppl}\nnlls:" + "\n".join([str(x) for x in nlls])
+    with open(out_file, "w") as f: 
+        f.write(out_file)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,7 @@
+model: "hoskinson-center/proofGPT-v0.1"
+dataset: "hoskinson-center/proof-pile"
+subset: "all"
+device: "cuda"
+batch_size: 5
+out_file: "results/proofgpt-1.3b_all.txt"
+

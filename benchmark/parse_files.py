@@ -96,9 +96,14 @@ def main():
                     **informal_dict[eyed],
                 }
             )
+
+    with open("test_ids") as f: 
+        test_ids = [x.strip() for x in f.readlines()]
+    with open("valid_ids") as f: 
+        valid_ids = [x.strip() for x in f.readlines()]
     
-    valid = [data[i] for i in range(1, len(data), 2)]
-    test = [data[i] for i in range(0, len(data), 2)]
+    test = [x for x in data if x["id"] in test_ids]
+    valid = [x for x in data if x["id"] in valid_ids]
 
     with open(TEST_SAVE_PATH, "w") as f: 
         ndjson.dump(test, f)

@@ -235,7 +235,7 @@ theorem exercise_24_2 {f : (metric.sphere 0 1 : set ℝ) → ℝ}
   (hf : continuous f) : ∃ x, f x = f (-x) :=
 sorry
 
-theorem exercise_24_3a [topological_space I]
+theorem exercise_24_3a [topological_space I] [compact_space I]
   (f : I → I) (hf : continuous f) :
   ∃ (x : I), f x = x :=
 sorry

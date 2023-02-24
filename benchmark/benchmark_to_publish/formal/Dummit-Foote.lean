@@ -224,8 +224,8 @@ theorem exercise_4_4_6a {G : Type*} [group G] (H : subgroup G)
   [subgroup.characteristic H] : subgroup.normal H  :=
 sorry
 
-theorem exercise_4_4_6b {G : Type*} [group G] : 
-  ∃ H : subgroup G, H.characteristic ∧ ¬ H.normal :=
+theorem exercise_4_4_6b : 
+  ∃ (G : Type*) (hG : group G) (H : @subgroup G hG), @characteristic G hG H  ∧ ¬ @subgroup.normal G hG H :=
 sorry 
 
 theorem exercise_4_4_7 {G : Type*} [group G] {H : subgroup G} [fintype H]

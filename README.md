@@ -1,18 +1,17 @@
 # ProofNet
-A benchmark for undergraduate-level formal mathematics. We pose problems that require knowledge of introductory
-- linear algbera, 
-- abstract algebra, 
-- real analysis, 
-- complex analysis, 
-- topology 
+![proofsdiagram](./images/proofnet.png)
 
-to solve. 
+Code for replicating the paper [ProofNet: Autoformalizing and Formally Proving Undergraduate Mathematics](https://mathai2022.github.io/papers/20.pdf). 
 
-We categorize each problem as basic, intermediate, or advanced. Basic problems mostly demand reasoning through the definitions. Intermediate problems require one or two ingenious steps, and advanced problems are approximately at the level of a competition like the Putnam exam. 
-## Naming Conventions
-- Problems coming from should be named `{authors}_{chapter}_{problem_number}` or `{authors}_{chapter}_{section}_{problem_number}`, e.g `rudin_3_8` or `dummitfoote_3_2_1`. 
-- Problems coming from competitions should be named `{competition}_{year}_{problem_number}`, e.g `imo_1990_6` or `putnam_2021_b4`. 
-- Problems coming from other Github repositires should be named `{repository_name}_{some reasonable scheme for identifying the problem}` 
-- Original problems should be given a short descriptive name, roughly in line with mathlib conventions. 
+This repo is intended for replicating experimental results and accepting PRs to the dataset. To use ProofNet for your own experiments, use the [Huggingface dataset](https://huggingface.co/datasets/hoskinson-center/proofnet). 
 
-All non-original problems should have an attribution in their docstring. 
+ProofNet is a benchmark for autoformalization and formal proving of undergraduate-level mathematics. The ProofNet benchmarks consists of 371 examples, each consisting of a formal theorem statement in Lean 3, a natural language theorem statement, and a natural language proof. The problems are primarily drawn from popular undergraduate pure mathematics textbooks and cover topics such as real and complex analysis, linear algebra, abstract algebra, and topology. We intend for ProofNet to be a challenging benchmark that will drive progress in autoformalization and automatic theorem proving.
+
+# Directory Structure 
+- `benchmark/` contains `.lean` and TeX source files for maintaining the dataset. If you wish to open a PR for the dataset, modify the Lean and TeX source in `benchmark/benchmark_to_publish` and run `parse_files.py`. 
+- `calc_perplexity` contains scripts for calculating `proof-pile` and `arXiv` perplexity. 
+- `eval` contains scripts for running the autoformalization and informalization experiments found in the paper. 
+- `train_backtranslation` contains code for extracting mathlib declarations, informalizing mathlib using the OpenAI API, and fine-tuning distilled backtranslation models. 
+
+
+

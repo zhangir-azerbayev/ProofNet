@@ -1,0 +1,10 @@
+docs_path: "retrieval_database/docgen_export_with_formal_statement.jsonl"
+vecs_path: "retrieval_database/np_embeddings.npy"
+codex_out_path: "results/valid_codex_12shot_formalize/out.jsonl"
+batch_size: 10
+save_dir: "results/valid_retrieval"
+save_file: "out.jsonl"
+few_shot_prompt_path: "prompts/retrieval_formalize.txt"
+stop: ":="
+max_tokens: 275
+split: "validation"

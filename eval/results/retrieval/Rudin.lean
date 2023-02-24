@@ -14,7 +14,7 @@ noncomputable theory
 
 
 
-
+universes u v w
 
 theorem exercise_1_1b {x : ℝ} (h : irrational x) {q : ℚ} (hq : q ≠ 0) :
 	irrational (↑q * x) :=

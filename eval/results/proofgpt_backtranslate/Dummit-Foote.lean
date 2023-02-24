@@ -7,7 +7,7 @@ open_locale pointwise
 open_locale big_operators
 noncomputable theory
 
-
+universes u v w 
 
 
 

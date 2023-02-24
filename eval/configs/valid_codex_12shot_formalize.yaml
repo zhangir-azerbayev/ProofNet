@@ -1,0 +1,13 @@
+batch_size: 10
+before_example: "\nNatural language version: \""
+after_example: "\" Translate the natural language version to a Lean mathlib version:\ntheorem"
+in_key: "nl_statement"
+out_key: "gpt_formal_statement"
+ref_key: "formal_statement"
+save_dir: "results/valid_codex_12shot_formalize"
+save_file: "out.jsonl"
+few_shot_prompt_path: "prompts/12shot_formalize.txt"
+stop: ":="
+max_tokens: 275
+split: "validation"
+

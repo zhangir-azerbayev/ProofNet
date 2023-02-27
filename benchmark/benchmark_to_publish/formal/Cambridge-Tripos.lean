@@ -7,7 +7,7 @@ theorem exercise_2022_IA_4_I_1E_a : ∀ N : ℕ, ∃ n ≥ N, (3*n+1).prime ∧ 
 sorry
 
 theorem exercise_2022_IA_4_I_2D_a : irrational (2^((1:ℝ)/3) + 3^((1:ℝ)/3)) :=
-  sorry
+sorry
 
 theorem exercise_2022_IB_3_II_13G_a_i (U : set ℂ) (hU : is_open U)
   (hU1 : nonempty U) (hU2 : is_connected U) (f : ℕ → ℂ → ℂ) (f' : ℂ → ℂ)

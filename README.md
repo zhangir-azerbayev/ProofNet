@@ -1,7 +1,7 @@
 # ProofNet
 ![proofsdiagram](./images/proofnet.png)
 
-Code for replicating the paper [ProofNet: Autoformalizing and Formally Proving Undergraduate Mathematics](https://mathai2022.github.io/papers/20.pdf). 
+Code for replicating the paper [ProofNet: Autoformalizing and Formally Proving Undergraduate Mathematics](https://arxiv.org/abs/2302.12433). 
 
 This repo is intended for replicating experimental results and accepting PRs to the dataset. To use ProofNet for your own experiments, use the [Huggingface dataset](https://huggingface.co/datasets/hoskinson-center/proofnet). 
 

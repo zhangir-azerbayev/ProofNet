@@ -46,7 +46,7 @@ sorry
 
 theorem exercise_1_1_17 {G : Type*} [group G] {x : G} {n : ℕ}
   (hxn: order_of x = n) :
-  x⁻¹ = x ^ (n-1) :=
+  x⁻¹ = x ^ (n - 1 : ℤ) :=
 sorry 
 
 theorem exercise_1_1_18 {G : Type*} [group G]
@@ -412,7 +412,7 @@ sorry
 
 theorem exercise_9_4_2d {p : ℕ} (hp : p.prime ∧ p > 2) 
   {f : polynomial ℤ} (hf : f = (X + 2)^p): 
-  irreducible (∑ n in (f.support - {0}), (f.coeff n) * X ^ (n-1) : 
+  irreducible (∑ n in (f.support \ {0}), (f.coeff n) * X ^ (n-1) : 
   polynomial ℤ) :=
 sorry 
 

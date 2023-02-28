@@ -86,7 +86,7 @@ sorry
 
 theorem exercise_2_5_52 {G : Type*} [group G] [fintype G]
   (φ : G ≃* G) {I : finset G} (hI : ∀ x ∈ I, φ x = x⁻¹)
-  (hI1 : 0.75 * card G ≤ card I) : 
+  (hI1 : (0.75 : ℚ) * card G ≤ card I) : 
   ∀ x : G, φ x = x⁻¹ ∧ ∀ x y : G, x*y = y*x :=
 sorry
 
@@ -160,7 +160,7 @@ theorem exercise_4_2_6 {R : Type*} [ring R] (a x : R)
 sorry
 
 theorem exercise_4_2_9 {p : ℕ} (hp : nat.prime p) (hp1 : odd p) :
-  ∃ (a b : ℤ), a / b = ∑ i in finset.range p, 1 / (i + 1) → ↑p ∣ a :=
+  ∃ (a b : ℤ), (a / b : ℚ) = ∑ i in finset.range p, 1 / (i + 1) → ↑p ∣ a :=
 sorry
 
 theorem exercise_4_3_1 {R : Type*} [comm_ring R] (a : R) :

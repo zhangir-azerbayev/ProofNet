@@ -38,7 +38,7 @@ sorry
 
 theorem exercise_3_7_2 {K V : Type*} [field K] [add_comm_group V]
   [module K V] {ι : Type*} [fintype ι] (γ : ι → submodule K V)
-  (h : ∀ i : ι, γ ι ≠ ⊤) :
+  (h : ∀ i : ι, γ i ≠ ⊤) :
   (⋂ (i : ι), (γ i : set V)) ≠ ⊤ :=
 sorry
 

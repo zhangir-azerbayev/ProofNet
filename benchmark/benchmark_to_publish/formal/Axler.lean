@@ -104,7 +104,7 @@ sorry
 
 theorem exercise_6_2 {V : Type*} [add_comm_group V] [module ℂ V]
   [inner_product_space ℂ V] (u v : V) :
-  ⟪u, v⟫_ℂ = 0 ↔ ∀ (a : ℂ), ∥u∥ ≤ ∥u + a • v∥ :=
+  ⟪u, v⟫_ℂ = 0 ↔ ∀ (a : ℂ), ‖u‖  ≤ ‖u + a • v‖ :=
 sorry
 
 theorem exercise_6_3 {n : ℕ} (a b : fin n → ℝ) :
@@ -112,12 +112,12 @@ theorem exercise_6_3 {n : ℕ} (a b : fin n → ℝ) :
 sorry
 
 theorem exercise_6_7 {V : Type*} [inner_product_space ℂ V] (u v : V) :
-  ⟪u, v⟫_ℂ = (∥u + v∥^2 - ∥u - v∥^2 + I*∥u + I•v∥^2 - I*∥u-I•v∥^2) / 4 :=
+  ⟪u, v⟫_ℂ = (‖u + v‖^2 - ‖u - v‖^2 + I*‖u + I•v‖^2 - I*‖u-I•v‖^2) / 4 :=
 sorry
 
 theorem exercise_6_13 {V : Type*} [inner_product_space ℂ V] {n : ℕ}
   {e : fin n → V} (he : orthonormal ℂ e) (v : V) :
-  ∥v∥^2 = ∑ i : fin n, ∥⟪v, e i⟫_ℂ∥^2 ↔ v ∈ span ℂ (e '' univ) :=
+  ‖v‖^2 = ∑ i : fin n, ‖⟪v, e i⟫_ℂ‖^2 ↔ v ∈ span ℂ (e '' univ) :=
 sorry
 
 theorem exercise_6_16 {K V : Type*} [is_R_or_C K] [inner_product_space K V]

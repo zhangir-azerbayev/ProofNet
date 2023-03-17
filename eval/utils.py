@@ -48,8 +48,8 @@ def batch_loader(seq, size):
 def call_api(prompt, stop, max_tokens=150, engine="code-davinci-002", chat=False):
     if chat: 
         response = openai.ChatCompletion.create(
-            engine=endpoint,
-            prompt=prompt,
+            model=engine,
+            messages=prompt,
             max_tokens=max_tokens,
             n=1,
             temperature=0,
@@ -57,7 +57,7 @@ def call_api(prompt, stop, max_tokens=150, engine="code-davinci-002", chat=False
         )
     else: 
         response = openai.Completion.create(
-            engine=endpoint,
+            engine=engine,
             prompt=prompt,
             max_tokens=max_tokens,
             n=1,
@@ -65,7 +65,7 @@ def call_api(prompt, stop, max_tokens=150, engine="code-davinci-002", chat=False
             stop=stop,
         )
 
-    print(f"RECEIVED RESPONSE FROM {endpoint}")
+    print(f"RECEIVED RESPONSE FROM {engine}")
     return response
 
 def calc_bleu(data, candidate_key, reference_key): 

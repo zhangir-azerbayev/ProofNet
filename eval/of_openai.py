@@ -51,7 +51,7 @@ def main():
         prompts = [FEW_SHOT_PROMPT + BEFORE_EXAMPLE + x[IN_KEY] + AFTER_EXAMPLE for x in batch]
 
         print("calling api...")
-        outs = call_api(prompts, stop=STOP, max_tokens=max_tokens)
+        outs = call_api(prompts, stop=STOP, max_tokens=max_tokens, endpoint=endpoint)
 
         finish_reasons = [x["finish_reason"] 
                 for x in outs["choices"]]

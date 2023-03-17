@@ -20,6 +20,10 @@ def main():
     AFTER_EXAMPLE = cfg["after_example"]
     IN_KEY = cfg["in_key"]
     OUT_KEY = cfg["out_key"]
+    if "endpoint" in cfg: 
+        endpoint = cfg["endpoint"]
+    else: 
+        endpoint="code-davinci-002"
     ref_key = cfg["ref_key"]
     save_dir = cfg["save_dir"]
     save_file = cfg["save_file"]
@@ -39,6 +43,8 @@ def main():
     data = [x for x in data]
 
     dataloader = batch_loader(data, BATCH_SIZE)
+
+    print(f"ENDPOINT: {endpoint}")
     
     # generation loop
     for batch in tqdm(dataloader): 
@@ -51,7 +57,7 @@ def main():
                 for x in outs["choices"]]
         if "length" in finish_reasons: 
             print("HIT LENGTH LIMIT, RETRYING WITH MORE TOKENS")
-            outs = call_api(prompts, stop=STOP, max_tokens=400)
+            outs = call_api(prompts, stop=STOP, max_tokens=400, endpoint=endpoint)
 
         text_outs = [x["text"] for x in outs["choices"]]
 

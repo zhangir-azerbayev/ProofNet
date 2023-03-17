@@ -22,6 +22,7 @@ def main():
     OUT_KEY = cfg["out_key"]
     if "endpoint" in cfg: 
         endpoint = cfg["endpoint"]
+        chat = cfg["chat"]
     else: 
         endpoint="code-davinci-002"
     ref_key = cfg["ref_key"]
@@ -35,9 +36,17 @@ def main():
     if os.path.isdir(save_dir):
         raise AssertionError("Save file already exists")
     pathlib.Path(save_dir).mkdir(parents=True) 
-
+    
     with open(few_shot_prompt_path) as f: 
-        FEW_SHOT_PROMPT = f.read()
+        if ".txt" in few_shot_prompt_path: 
+            FEW_SHOT_PROMPT = f.read()
+        elif ".json" in few_shot_prompt_path:
+            FEW_SHOT_PROMPT = json.load(f)
+            print("FEW SHOT PROMPT:")
+            for line in FEW_SHOT_PROMPT: 
+                print(line["content"])
+        else: 
+            raise ValueError("few_shot_prompt_path invalid")
 
     data = load_dataset("hoskinson-center/proofnet")[split]
     data = [x for x in data]
@@ -51,13 +60,13 @@ def main():
         prompts = [FEW_SHOT_PROMPT + BEFORE_EXAMPLE + x[IN_KEY] + AFTER_EXAMPLE for x in batch]
 
         print("calling api...")
-        outs = call_api(prompts, stop=STOP, max_tokens=max_tokens, endpoint=endpoint)
+        outs = call_api(prompts, stop=STOP, max_tokens=max_tokens, endpoint=endpoint, chat=chat)
 
         finish_reasons = [x["finish_reason"] 
                 for x in outs["choices"]]
         if "length" in finish_reasons: 
             print("HIT LENGTH LIMIT, RETRYING WITH MORE TOKENS")
-            outs = call_api(prompts, stop=STOP, max_tokens=400, endpoint=endpoint)
+            outs = call_api(prompts, stop=STOP, max_tokens=400, endpoint=endpoint, chat=chat)
 
         text_outs = [x["text"] for x in outs["choices"]]
 

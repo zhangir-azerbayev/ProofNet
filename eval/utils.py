@@ -45,15 +45,25 @@ def batch_loader(seq, size):
 # calls=3, period=60 is max for reliability with batch_size=20
 # might want to throttle it to keep lean chat up
 @backoff.on_exception(backoff.expo, openai.error.RateLimitError)
-def call_api(prompt, stop, max_tokens=150, endpoint="code-davinci-002"):
-    response = openai.Completion.create(
-        engine=endpoint,
-        prompt=prompt,
-        max_tokens=max_tokens,
-        n=1,
-        temperature=0,
-        stop=stop,
-    )
+def call_api(prompt, stop, max_tokens=150, engine="code-davinci-002", chat=False):
+    if chat: 
+        response = openai.ChatCompletion.create(
+            engine=endpoint,
+            prompt=prompt,
+            max_tokens=max_tokens,
+            n=1,
+            temperature=0,
+            stop=stop,
+        )
+    else: 
+        response = openai.Completion.create(
+            engine=endpoint,
+            prompt=prompt,
+            max_tokens=max_tokens,
+            n=1,
+            temperature=0,
+            stop=stop,
+        )
 
     print(f"RECEIVED RESPONSE FROM {endpoint}")
     return response

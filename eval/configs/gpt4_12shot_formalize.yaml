@@ -1,4 +1,5 @@
 endpoint: "gpt-4-0314"
+chat: true  
 batch_size: 10
 before_example: "\nNatural language version: \""
 after_example: "\" Translate the natural language version to a Lean mathlib version:\ntheorem"
@@ -7,7 +8,7 @@ out_key: "gpt_formal_statement"
 ref_key: "formal_statement"
 save_dir: "results/gpt4_12shot_formalize"
 save_file: "out.jsonl"
-few_shot_prompt_path: "prompts/12shot_formalize.txt"
+few_shot_prompt_path: "prompts/12shot_formalize.json"
 stop: ":="
 max_tokens: 275
 split: "test"

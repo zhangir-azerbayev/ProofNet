@@ -11,7 +11,9 @@ sorry
 
 theorem exercise_2_3_2 {G : Type*} [group G] (a b : G) :
   ∃ g : G, b* a = g * a * b * g⁻¹ :=
-sorry
+begin
+  exact ⟨b, by simp⟩,
+end
 
 theorem exercise_2_4_19 {G : Type*} [group G] {x : G}
   (hx : order_of x = 2) (hx1 : ∀ y, order_of y = 2 → y = x) :
@@ -28,7 +30,9 @@ sorry
 
 theorem exercise_3_2_7 {F : Type*} [field F] {G : Type*} [field G]
   (φ : F →+* G) : injective φ :=
-sorry
+begin
+  convert φ.injective,
+end
 
 theorem exercise_3_5_6 {K V : Type*} [field K] [add_comm_group V]
   [module K V] {S : set V} (hS : set.countable S)
@@ -95,7 +99,10 @@ sorry
 
 theorem exercise_11_2_13 (a b : ℤ) :
   (of_int a : gaussian_int) ∣ of_int b → a ∣ b :=
-sorry
+begin
+  contrapose, 
+  simp,
+end
 
 theorem exercise_11_4_1b {F : Type*} [field F] [fintype F] (hF : card F = 2) :
   irreducible (12 + 6 * X + X ^ 3 : polynomial F) :=

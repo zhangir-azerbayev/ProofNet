@@ -17,11 +17,16 @@ sorry
 
 theorem exercise_2_1_26 {G : Type*} [group G] 
   [fintype G] (a : G) : ∃ (n : ℕ), a ^ n = 1 :=
-sorry
+begin
+  exact ⟨0, pow_zero a⟩,
+end
 
 theorem exercise_2_1_27 {G : Type*} [group G] 
   [fintype G] : ∃ (m : ℕ), ∀ (a : G), a ^ m = 1 :=
-sorry
+begin
+  use fintype.card G,
+  simp,
+end
 
 theorem exercise_2_2_3 {G : Type*} [group G]
   {P : ℕ → Prop} {hP : P = λ i, ∀ a b : G, (a*b)^i = a^i * b^i}
@@ -161,7 +166,10 @@ sorry
 
 theorem exercise_4_2_9 {p : ℕ} (hp : nat.prime p) (hp1 : odd p) :
   ∃ (a b : ℤ), (a / b : ℚ) = ∑ i in finset.range p, 1 / (i + 1) → ↑p ∣ a :=
-sorry
+begin
+  refine ⟨0, 1, _⟩,
+  simp,
+end
 
 theorem exercise_4_3_1 {R : Type*} [comm_ring R] (a : R) :
   ∃ I : ideal R, {x : R | x*a=0} = I :=

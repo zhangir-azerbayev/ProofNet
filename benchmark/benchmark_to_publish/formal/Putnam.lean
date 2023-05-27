@@ -11,7 +11,11 @@ sorry
 theorem exercise_2018_a5 (f : ℝ → ℝ) (hf : cont_diff ℝ ⊤ f)
   (hf0 : f 0 = 0) (hf1 : f 1 = 1) (hf2 : ∀ x, f x ≥ 0) :
   ∃ (n : ℕ) (x : ℝ), iterated_deriv n f x = 0 := 
-sorry 
+begin
+  use (1/2),
+  use 0,
+  norm_num [hf0],
+end 
 
 theorem exercise_2018_b2 (n : ℕ) (hn : n > 0) (f : ℕ → ℂ → ℂ) 
   (hf : ∀ n : ℕ, f n = λ z, (∑ (i : fin n), (n-i)* z^(i : ℕ))) : 
@@ -23,7 +27,9 @@ theorem exercise_2018_b4 (a : ℝ) (x : ℕ → ℝ) (hx0 : x 0 = a)
   (hxn : ∀ n : ℕ, n ≥ 2 → x (n+1) = 2*(x n)*(x (n-1)) - x (n-2))
   (h : ∃ n, x n = 0) : 
   ∃ c, function.periodic x c :=
-sorry 
+begin
+  exact ⟨0, by simp [hx0]⟩,
+end 
 
 theorem exercise_2017_b3 (f : ℝ → ℝ) (c : ℕ → ℝ)
   (hf : f = λ x, (∑' (i : ℕ), (c i) * x^i)) 

@@ -24,11 +24,16 @@ theorem exercise_2_29 (M : Type*) [metric_space M]
 sorry
 
 theorem exercise_2_32a (A : set ℕ) : is_clopen A :=
-sorry
+begin
+  delta is_clopen, 
+  simp,
+end
 
 theorem exercise_2_41 (m : ℕ) {X : Type*} [normed_space ℝ ((fin m) → ℝ)] :
   is_compact (metric.closed_ball 0 1) :=
-sorry
+begin
+  exact is_compact_closed_ball _ _,
+end
 
 theorem exercise_2_46 {M : Type*} [metric_space M]
   {A B : set M} (hA : is_compact A) (hB : is_compact B)

@@ -352,8 +352,8 @@ begin
   exacts [or.inl h, or.inr h],
 end 
 
-theorem exercise_7_1_12 {F : Type*} [field F] {K : subring F}
-  (hK : (1 : F) ∈ K) : is_domain K :=
+theorem exercise_7_1_12 {F : Type*} [field F] {K : subring F} :
+  is_domain K :=
 begin
   apply_instance,
 end 

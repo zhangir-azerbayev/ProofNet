@@ -20,11 +20,8 @@ theorem exercise_2_1_26 {G : Type*} [group G]
 sorry
 
 theorem exercise_2_1_27 {G : Type*} [group G] 
-  [fintype G] : ∃ (m : ℕ), ∀ (a : G), a ^ m = 1 :=
-begin
-  use fintype.card G,
-  simp,
-end
+  [fintype G] : ∃ (m : ℕ), m > 0 ∧ ∀ (a : G), a ^ m = 1 :=
+sorry
 
 theorem exercise_2_2_3 {G : Type*} [group G]
   {P : ℕ → Prop} {hP : P = λ i, ∀ a b : G, (a*b)^i = a^i * b^i}

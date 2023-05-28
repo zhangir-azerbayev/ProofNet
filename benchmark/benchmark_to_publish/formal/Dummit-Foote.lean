@@ -299,7 +299,7 @@ end
 
 theorem exercise_4_5_17 {G : Type*} [fintype G] [group G] 
   (hG : card G = 105) : 
-  nonempty(sylow 5 G) ∧ nonempty(sylow 7 G) :=
+  (∃ H : sylow 5 G, H.normal) ∧ (∃ H : sylow 7 G, H.normal) :=
 begin
   split,
   apply_instance,

@@ -10,12 +10,8 @@ sorry
 
 theorem exercise_2018_a5 (f : ℝ → ℝ) (hf : cont_diff ℝ ⊤ f)
   (hf0 : f 0 = 0) (hf1 : f 1 = 1) (hf2 : ∀ x, f x ≥ 0) :
-  ∃ (n : ℕ) (x : ℝ), iterated_deriv n f x = 0 := 
-begin
-  use (1/2),
-  use 0,
-  norm_num [hf0],
-end 
+  ∃ (n : ℕ) (x : ℝ), iterated_deriv n f x < 0 := 
+sorry
 
 theorem exercise_2018_b2 (n : ℕ) (hn : n > 0) (f : ℕ → ℂ → ℂ) 
   (hf : ∀ n : ℕ, f n = λ z, (∑ (i : fin n), (n-i)* z^(i : ℕ))) : 

@@ -17,9 +17,7 @@ sorry
 
 theorem exercise_2_1_26 {G : Type*} [group G] 
   [fintype G] (a : G) : ∃ (n : ℕ), n > 0 ∧ a ^ n = 1 :=
-begin
-  exact ⟨0, pow_zero a⟩,
-end
+sorry
 
 theorem exercise_2_1_27 {G : Type*} [group G] 
   [fintype G] : ∃ (m : ℕ), ∀ (a : G), a ^ m = 1 :=

@@ -22,7 +22,7 @@ theorem exercise_2018_b4 (a : ℝ) (x : ℕ → ℝ) (hx0 : x 0 = a)
   (hx1 : x 1 = a) 
   (hxn : ∀ n : ℕ, n ≥ 2 → x (n+1) = 2*(x n)*(x (n-1)) - x (n-2))
   (h : ∃ n, x n = 0) : 
-  ∃ c, function.periodic x c :=
+  ∃ c ≠ 0, function.periodic x c :=
 begin
   exact ⟨0, by simp [hx0]⟩,
 end 

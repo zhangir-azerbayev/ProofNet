@@ -160,7 +160,7 @@ theorem exercise_4_2_6 {R : Type*} [ring R] (a x : R)
 sorry
 
 theorem exercise_4_2_9 {p : ℕ} (hp : nat.prime p) (hp1 : odd p) :
-  ∃ (a b : ℤ), (a / b : ℚ) = ∑ i in finset.range p, 1 / (i + 1) → ↑p ∣ a :=
+  ∀ (a b : ℤ), (a / b : ℚ) = ∑ i in finset.range p, 1 / (i + 1) → ↑p ∣ a :=
 begin
   refine ⟨0, 1, _⟩,
   simp,

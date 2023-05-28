@@ -291,20 +291,13 @@ sorry
 theorem exercise_4_5_16 {p q r : ℕ} {G : Type*} [group G] 
   [fintype G]  (hpqr : p < q ∧ q < r) 
   (hpqr1 : p.prime ∧ q.prime ∧ r.prime)(hG : card G = p*q*r) : 
-  nonempty (sylow p G) ∨ nonempty(sylow q G) ∨ nonempty(sylow r G) :=
-begin
-  casesI is_empty_or_nonempty (sylow p G),
-  all_goals { simp [h] },
-end 
+  (∃ H : sylow p G, H.normal) ∨ (∃ H : sylow q G, H.normal) ∨ (∃ H : sylow r G, H.normal) :=
+sorry
 
 theorem exercise_4_5_17 {G : Type*} [fintype G] [group G] 
   (hG : card G = 105) : 
   (∃ H : sylow 5 G, H.normal) ∧ (∃ H : sylow 7 G, H.normal) :=
-begin
-  split,
-  apply_instance,
-  apply_instance,
-end 
+sorry 
 
 theorem exercise_4_5_18 {G : Type*} [fintype G] [group G] 
   (hG : card G = 200) : 

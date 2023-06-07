@@ -42,7 +42,12 @@ end
 theorem exercise_1_1_16 {G : Type*} [group G] 
   (x : G) (hx : x ^ 2 = 1) :
   order_of x = 1 ∨ order_of x = 2 :=
-sorry 
+begin
+  cases eq_or_ne x 1,
+  all_goals { simp [h] },
+  apply order_of_eq_prime,
+  exacts [hx, h],
+end 
 
 theorem exercise_1_1_17 {G : Type*} [group G] {x : G} {n : ℕ}
   (hxn: order_of x = n) :
@@ -293,8 +298,7 @@ theorem exercise_4_5_16 {p q r : ℕ} {G : Type*} [group G]
   (hpqr1 : p.prime ∧ q.prime ∧ r.prime)(hG : card G = p*q*r) : 
   nonempty (sylow p G) ∨ nonempty(sylow q G) ∨ nonempty(sylow r G) :=
 begin
-  casesI is_empty_or_nonempty (sylow p G),
-  all_goals { simp [h] },
+  simp,
 end 
 
 theorem exercise_4_5_17 {G : Type*} [fintype G] [group G] 

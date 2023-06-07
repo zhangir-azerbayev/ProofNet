@@ -783,7 +783,9 @@ theorem exercise_4_12
   {f : α → β} {g : β → γ}
   (hf : uniform_continuous f) (hg : uniform_continuous g) :
   uniform_continuous (g ∘ f) :=
-sorry
+begin
+  exact hg.comp hf,
+end
 
 theorem exercise_4_15 {f : ℝ → ℝ}
   (hf : continuous f) (hof : is_open_map f) :

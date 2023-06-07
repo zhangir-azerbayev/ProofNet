@@ -26,7 +26,10 @@ sorry
 
 theorem exercise_2_11_3 {G : Type*} [group G] [fintype G]
   (hG : even (card G)) : ∃ x : G, order_of x = 2 :=
-sorry
+begin
+  apply exists_prime_order_of_dvd_card,
+  exact even_iff_two_dvd.1 hG,
+end
 
 theorem exercise_3_2_7 {F : Type*} [field F] {G : Type*} [field G]
   (φ : F →+* G) : injective φ :=

@@ -14,7 +14,11 @@ sorry
 
 theorem exercise_2_26 {M : Type*} [topological_space M]
   (U : set M) : is_open U ↔ ∀ x ∈ U, ¬ cluster_pt x (𝓟 Uᶜ) :=
-sorry
+begin
+  rw is_open_iff_nhds,
+  simp [cluster_pt],
+  simp [filter.inf_principal_eq_bot],
+end
 
 theorem exercise_2_29 (M : Type*) [metric_space M]
   (O C : set (set M))
@@ -25,7 +29,6 @@ sorry
 
 theorem exercise_2_32a (A : set ℕ) : is_clopen A :=
 begin
-  delta is_clopen, 
   simp,
 end
 

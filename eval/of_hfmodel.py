@@ -69,7 +69,7 @@ def main():
     max_tokens = cfg["max_tokens"]
     split = cfg["split"]
 
-    with open(few_shot_prompt_path) as f: 
+    with open(few_shot_prompt_path, encoding='utf-8') as f: 
         FEW_SHOT_PROMPT = f.read()
 
     if os.path.isdir(save_dir): 
@@ -113,17 +113,17 @@ def main():
             step[OUT_KEY] = text_out
             step['prompt'] = prompt
 
-            with open(os.path.join(save_dir, save_file), "a+") as f: 
+            with open(os.path.join(save_dir, save_file), mode="a+", encoding='utf-8') as f: 
                 record = json.dumps(step)
                 f.write(record+"\n")
 
     # calculates bleu
-    with open(os.path.join(save_dir, save_file)) as f: 
+    with open(os.path.join(save_dir, save_file), encoding='utf-8') as f: 
         data = ndjson.load(f)
 
     bleu = calc_bleu(data, OUT_KEY, ref_key)
 
-    with open(os.path.join(save_dir, "metrics.json"), "w") as f: 
+    with open(os.path.join(save_dir, "metrics.json"), mode="w", encoding='utf-8') as f: 
         json.dump({"bleu": bleu}, f)
 
     make_readable(save_dir, save_file, ref_key)

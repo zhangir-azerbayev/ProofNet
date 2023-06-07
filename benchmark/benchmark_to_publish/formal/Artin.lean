@@ -137,4 +137,6 @@ sorry
 
 theorem exercise_13_6_10 {K : Type*} [field K] [fintype Kˣ] :
   ∏ (x : Kˣ), x = -1 :=
-sorry
+begin
+  exact finite_field.prod_univ_units_id_eq_neg_one,
+end

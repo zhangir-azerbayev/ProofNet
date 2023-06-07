@@ -117,7 +117,10 @@ theorem exercise_1_17
   (n : ℕ)
   (x y : euclidean_space ℝ (fin n)) -- R^n
   : ‖x + y‖^2 + ‖x - y‖^2 = 2*‖x‖^2 + 2*‖y‖^2 :=
-sorry
+begin
+  rw [norm_add_sq_real, norm_sub_pow_two_real],
+  ring,
+end
 
 theorem exercise_1_18a
   (n : ℕ)
@@ -159,7 +162,10 @@ sorry
 
 theorem exercise_2_25 {K : Type*} [metric_space K] [compact_space K] :
   ∃ (B : set (set K)), set.countable B ∧ is_topological_basis B :=
-sorry
+begin
+  rcases exists_countable_basis K with ⟨B, hBc, hB⟩,
+  exact ⟨B, hBc, hB.2⟩,
+end
 
 theorem exercise_2_27a (k : ℕ) (E P : set (euclidean_space ℝ (fin k)))
   (hE : E.nonempty ∧ ¬ set.countable E)

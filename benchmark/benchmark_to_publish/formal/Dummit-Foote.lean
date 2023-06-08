@@ -296,19 +296,13 @@ sorry
 theorem exercise_4_5_16 {p q r : ℕ} {G : Type*} [group G] 
   [fintype G]  (hpqr : p < q ∧ q < r) 
   (hpqr1 : p.prime ∧ q.prime ∧ r.prime)(hG : card G = p*q*r) : 
-  nonempty (sylow p G) ∨ nonempty(sylow q G) ∨ nonempty(sylow r G) :=
-begin
-  simp,
-end 
+  (∃ H : sylow p G, H.normal) ∨ (∃ H : sylow q G, H.normal) ∨ (∃ H : sylow r G, H.normal) :=
+sorry
 
 theorem exercise_4_5_17 {G : Type*} [fintype G] [group G] 
   (hG : card G = 105) : 
-  nonempty(sylow 5 G) ∧ nonempty(sylow 7 G) :=
-begin
-  split,
-  apply_instance,
-  apply_instance,
-end 
+  (∃ H : sylow 5 G, H.normal) ∧ (∃ H : sylow 7 G, H.normal) :=
+sorry 
 
 theorem exercise_4_5_18 {G : Type*} [fintype G] [group G] 
   (hG : card G = 200) : 
@@ -363,8 +357,8 @@ begin
   exacts [or.inl h, or.inr h],
 end 
 
-theorem exercise_7_1_12 {F : Type*} [field F] {K : subring F}
-  (hK : (1 : F) ∈ K) : is_domain K :=
+theorem exercise_7_1_12 {F : Type*} [field F] {K : subring F} :
+  is_domain K :=
 begin
   apply_instance,
 end 

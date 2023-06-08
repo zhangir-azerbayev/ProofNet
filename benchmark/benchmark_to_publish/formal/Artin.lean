@@ -10,7 +10,7 @@ theorem exercise_2_2_9 {G : Type*} [group G] {a b : G}
 sorry
 
 theorem exercise_2_3_2 {G : Type*} [group G] (a b : G) :
-  ∃ g : G, b* a = g * a * b * g⁻¹ :=
+  ∃ g : G, b * a = g * a * b * g⁻¹ :=
 begin
   exact ⟨b, by simp⟩,
 end

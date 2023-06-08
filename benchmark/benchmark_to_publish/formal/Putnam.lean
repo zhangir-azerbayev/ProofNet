@@ -23,9 +23,7 @@ theorem exercise_2018_b4 (a : ℝ) (x : ℕ → ℝ) (hx0 : x 0 = a)
   (hxn : ∀ n : ℕ, n ≥ 2 → x (n+1) = 2*(x n)*(x (n-1)) - x (n-2))
   (h : ∃ n, x n = 0) : 
   ∃ c ≠ 0, function.periodic x c :=
-begin
-  exact ⟨0, by simp [hx0]⟩,
-end 
+sorry
 
 theorem exercise_2017_b3 (f : ℝ → ℝ) (c : ℕ → ℝ)
   (hf : f = λ x, (∑' (i : ℕ), (c i) * x^i)) 

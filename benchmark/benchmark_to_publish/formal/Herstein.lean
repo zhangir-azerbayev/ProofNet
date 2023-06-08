@@ -161,10 +161,7 @@ sorry
 
 theorem exercise_4_2_9 {p : ℕ} (hp : nat.prime p) (hp1 : odd p) :
   ∀ (a b : ℤ), (a / b : ℚ) = ∑ i in finset.range p, 1 / (i + 1) → ↑p ∣ a :=
-begin
-  refine ⟨0, 1, _⟩,
-  simp,
-end
+sorry
 
 theorem exercise_4_3_1 {R : Type*} [comm_ring R] (a : R) :
   ∃ I : ideal R, {x : R | x*a=0} = I :=

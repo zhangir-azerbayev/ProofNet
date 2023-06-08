@@ -17,7 +17,10 @@ sorry
 
 theorem exercise_2_1_26 {G : Type*} [group G] 
   [fintype G] (a : G) : ∃ (n : ℕ), n > 0 ∧ a ^ n = 1 :=
-sorry
+begin
+  use fintype.card G,
+  exact ⟨fintype.card_pos_iff.2 infer_instance, pow_card_eq_one⟩,
+end
 
 theorem exercise_2_1_27 {G : Type*} [group G] 
   [fintype G] : ∃ (m : ℕ), m > 0 ∧ ∀ (a : G), a ^ m = 1 :=

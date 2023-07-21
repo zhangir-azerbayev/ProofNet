@@ -3,7 +3,7 @@ import .common
 open real complex
 open topological_space
 open filter
-open_locale real 
+open_locale real
 open_locale topology
 open_locale big_operators
 open_locale complex_conjugate
@@ -30,7 +30,7 @@ begin
 end
 
 theorem exercise_1_2 : ¬ ∃ (x : ℚ), ( x ^ 2 = 12 ) :=
-sorry 
+sorry
 
 theorem exercise_1_4
 (α : Type*) [partial_order α]
@@ -56,15 +56,15 @@ begin
   exact xlez.trans zley,
 end
 
-theorem exercise_1_5 (A minus_A : set ℝ) (hA : A.nonempty) 
+theorem exercise_1_5 (A minus_A : set ℝ) (hA : A.nonempty)
   (hA_bdd_below : bdd_below A) (hminus_A : minus_A = {x | -x ∈ A}) :
   Inf A = Sup minus_A :=
 sorry
 
-theorem exercise_1_8 : ¬ ∃ (r : ℂ → ℂ → Prop), is_linear_order ℂ r := 
+theorem exercise_1_8 : ¬ ∃ (r : ℂ → ℂ → Prop), is_linear_order ℂ r :=
   sorry
 
-theorem exercise_1_11a (z : ℂ) : 
+theorem exercise_1_11a (z : ℂ) :
   ∃ (r : ℝ) (w : ℂ), abs w = 1 ∧ z = r * w :=
 begin
   by_cases h : z = 0,
@@ -88,11 +88,11 @@ begin
   },
 end
 
-theorem exercise_1_12 (n : ℕ) (f : ℕ → ℂ) : 
+theorem exercise_1_12 (n : ℕ) (f : ℕ → ℂ) :
   abs (∑ i in finset.range n, f i) ≤ ∑ i in finset.range n, abs (f i) :=
-sorry 
+sorry
 
-theorem exercise_1_13 (x y : ℂ) : 
+theorem exercise_1_13 (x y : ℂ) :
   |(abs x) - (abs y)| ≤ abs (x - y) :=
 sorry
 
@@ -321,192 +321,28 @@ sorry
 theorem exercise_4_1a
   : ∃ (f : ℝ → ℝ), (∀ (x : ℝ), tendsto (λ y, f(x + y) - f(x - y)) (𝓝 0) (𝓝 0)) ∧ ¬ continuous f :=
 begin
-  use λ x, if x = 0 then (1 : ℝ) else (0 : ℝ),
-  split,
-  {
-  intro x,
-  by_cases h : x = 0,
-  {
-  rw h, simp,
-  },
-  {
-  intros X hX,
-  refine mem_nhds_iff.2 _,
-  use {z | -|x| < z ∧ z < |x|},
-  simp,
-  split,
-  {
-  set f := (λ (y : ℝ), ite (x + y = 0) (1 : ℝ) 0 - ite (x - y = 0) 1 0),
-  set f₁ := (λ (y : ℝ), ite (x + y = 0) (1 : ℝ) 0),
-  set f₂ := (λ (y : ℝ), - ite (x - y = 0) (1 : ℝ) 0),
-  set Y := {z : ℝ | - | x | < z ∧ z < | x |},
-  have : (0 : ℝ) ∈ X := mem_of_mem_nhds hX,
-  have h₁: {(0 : ℝ)} ⊆ X := set.singleton_subset_iff.mpr this,
-  have h₂ : f = f₁ + f₂ := rfl,
-  have g₁ : ∀ y ∈ Y, ¬x + y = 0 := by {
-    simp,
-    intros y hy₁ hy₂ hy₃,
-    by_cases hx : 0 < x,
-    rw abs_of_pos hx at *,
-    linarith,
-    simp at hx,
-    have hx : x < 0 := lt_of_le_of_ne hx h,
-    rw abs_of_neg hx at *,
-    linarith,
-  },
-  have g₂ : ∀ y ∈ Y, ¬x - y = 0 := by {
-    simp,
-    intros y hy₁ hy₂ hy₃,
-    by_cases hx : 0 < x,
-    rw abs_of_pos hx at *,
-    linarith,
-    simp at hx,
-    have hxx : x < 0 := lt_of_le_of_ne hx h,
-    rw abs_of_neg hxx at *,
-    linarith,
-  },
-  have gg₁ : ∀ y ∈ Y, f₁ y = (0 : ℝ) := by {
-    intros a b,
-    simp,
-    intro c,
-    exact g₁ a b c,
-  },
-  have gg₂ : ∀ y ∈ Y, f₂ y = (0 : ℝ) := by {
-    intros a b,
-    simp,
-    intro c,
-    exact g₂ a b c,
-  },
-  have gg : ∀ z ∈ Y, f z = (0 : ℝ) := by {
-    intros a b,
-    simp [h₂],
-    rw [gg₁ a b, gg₂ a b],
-    norm_num,
-  },
-  have : f ⁻¹' {(0 : ℝ)} ⊆ f ⁻¹' X := set.preimage_mono h₁,
-  exact set.subset.trans gg this,
-  },
-  {
-  split,
-  {
-    rw set.set_of_and,
-    apply is_open.inter _ _,
-    apply is_open_lt' (-|x|),
-    apply is_open_gt' (|x|),
-  },
-  {
-    exact h,
-  }
-  },
-  },
-  },
-  {
-  intro h,
-  let f : (ℝ → ℝ) := λ x, if x = 0 then (1 : ℝ) else 0,
-  have g : f 0 = 1 := if_pos rfl,
-  have g₁ : f 1 = 0 := by {refine if_neg _, norm_num,},
-  have : continuous_at f 0 := continuous.continuous_at h,
-  have := continuous_at.tendsto this,
-  rw g at this,
-  unfold tendsto at this,
-  have := filter.le_def.1 this,
-  simp at this,
-  have := this (set.Ioo (0.5 : ℝ) (1.5 : ℝ)),
-  have i : set.Ioo (0.5 : ℝ) (1.5 : ℝ) ∈ 𝓝 (1 : ℝ) := by {
-  apply is_open.mem_nhds,
-  exact is_open_Ioo,
-  norm_num,
-  },
-  have h₁ : set.range f  = {(0 : ℝ), 1} := by {
-  ext, split,
-  {
-  intro h,
-  simp,
-  cases h,
-  by_cases r : h_w = 0,
-  rw r at h_h,
-  rw g at h_h,
-  right,
-  exact eq.symm h_h,
-  have ii : f h_w = 0 := if_neg r,
-  rw ii at h_h,
-  left,
-  symmetry,
-  exact h_h,
-  },
-  intro h,
-  apply set.mem_range.2,
-  by_cases r : x = 0,
-  {
-  use 1,
-  rw g₁,
-  apply eq.symm _,
-  exact r,
-  },
-  {
-  have i : x ∈ {(1 : ℝ)} := by {
-    apply set.mem_of_mem_insert_of_ne _ r,
-    exact h,
-  },
-  use 0,
-  rw g,
-  exact eq.symm i,
-  },
-  },
-  have h₂ : set.Ioo ((1 / 2 : ℝ)) (3 / 2) ∩ {(0 : ℝ), 1} = {(1 : ℝ)} := by {
-  unfold set.Ioo,
-  ext, split,
-  {
-  intro h,
-  simp at h,
-  cases h,
-  cases h_right,
-  rw h_right at h_left,
-  norm_num at h_left,
-  exact h_right,
-  },
-  {
-  intro h,
-  have : x = 1 := h,
-  rw this,
-  norm_num,
-  },
-  },
-  have h₃ : {0} ⊆ f ⁻¹' {(1 : ℝ)} := set.singleton_subset_iff.mpr g,
-  have j : f ⁻¹' set.Ioo (1 / 2) (3 / 2) = {0} := by {
-  rw [← set.preimage_inter_range, h₁, h₂],
-  ext,
-  split,
-  {
-  intro hx,
-  by_contradiction h₄,
-  have : ¬ x = 0 := h₄,
-  have h₅ : f x = 0 := if_neg this,
-  have : f x = 1 := hx,
-  rw h₅ at this,
-  norm_num at this,
-  },
-  intro x, exact h₃ x,
-  },
-  have := this i,
-  rw j at this,
-  have := mem_nhds_iff.1 this,
-  cases this with s h,
-  cases h with k g,
-  cases g,
-  by_cases a : s = {0},
-  {
-  rw a at g_left,
-  have := dense_compl_singleton (0 : ℝ),
-  have := dense_compl_singleton_iff_not_open.1 this,
-  contradiction,
-  },
-  {
-  have : {(0 : ℝ)} ⊆ s := set.zero_subset.mpr g_right,
-  have : s = {(0 : ℝ)} := set.subset.antisymm k this,
-  contradiction,
-  },
-  },
+  let f := λ x : ℝ, if x = 0 then (1 : ℝ) else (0 : ℝ),
+  use f, split,
+  { intro x,
+    suffices : (λ y, f (x + y) - f(x - y)) =ᶠ[𝓝 0] (λ y, 0),
+    { simp [filter.tendsto_congr' this,  tendsto_const_nhds_iff] },
+    by_cases h : x = 0,
+    { dsimp [f], simp [h] },
+    have : set.Ioo (-|x|) (|x|) ∈ 𝓝 (0 : ℝ),
+    { apply Ioo_mem_nhds; simp [h], },
+    apply eventually_of_mem this,
+    intro y, simp, dsimp [f],
+    intros h1 h2,
+    rw [if_neg, if_neg]; simp [lt_abs, neg_lt] at *; cases h1; cases h2; linarith },
+  simp [continuous_iff_continuous_at, continuous_at, tendsto_nhds],
+  use [0, set.Ioo 0 2, is_open_Ioo], split,
+  { dsimp [f], simp, norm_num },
+  simp [mem_nhds_iff_exists_Ioo_subset],
+  intros a b aneg bpos h,
+  have : b / 2 ∈ set.Ioo a b,
+  { simp, split; linarith },
+  have := h this,
+  simpa [f, (ne_of_lt bpos).symm] using this,
 end
 
 theorem exercise_4_2a

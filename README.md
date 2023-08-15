@@ -1,5 +1,5 @@
 # ProofNet
-![proofsdiagram](./images/proofnet.png)
+![proofsdiagram](./images/pf.png)
 
 Code for replicating the paper [ProofNet: Autoformalizing and Formally Proving Undergraduate Mathematics](https://arxiv.org/abs/2302.12433). 
 

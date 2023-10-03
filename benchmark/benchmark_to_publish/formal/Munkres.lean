@@ -99,7 +99,9 @@ theorem exercise_16_4 {X Y : Type*} [topological_space X] [topological_space Y]
   (h₁ : π₁ = prod.fst)
   (h₂ : π₂ = prod.snd) :
   is_open_map π₁ ∧ is_open_map π₂ :=
-sorry
+begin
+  simp [is_open_map_iff_nhds_le, h₁, h₂],
+end
 
 def rational (x : ℝ) := x ∈ set.range (coe : ℚ → ℝ)
 
@@ -113,19 +115,28 @@ sorry
 theorem exercise_17_4 {X : Type*} [topological_space X]
   (U A : set X) (hU : is_open U) (hA : is_closed A) :
   is_open (U \ A) ∧ is_closed (A \ U) :=
-sorry
+begin
+  rw set.diff_eq,
+  use hU.inter hA.is_open_compl,
+  rw set.diff_eq,
+  exact hA.inter hU.is_closed_compl,
+end
 
 theorem exercise_18_8a {X Y : Type*} [topological_space X] [topological_space Y]
   [linear_order Y] [order_topology Y] {f g : X → Y}
   (hf : continuous f) (hg : continuous g) :
   is_closed {x | f x ≤ g x} :=
-sorry
+begin
+  exact is_closed_le hf hg,
+end
 
 theorem exercise_18_8b {X Y : Type*} [topological_space X] [topological_space Y]
   [linear_order Y] [order_topology Y] {f g : X → Y}
   (hf : continuous f) (hg : continuous g) :
   continuous (λ x, min (f x) (g x)) :=
-sorry
+begin
+  simpa only [min_def] using hf.min hg,
+end
 
 theorem exercise_18_13
   {X : Type*} [topological_space X] {Y : Type*} [topological_space Y]
@@ -141,7 +152,9 @@ theorem exercise_19_6a
   (y : Πi, f i)
   [Πa, topological_space (f a)] :
   tendsto x at_top (𝓝 y) ↔ ∀ i, tendsto (λ j, (x j) i) at_top (𝓝 (y i)) :=
-sorry
+begin
+  rw tendsto_pi_nhds,
+end
 
 theorem exercise_20_2
   [topological_space (ℝ ×ₗ ℝ)] [order_topology (ℝ ×ₗ ℝ)]
@@ -186,7 +199,9 @@ sorry
 theorem exercise_22_5 {X Y : Type*} [topological_space X]
   [topological_space Y] (p : X → Y) (hp : is_open_map p)
   (A : set X) (hA : is_open A) : is_open_map (p ∘ subtype.val : A → Y) :=
-sorry
+begin
+  exact hp.comp (is_open.is_open_map_subtype_coe hA),
+end
 
 theorem exercise_23_2 {X : Type*}
   [topological_space X] {A : ℕ → set X} (hA : ∀ n, is_connected (A n))

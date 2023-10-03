@@ -11,11 +11,15 @@ sorry
 
 theorem exercise_1_3 {F V : Type*} [add_comm_group V] [field F]
   [module F V] {v : V} : -(-v) = v :=
-sorry
+begin
+  simp,
+end
 
 theorem exercise_1_4 {F V : Type*} [add_comm_group V] [field F]
   [module F V] (v : V) (a : F): a • v = 0 ↔ a = 0 ∨ v = 0 :=
-sorry
+begin
+  simp [smul_eq_mul],
+end
 
 theorem exercise_1_6 : ∃ U : set (ℝ × ℝ),
   (U ≠ ∅) ∧

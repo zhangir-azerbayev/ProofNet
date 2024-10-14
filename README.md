@@ -1,4 +1,7 @@
 # ProofNet
+> [!WARNING]
+> This repository hosts the original Lean 3 version of ProofNet. Since Lean 3 is no longer maintained, you should use one of the Lean 4 ports of ProofNet, such as the one contained in [deepseek-ai/DeepSeek-Prover-V1.5](https://github.com/deepseek-ai/DeepSeek-Prover-V1.5).
+
 ![proofsdiagram](./images/pf.png)
 
 Code for replicating the paper [ProofNet: Autoformalizing and Formally Proving Undergraduate Mathematics](https://arxiv.org/abs/2302.12433). 

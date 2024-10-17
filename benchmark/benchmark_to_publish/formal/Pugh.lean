@@ -14,7 +14,11 @@ sorry
 
 theorem exercise_2_26 {M : Type*} [topological_space M]
   (U : set M) : is_open U ↔ ∀ x ∈ U, ¬ cluster_pt x (𝓟 Uᶜ) :=
-sorry
+begin
+  rw is_open_iff_nhds,
+  simp [cluster_pt],
+  simp [filter.inf_principal_eq_bot],
+end
 
 theorem exercise_2_29 (M : Type*) [metric_space M]
   (O C : set (set M))
@@ -24,11 +28,15 @@ theorem exercise_2_29 (M : Type*) [metric_space M]
 sorry
 
 theorem exercise_2_32a (A : set ℕ) : is_clopen A :=
-sorry
+begin
+  simp,
+end
 
 theorem exercise_2_41 (m : ℕ) {X : Type*} [normed_space ℝ ((fin m) → ℝ)] :
   is_compact (metric.closed_ball 0 1) :=
-sorry
+begin
+  exact is_compact_closed_ball _ _,
+end
 
 theorem exercise_2_46 {M : Type*} [metric_space M]
   {A B : set M} (hA : is_compact A) (hB : is_compact B)

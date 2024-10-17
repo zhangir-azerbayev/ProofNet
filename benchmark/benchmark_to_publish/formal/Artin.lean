@@ -10,8 +10,10 @@ theorem exercise_2_2_9 {G : Type*} [group G] {a b : G}
 sorry
 
 theorem exercise_2_3_2 {G : Type*} [group G] (a b : G) :
-  ∃ g : G, b* a = g * a * b * g⁻¹ :=
-sorry
+  ∃ g : G, b * a = g * a * b * g⁻¹ :=
+begin
+  exact ⟨b, by simp⟩,
+end
 
 theorem exercise_2_4_19 {G : Type*} [group G] {x : G}
   (hx : order_of x = 2) (hx1 : ∀ y, order_of y = 2 → y = x) :
@@ -24,11 +26,16 @@ sorry
 
 theorem exercise_2_11_3 {G : Type*} [group G] [fintype G]
   (hG : even (card G)) : ∃ x : G, order_of x = 2 :=
-sorry
+begin
+  apply exists_prime_order_of_dvd_card,
+  exact even_iff_two_dvd.1 hG,
+end
 
 theorem exercise_3_2_7 {F : Type*} [field F] {G : Type*} [field G]
   (φ : F →+* G) : injective φ :=
-sorry
+begin
+  convert φ.injective,
+end
 
 theorem exercise_3_5_6 {K V : Type*} [field K] [add_comm_group V]
   [module K V] {S : set V} (hS : set.countable S)
@@ -95,7 +102,10 @@ sorry
 
 theorem exercise_11_2_13 (a b : ℤ) :
   (of_int a : gaussian_int) ∣ of_int b → a ∣ b :=
-sorry
+begin
+  contrapose, 
+  simp,
+end
 
 theorem exercise_11_4_1b {F : Type*} [field F] [fintype F] (hF : card F = 2) :
   irreducible (12 + 6 * X + X ^ 3 : polynomial F) :=
@@ -127,4 +137,6 @@ sorry
 
 theorem exercise_13_6_10 {K : Type*} [field K] [fintype Kˣ] :
   ∏ (x : Kˣ), x = -1 :=
-sorry
+begin
+  exact finite_field.prod_univ_units_id_eq_neg_one,
+end

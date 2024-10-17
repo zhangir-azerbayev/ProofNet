@@ -42,12 +42,21 @@ end
 theorem exercise_1_1_16 {G : Type*} [group G] 
   (x : G) (hx : x ^ 2 = 1) :
   order_of x = 1 ∨ order_of x = 2 :=
-sorry 
+begin
+  cases eq_or_ne x 1,
+  all_goals { simp [h] },
+  apply order_of_eq_prime,
+  exacts [hx, h],
+end 
 
 theorem exercise_1_1_17 {G : Type*} [group G] {x : G} {n : ℕ}
   (hxn: order_of x = n) :
   x⁻¹ = x ^ (n - 1 : ℤ) :=
-sorry 
+begin
+  rw zpow_sub_one,
+  simp,
+  rw [← hxn, pow_order_of_eq_one],
+end
 
 theorem exercise_1_1_18 {G : Type*} [group G]
   (x y : G) : x * y = y * x ↔ y⁻¹ * x * y = x ↔ x⁻¹ * y⁻¹ * x * y = 1 :=
@@ -55,7 +64,9 @@ sorry
 
 theorem exercise_1_1_20 {G : Type*} [group G] {x : G} :
   order_of x = order_of x⁻¹ :=
-sorry 
+begin
+  simp [order_of_eq_order_of_iff],
+end 
 
 theorem exercise_1_1_22a {G : Type*} [group G] (x g : G) :
   order_of x = order_of (g⁻¹ * x * g) :=
@@ -136,17 +147,33 @@ sorry
 
 theorem exercise_3_1_3a {A : Type*} [comm_group A] (B : subgroup A) :
   ∀ a b : A ⧸ B, a*b = b*a :=
-sorry
+begin
+  rintros ⟨a⟩ ⟨b⟩,
+  exact congr_arg coe (mul_comm a b)
+end
 
 theorem exercise_3_1_22a (G : Type*) [group G] (H K : subgroup G) 
   [subgroup.normal H] [subgroup.normal K] :
   subgroup.normal (H ⊓ K) :=
-sorry
+begin
+  apply_instance,
+end
 
 theorem exercise_3_1_22b {G : Type*} [group G] (I : Type*)
   (H : I → subgroup G) (hH : ∀ i : I, subgroup.normal (H i)) : 
   subgroup.normal (⨅ (i : I), H i):=
-sorry
+begin
+  rw infi,
+  rw ←set.image_univ,
+  rw Inf_image,
+  simp [hH],
+  haveI := λ i, (H i).normal,
+  split,
+  intros x hx g, 
+  rw subgroup.mem_infi at hx ⊢,
+  intro i,
+  apply (hH i).conj_mem _ (hx i),
+end
 
 theorem exercise_3_2_8 {G : Type*} [group G] (H K : subgroup G)
   [fintype H] [fintype K] 
@@ -157,7 +184,9 @@ sorry
 theorem exercise_3_2_11 {G : Type*} [group G] {H K : subgroup G}
   (hHK : H ≤ K) : 
   H.index = K.index * H.relindex K :=
-sorry 
+begin
+  rw [←subgroup.relindex_mul_index hHK, mul_comm],
+end 
 
 theorem exercise_3_2_16 (p : ℕ) (hp : nat.prime p) (a : ℕ) :
   nat.coprime a p → a ^ p ≡ a [ZMOD p] :=
@@ -182,12 +211,16 @@ sorry
 
 theorem exercise_3_4_5a {G : Type*} [group G] 
   (H : subgroup G) [is_solvable G] : is_solvable H :=
-sorry
+begin
+  apply_instance,
+end
 
 theorem exercise_3_4_5b {G : Type*} [group G] [is_solvable G] 
   (H : subgroup G) [subgroup.normal H] : 
   is_solvable (G ⧸ H) :=
-sorry
+begin
+  apply_instance,
+end
 
 theorem exercise_3_4_11 {G : Type*} [group G] [is_solvable G] 
   {H : subgroup G} (hH : H ≠ ⊥) [H.normal] : 
@@ -222,7 +255,9 @@ sorry
 
 theorem exercise_4_4_6a {G : Type*} [group G] (H : subgroup G)
   [subgroup.characteristic H] : subgroup.normal H  :=
-sorry
+begin
+  apply_instance,
+end
 
 theorem exercise_4_4_6b : 
   ∃ (G : Type*) (hG : group G) (H : @subgroup G hG), @characteristic G hG H  ∧ ¬ @subgroup.normal G hG H :=
@@ -261,12 +296,12 @@ sorry
 theorem exercise_4_5_16 {p q r : ℕ} {G : Type*} [group G] 
   [fintype G]  (hpqr : p < q ∧ q < r) 
   (hpqr1 : p.prime ∧ q.prime ∧ r.prime)(hG : card G = p*q*r) : 
-  nonempty (sylow p G) ∨ nonempty(sylow q G) ∨ nonempty(sylow r G) :=
-sorry 
+  (∃ H : sylow p G, H.normal) ∨ (∃ H : sylow q G, H.normal) ∨ (∃ H : sylow r G, H.normal) :=
+sorry
 
 theorem exercise_4_5_17 {G : Type*} [fintype G] [group G] 
   (hG : card G = 105) : 
-  nonempty(sylow 5 G) ∧ nonempty(sylow 7 G) :=
+  (∃ H : sylow 5 G, H.normal) ∧ (∃ H : sylow 7 G, H.normal) :=
 sorry 
 
 theorem exercise_4_5_18 {G : Type*} [fintype G] [group G] 
@@ -311,15 +346,22 @@ sorry
 
 theorem exercise_7_1_2 {R : Type*} [ring R] {u : R}
   (hu : is_unit u) : is_unit (-u) :=
-sorry 
+begin
+  exact hu.neg,
+end
 
 theorem exercise_7_1_11 {R : Type*} [ring R] [is_domain R] 
   {x : R} (hx : x^2 = 1) : x = 1 ∨ x = -1 :=
-sorry 
+begin
+  cases sq_eq_one_iff.1 hx with h h,
+  exacts [or.inl h, or.inr h],
+end 
 
-theorem exercise_7_1_12 {F : Type*} [field F] {K : subring F}
-  (hK : (1 : F) ∈ K) : is_domain K :=
-sorry 
+theorem exercise_7_1_12 {F : Type*} [field F] {K : subring F} :
+  is_domain K :=
+begin
+  apply_instance,
+end 
 
 theorem exercise_7_1_15 {R : Type*} [ring R] (hR : ∀ a : R, a^2 = a) :
   comm_ring R :=
